@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.dropdown-search {
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}

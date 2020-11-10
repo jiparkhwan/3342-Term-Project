@@ -14,7 +14,7 @@ namespace Utilities
         //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=sp20_3342_tuxNNNNN;User id=tuxNNNNN;Password=XXXXXX";
 
         // Home Connection String - used for working from home using SSH Tunneling.
-        String SqlConnectString = "server=127.0.0.1,5555;Database=fa20_3342_tug67579;User id=tug67579;Password=Eechahx3ph";
+        String SqlConnectString = "server=127.0.0.1,5555;Database=fa20_3342_tug67579;User id=tuj78444;Password=Euc4eeSahr";
 
         SqlConnection myConnectionSql;
         SqlCommand objCmd;

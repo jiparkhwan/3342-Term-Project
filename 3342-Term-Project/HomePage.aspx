@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="_3342_Term_Project.HomePage" %>
+<%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
 
 <!DOCTYPE html>
 
@@ -18,24 +19,15 @@
     <link href="Styles.css" rel="stylesheet" />
 </head>
 <body>
+    
       <form method="post" runat="server">
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Lexpark</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Account</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
-      </li>
-         <li class="nav-item dropdown">
+            <Navigation:HomeNav ID="HomeNav" runat="server" />    
+
+         
+         
+
+           <div class="form-inline my-2 my-lg-0">
+               <div class="nav-item dropdown">
              <div class="dropdown-search">
      <asp:DropDownList id="ColorList"
                     class="dropdown-search"
@@ -50,20 +42,11 @@
 
                </asp:DropDownList>
                  </div>
-             </li>
-
-    </ul>
-
-    
-
- <div class="form-inline my-2 my-lg-0">
+             </div>
       <input class="form-control mr-sm-2" type="search" placeholder="Search Lexpark" aria-label="Search"/>
       <asp:Button ID="btnSearch" runat="server" class="btn btn-outline-primary my-2 my-sm-0" type="submit" Text="Search"/>
     </div>
 
-   
-  </div>
-</nav>
           </form>
 </body>
 </html>

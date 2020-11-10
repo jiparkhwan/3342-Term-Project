@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    class Members
+    public class Members
     {
 
         private String email;

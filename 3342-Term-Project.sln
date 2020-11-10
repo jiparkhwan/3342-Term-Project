@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMDBClone", "3342-Term-Project\IMDBClone.csproj", "{B21274A7-B91A-48D1-9461-78866EE6A476}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3342-Term-Project", "3342-Term-Project\3342-Term-Project.csproj", "{B21274A7-B91A-48D1-9461-78866EE6A476}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{A7F71D1C-9C2A-49DC-927F-5184D2E7FEA2}"
 EndProject

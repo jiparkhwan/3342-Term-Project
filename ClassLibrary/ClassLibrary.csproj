@@ -48,6 +48,7 @@
     <Compile Include="Reviews.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="TVShows.cs" />
+    <Compile Include="VideoGames.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

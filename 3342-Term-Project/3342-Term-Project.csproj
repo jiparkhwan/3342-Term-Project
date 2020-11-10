@@ -79,6 +79,13 @@
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Actors.cs" />
+    <Compile Include="Models\Members.cs" />
+    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\TVShows.cs" />
+    <Compile Include="Models\VideoGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +107,7 @@
       <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

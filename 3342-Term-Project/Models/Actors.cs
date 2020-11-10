@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace _3342_Term_Project.Models
 {
 
 
-    public class Actors
+    class Actors
     {
         private String FName;
         private String LName;
@@ -19,13 +19,12 @@ namespace ClassLibrary
         private String birthState;
         private String birthCountry;
         private int actorID;
-        private String image;
         public Actors()
         {
 
         }
 
-        public Actors(string fName, string lName, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
+        public Actors(string fName, string lName, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID)
         {
             FName = fName;
             LName = lName;
@@ -36,7 +35,6 @@ namespace ClassLibrary
             this.birthState = birthState;
             this.birthCountry = birthCountry;
             this.actorID = actorID;
-            this.image = image;
         }
 
         public string FName1 { get => FName; set => FName = value; }
@@ -48,6 +46,5 @@ namespace ClassLibrary
         public string BirthState { get => birthState; set => birthState = value; }
         public string BirthCountry { get => birthCountry; set => birthCountry = value; }
         public int ActorID { get => actorID; set => actorID = value; }
-        public string Image { get => image; set => image = value; }
     }
 }

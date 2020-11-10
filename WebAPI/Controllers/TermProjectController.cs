@@ -2,204 +2,138 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-
+using ClassLibrary;
 using Utilities;
 using System.Data.SqlClient;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/service/IMDBClone")]
     public class TermProjectController : Controller
     {
- {
+ 
 
-        // GET: api/service/Merchants
-        [HttpGet("GetDepartments")]
-        public List<Department> GetDepartments()
+        // GET: api/service/Actors
+        [HttpGet("GetActors")]
+        public List<Actors> GetActors()
         {
-            string query = "SELECT * FROM Departments";
+            string query = "SELECT * FROM TP_Actor";
 
             DBConnect objDB = new DBConnect();
             DataSet ds = objDB.GetDataSet(query);
 
-            Department department = new Department();
-            List<Department> dpts = new List<Department>();
+            Actors actor = new Actors();
+            List<Actors> dpts = new List<Actors>();
 
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                department = new Department();
-                department.DepartmentID = int.Parse(dr["Id"].ToString());
-                department.DepartmentName = dr["Dept_Name"].ToString();
-                dpts.Add(department);
+                actor = new Actors();
+                actor.ActorID = int.Parse(dr["Actor_ID"].ToString());
+                actor.FName1 = dr["Actor_FName"].ToString();
+                actor.LName1 = dr["Actor_LName"].ToString();
+                actor.BirthCity = dr["Actor_Birth_City"].ToString();
+                actor.BirthCountry = dr["Actor_Birth_Country"].ToString();
+                actor.BirthState = dr["Actor_Birth_State"].ToString();
+                actor.DOB1 = dr["Actor_DOB"].ToString();
+                actor.Height = dr["Actor_Height"].ToString();
+                actor.Image = dr["Actor_Image"].ToString();
+                actor.Description = dr["Actor_Description"].ToString();
+                
+
+                dpts.Add(actor);
             }
             return dpts;
-        } //end of GetDepartments
+        } //end of GetActors
 
-
-        // GET: api/Merchants/GetProductCatalog
-        [HttpGet("GetProductCatalog/{DepartmentNumber}")]
-        public List<Product> GetProductCatalog(string DepartmentNumber)
+        [HttpGet("GetMovies")]
+        public List<Movies> GetMovies()
         {
+            string query = "SELECT * FROM TP_Movies";
+
             DBConnect objDB = new DBConnect();
-            SqlCommand sqlComm = new SqlCommand();
-            sqlComm.CommandType = CommandType.StoredProcedure;
-            sqlComm.CommandText = "GetProducts";
+            DataSet ds = objDB.GetDataSet(query);
 
-            SqlParameter deptNum = new SqlParameter("@departmentID", DepartmentNumber);
-            deptNum.Direction = ParameterDirection.Input;
-            deptNum.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(deptNum);
+            Movies movies = new Movies();
+            List<Movies> dpts = new List<Movies>();
 
-            DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
-
-            Product product = new Product();
-
-            List<Product> pl = new List<Product>();
-
-            if (ds.Tables[0].Rows.Count != 0)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    product = new Product();
-                    product.ProductID = dr["Product Number"].ToString();
-                    product.Title = dr["Title"].ToString();
-                    product.Description = dr["Description"].ToString();
-                    product.Price = Convert.ToDouble(dr["Price"].ToString());
-                    product.Quantity = Convert.ToInt32(dr["QOH"]);
-                    product.ImageUrl = dr["image URL"].ToString();
-                    product.DepartmentID = dr["Dept_Num"].ToString();
-                    pl.Add(product);
-                }
+                movies = new Movies();
+                movies.MovieID = int.Parse(dr["Movie_ID"].ToString());
+                movies.Name = dr["Movie_Name"].ToString();
+                movies.Year = int.Parse(dr["Movie_Year"].ToString());
+                movies.Description = dr["Movie_Description"].ToString();
+                movies.Runtime = int.Parse(dr["Movie_RunTime"].ToString());
+                movies.AgeRating = dr["Movie_Age_Rating"].ToString();
+                movies.Genre1 = dr["Movie_Genre"].ToString();
+                movies.Budget1 = float.Parse(dr["Movie_Budget"].ToString());
+                movies.Income = float.Parse(dr["Movie_Income"].ToString());
+                movies.Image = dr["Movie_Image"].ToString();
+                dpts.Add(movies);
             }
-            return pl;
-        } //end of GetProductCatalog
+            return dpts;
+        } //end of GetMovies
 
 
-        // POST: api/Merchants/RegisterSite
-        [HttpPost("RegisterSite/{SiteID}/{Description}/{APIKey}/{email}")]
-        public bool RegisterSite(string SiteID, string Description, string APIKey, string email, [FromBody]ContactInformation information)
+
+        [HttpGet("GetTVShows")]
+        public List<TVShows> GetTVShows()
         {
+            string query = "SELECT * FROM TP_Movies";
+
             DBConnect objDB = new DBConnect();
-            SqlCommand sqlComm = new SqlCommand();
-            sqlComm.CommandType = CommandType.StoredProcedure;
-            sqlComm.CommandText = "RegisterSite";
+            DataSet ds = objDB.GetDataSet(query);
 
+            TVShows shows = new TVShows();
+            List<TVShows> dpts = new List<TVShows>();
 
-            SqlParameter inputParameter = new SqlParameter("@ID", SiteID);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-
-            inputParameter = new SqlParameter("@Name", information.Name);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@Address", information.Address);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-
-            inputParameter = new SqlParameter("@City", information.City);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@State", information.State);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@Zip", information.ZipCode);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.Int;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@Email", email);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@Phone", information.Phone);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-
-            inputParameter = new SqlParameter("@Desc", Description);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@ApiKey", APIKey);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-
-
-            int result = objDB.DoUpdateUsingCmdObj(sqlComm);
-
-            if (result > 0)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                return true;
+                shows = new TVShows();
+                shows.ID1 = int.Parse(dr["TV_Show_ID"].ToString());
+                shows.Image = dr["TV_Show_Image"].ToString();
+                shows.Name1 = dr["TV_Show_Name"].ToString();
+                shows.Years = dr["TV_Show_Years"].ToString();
+                shows.AgeRating = dr["TV_Show_Age_Rating"].ToString();
+                shows.Runtime = int.Parse(dr["TV_Show_Runtime"].ToString());
+                shows.Genre = dr["TV_Show_Genre"].ToString();
+                shows.Description =dr["TV_Show_Description"].ToString();
+                
+                dpts.Add(shows);
             }
-            else
-            {
-                return false;
-            }
-
-        } //end of RegisterSite
+            return dpts;
+        } //end of GetTVSHOWS
 
 
-        // POST: api/Merchants/RecordPurchase
-        [HttpPost("RecordPurchase/{ProductID}/{Quantity:int}/{SellerSiteID}/{APIKey}")]
-        public bool RecordPurchase(string ProductID, int Quantity, string SellerSiteID, string APIKey, [FromBody]Customer information)
+        [HttpGet("GetVideoGames")]
+        public List<VideoGames> GetVideoGames()
         {
+            string query = "SELECT * FROM TP_Movies";
+
             DBConnect objDB = new DBConnect();
-            SqlCommand sqlComm = new SqlCommand();
-            sqlComm.CommandType = CommandType.StoredProcedure;
-            sqlComm.CommandText = "RecordPurchase";
+            DataSet ds = objDB.GetDataSet(query);
 
-            SqlParameter inputParameter = new SqlParameter("@productID", ProductID);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
+            VideoGames videogames = new VideoGames();
+            List<VideoGames> dpts = new List<VideoGames>();
 
-            inputParameter = new SqlParameter("@quantity", Quantity);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.Int;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@sellerSiteID", SellerSiteID);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@apikey", APIKey);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-            inputParameter = new SqlParameter("@customerID", information.CustomerID);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.VarChar;
-            sqlComm.Parameters.Add(inputParameter);
-
-
-
-            int result = objDB.DoUpdateUsingCmdObj(sqlComm);
-            if (result > 0)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                return true;
+                videogames = new VideoGames();
+                videogames.VideoGameID = int.Parse(dr["Video_Game_ID"].ToString());
+                videogames.Name = dr["Video_Game_Name"].ToString();
+                videogames.Year = int.Parse(dr["Video_Game_Year"].ToString());
+                videogames.Description = dr["Video_Game_Description"].ToString();
+                videogames.Creator = dr["Video_Game_Creator"].ToString();
+                videogames.AgeRating = dr["Video_Game_Age_Rating"].ToString();
+                videogames.Genre = dr["Video_Game_Genre"].ToString();
+                videogames.Image1 = dr["Video_Game_Image"].ToString();
+                dpts.Add(videogames);
             }
-            else
-            {
-                return false;
-            }
-        } //end of RecordPurchase
+            return dpts;
+        } //end of GetVIDEOGAMES
+
+        
     } //end of class
 } //end of namespace
 

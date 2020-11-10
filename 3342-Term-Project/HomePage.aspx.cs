@@ -17,5 +17,10 @@ namespace _3342_Term_Project
         protected void ddlSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+        protected void btnSearchClick(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }

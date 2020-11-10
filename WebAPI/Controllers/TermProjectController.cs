@@ -5,11 +5,10 @@ using System.Data;
 using ClassLibrary;
 using Utilities;
 using System.Data.SqlClient;
-using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/service/IMDBClone")]
+    [Route("api/service/Lexpark")]
     public class TermProjectController : Controller
     {
  

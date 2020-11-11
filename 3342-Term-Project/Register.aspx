@@ -11,31 +11,28 @@
 </head>
 <body>
 	<div class="container">
-		<form id="addMember" runat="server">
+		<form id="addCustomer" runat="server">
 			<div class="form-row">
 				<div style="margin-bottom: 25px;">
-					<h3>Register A New Member</h3>
+					<h3>Register A New User</h3>
 					<small>All fields are required</small>
 					<asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
 				</div>
+                <asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
+                <br />
+                <br />
 			</div>
-            <asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
-            <br />
-            <br />
 			<div class="row">
-				<div class="form-group col-md-3">
-					<label id="lblMemberUsername" runat="server">Username</label>
-					<asp:TextBox ID="txtMemberUsername" runat="server" class="form-control"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="MemberUsernameValidator" ControlToValidate="txtMemberID" runat="server" ErrorMessage="Member username required"></asp:RequiredFieldValidator>
+                	<div class="form-group col-md-3">
+					<label id="lblUsername" runat="server">Username</label>
+					<asp:TextBox ID="txtUsername" runat="server" class="form-control" type="email"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="usernameValidator" ControlToValidate="txtEmail" runat="server" ErrorMessage="Username required"></asp:RequiredFieldValidator>
 				</div>
-				<div class="form-group col-md-9">
-
-					<label id="lblMemberPassword" runat="server">Password</label>
-					<asp:TextBox ID="txtMemberPassword" runat="server" class="form-control"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="txtMemberPasswordValidator" ControlToValidate="txtMemberPassword" runat="server" ErrorMessage="password required"></asp:RequiredFieldValidator>
-				</div>				
-			</div>
-			<div class="row">
+				<div class="form-group col-md-3">
+					<label id="lblEmail" runat="server">Email</label>
+					<asp:TextBox ID="txtEmail" runat="server" class="form-control" type="email"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="emailValidator" ControlToValidate="txtEmail" runat="server" ErrorMessage="Email required"></asp:RequiredFieldValidator>
+				</div>
 				<div class="form-group col-md-3">
 					<label id="lblFirstName" runat="server">First Name</label>
 					<asp:TextBox ID="txtFirstName" runat="server" class="form-control"></asp:TextBox>
@@ -46,27 +43,83 @@
 					<asp:TextBox ID="txtLastName" runat="server" class="form-control"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="lastNameValidator" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last name required"></asp:RequiredFieldValidator>
 				</div>
-
-				<div class="form-group col-md-3">
-					<label id="lblEmail" runat="server">Email</label>
-					<asp:TextBox ID="txtEmail" runat="server" class="form-control" type="email"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="emailValidator" ControlToValidate="txtEmail" runat="server" ErrorMessage="Email required"></asp:RequiredFieldValidator>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label id="lblPassword" runat="server">Password</label>
+					<asp:TextBox ID="txtPassword" runat="server" class="form-control" type="password"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="pwdValidator" ControlToValidate="txtPassword" runat="server" ErrorMessage="Password required"></asp:RequiredFieldValidator>
 				</div>
-
-				<div class="form-group col-md-3">
+				<div class="form-group col-md-4">
+					<label id="lblConfirmPassword" runat="server">Confirm Password</label>
+					<asp:TextBox ID="txtConfirmPassword" runat="server" class="form-control" type="password"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="confirmPasswordValidator" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="Password confirmation required"></asp:RequiredFieldValidator>
+				</div>
+				<div class="form-group col-md-4">
 					<label id="lblDOB" runat="server">Date of Birth (mm/dd/yyyy)</label>
 					<asp:TextBox ID="txtDOB" runat="server" class="form-control"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="DOBValidator" runat="server" ControlToValidate="txtDOB" ErrorMessage="Date of Birth required"></asp:RequiredFieldValidator>
 				</div>
 			</div>
+
 		
+			<br />
+			<br />
+
+			<h4>Security Questions</h4>
 			<div class="row">
-				<div class="col-md-12">
-					<asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="btnSubmit_Click" />
+				<div class="form-group col-md-6">
+					<label id="lblSecurityQuestion1" runat="server">Security Question 1</label>
+					<br />
+					<asp:DropDownList CssClass="form-control" ID="ddlSecurityQuestion1" runat="server">
+						<asp:ListItem Value="What is your mother's maiden name?">What is your mother&#39;s maiden name?</asp:ListItem>
+						<asp:ListItem Value="What city were you born in?">What city were you born in?</asp:ListItem>
+						<asp:ListItem Value="What was the make of your first car?">What was the make of your first car?</asp:ListItem>
+					</asp:DropDownList>
+				</div>
+				<div class="form-group col-md-6">
+					<label id="lblSecurityAnswer1" runat="server">Answer to Security Question 1</label>
+					<asp:TextBox ID="txtSecurityAnswer1" runat="server" class="form-control"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="securityAnswer1Validator" runat="server" ControlToValidate="txtSecurityAnswer1" ErrorMessage="Answer required"></asp:RequiredFieldValidator>
 				</div>
 			</div>
-			<br />
-			<asp:Label Style="font-weight: bold; font-size: 1.5em;" ID="Output" runat="server" Text=""></asp:Label>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label id="lblSecurityQuestion2" runat="server">Security Question 2</label>
+					<br />
+					<asp:DropDownList CssClass="form-control" ID="ddlSecurityQuestion2" runat="server">
+						<asp:ListItem Value="What is the title of your favorite movie?">What is the title of your favorite movie?</asp:ListItem>
+						<asp:ListItem Value="What was the name of your first pet?">What was the name of your first pet?</asp:ListItem>
+						<asp:ListItem Value="What was the name of your fifth grade teacher?">What was the name of your fifth grade teacher?</asp:ListItem>
+					</asp:DropDownList>
+				</div>
+				<div class="form-group col-md-6">
+					<label id="lblSecurityAnswer2" runat="server">Answer to Security Question 2</label>
+					<asp:TextBox ID="txtSecurityAnswer2" runat="server" class="form-control"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="securityAnswer2Validator" runat="server" ControlToValidate="txtSecurityAnswer2" ErrorMessage="Answer required"></asp:RequiredFieldValidator>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label id="lblSecurityQuestion3" runat="server">Security Question 3</label>
+					<br />
+					<asp:DropDownList CssClass="form-control" ID="ddlSecutiryQuestion3" runat="server">
+						<asp:ListItem Value="What was your high school's mascot?">What was your high school's mascot?</asp:ListItem>
+						<asp:ListItem Value="Who is the author of your favorite book?">Who is the author of your favorite book?</asp:ListItem>
+						<asp:ListItem Value="What is the name of your childhood best friend?">What is the name of your childhood best friend?</asp:ListItem>
+					</asp:DropDownList>
+				</div>
+				<div class="form-group col-md-6">
+					<label id="lblSecurityAnswer3" runat="server">Answer to Security Question 3</label>
+					<asp:TextBox ID="txtSecurityAnswer3" runat="server" class="form-control"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="securityAnswer3Validator" runat="server" ControlToValidate="txtSecurityAnswer3" ErrorMessage="Answer required"></asp:RequiredFieldValidator>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="Submit_Click" />
+				</div>
+			</div>
 		</form>
 	</div>
 </body>

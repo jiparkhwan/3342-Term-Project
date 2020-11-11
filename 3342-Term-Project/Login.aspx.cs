@@ -15,9 +15,15 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             Error.Text = "";
-            if (Request.Cookies["Member"] != null)
+            if (!IsPostBack)
             {
-                txtMemberUsername.Text = Request.Cookies["Member"]["MemberUsername"];
+
+                if (Request.Cookies["Member"] != null)
+                {
+                    txtMemberUsername.Text = Request.Cookies["Member"]["MemberUsername"];
+                    cboxRemeberMe.Checked = true;
+
+                }
             }
         } //end of Page_Load
 
@@ -30,7 +36,7 @@ namespace _3342_Term_Project
                 SqlCommand sqlComm = new SqlCommand();
 
                 sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.CommandText = "TP_MerchantLogin";
+                sqlComm.CommandText = "TP_MemberLogin";
 
                 SqlParameter member = new SqlParameter("@memberUsername", txtMemberUsername.Text);
                 member.Direction = ParameterDirection.Input;
@@ -50,7 +56,7 @@ namespace _3342_Term_Project
                     if (cboxRemeberMe.Checked)
                     {
                         HttpCookie memberCookie = new HttpCookie("Member");
-                        memberCookie.Values["MemberUsername"] = ds.Tables[0].Rows[0]["MemberUsername"].ToString();
+                        memberCookie.Values["Member_Username"] = ds.Tables[0].Rows[0]["Member_Username"].ToString();
                         memberCookie.Expires = DateTime.Now.AddDays(1); //cookie expire in 1 day 
 
                         Response.Cookies.Add(memberCookie);

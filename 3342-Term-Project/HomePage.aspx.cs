@@ -22,5 +22,23 @@ namespace _3342_Term_Project
 
 
         }
+
+        public void searchMovies()
+        {
+
+        }
+        public void searchTVShows()
+        {
+
+        }
+        public void searchVideoGames()
+        {
+
+        }
+        public void searchCommercials()
+        {
+
+        }
+
     }
 }

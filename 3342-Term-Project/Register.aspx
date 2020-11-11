@@ -23,22 +23,18 @@
                 <br />
 			</div>
 			<div class="row">
-                	<div class="form-group col-md-3">
-					<label id="lblUsername" runat="server">Username</label>
-					<asp:TextBox ID="txtUsername" runat="server" class="form-control" type="email"></asp:TextBox>
-					<asp:RequiredFieldValidator ID="usernameValidator" ControlToValidate="txtEmail" runat="server" ErrorMessage="Username required"></asp:RequiredFieldValidator>
-				</div>
-				<div class="form-group col-md-3">
+               
+				<div class="form-group col-md-4">
 					<label id="lblEmail" runat="server">Email</label>
 					<asp:TextBox ID="txtEmail" runat="server" class="form-control" type="email"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="emailValidator" ControlToValidate="txtEmail" runat="server" ErrorMessage="Email required"></asp:RequiredFieldValidator>
 				</div>
-				<div class="form-group col-md-3">
+				<div class="form-group col-md-4">
 					<label id="lblFirstName" runat="server">First Name</label>
 					<asp:TextBox ID="txtFirstName" runat="server" class="form-control"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="firstNameValidator" runat="server" ControlToValidate="txtFirstName" ErrorMessage="First name required"></asp:RequiredFieldValidator>
 				</div>
-				<div class="form-group col-md-3">
+				<div class="form-group col-md-4">
 					<label id="lblLastName" runat="server">Last Name</label>
 					<asp:TextBox ID="txtLastName" runat="server" class="form-control"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="lastNameValidator" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last name required"></asp:RequiredFieldValidator>

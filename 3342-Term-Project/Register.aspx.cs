@@ -19,8 +19,6 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             Error.Text = "";
-
-
         }
 
         protected void Submit_Click(object sender, EventArgs e)
@@ -28,7 +26,6 @@ namespace _3342_Term_Project
 
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                //Error.Text = "Passwords do not match";
                 pwdValidator.IsValid = false;
                 pwdValidator.ErrorMessage = "Password does not match!";
             }
@@ -57,10 +54,7 @@ namespace _3342_Term_Project
                     cust.SqlDbType = SqlDbType.VarChar;
                     sqlComm.Parameters.Add(cust);
 
-                    cust = new SqlParameter("@username", txtUsername.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
+               
 
 
                     //this need to be change when hashing pw is implemented

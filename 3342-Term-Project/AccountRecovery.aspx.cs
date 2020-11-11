@@ -177,7 +177,7 @@ namespace _3342_Term_Project
                 account.SqlDbType = SqlDbType.VarChar;
                 sqlComm.Parameters.Add(account);
 
-                account = new SqlParameter("@phone", phoneTxt.Text.Trim());
+                account = new SqlParameter("@dob", dobTxt.Text.Trim());
                 account.Direction = ParameterDirection.Input;
                 account.SqlDbType = SqlDbType.VarChar;
                 sqlComm.Parameters.Add(account);

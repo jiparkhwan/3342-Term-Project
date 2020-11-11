@@ -13,5 +13,7 @@ namespace _3342_Term_Project.UserControls
         {
 
         }
+
+        public DropDownList ddl { get; set; }
     }
 }

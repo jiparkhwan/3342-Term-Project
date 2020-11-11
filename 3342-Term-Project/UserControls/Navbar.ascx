@@ -8,16 +8,36 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Account</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
-      </li>
+      
+      <li>
+          <div class="form-inline my-2 my-lg-0">
+              <div class="navSearch">
+                      <div class="dropdown-search">
+                          <asp:DropDownList ID="ColorList"
+                              class="dropdown-search"
+                              AutoPostBack="True"
+                              runat="server">
 
+                              <asp:ListItem Selected="True" Value="All"> All </asp:ListItem>
+                              <asp:ListItem Value="Movies"> Movies </asp:ListItem>
+                              <asp:ListItem Value="TV_Shows"> TV Shows </asp:ListItem>
+                              <asp:ListItem Value="Video_Games"> Video Games </asp:ListItem>
+                              <asp:ListItem Value="Actors"> Actors </asp:ListItem>
+                          </asp:DropDownList>
+                      </div>
+                       <asp:TextBox id="txtSearch" class="form-control mr-sm-2" placeholder="Search Lexpark" runat="server" aria-label="Search" />
+                       <asp:Button ID="btnSearch" runat="server" class="btn btn-outline-primary my-2 my-sm-0" type="submit" Text="Search" />
+                  </div>
+          </div>
+       
+      </li> 
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Account</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="#">Log-In</a>
+      </li>
     </ul>
 
     

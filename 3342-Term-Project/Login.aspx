@@ -18,8 +18,8 @@
         <br />
         <form class="form-signin" runat="server">
            <div class="row">
-			    <asp:TextBox ID="txtMemberID" runat="server" class="form-control" placeholder="Member ID"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="memberIDValidator" controltovalidate="txtMemberID" runat="server" ErrorMessage="Member ID required"></asp:RequiredFieldValidator>
+			    <asp:TextBox ID="txtMemberUsername" runat="server" class="form-control" placeholder="Member Username"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="memberUsernameValidator" controltovalidate="txtMemberUsername" runat="server" ErrorMessage="username required"></asp:RequiredFieldValidator>
            </div>
            <div class="row">
 			   <asp:TextBox ID="txtPassword" runat="server" class="form-control" type="password" Placeholder="password"></asp:TextBox>

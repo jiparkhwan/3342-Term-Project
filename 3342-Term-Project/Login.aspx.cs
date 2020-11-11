@@ -17,7 +17,7 @@ namespace _3342_Term_Project
             Error.Text = "";
             if (Request.Cookies["Member"] != null)
             {
-                txtMemberID.Text = Request.Cookies["Member"]["MemberID"];
+                txtMemberUsername.Text = Request.Cookies["Member"]["MemberUsername"];
             }
         } //end of Page_Load
 
@@ -32,7 +32,7 @@ namespace _3342_Term_Project
                 sqlComm.CommandType = CommandType.StoredProcedure;
                 sqlComm.CommandText = "TP_MerchantLogin";
 
-                SqlParameter member = new SqlParameter("@memberID", txtMemberID.Text);
+                SqlParameter member = new SqlParameter("@memberUsername", txtMemberUsername.Text);
                 member.Direction = ParameterDirection.Input;
                 member.SqlDbType = SqlDbType.VarChar;
                 sqlComm.Parameters.Add(member);
@@ -50,7 +50,7 @@ namespace _3342_Term_Project
                     if (cboxRemeberMe.Checked)
                     {
                         HttpCookie memberCookie = new HttpCookie("Member");
-                        memberCookie.Values["Member_ID"] = ds.Tables[0].Rows[0]["Member_ID"].ToString();
+                        memberCookie.Values["MemberUsername"] = ds.Tables[0].Rows[0]["MemberUsername"].ToString();
                         memberCookie.Expires = DateTime.Now.AddDays(1); //cookie expire in 1 day 
 
                         Response.Cookies.Add(memberCookie);
@@ -65,7 +65,7 @@ namespace _3342_Term_Project
 
 
 
-                    Session["MemberAccount"] = ds.Tables[0].Rows[0]["Member_ID"].ToString();
+                    Session["MemberAccount"] = ds.Tables[0].Rows[0]["MemberUsername"].ToString();
                     Response.Redirect("HomePage.aspx");
                 }
                 else

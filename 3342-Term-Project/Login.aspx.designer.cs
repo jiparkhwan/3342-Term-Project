@@ -13,22 +13,22 @@ namespace _3342_Term_Project {
     public partial class Login {
         
         /// <summary>
-        /// txtMemberID control.
+        /// txtMemberUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMemberID;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberUsername;
         
         /// <summary>
-        /// memberIDValidator control.
+        /// memberUsernameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberIDValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberUsernameValidator;
         
         /// <summary>
         /// txtPassword control.

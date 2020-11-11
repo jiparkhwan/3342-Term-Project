@@ -18,8 +18,8 @@
         <br />
         <form class="form-signin" runat="server">
            <div class="row">
-			    <asp:TextBox ID="txtMemberUsername" runat="server" class="form-control" placeholder="Member Username"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="memberUsernameValidator" controltovalidate="txtMemberUsername" runat="server" ErrorMessage="username required"></asp:RequiredFieldValidator>
+			    <asp:TextBox ID="txtMemberEmail" runat="server" class="form-control" placeholder="Member Email"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="memberEmailValidator" controltovalidate="txtMemberEmail" runat="server" ErrorMessage="Email required"></asp:RequiredFieldValidator>
            </div>
            <div class="row">
 			   <asp:TextBox ID="txtPassword" runat="server" class="form-control" type="password" Placeholder="password"></asp:TextBox>
@@ -32,6 +32,8 @@
              <asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
              <br />
              <br />
+                        <asp:LinkButton ID="newCustAccLink" runat="server" PostBackUrl="~/CustomerRegistration.aspx" CausesValidation="false">Register Customer Account</asp:LinkButton>
+            <br />
             <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
 			<br />
         </form>

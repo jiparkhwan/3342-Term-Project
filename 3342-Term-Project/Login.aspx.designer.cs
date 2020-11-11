@@ -13,22 +13,22 @@ namespace _3342_Term_Project {
     public partial class Login {
         
         /// <summary>
-        /// txtMemberUsername control.
+        /// txtMemberEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMemberUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtMemberEmail;
         
         /// <summary>
-        /// memberUsernameValidator control.
+        /// memberEmailValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberUsernameValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberEmailValidator;
         
         /// <summary>
         /// txtPassword control.
@@ -74,6 +74,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Error;
+        
+        /// <summary>
+        /// newCustAccLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton newCustAccLink;
         
         /// <summary>
         /// forgotPwdLink control.

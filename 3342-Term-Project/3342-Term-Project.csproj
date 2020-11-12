@@ -105,8 +105,6 @@
     <Compile Include="Models\TVShows.cs" />
     <Compile Include="Models\VideoGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
-    </Compile>
     <Compile Include="UserControls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

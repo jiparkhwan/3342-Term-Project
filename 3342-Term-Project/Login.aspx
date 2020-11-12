@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <title>Merchant Login</title>
+      <title>Member Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -32,7 +32,7 @@
              <asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
              <br />
              <br />
-                        <asp:LinkButton ID="newCustAccLink" runat="server" PostBackUrl="~/CustomerRegistration.aspx" CausesValidation="false">Register Customer Account</asp:LinkButton>
+                        <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="~/Register.aspx" CausesValidation="false">Register New Account</asp:LinkButton>
             <br />
             <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
 			<br />

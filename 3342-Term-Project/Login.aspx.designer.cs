@@ -76,13 +76,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label Error;
         
         /// <summary>
-        /// newCustAccLink control.
+        /// newMemberLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton newCustAccLink;
+        protected global::System.Web.UI.WebControls.LinkButton newMemberLink;
         
         /// <summary>
         /// forgotPwdLink control.

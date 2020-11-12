@@ -17,50 +17,45 @@ namespace _3342_Term_Project
             Output.Text = "";
             if (!IsPostBack)
             {
-                customer.Visible = false;
-                btnCustomer.Visible = true;
+                member.Visible = false;
+                btnMember.Visible = true;
                 btnBack.Visible = false;
             }
         } //end of Page_Load
 
-        protected void btnCustomer_Click(object sender, EventArgs e)
+        protected void btnMember_Click(object sender, EventArgs e)
         {
-            customer.Visible = true;
-            custSubmitBtn.Visible = false;
-            custEmailForgot.Visible = false;
-            custPwdForgot.Visible = false;
+            member.Visible = true;
+            memberSubmitBtn.Visible = false;
+            memberEmailForgot.Visible = false;
+            memberPwdForgot.Visible = false;
             btnBack.Visible = true;
-            custForgotDL.SelectedIndex = 0;
-        } //end of btnCustomer_Click
+            memberForgotDL.SelectedIndex = 0;
+        } //end of btnmemberomer_Click
 
-        protected void btnMerchant_Click(object sender, EventArgs e)
+      
+        protected void memberForgotDL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnCustomer.Visible = false;
-            btnBack.Visible = true;
-        } //end of btnMerchant_Click
-
-        protected void custForgotDL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (custForgotDL.Text == "Email")
+            if (memberForgotDL.Text == "Email")
             {
-                customer.Visible = true;
-                custPwdForgot.Visible = false;
-                custEmailForgot.Visible = true;
-                custSubmitBtn.Visible = true;
+                member.Visible = true;
+                memberPwdForgot.Visible = false;
+                memberEmailForgot.Visible = true;
+                memberSubmitBtn.Visible = true;
 
                 FnameTxt.Text = "";
                 LnameTxt.Text = "";
                 dobTxt.Text = "";
             }
-            if (custForgotDL.Text == "Password")
+            if (memberForgotDL.Text == "Password")
             {
-                customer.Visible = true;
-                custEmailForgot.Visible = false;
-                custPwdForgot.Visible = true;
-                custSubmitBtn.Visible = true;
+                member.Visible = true;
+                memberEmailForgot.Visible = false;
+                memberPwdForgot.Visible = true;
+                memberSubmitBtn.Visible = true;
                 emailTxt.ReadOnly = false;
                 securityQs.Visible = false;
-                custSubmitBtn.Text = "Find Account";
+                memberSubmitBtn.Text = "Find Account";
 
                 emailTxt.Text = "";
                 q1.Text = "";
@@ -70,16 +65,16 @@ namespace _3342_Term_Project
                 ans2.Text = "";
                 ans3.Text = "";
             }
-            if (custForgotDL.Text == "-----")
+            if (memberForgotDL.Text == "-----")
             {
-                customer.Visible = true;
-                custSubmitBtn.Visible = false;
-                custEmailForgot.Visible = false;
-                custPwdForgot.Visible = false;
+                member.Visible = true;
+                memberSubmitBtn.Visible = false;
+                memberEmailForgot.Visible = false;
+                memberPwdForgot.Visible = false;
             }
-        } //end of custForgotDL_SelectedIndexChanged
+        } //end of memberForgotDL_SelectedIndexChanged
 
-        protected void custPwdSubmitBtn_Click(object sender, EventArgs e)
+        protected void memberPwdSubmitBtn_Click(object sender, EventArgs e)
         {
             if (securityQs.Visible == false)
             {
@@ -100,11 +95,11 @@ namespace _3342_Term_Project
 
                     if (ds.Tables[0].Rows.Count == 1)
                     {
-                        customer.Visible = true;
-                        custPwdForgot.Visible = true;
+                        member.Visible = true;
+                        memberPwdForgot.Visible = true;
                         securityQs.Visible = true;
                         emailTxt.ReadOnly = true;
-                        custSubmitBtn.Text = "Submit";
+                        memberSubmitBtn.Text = "Submit";
 
                         q1.Text = ds.Tables[0].Rows[0]["Security_Q1"].ToString();
                         q2.Text = ds.Tables[0].Rows[0]["Security_Q2"].ToString();
@@ -120,7 +115,7 @@ namespace _3342_Term_Project
                     Output.Text = ex.Message;
                 }
             }
-            else if (securityQs.Visible == true && custPwdForgot.Visible == true)
+            else if (securityQs.Visible == true && memberPwdForgot.Visible == true)
             {
                 try
                 {
@@ -155,7 +150,7 @@ namespace _3342_Term_Project
                     Output.Text = ex.Message;
                 }
             }
-        } //end of custPwdSubmitBtn_Click
+        } //end of memberPwdSubmitBtn_Click
 
         protected void emailForgotSubmitBtn_Click(object sender, EventArgs e)
         {
@@ -184,7 +179,7 @@ namespace _3342_Term_Project
                 DataSet result = objDB.GetDataSetUsingCmdObj(sqlComm);
                 if (result.Tables[0].Rows.Count == 1) //record found
                 {
-                    Output.Text = "Your email: " + result.Tables[0].Rows[0]["Customer_Email"].ToString();
+                    Output.Text = "Your email: " + result.Tables[0].Rows[0]["Member_Email"].ToString();
 
 
                 }
@@ -204,8 +199,8 @@ namespace _3342_Term_Project
        
         protected void Back_Click(object sender, EventArgs e)
         {
-            customer.Visible = false;
-            btnCustomer.Visible = true;
+            member.Visible = false;
+            btnMember.Visible = true;
             btnBack.Visible = false;
         } //end of Back_Click
     } //end of class

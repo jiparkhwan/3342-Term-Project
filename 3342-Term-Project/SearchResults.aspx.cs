@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace _3342_Term_Project
 {
-    public partial class HomePage : System.Web.UI.Page
+    public partial class SearchResults : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

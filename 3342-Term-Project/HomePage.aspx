@@ -26,31 +26,9 @@
 <body>
     
       <form method="post" runat="server">
-            <Navigation:HomeNav ID="HomeNav" runat="server" />
+          <Navigation:HomeNav ID="HomeNav" runat="server" />
 
-
-
-
-          <div class="form-inline my-2 my-lg-0">
-              <div class="nav-item dropdown">
-                  <div class="dropdown-search">
-                      <asp:DropDownList ID="ColorList"
-                          class="dropdown-search"
-                          AutoPostBack="True"
-                          OnSelectedIndexChanged="ddlSearch_SelectedIndexChanged"
-                          runat="server">
-
-                          <asp:ListItem Selected="True" Value="All"> All </asp:ListItem>
-                          <asp:ListItem Value="Movies"> Movies </asp:ListItem>
-                          <asp:ListItem Value="Shows"> Shows </asp:ListItem>
-                          <asp:ListItem Value="Commercials"> Commercials </asp:ListItem>
-
-                      </asp:DropDownList>
-                  </div>
-              </div>
-              <asp:TextBox class="form-control mr-sm-2" placeholder="Search Lexpark" runat="server" aria-label="Search" />
-              <asp:Button ID="btnSearch" runat="server" class="btn btn-outline-primary my-2 my-sm-0" type="submit" Text="Search" OnClick="btnSearchClick" />
-          </div>
+          
 
       </form>
 </body>

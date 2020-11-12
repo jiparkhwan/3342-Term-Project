@@ -71,7 +71,7 @@ namespace _3342_Term_Project
 
 
 
-                    Session["MemberAccount"] = ds.Tables[0].Rows[0]["MemberEmail"].ToString();
+                    Session["MemberAccount"] = ds.Tables[0].Rows[0]["Member_Email"].ToString();
                     Response.Redirect("HomePage.aspx");
                 }
                 else

@@ -11,12 +11,11 @@
 </head>
 <body>
 	<div class="container">
-		<form id="addCustomer" runat="server">
+		<form id="addmember" runat="server">
 			<div class="form-row">
 				<div style="margin-bottom: 25px;">
 					<h3>Register A New User</h3>
 					<small>All fields are required</small>
-					<asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
 				</div>
                 <asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
                 <br />
@@ -114,7 +113,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="Submit_Click" />
-				</div>
+				<asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
+
+                </div>
 			</div>
 		</form>
 	</div>

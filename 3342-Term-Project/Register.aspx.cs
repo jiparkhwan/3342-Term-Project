@@ -37,7 +37,7 @@ namespace _3342_Term_Project
                     SqlCommand sqlComm = new SqlCommand();
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
-                    sqlComm.CommandText = "TP_AddCustomer";
+                    sqlComm.CommandText = "TP_MemberRegister";
 
                     SqlParameter cust = new SqlParameter("@email", txtEmail.Text.Trim());
                     cust.Direction = ParameterDirection.Input;
@@ -120,7 +120,7 @@ namespace _3342_Term_Project
 
                     if (result > 0)
                     {
-                        Error.Text = "Account added";
+                        Error.Text = "Account added, return to login at top!";
                     }
                     else
                     {

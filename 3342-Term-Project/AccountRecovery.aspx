@@ -28,16 +28,16 @@
 			<br />
 			<br/>
 
-            <asp:Button ID="btnCustomer" CausesValidation="false"  runat="server" CssClass="btn btn-primary" Text="I am a Member" OnClick="btnCustomer_Click" />
-            <asp:Button ID="btnBack"  CausesValidation="false" runat="server" CssClass="btn btn-primary" Text="Back" OnClick="Back_Click"/>
+            <asp:Button ID="btnMember" CausesValidation="false"  runat="server" CssClass="btn btn-primary" Text="Begin Recovery" OnClick="btnMember_Click" />
+            <asp:Button ID="btnBack"  CausesValidation="false" runat="server" CssClass="btn btn-primary" Text="Restart" OnClick="Back_Click"/>
 
-            <div id="customer" class="card" runat="server">
+            <div id="member" class="card" runat="server">
                 <div class="row form-group">
                     <div class="col-md-2">
                         <label >I forgot my: </label>
                     </div>
                     <div class="col-md-5">
-                        <asp:DropDownList CssClass="form-control"  AutoPostBack="true" ID="custForgotDL" runat="server"  OnSelectedIndexChanged="custForgotDL_SelectedIndexChanged">
+                        <asp:DropDownList CssClass="form-control"  AutoPostBack="true" ID="memberForgotDL" runat="server"  OnSelectedIndexChanged="memberForgotDL_SelectedIndexChanged">
                             <asp:ListItem >---</asp:ListItem>
                             <asp:ListItem >Email</asp:ListItem>
                             <asp:ListItem>Password</asp:ListItem>
@@ -46,17 +46,17 @@
                 </div>
 
 
-                <div class="row" id="custEmailForgot" runat="server">
+                <div class="row" id="memberEmailForgot" runat="server">
                     
                     <label>First Name</label>
                     <asp:TextBox ID="FnameTxt" runat="server" class="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ControlToValidate="FnameTxt" ID="custFnameValidator" runat="server" ErrorMessage="First Name Required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ControlToValidate="FnameTxt" ID="memberFnameValidator" runat="server" ErrorMessage="First Name Required"></asp:RequiredFieldValidator>
 
                     <br />    
 
                     <label>Last Name</label>
                     <asp:TextBox ID="LnameTxt" runat="server" class="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ControlToValidate="LnameTxt" ID="custLnameValidator" runat="server" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ControlToValidate="LnameTxt" ID="memberLnameValidator" runat="server" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
 
                     <br />
 
@@ -72,7 +72,7 @@
                 </div>
 
                 
-                <div class="row" id="custPwdForgot" runat="server">
+                <div class="row" id="memberPwdForgot" runat="server">
 
                     <label>Email Address</label>
                     <asp:TextBox ID="emailTxt"  runat="server" type="email" class="form-control"></asp:TextBox>
@@ -101,7 +101,7 @@
                     </div>
 
                     <br />
-                     <asp:Button ID="custSubmitBtn" runat="server" CssClass="btn btn-primary" Text="Submit" Onclick="custPwdSubmitBtn_Click" />
+                     <asp:Button ID="memberSubmitBtn" runat="server" CssClass="btn btn-primary" Text="Submit" Onclick="memberPwdSubmitBtn_Click" />
 
                 </div>
              

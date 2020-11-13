@@ -105,7 +105,11 @@ namespace _3342_Term_Project
             lblFindFriendsErrorMessage.Text = "";
 
         }
+<<<<<<< HEAD
        
+=======
+    
+>>>>>>> a401eef29d61280e4b3b9201446cc0dd6d941be3
 
     }
 }

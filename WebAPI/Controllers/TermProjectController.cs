@@ -12,12 +12,14 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     public class TermProjectController : Controller
     {
- 
+       
 
-        // GET: api/service/Actors
+        // GET: api/service/GetActors
         [HttpGet("GetActors")]
         public List<Actors> GetActors()
         {
+            StoredProcedures stoPros = new StoredProcedures();
+
             string query = "SELECT * FROM TP_Actor";
 
             DBConnect objDB = new DBConnect();
@@ -45,6 +47,7 @@ namespace WebAPI.Controllers
             }
             return dpts;
         } //end of GetActors
+
 
         [HttpGet("GetMovies")]
         public List<Movies> GetMovies()
@@ -135,6 +138,11 @@ namespace WebAPI.Controllers
 
 
 
+
+
+        //BEGIN POSTS
+        /*[HttpPost]
+        [HttpPost("SendValidationEmail/{userEmail}")]*/
 
         //searching movies START
     
@@ -239,6 +247,7 @@ namespace WebAPI.Controllers
 
         //BEGIN POST REQUESTS ->
 
+>>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
 
     } //end of class
 } //end of namespace

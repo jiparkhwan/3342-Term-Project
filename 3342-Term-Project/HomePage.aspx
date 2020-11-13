@@ -35,6 +35,15 @@
                     </asp:Panel>
 
 
+<<<<<<< HEAD
+    <!-- REFERENCES END-->
+</head>
+<body>
+    
+      <form ID="frmHomePage" method="post" runat="server">
+          <Navigation:HomeNav ID="HomeNav" runat="server" />
+=======
+>>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
 
                     <asp:Panel ID="pnlFindMovieByAgeRate" runat="server" Visible="false">
                         <asp:Label ID="lblRating" Text="Rating: " runat="server"></asp:Label>
@@ -92,6 +101,9 @@
                 </div>
             </div>
           
+<<<<<<< HEAD
+      </form>
+=======
             <div class="col-md-1"></div>
         </div>
 
@@ -176,6 +188,7 @@
 
 
     </form>
+>>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
 </body>
 </html>
 

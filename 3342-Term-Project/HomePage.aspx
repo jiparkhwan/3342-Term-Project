@@ -25,11 +25,10 @@
 </head>
 <body>
     
-      <form method="post" runat="server">
+      <form ID="frmHomePage" method="post" runat="server">
           <Navigation:HomeNav ID="HomeNav" runat="server" />
 
           
-
       </form>
 </body>
 </html>

@@ -13,6 +13,15 @@ namespace _3342_Term_Project {
     public partial class HomePage {
         
         /// <summary>
+        /// frmHomePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmHomePage;
+        
+        /// <summary>
         /// HomeNav control.
         /// </summary>
         /// <remarks>

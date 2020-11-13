@@ -69,13 +69,18 @@
   <ItemGroup>
     <Content Include="AccountRecovery.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Images\bluePersonImage.png" />
+    <Content Include="Images\cinema-wallpaper-14.jpg" />
+    <Content Include="Images\movie_theatre.jpg" />
+    <Content Include="Images\oldTheatre.jpg" />
     <Content Include="Login.aspx" />
-    <Content Include="MemberProfile.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
-    <Content Include="Settings.aspx" />
     <Content Include="Styles.css" />
+    <Content Include="Title.aspx" />
     <Content Include="UserControls\Navbar.ascx" />
+    <Content Include="UserControls\Footer.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,12 +105,19 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MemberProfile.aspx.cs">
-      <DependentUpon>MemberProfile.aspx</DependentUpon>
+    <Compile Include="Models\Actors.cs" />
+    <Compile Include="Models\Members.cs" />
+    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\TVShows.cs" />
+    <Compile Include="Models\VideoGames.cs" />
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MemberProfile.aspx.designer.cs">
-      <DependentUpon>MemberProfile.aspx</DependentUpon>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -122,12 +134,12 @@
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
+    <Compile Include="Title.aspx.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
+    <Compile Include="Title.aspx.designer.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
@@ -135,6 +147,13 @@
     </Compile>
     <Compile Include="UserControls\Navbar.ascx.designer.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

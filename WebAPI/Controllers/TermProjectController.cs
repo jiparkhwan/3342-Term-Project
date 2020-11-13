@@ -139,11 +139,11 @@ namespace WebAPI.Controllers
 
 
 
-<<<<<<< HEAD
+
         //BEGIN POSTS
         /*[HttpPost]
         [HttpPost("SendValidationEmail/{userEmail}")]*/
-=======
+
         //searching movies START
     
     // GET api/Lexpark/FindMoviesByName

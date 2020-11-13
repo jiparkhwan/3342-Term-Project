@@ -38,7 +38,6 @@ namespace _3342_Term_Project
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByName/" + txtMovieName.Text);
-           // +Session["Email"].ToString() + "/" + txtMovieName.Text);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -55,6 +54,10 @@ namespace _3342_Term_Project
             repeaterResults.DataBind();
             lblFindFriendsErrorMessage.Text = "";
         }
+
+
+
+
 
         protected void btnFindMoviesRating_Click(object sender, EventArgs e)
         {
@@ -102,7 +105,11 @@ namespace _3342_Term_Project
             lblFindFriendsErrorMessage.Text = "";
 
         }
+<<<<<<< HEAD
+       
+=======
     
+>>>>>>> a401eef29d61280e4b3b9201446cc0dd6d941be3
 
     }
 }

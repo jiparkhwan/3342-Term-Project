@@ -2,7 +2,7 @@
 
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Lexpark</a>
+  <a class="navbar-brand" href="HomePage.aspx">Lexpark</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,10 +14,10 @@
       </li> 
       
       <li class="nav-item">
-        <a class="nav-link" href="#">My Account</a>
+        <a class="nav-link" href="MyAccount.aspx">My Account</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link" href="#">Log-In</a>
+         <a class="nav-link" href="Login.aspx">Log-In</a>
       </li>
     </ul>
 

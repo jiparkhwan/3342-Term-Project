@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="_3342_Term_Project.Register" %>
+<%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +13,8 @@
 <body>
 	<div class="container">
 		<form id="addmember" runat="server">
+                      <Navigation:HomeNav ID="HomeNav" runat="server" />
+
 			<div class="form-row">
 				<div style="margin-bottom: 25px;">
 					<h3>Register A New User</h3>

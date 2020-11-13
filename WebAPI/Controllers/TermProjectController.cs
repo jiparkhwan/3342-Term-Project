@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using ClassLibrary;
+
 using Utilities;
 using System.Data.SqlClient;
+using ClassLibrary;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/service/Lexpark")]
+    [Route("api/[controller]")]
     public class TermProjectController : Controller
     {
  
@@ -59,16 +60,16 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 movies = new Movies();
-                movies.MovieID = int.Parse(dr["Movie_ID"].ToString());
-                movies.Name = dr["Movie_Name"].ToString();
-                movies.Year = int.Parse(dr["Movie_Year"].ToString());
-                movies.Description = dr["Movie_Description"].ToString();
-                movies.Runtime = int.Parse(dr["Movie_RunTime"].ToString());
-                movies.AgeRating = dr["Movie_Age_Rating"].ToString();
-                movies.Genre1 = dr["Movie_Genre"].ToString();
-                movies.Budget1 = float.Parse(dr["Movie_Budget"].ToString());
-                movies.Income = float.Parse(dr["Movie_Income"].ToString());
-                movies.Image = dr["Movie_Image"].ToString();
+                movies.movieID = int.Parse(dr["Movie_ID"].ToString());
+                movies.name = dr["Movie_Name"].ToString();
+                movies.image = dr["Movie_Image"].ToString();
+                movies.year = int.Parse(dr["Movie_Year"].ToString());
+                movies.description = dr["Movie_Description"].ToString();
+                movies.runtime = int.Parse(dr["Movie_RunTime"].ToString());
+                movies.ageRating = dr["Movie_Age_Rating"].ToString();
+                movies.Genre = dr["Movie_Genre"].ToString();
+                movies.Budget = float.Parse(dr["Movie_Budget"].ToString());
+                movies.income = float.Parse(dr["Movie_Income"].ToString());
                 dpts.Add(movies);
             }
             return dpts;
@@ -79,7 +80,7 @@ namespace WebAPI.Controllers
         [HttpGet("GetTVShows")]
         public List<TVShows> GetTVShows()
         {
-            string query = "SELECT * FROM TP_Movies";
+            string query = "SELECT * FROM TP_TVShows";
 
             DBConnect objDB = new DBConnect();
             DataSet ds = objDB.GetDataSet(query);
@@ -108,7 +109,7 @@ namespace WebAPI.Controllers
         [HttpGet("GetVideoGames")]
         public List<VideoGames> GetVideoGames()
         {
-            string query = "SELECT * FROM TP_Movies";
+            string query = "SELECT * FROM TP_VideoGames";
 
             DBConnect objDB = new DBConnect();
             DataSet ds = objDB.GetDataSet(query);
@@ -135,9 +136,110 @@ namespace WebAPI.Controllers
 
 
 
-        //BEGIN POSTS
+        //searching movies START
+    
+    // GET api/Lexpark/FindMoviesByName
+    [HttpGet("FindMoviesByName/{movieName}")]
+        public List<Movies> FindMoviesByName(string movieName)
+        {
+            DBConnect objDB = new DBConnect();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_FindMovieByName ";
+            
+            objCommand.Parameters.AddWithValue("@movieName", movieName);
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            List<Movies> list = new List<Movies>();
+            Movies movies;
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+                movies = new Movies();
+                movies.movieID = int.Parse(record["Movie_ID"].ToString());
+                movies.name = record["Movie_Name"].ToString();
+                movies.image = record["Movie_Image"].ToString();
+                movies.year = int.Parse(record["Movie_Year"].ToString());
+                movies.description = record["Movie_Description"].ToString();
+                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.ageRating = record["Movie_Age_Rating"].ToString();
+                movies.Genre = record["Movie_Genre"].ToString();
+                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
+                movies.income = float.Parse(record["Movie_Income"].ToString());
 
-        
+                list.Add(movies);
+            }
+            return list;
+        }
+    // GET api/Lexpark/FindMovieByGenre
+    [HttpGet("FindMoviesByGenre/{movieGenre}")]
+        public List<Movies> FindMovieByGenre( string movieGenre)
+        {
+            DBConnect objDB = new DBConnect();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_FindMovieByGenre ";
+     
+            objCommand.Parameters.AddWithValue("@genre", movieGenre);
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            List<Movies> list = new List<Movies>();
+            Movies movies;
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+                movies = new Movies();
+                movies.movieID = int.Parse(record["Movie_ID"].ToString());
+                movies.name = record["Movie_Name"].ToString();
+                movies.image = record["Movie_Image"].ToString();
+                movies.year = int.Parse(record["Movie_Year"].ToString());
+                movies.description = record["Movie_Description"].ToString();
+                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.ageRating = record["Movie_Age_Rating"].ToString();
+                movies.Genre = record["Movie_Genre"].ToString();
+                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
+                movies.income = float.Parse(record["Movie_Income"].ToString());
+
+                list.Add(movies);
+            }
+            return list;
+        }
+        // GET api/Lexpark/FindMovieByAgeRating
+        [HttpGet("FindUserByAgeRating/{ageRating}")]
+        public List<Movies> FindMovieByAgeRating(string ID, string ageRating)
+        {
+            DBConnect objDB = new DBConnect();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_FindMovieByAgeRating ";
+            
+            objCommand.Parameters.AddWithValue("@AgeRating", ageRating);
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            List<Movies> list = new List<Movies>();
+            Movies movies;
+            foreach (DataRow record in ds.Tables[0].Rows)
+            {
+                movies = new Movies();
+                movies.name = record["Movie_Name"].ToString();
+
+                movies.movieID = int.Parse(record["Movie_ID"].ToString());
+                movies.name = record["Movie_Name"].ToString();
+                movies.image = record["Movie_Image"].ToString();
+                movies.year = int.Parse(record["Movie_Year"].ToString());
+                movies.description = record["Movie_Description"].ToString();
+                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.ageRating = record["Movie_Age_Rating"].ToString();
+                movies.Genre = record["Movie_Genre"].ToString();
+                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
+                movies.income = float.Parse(record["Movie_Income"].ToString());
+
+                list.Add(movies);
+            }
+            return list;
+        }
+        //searching movies END
+
+
+
+        //BEGIN POST REQUESTS ->
+
+
     } //end of class
 } //end of namespace
 

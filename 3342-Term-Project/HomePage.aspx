@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-  <title>Account Registration</title>
+  <title>Home Page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -20,7 +20,6 @@
 
      
         <div class="row">
-            <div class="col-md-1"></div>
             <div class="col-md-5">
           
                 <asp:ScriptManager runat="server"></asp:ScriptManager>

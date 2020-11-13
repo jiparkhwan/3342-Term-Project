@@ -15,7 +15,8 @@ namespace _3342_Term_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            form1.Visible = true;
+            pnlFindFriendsName.Visible = true;
             if (Session["MemberAccount"] == null)
             {
                 Server.Transfer("Login.aspx", false);
@@ -36,7 +37,7 @@ namespace _3342_Term_Project
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:35664/api/Service/FindMoviesByName/" + txtMovieName.Text);
+            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByName/" + txtMovieName.Text);
            // +Session["Email"].ToString() + "/" + txtMovieName.Text);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
@@ -60,7 +61,7 @@ namespace _3342_Term_Project
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:35664/api/Service/FindUserByAgeRating/" + ddlRating.SelectedValue);
+            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindUserByAgeRating/" + ddlRating.SelectedValue);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -83,7 +84,7 @@ namespace _3342_Term_Project
         {
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:35664/api/Service/FindMoviesByGenre/" + ddlGenre.SelectedValue);
+            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByGenre/" + ddlGenre.SelectedValue);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();

@@ -70,8 +70,10 @@
     <Content Include="AccountRecovery.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MemberProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
+    <Content Include="Settings.aspx" />
     <Content Include="Styles.css" />
     <Content Include="UserControls\Navbar.ascx" />
     <Content Include="Web.config" />
@@ -98,6 +100,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MemberProfile.aspx.cs">
+      <DependentUpon>MemberProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberProfile.aspx.designer.cs">
+      <DependentUpon>MemberProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Actors.cs" />
     <Compile Include="Models\Members.cs" />
     <Compile Include="Models\Movies.cs" />
@@ -119,6 +128,13 @@
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>

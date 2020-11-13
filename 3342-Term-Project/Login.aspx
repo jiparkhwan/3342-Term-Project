@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="_3342_Term_Project.Login" %>
+<%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
 
 <!DOCTYPE html>
 
@@ -13,6 +14,8 @@
   
 </head>
 <body>
+              <Navigation:HomeNav ID="HomeNav" runat="server" />
+
     <div class="login-card">
         <h3>Member Account Login</h3>
         <br />

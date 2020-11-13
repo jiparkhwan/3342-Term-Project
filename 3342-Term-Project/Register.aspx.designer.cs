@@ -13,22 +13,22 @@ namespace _3342_Term_Project {
     public partial class Register {
         
         /// <summary>
-        /// addCustomer control.
+        /// addmember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm addCustomer;
+        protected global::System.Web.UI.HtmlControls.HtmlForm addmember;
         
         /// <summary>
-        /// Error control.
+        /// HomeNav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Error;
+        protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
         /// lbLogin control.
@@ -344,5 +344,14 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Submit;
+        
+        /// <summary>
+        /// Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Error;
     }
 }

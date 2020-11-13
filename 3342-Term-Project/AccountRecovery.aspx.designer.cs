@@ -31,13 +31,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.LinkButton lbLogin;
         
         /// <summary>
-        /// btnCustomer control.
+        /// btnMember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCustomer;
+        protected global::System.Web.UI.WebControls.Button btnMember;
         
         /// <summary>
         /// btnBack control.
@@ -49,31 +49,31 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// customer control.
+        /// member control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl customer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl member;
         
         /// <summary>
-        /// custForgotDL control.
+        /// memberForgotDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList custForgotDL;
+        protected global::System.Web.UI.WebControls.DropDownList memberForgotDL;
         
         /// <summary>
-        /// custEmailForgot control.
+        /// memberEmailForgot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl custEmailForgot;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl memberEmailForgot;
         
         /// <summary>
         /// FnameTxt control.
@@ -85,13 +85,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox FnameTxt;
         
         /// <summary>
-        /// custFnameValidator control.
+        /// memberFnameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator custFnameValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberFnameValidator;
         
         /// <summary>
         /// LnameTxt control.
@@ -103,13 +103,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox LnameTxt;
         
         /// <summary>
-        /// custLnameValidator control.
+        /// memberLnameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator custLnameValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator memberLnameValidator;
         
         /// <summary>
         /// dobTxt control.
@@ -139,13 +139,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Button emailForgotSubmitBtn;
         
         /// <summary>
-        /// custPwdForgot control.
+        /// memberPwdForgot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl custPwdForgot;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl memberPwdForgot;
         
         /// <summary>
         /// emailTxt control.
@@ -256,13 +256,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ans3Validator;
         
         /// <summary>
-        /// custSubmitBtn control.
+        /// memberSubmitBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button custSubmitBtn;
+        protected global::System.Web.UI.WebControls.Button memberSubmitBtn;
         
         /// <summary>
         /// Output control.

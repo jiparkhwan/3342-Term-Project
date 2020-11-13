@@ -74,16 +74,13 @@
     <Content Include="Images\movie_theatre.jpg" />
     <Content Include="Images\oldTheatre.jpg" />
     <Content Include="Login.aspx" />
-<<<<<<< HEAD
     <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
-=======
     <Content Include="MemberProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="Settings.aspx" />
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
     <Content Include="Styles.css" />
     <Content Include="Title.aspx" />
     <Content Include="UserControls\Navbar.ascx" />
@@ -112,7 +109,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Models\Actors.cs" />
     <Compile Include="Models\Members.cs" />
     <Compile Include="Models\Movies.cs" />
@@ -126,14 +122,13 @@
     </Compile>
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
-=======
+    </Compile>
     <Compile Include="MemberProfile.aspx.cs">
       <DependentUpon>MemberProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MemberProfile.aspx.designer.cs">
       <DependentUpon>MemberProfile.aspx</DependentUpon>
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
@@ -150,21 +145,19 @@
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Title.aspx.cs">
       <DependentUpon>Title.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Title.aspx.designer.cs">
       <DependentUpon>Title.aspx</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
     </Compile>
     <Compile Include="UserControls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>

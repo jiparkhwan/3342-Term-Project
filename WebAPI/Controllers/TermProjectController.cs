@@ -140,6 +140,10 @@ namespace WebAPI.Controllers
 
 
 
+        //BEGIN POSTS
+        /*[HttpPost]
+        [HttpPost("SendValidationEmail/{userEmail}")]*/
+
         //searching movies START
     
     // GET api/Lexpark/FindMoviesByName
@@ -242,7 +246,6 @@ namespace WebAPI.Controllers
 
 
         //BEGIN POST REQUESTS ->
-
 
 
     } //end of class

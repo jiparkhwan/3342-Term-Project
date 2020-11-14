@@ -109,13 +109,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Actors.cs" />
-    <Compile Include="Models\Members.cs" />
-    <Compile Include="Models\Movies.cs" />
-    <Compile Include="Models\Reviews.cs" />
-    <Compile Include="Models\Roles.cs" />
-    <Compile Include="Models\TVShows.cs" />
-    <Compile Include="Models\VideoGames.cs" />
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

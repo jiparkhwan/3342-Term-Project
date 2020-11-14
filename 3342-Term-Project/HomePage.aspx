@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="_3342_Term_Project.HomePage" %>
+﻿  
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="_3342_Term_Project.HomePage" %>
 <%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
 
 <!DOCTYPE html>
@@ -35,15 +36,14 @@
                     </asp:Panel>
 
 
-<<<<<<< HEAD
+
     <!-- REFERENCES END-->
 </head>
 <body>
     
       <form ID="frmHomePage" method="post" runat="server">
-          <Navigation:HomeNav ID="HomeNav" runat="server" />
-=======
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
+          <Navigation:HomeNav ID="HomeNav1" runat="server" />
+
 
                     <asp:Panel ID="pnlFindMovieByAgeRate" runat="server" Visible="false">
                         <asp:Label ID="lblRating" Text="Rating: " runat="server"></asp:Label>
@@ -101,9 +101,7 @@
                 </div>
             </div>
           
-<<<<<<< HEAD
       </form>
-=======
             <div class="col-md-1"></div>
         </div>
 
@@ -188,7 +186,6 @@
 
 
     </form>
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
 </body>
 </html>
 

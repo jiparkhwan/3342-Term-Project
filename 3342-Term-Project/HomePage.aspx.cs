@@ -25,19 +25,16 @@ namespace _3342_Term_Project
             {
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
                 string email = Session["MemberAccount"].ToString();
-    
+
             }
         }
-     
-  
 
-   
         protected void btnFindMovieName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByName/" + txtMovieName.Text);
+            WebRequest request = WebRequest.Create("http://localhost:44301/api/Service/FindMoviesByName/" + txtMovieName.Text);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -75,8 +72,8 @@ namespace _3342_Term_Project
             // Deserialize a JSON string into a Team object.
             JavaScriptSerializer js = new JavaScriptSerializer();
             Movies[] movie = js.Deserialize<Movies[]>(data);
-           // gvResults.DataSource = movie;
-           // gvResults.DataBind();
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
             lblFindFriendsErrorMessage.Text = "";
@@ -98,18 +95,12 @@ namespace _3342_Term_Project
             // Deserialize a JSON string into a Team object.
             JavaScriptSerializer js = new JavaScriptSerializer();
             Movies[] movie = js.Deserialize<Movies[]>(data);
-           // gvResults.DataSource = movie;
-           // gvResults.DataBind();
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
             lblFindFriendsErrorMessage.Text = "";
 
         }
-<<<<<<< HEAD
-       
-=======
-    
->>>>>>> a401eef29d61280e4b3b9201446cc0dd6d941be3
-
     }
 }

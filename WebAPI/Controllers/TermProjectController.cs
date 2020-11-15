@@ -9,26 +9,28 @@ using ClassLibrary;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("WebAPI/[controller]")]
     public class TermProjectController : Controller
     {
-       
 
-        // GET: api/service/GetActors
-        [HttpGet("GetActors")]
+        [HttpGet]
+        [HttpGet("GetActors")] //Route: WebAPI/TermProject/GetActors/
         public List<Actors> GetActors()
         {
+            DataSet myDS = new DataSet();
             StoredProcedures stoPros = new StoredProcedures();
 
-            string query = "SELECT * FROM TP_Actor";
+            //string query = "SELECT * FROM TP_Actor";
+
+            myDS = stoPros.getAllActors();
 
             DBConnect objDB = new DBConnect();
-            DataSet ds = objDB.GetDataSet(query);
+            //DataSet ds = objDB.GetDataSet(query);
 
             Actors actor = new Actors();
             List<Actors> dpts = new List<Actors>();
 
-            foreach (DataRow dr in ds.Tables[0].Rows)
+            foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 actor = new Actors();
                 actor.ActorID = int.Parse(dr["Actor_ID"].ToString());
@@ -41,7 +43,7 @@ namespace WebAPI.Controllers
                 actor.Height = dr["Actor_Height"].ToString();
                 actor.Image = dr["Actor_Image"].ToString();
                 actor.Description = dr["Actor_Description"].ToString();
-                
+
 
                 dpts.Add(actor);
             }

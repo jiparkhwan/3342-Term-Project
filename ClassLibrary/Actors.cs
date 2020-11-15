@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-
-
     public class Actors
     {
-        private String FName;
-        private String LName;
+        private String name;
         private String description;
         private String height;
         private String DOB;
@@ -20,15 +17,15 @@ namespace ClassLibrary
         private String birthCountry;
         private int actorID;
         private String image;
+
         public Actors()
         {
 
         }
 
-        public Actors(string fName, string lName, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
+        public Actors(string name, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
         {
-            FName = fName;
-            LName = lName;
+            this.name = name;
             this.description = description;
             this.height = height;
             DOB = dOB;
@@ -39,8 +36,7 @@ namespace ClassLibrary
             this.image = image;
         }
 
-        public string FName1 { get => FName; set => FName = value; }
-        public string LName1 { get => LName; set => LName = value; }
+        public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
         public string Height { get => height; set => height = value; }
         public string DOB1 { get => DOB; set => DOB = value; }

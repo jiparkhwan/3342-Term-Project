@@ -146,6 +146,8 @@ namespace WebAPI.Controllers
     [HttpGet("FindMoviesByName/{movieName}")]
         public List<Movies> FindMoviesByName(string movieName)
         {
+
+           // serviceHomepage .getbtnfindmoviename()
             DBConnect objDB = new DBConnect();
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;

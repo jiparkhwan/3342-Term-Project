@@ -13,48 +13,31 @@ namespace _3342_Term_Project {
     public partial class HomePage {
         
         /// <summary>
-<<<<<<< HEAD
         /// frmHomePage control.
-=======
-        /// form1 control.
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.HtmlControls.HtmlForm frmHomePage;
-=======
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
         
         /// <summary>
-        /// HomeNav control.
+        /// pnlFindMoviesName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
+        protected global::System.Web.UI.WebControls.Panel pnlFindMoviesName;
         
         /// <summary>
-        /// pnlFindFriendsName control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFindFriendsName;
-        
-        /// <summary>
-        /// lblMovieName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMovieName;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
         /// txtMovieName control.
@@ -73,6 +56,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFindMovieName;
+        
+        /// <summary>
+        /// HomeNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
         /// pnlFindMovieByAgeRate control.

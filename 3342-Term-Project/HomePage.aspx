@@ -12,38 +12,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="styles/findFriendsStyleSheet.css" rel="stylesheet" />
+    <link href="Styles.css" rel="stylesheet" />
+
 </head>
+
+
+
 <body>
-    <form id="form1" runat="server">
-                  <Navigation:HomeNav ID="HomeNav" runat="server" />
-
-     
-        <div class="row">
-            <div class="col-md-5">
-          
-                <asp:ScriptManager runat="server"></asp:ScriptManager>
-                <div id="findFriendDiv">
-                  
-
-
-                    <asp:Panel ID="pnlFindFriendsName" runat="server" Visible="false">
-                        <asp:Label ID="lblMovieName" Text="Movie Name: " runat="server"></asp:Label>
+      
+      <form id="frmHomePage" method="post" runat="server">
+            <asp:Panel ID="pnlFindMoviesName" runat="server" Visible="false">
+                        <asp:Label ID="Label6" Text="Movie Name: " runat="server"></asp:Label>
                         <asp:TextBox ID="txtMovieName" runat="server"></asp:TextBox>
                      
-                        <asp:Button ID="btnFindMovieName" Text="Search" runat="server" OnClick="btnFindMovieName_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="btnFindMovieName"  Text="Search" runat="server" OnClick="btnFindMovieName_Click" CssClass="btn btn-primary" />
                     </asp:Panel>
+                  <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-
-<<<<<<< HEAD
-    <!-- REFERENCES END-->
-</head>
-<body>
-    
-      <form ID="frmHomePage" method="post" runat="server">
           <Navigation:HomeNav ID="HomeNav" runat="server" />
-=======
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
+
 
                     <asp:Panel ID="pnlFindMovieByAgeRate" runat="server" Visible="false">
                         <asp:Label ID="lblRating" Text="Rating: " runat="server"></asp:Label>
@@ -101,9 +88,9 @@
                 </div>
             </div>
           
-<<<<<<< HEAD
+
       </form>
-=======
+
             <div class="col-md-1"></div>
         </div>
 
@@ -188,7 +175,6 @@
 
 
     </form>
->>>>>>> 59096bd340bfb274993e4a8f9a51f1d6b8994cde
 </body>
 </html>
 

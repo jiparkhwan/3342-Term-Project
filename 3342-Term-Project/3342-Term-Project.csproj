@@ -74,11 +74,9 @@
     <Content Include="Images\movie_theatre.jpg" />
     <Content Include="Images\oldTheatre.jpg" />
     <Content Include="Login.aspx" />
-
     <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
-
     <Content Include="MemberProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
@@ -111,14 +109,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-
-    <Compile Include="Models\Actors.cs" />
-    <Compile Include="Models\Members.cs" />
-    <Compile Include="Models\Movies.cs" />
-    <Compile Include="Models\Reviews.cs" />
-    <Compile Include="Models\Roles.cs" />
-    <Compile Include="Models\TVShows.cs" />
-    <Compile Include="Models\VideoGames.cs" />
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,7 +116,6 @@
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="MemberProfile.aspx.cs">
       <DependentUpon>MemberProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,7 +138,6 @@
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Title.aspx.cs">
       <DependentUpon>Title.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

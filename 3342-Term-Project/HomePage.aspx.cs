@@ -15,8 +15,8 @@ namespace _3342_Term_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            form1.Visible = true;
-            pnlFindFriendsName.Visible = true;
+            frmHomePage.Visible = true;
+            pnlFindMoviesName.Visible = true;
             if (Session["MemberAccount"] == null)
             {
                 Server.Transfer("Login.aspx", false);
@@ -53,6 +53,7 @@ namespace _3342_Term_Project
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
             lblFindFriendsErrorMessage.Text = "";
+
         }
 
 
@@ -105,11 +106,7 @@ namespace _3342_Term_Project
             lblFindFriendsErrorMessage.Text = "";
 
         }
-<<<<<<< HEAD
-       
-=======
-    
->>>>>>> a401eef29d61280e4b3b9201446cc0dd6d941be3
+
 
     }
 }

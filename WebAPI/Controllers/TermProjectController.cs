@@ -102,15 +102,15 @@ namespace WebAPI.Controllers
             {
                 movies = new Movies();
                 movies.movieID = int.Parse(dr["Movie_ID"].ToString());
-                movies.name = dr["Movie_Name"].ToString();
-                movies.image = dr["Movie_Image"].ToString();
-                movies.year = int.Parse(dr["Movie_Year"].ToString());
-                movies.description = dr["Movie_Description"].ToString();
-                movies.runtime = int.Parse(dr["Movie_RunTime"].ToString());
-                movies.ageRating = dr["Movie_Age_Rating"].ToString();
-                movies.Genre = dr["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(dr["Movie_Budget"].ToString());
-                movies.income = float.Parse(dr["Movie_Income"].ToString());
+                movies.movieName = dr["Movie_Name"].ToString();
+                movies.movieImage = dr["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(dr["Movie_Year"].ToString());
+                movies.movieDescription = dr["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(dr["Movie_RunTime"].ToString());
+                movies.movieAgeRating = dr["Movie_Age_Rating"].ToString();
+                movies.movieGenre = dr["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(dr["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(dr["Movie_Income"].ToString());
 
                 dpts.Add(movies);
             }
@@ -135,15 +135,15 @@ namespace WebAPI.Controllers
             {
                 movies = new Movies();
                 movies.movieID = int.Parse(dr["Movie_ID"].ToString());
-                movies.name = dr["Movie_Name"].ToString();
-                movies.image = dr["Movie_Image"].ToString();
-                movies.year = int.Parse(dr["Movie_Year"].ToString());
-                movies.description = dr["Movie_Description"].ToString();
-                movies.runtime = int.Parse(dr["Movie_RunTime"].ToString());
-                movies.ageRating = dr["Movie_Age_Rating"].ToString();
-                movies.Genre = dr["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(dr["Movie_Budget"].ToString());
-                movies.income = float.Parse(dr["Movie_Income"].ToString());
+                movies.movieName = dr["Movie_Name"].ToString();
+                movies.movieImage = dr["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(dr["Movie_Year"].ToString());
+                movies.movieDescription = dr["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(dr["Movie_RunTime"].ToString());
+                movies.movieAgeRating = dr["Movie_Age_Rating"].ToString();
+                movies.movieGenre = dr["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(dr["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(dr["Movie_Income"].ToString());
 
                 dpts.Add(movies);
             }
@@ -167,15 +167,15 @@ namespace WebAPI.Controllers
             {
                 movies = new Movies();
                 movies.movieID = int.Parse(dr["Movie_ID"].ToString());
-                movies.name = dr["Movie_Name"].ToString();
-                movies.image = dr["Movie_Image"].ToString();
-                movies.year = int.Parse(dr["Movie_Year"].ToString());
-                movies.description = dr["Movie_Description"].ToString();
-                movies.runtime = int.Parse(dr["Movie_RunTime"].ToString());
-                movies.ageRating = dr["Movie_Age_Rating"].ToString();
-                movies.Genre = dr["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(dr["Movie_Budget"].ToString());
-                movies.income = float.Parse(dr["Movie_Income"].ToString());
+                movies.movieName = dr["Movie_Name"].ToString();
+                movies.movieImage = dr["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(dr["Movie_Year"].ToString());
+                movies.movieDescription = dr["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(dr["Movie_RunTime"].ToString());
+                movies.movieAgeRating = dr["Movie_Age_Rating"].ToString();
+                movies.movieGenre = dr["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(dr["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(dr["Movie_Income"].ToString());
                 dpts.Add(movies);
             }
             return dpts;
@@ -395,15 +395,15 @@ namespace WebAPI.Controllers
             {
                 movies = new Movies();
                 movies.movieID = int.Parse(record["Movie_ID"].ToString());
-                movies.name = record["Movie_Name"].ToString();
-                movies.image = record["Movie_Image"].ToString();
-                movies.year = int.Parse(record["Movie_Year"].ToString());
-                movies.description = record["Movie_Description"].ToString();
-                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
-                movies.ageRating = record["Movie_Age_Rating"].ToString();
-                movies.Genre = record["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
-                movies.income = float.Parse(record["Movie_Income"].ToString());
+                movies.movieName = record["Movie_Name"].ToString();
+                movies.movieImage = record["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(record["Movie_Year"].ToString());
+                movies.movieDescription = record["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.movieAgeRating = record["Movie_Age_Rating"].ToString();
+                movies.movieGenre = record["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(record["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(record["Movie_Income"].ToString());
 
                 list.Add(movies);
             }
@@ -426,15 +426,15 @@ namespace WebAPI.Controllers
             {
                 movies = new Movies();
                 movies.movieID = int.Parse(record["Movie_ID"].ToString());
-                movies.name = record["Movie_Name"].ToString();
-                movies.image = record["Movie_Image"].ToString();
-                movies.year = int.Parse(record["Movie_Year"].ToString());
-                movies.description = record["Movie_Description"].ToString();
-                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
-                movies.ageRating = record["Movie_Age_Rating"].ToString();
-                movies.Genre = record["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
-                movies.income = float.Parse(record["Movie_Income"].ToString());
+                movies.movieName = record["Movie_Name"].ToString();
+                movies.movieImage = record["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(record["Movie_Year"].ToString());
+                movies.movieDescription = record["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.movieAgeRating = record["Movie_Age_Rating"].ToString();
+                movies.movieGenre = record["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(record["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(record["Movie_Income"].ToString());
 
                 list.Add(movies);
             }
@@ -456,18 +456,17 @@ namespace WebAPI.Controllers
             foreach (DataRow record in ds.Tables[0].Rows)
             {
                 movies = new Movies();
-                movies.name = record["Movie_Name"].ToString();
-
                 movies.movieID = int.Parse(record["Movie_ID"].ToString());
-                movies.name = record["Movie_Name"].ToString();
-                movies.image = record["Movie_Image"].ToString();
-                movies.year = int.Parse(record["Movie_Year"].ToString());
-                movies.description = record["Movie_Description"].ToString();
-                movies.runtime = int.Parse(record["Movie_RunTime"].ToString());
-                movies.ageRating = record["Movie_Age_Rating"].ToString();
-                movies.Genre = record["Movie_Genre"].ToString();
-                movies.Budget = float.Parse(record["Movie_Budget"].ToString());
-                movies.income = float.Parse(record["Movie_Income"].ToString());
+                movies.movieName = record["Movie_Name"].ToString();
+                movies.movieImage = record["Movie_Image"].ToString();
+                movies.movieYear = int.Parse(record["Movie_Year"].ToString());
+                movies.movieDescription = record["Movie_Description"].ToString();
+                movies.movieRuntime = int.Parse(record["Movie_RunTime"].ToString());
+                movies.movieAgeRating = record["Movie_Age_Rating"].ToString();
+                movies.movieGenre = record["Movie_Genre"].ToString();
+                movies.movieBudget = float.Parse(record["Movie_Budget"].ToString());
+                movies.movieIncome = float.Parse(record["Movie_Income"].ToString());
+
 
                 list.Add(movies);
             }

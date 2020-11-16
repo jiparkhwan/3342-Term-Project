@@ -16,11 +16,10 @@
 
 </head>
 
-
-
 <body>
-      
       <form id="frmHomePage" method="post" runat="server">
+        <Navigation:HomeNav ID="HomeNav1" runat="server" />
+          <div class="homeMainContent">
             <asp:Panel ID="pnlFindMoviesName" runat="server" Visible="false">
                         <asp:Label ID="Label6" Text="Movie Name: " runat="server"></asp:Label>
                         <asp:TextBox ID="txtMovieName" runat="server"></asp:TextBox>
@@ -28,9 +27,6 @@
                         <asp:Button ID="btnFindMovieName"  Text="Search" runat="server" OnClick="btnFindMovieName_Click" CssClass="btn btn-primary" />
                     </asp:Panel>
                   <asp:ScriptManager runat="server"></asp:ScriptManager>
-
-          <Navigation:HomeNav ID="HomeNav" runat="server" />
-
 
                     <asp:Panel ID="pnlFindMovieByAgeRate" runat="server" Visible="false">
                         <asp:Label ID="lblRating" Text="Rating: " runat="server"></asp:Label>
@@ -94,7 +90,7 @@
             <div class="col-md-1"></div>
         </div>
 
-        <asp:Repeater ID="repeaterResults" runat="server">
+        <asp:Repeater ID="repeaterResults" runat="server" OnItemCommand="repeaterResults_ItemCommand">
             <HeaderTemplate>
                 <table style="border: 1px solid #0000FF; width: 500px" cellpadding="0">
                     <tr style="background-color: navy; color: white; font-size: large; font-weight: bold;">
@@ -108,12 +104,12 @@
                     <td>
                         <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; width: 500px">
                          <td >
-                       <asp:Image ID="Image1" height="120" width="100" runat="server" ImageUrl='<%# Eval("Movie_Image") %>' />
+                       <asp:Image ID="Image1" height="120" width="100" runat="server" ImageUrl='<%# Eval("movieImage") %>' />
                          </td>
                             <tr>
                                 <td>Name:  
-    <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("Movie_Name") %>' Font-Bold="true" />
-    <asp:Label ID="Label5" runat="server" Text='<%#Eval("Movie_ID") %>' Font-Bold="true" />
+                                <asp:Label ID="lblSubject" runat="server" Text='<%#Eval("movieName") %>' Font-Bold="true" />
+                                <!--<asp:Label ID="Label5" runat="server" Text='<%#Eval("movieID") %>' Font-Bold="true" />-->
 
                                 </td>
                             </tr>
@@ -122,7 +118,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Description:<asp:Label ID="lblComment" runat="server" Text='<%#Eval("Movie_Description") %>' />
+                        Description:<asp:Label ID="lblComment" runat="server" Text='<%#Eval("movieDescription") %>' />
                     </td>
                 </tr>
                 <tr>
@@ -130,8 +126,8 @@
                         <table style="background-color: #EBEFF0; border-top: 1px dotted #df5015; border-bottom: 1px solid #df5015; width: 500px">
                             <tr>
                                 <td>Year:
-                                    <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("Movie_Year") %>' /></td>
-                                <td>Run Time:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("Movie_RunTime") %>' /></td>
+                                    <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text='<%#Eval("movieYear") %>' /></td>
+                                <td>Run Time:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text='<%#Eval("movieRuntime") %>' /></td>
                             </tr>
                         </table>
                     </td>
@@ -141,23 +137,23 @@
                         <table>
                             <tr>
                                 <td>Rating: 
-                                    <asp:Label ID="Label1" runat="server" Font-Bold="true" Text='<%#Eval("Movie_Age_Rating") %>' /></td>
+                                    <asp:Label ID="Label1" runat="server" Font-Bold="true" Text='<%#Eval("movieAgeRating") %>' /></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
                    
-                    <td>Genre: <asp:Label ID="Label2" runat="server" Font-Bold="true" Text='<%#Eval("Movie_Genre") %>' /></td>
+                    <td>Genre: <asp:Label ID="Label2" runat="server" Font-Bold="true" Text='<%#Eval("movieGenre") %>' /></td>
 
                     <td colspan="2"></td>
                 </tr>
                 <tr>
-                  <td>Budget: <asp:Label ID="Label3" runat="server" Font-Bold="true" Text='<%#Eval("Movie_Budget") %>' /></td>
+                  <td>Budget: <asp:Label ID="Label3" runat="server" Font-Bold="true" Text='<%#Eval("movieBudget") %>' /></td>
 
                 </tr>
                 <tr>
-                  <td>Box Office: <asp:Label ID="Label4" runat="server" Font-Bold="true" Text='<%#Eval("Movie_Income") %>' /></td>
+                  <td>Box Office: <asp:Label ID="Label4" runat="server" Font-Bold="true" Text='<%#Eval("movieIncome") %>' /></td>
 
                 </tr>
             </ItemTemplate>
@@ -173,7 +169,7 @@
 
 
 
-
+        </div>
     </form>
 </body>
 </html>

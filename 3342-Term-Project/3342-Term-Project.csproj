@@ -78,8 +78,6 @@
     <Content Include="Register.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="MemberProfile.aspx" />
-    <Content Include="Register.aspx" />
-    <Content Include="SearchResults.aspx" />
     <Content Include="Settings.aspx" />
     <Content Include="Styles.css" />
     <Content Include="Title.aspx" />

@@ -99,22 +99,7 @@ namespace _3342_Term_Project
                     sqlComm.Parameters.Add(cust);
 
                     
-                   /*
-                    if (cboxSameAddress.Checked) //same as billing address
-                    {
-                        cust = new SqlParameter("@shippingAddress", txtBillingAddress.Text.Trim());
-                        cust.Direction = ParameterDirection.Input;
-                        cust.SqlDbType = SqlDbType.VarChar;
-                        sqlComm.Parameters.Add(cust);
-                    }
-                    else    //shipping address different than billing address
-                    {
-                        cust = new SqlParameter("@shippingAddress", txtShippingAddress.Text.Trim());
-                        cust.Direction = ParameterDirection.Input;
-                        cust.SqlDbType = SqlDbType.VarChar;
-                        sqlComm.Parameters.Add(cust);
-                    }
-                    */
+             
 
                     int result = objDB.DoUpdateUsingCmdObj(sqlComm);
 

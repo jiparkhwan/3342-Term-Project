@@ -9,6 +9,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+
 	<style>
 		.jumbotron.jumbotron-fluid {
 			margin-bottom: 0;
@@ -29,6 +33,49 @@
             font-weight: bold;
         }
 	</style>
+
+    <script type="text/javascript">
+        var xmlhttp;
+        try {
+            xmlhttp = new XMLHttpRequest();
+        }
+
+        catch (try_older_microsoft) {
+
+            try {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+            }
+
+            catch (other) {
+
+                xmlhttp = false;
+
+                alert("Your browser doesn't support AJAX!");
+            }
+        }
+
+        function getInfo() {
+
+            var userName = document.getElementById("txtName").value;
+            var age = document.getElementById("txtAge").value;
+            var major = document.getElementById("txtMajor").value;
+            var params = "name=" + userName + "&age=" + age + "&major=" + major;
+
+            xmlhttp.open("GET", "MemberProfile.aspx?" + params, true);
+
+            xmlhttp.onreadystatechange = onComplete;
+
+            xmlhttp.send();
+
+        }
+        function onComplete() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                document.getElementById("content_area").innerHTML = xmlhttp.responseText;
+            }
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -35,7 +35,7 @@
              <asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
              <br />
              <br />
-                        <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="~/Register.aspx" CausesValidation="false">Register New Account</asp:LinkButton>
+                        <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="/Register.aspx" CausesValidation="false">Register New Account</asp:LinkButton>
             <br />
             <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
 			<br />

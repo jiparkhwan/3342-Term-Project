@@ -52,7 +52,7 @@ namespace _3342_Term_Project
             // gvResults.DataBind();
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
-            lblFindFriendsErrorMessage.Text = "";
+            lblError.Text = "";
 
         }
 
@@ -80,7 +80,7 @@ namespace _3342_Term_Project
            // gvResults.DataBind();
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
-            lblFindFriendsErrorMessage.Text = "";
+            lblError.Text = "";
 
 
         }
@@ -103,7 +103,7 @@ namespace _3342_Term_Project
            // gvResults.DataBind();
             repeaterResults.DataSource = movie;
             repeaterResults.DataBind();
-            lblFindFriendsErrorMessage.Text = "";
+            lblError.Text = "";
 
         }
 

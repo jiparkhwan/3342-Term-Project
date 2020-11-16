@@ -8,16 +8,16 @@ namespace ClassLibrary
 {
     public class Movies
     {
-        public String name { get; set; }
-        public int year { get; set; }
-        public String description { get; set; }
-        public int runtime { get; set; }
-        public String ageRating { get; set; }
-        public String Genre { get; set; }
-        public float Budget { get; set; }
-        public float income { get; set; }
+        public String movieName { get; set; }
+        public int movieYear { get; set; }
+        public String movieDescription { get; set; }
+        public int movieRuntime { get; set; }
+        public String movieAgeRating { get; set; }
+        public String movieGenre { get; set; }
+        public float movieBudget { get; set; }
+        public float movieIncome { get; set; }
         public int movieID { get; set; }
-        public String image { get; set; }
+        public String movieImage { get; set; }
 
         public Movies()
         {
@@ -26,16 +26,16 @@ namespace ClassLibrary
 
         public Movies(string name, int year, string description, int runtime, string ageRating, string genre, float budget, float income, int movieID, string image)
         {
-            this.name = name;
-            this.year = year;
-            this.description = description;
-            this.runtime = runtime;
-            this.ageRating = ageRating;
-            Genre = genre;
-            Budget = budget;
-            this.income = income;
+            this.movieName = name;
+            this.movieYear = year;
+            this.movieDescription = description;
+            this.movieRuntime = runtime;
+            this.movieAgeRating = ageRating;
+            this.movieGenre = genre;
+            this.movieBudget = budget;
+            this.movieIncome = income;
             this.movieID = movieID;
-            this.image = image;
+            this.movieImage = image;
         }
 
    

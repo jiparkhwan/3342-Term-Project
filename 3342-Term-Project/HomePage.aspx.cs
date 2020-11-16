@@ -37,7 +37,7 @@ namespace _3342_Term_Project
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByName/" + txtMovieName.Text);
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtMovieName.Text);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -107,6 +107,9 @@ namespace _3342_Term_Project
 
         }
 
+        protected void repeaterResults_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
 
+        }
     }
 }

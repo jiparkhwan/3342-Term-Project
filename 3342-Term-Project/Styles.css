@@ -44,24 +44,24 @@
     margin-left: auto;
 }
 
-.navbar-nav
-{
-    margin-top: 20px;
-}
-
 .navSearch{
     width: 1400px;
     display: inline-block;
     vertical-align: central;
 }
 
-.navbar-nav
+.nav-link
 {
     margin-top: 0;
+    color: white;
 }
 
-.nav-item
+.navbar-nav
 {
+    margin-left: 86%;
+}
+
+.nav-item {
     padding-top: .75%;
 }
 
@@ -78,8 +78,19 @@
     font-size: 18px;
 }
 
-#ibtnManageAcct
+.mainTitle 
 {
+    padding-top: .25%;
+    background-color: rgba(255,255,255, 0.98);
+    min-height: 800px;
+    width: 70%;
+    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+#ibtnManageAcct {
     margin-top: 5%;
     height: 160px;
     width: 240px;
@@ -124,4 +135,48 @@
 
 h6, .h6{
     color: white;
+}
+
+#Title_lblTitleName {
+    font-size: 36px;
+}
+
+#lblTitleName
+{
+    width: 40%;
+    font-size: 1.25em;
+    margin-left: 4.75%;
+    margin-top: 2%;
+}
+
+hr
+{
+    background-color: darkgray;
+    width: 90%;
+}
+
+
+#imgTitleImage
+{
+    margin-left: 4.75%;
+}
+
+.titleInfo{
+    margin-right: 2%;
+    float: right;
+    width: 70%;
+}
+
+
+.topInfo 
+{
+    font-size: 1.25em;
+    margin-top: -4%;
+    margin-right: 7%;
+    float: right;
+}
+
+#lblTitleCast 
+{
+    margin-left: 4.75%;
 }

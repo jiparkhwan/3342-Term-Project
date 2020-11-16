@@ -83,6 +83,7 @@
     <Content Include="Title.aspx" />
     <Content Include="UserControls\Navbar.ascx" />
     <Content Include="UserControls\Footer.ascx" />
+    <Content Include="UserControls\Title.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="UserControls\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Title.ascx.cs">
+      <DependentUpon>Title.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Title.ascx.designer.cs">
+      <DependentUpon>Title.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

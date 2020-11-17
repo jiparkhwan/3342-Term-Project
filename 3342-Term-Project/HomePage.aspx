@@ -41,7 +41,7 @@
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
                 </div>
-
+                <asp:Label ID="ErrorText" Text="" runat="server"></asp:Label>
                     <asp:Panel ID="RepeaterPanel" runat="server" HoroziontalAlign="Center">
                         <Center>
                             <asp:Repeater ID="rptHomeSearchRes" runat="server">
@@ -62,7 +62,7 @@
                                             <td>
                                                 <br />
                                                 <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                                    <asp:Image ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' />
+                                                    <asp:ImageButton ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'/>
 
                                             </td>
                                         </tr>
@@ -90,6 +90,7 @@
             </asp:Panel>
                 </div>
             </div>
+
       </form>
 
 

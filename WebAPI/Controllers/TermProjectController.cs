@@ -122,7 +122,7 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random movie from database and prints all information to browser
-        [HttpPost("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
+        [HttpGet("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
         public List<ClassLibrary.Movies> GetRandomMovie()
         {
             DataSet myDS = new DataSet();

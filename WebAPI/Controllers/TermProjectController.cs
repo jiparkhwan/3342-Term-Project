@@ -374,7 +374,6 @@ namespace WebAPI.Controllers
 
 
 
-        //BEGIN POSTS
         /*[HttpPost]
         [HttpPost("SendValidationEmail/{userEmail}")]*/
 

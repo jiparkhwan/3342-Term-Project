@@ -55,7 +55,7 @@ namespace _3342_Term_Project
                 memberSubmitBtn.Visible = true;
                 emailTxt.ReadOnly = false;
                 securityQs.Visible = false;
-                memberSubmitBtn.Text = "Find Account";
+                memberSubmitBtn.Text = "Recover Email";
 
                 emailTxt.Text = "";
                 q1.Text = "";
@@ -84,7 +84,7 @@ namespace _3342_Term_Project
                     SqlCommand sqlComm = new SqlCommand();
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
-                    sqlComm.CommandText = "TP_RetrieveMemberAcc";
+                    sqlComm.CommandText = "TP_RetrieverMemberAcc";
 
                     SqlParameter account = new SqlParameter("@email", emailTxt.Text);
                     account.Direction = ParameterDirection.Input;
@@ -99,15 +99,15 @@ namespace _3342_Term_Project
                         memberPwdForgot.Visible = true;
                         securityQs.Visible = true;
                         emailTxt.ReadOnly = true;
-                        memberSubmitBtn.Text = "Submit";
+                        memberSubmitBtn.Text = "Recover Password";
 
-                        q1.Text = ds.Tables[0].Rows[0]["Security_Q1"].ToString();
-                        q2.Text = ds.Tables[0].Rows[0]["Security_Q2"].ToString();
-                        q3.Text = ds.Tables[0].Rows[0]["Security_Q3"].ToString();
+                        q1.Text = ds.Tables[0].Rows[0]["Member_SecurityQ1"].ToString();
+                        q2.Text = ds.Tables[0].Rows[0]["Member_SecurityQ2"].ToString();
+                        q3.Text = ds.Tables[0].Rows[0]["Member_SecurityQ3"].ToString();
                     }
                     else
                     {
-                        Output.Text = "No account found";
+                        Output.Text = "No account found with that email.";
                     }
                 }
                 catch (Exception ex)
@@ -123,7 +123,7 @@ namespace _3342_Term_Project
                     SqlCommand sqlComm = new SqlCommand();
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
-                    sqlComm.CommandText = "TP_RetrieveUserAcc";
+                    sqlComm.CommandText = "TP_RetrieverMemberAcc";
 
                     SqlParameter account = new SqlParameter("@email", emailTxt.Text);
                     account.Direction = ParameterDirection.Input;
@@ -134,13 +134,14 @@ namespace _3342_Term_Project
 
                     if (ds.Tables[0].Rows.Count == 1)
                     {
-                        string Answer1 = ds.Tables[0].Rows[0]["Answer1"].ToString().ToLower();
-                        string Answer2 = ds.Tables[0].Rows[0]["Answer2"].ToString().ToLower();
-                        string Answer3 = ds.Tables[0].Rows[0]["Answer3"].ToString().ToLower();
+                       
+                        string Answer1 = ds.Tables[0].Rows[0]["Member_SecurityA1"].ToString().ToLower();
+                        string Answer2 = ds.Tables[0].Rows[0]["Member_SecurityA2"].ToString().ToLower();
+                        string Answer3 = ds.Tables[0].Rows[0]["Member_SecurityA3"].ToString().ToLower();
 
                         if (Answer1 == ans1.Text.Trim().ToLower() && Answer2 == ans2.Text.Trim().ToLower() && Answer3 == ans3.Text.Trim().ToLower())
                         {
-                            Output.Text = "Your password: " + ds.Tables[0].Rows[0]["Password"].ToString();
+                            Output.Text = "Your password is: " + ds.Tables[0].Rows[0]["Member_Password"].ToString();
                         }
                     }
 
@@ -179,7 +180,7 @@ namespace _3342_Term_Project
                 DataSet result = objDB.GetDataSetUsingCmdObj(sqlComm);
                 if (result.Tables[0].Rows.Count == 1) //record found
                 {
-                    Output.Text = "Your email: " + result.Tables[0].Rows[0]["Member_Email"].ToString();
+                    Output.Text = "Your email is: " + result.Tables[0].Rows[0]["Member_Email"].ToString();
 
 
                 }

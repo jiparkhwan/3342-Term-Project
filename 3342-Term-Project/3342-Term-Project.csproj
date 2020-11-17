@@ -76,7 +76,6 @@
     <Content Include="Login.aspx" />
     <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="SearchResults.aspx" />
     <Content Include="MemberProfile.aspx" />
     <Content Include="Settings.aspx" />
     <Content Include="Styles.css" />
@@ -129,13 +128,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SearchResults.aspx.cs">
-      <DependentUpon>SearchResults.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SearchResults.aspx.designer.cs">
-      <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
     <Compile Include="Title.aspx.cs">
       <DependentUpon>Title.aspx</DependentUpon>

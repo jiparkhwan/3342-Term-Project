@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace _3342_Term_Project
 {
     public partial class HomePage : System.Web.UI.Page
@@ -16,7 +17,7 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             frmHomePage.Visible = true;
-            pnlFindMoviesName.Visible = true;
+            pnlSearchMedia.Visible = true;
             if (Session["MemberAccount"] == null)
             {
                 Server.Transfer("Login.aspx", false);
@@ -28,16 +29,13 @@ namespace _3342_Term_Project
     
             }
         }
-     
-  
-
    
-        protected void btnFindMovieName_Click(object sender, EventArgs e)
+        protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtMovieName.Text);
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -50,8 +48,8 @@ namespace _3342_Term_Project
             Movies[] movie = js.Deserialize<Movies[]>(data);
             //gvResults.DataSource = Movie;
             // gvResults.DataBind();
-            repeaterResults.DataSource = movie;
-            repeaterResults.DataBind();
+            rptHomeSearchRes.DataSource = movie;
+            rptHomeSearchRes.DataBind();
             lblError.Text = "";
 
         }
@@ -65,7 +63,7 @@ namespace _3342_Term_Project
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindUserByAgeRating/" + ddlRating.SelectedValue);
+            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindUserByAgeRating/"/* + ddlRating.SelectedValue*/);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -76,10 +74,10 @@ namespace _3342_Term_Project
             // Deserialize a JSON string into a Team object.
             JavaScriptSerializer js = new JavaScriptSerializer();
             Movies[] movie = js.Deserialize<Movies[]>(data);
-           // gvResults.DataSource = movie;
-           // gvResults.DataBind();
-            repeaterResults.DataSource = movie;
-            repeaterResults.DataBind();
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
+            rptHomeSearchRes.DataSource = movie;
+            rptHomeSearchRes.DataBind();
             lblError.Text = "";
 
 
@@ -88,7 +86,7 @@ namespace _3342_Term_Project
         {
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByGenre/" + ddlGenre.SelectedValue);
+            WebRequest request = WebRequest.Create("http://localhost:55733/api/Service/FindMoviesByGenre/"/* + ddlGenre.SelectedValue*/);
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -99,10 +97,10 @@ namespace _3342_Term_Project
             // Deserialize a JSON string into a Team object.
             JavaScriptSerializer js = new JavaScriptSerializer();
             Movies[] movie = js.Deserialize<Movies[]>(data);
-           // gvResults.DataSource = movie;
-           // gvResults.DataBind();
-            repeaterResults.DataSource = movie;
-            repeaterResults.DataBind();
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
+            rptHomeSearchRes.DataSource = movie;
+            rptHomeSearchRes.DataBind();
             lblError.Text = "";
 
         }
@@ -110,6 +108,40 @@ namespace _3342_Term_Project
         protected void repeaterResults_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
+        }
+
+        protected void btnRandMovie_Click(object sender, EventArgs e)
+        {
+            //VALIDATE THE API REQUEST!!!//
+            Movies movie = new Movies();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String randMovie = js.Serialize(movie);
+            // Create an HTTP Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
+            request.Method = "POST";
+            request.ContentLength = randMovie.Length;
+            request.ContentType = "application/json";
+
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(randMovie);
+            writer.Flush();
+            writer.Close();
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            //JavaScriptSerializer js = new JavaScriptSerializer();
+            //Movies[] movie = js.Deserialize<Movies[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptHomeSearchRes.DataSource = movie;
+            rptHomeSearchRes.DataBind();
+            lblError.Text = "";
         }
     }
 }

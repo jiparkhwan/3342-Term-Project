@@ -19,19 +19,81 @@
 
 
 <body>
-      <div class="section-hero">
-      <form id="frmHomePage" method="post" runat="server">
-             <Navigation:HomeNav ID="HomeNav" runat="server" />
-            <asp:Panel ID="pnlFindMoviesName" runat="server" Visible="false">
-                        <asp:Label ID="Label6" Text="Movie Name: " runat="server"></asp:Label>
-                        <asp:TextBox ID="txtMovieName" runat="server"></asp:TextBox>
-                     
-                        <asp:Button ID="btnFindMovieName"  Text="Search" runat="server" OnClick="btnFindMovieName_Click" CssClass="btn btn-primary" />
+    <form id="frmHomePage" method="post" runat="server">
+        <Navigation:HomeNav ID="HomeNav" runat="server" />
+            <div class="mainHome">
+                <div class="section-hero">
+
+                    <!--Panel that allows user to search for items via the textbox-->
+                    <br />
+                    <asp:Panel ID="pnlSearchMedia" runat="server" Visible="false">
+                        <asp:DropDownList ID="ddlSelectMedia" runat="server">
+                            <asp:ListItem Value="movies">Movies</asp:ListItem>
+                            <asp:ListItem Value="shows">TV Shows</asp:ListItem>
+                            <asp:ListItem Value="videoGames">Video Games</asp:ListItem>
+                            <asp:ListItem Value="actors">Actors</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:TextBox ID="txtFindByName" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnFindByName"  Text="Search" runat="server" OnClick="btnFindByName_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="btnRandMovie" runat="server" Text="Random Movie" OnClick="btnRandMovie_Click" />
+                        <asp:Label ID="lblError" runat="server"></asp:Label>
                     </asp:Panel>
-                  <asp:ScriptManager runat="server"></asp:ScriptManager>
+                    <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-       
+                </div>
 
+                    <asp:Panel ID="RepeaterPanel" runat="server" HoroziontalAlign="Center">
+                        <Center>
+                            <asp:Repeater ID="rptHomeSearchRes" runat="server">
+                                <HeaderTemplate>
+                                    <table style="width: 400px; height:40px;">
+                                        <tr style=" font-size: large; font-weight: bold;">
+                                            <td style="text-align:center;">
+                                                <h2>Results</h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+
+                                <ItemTemplate>     
+                                    <table style="width: 200px; height:200px;">
+                                        <tr>
+                                        <tr style="background-color: #e6e6e6">
+                                            <td>
+                                                <br />
+                                                <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                                    <asp:Image ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' />
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <td>
+                                        <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                            <tr>
+                                                <h1><asp:Label ID="lblName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                                <br />
+                                            </tr>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                                    <asp:Label ID="lblUser" runat="server" Text='<%#Eval("movieYear") %>' />
+                                                </td>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("movieAgeRating") %>' />
+                                                </td>
+                                            </tr>                                 
+                                        </table>
+                                    </td>
+                                    <br />        
+                                </ItemTemplate>
+                                
+        </asp:Repeater>
+                                </Center>
+            </asp:Panel>
+                </div>
+            </div>
+      </form>
+
+
+<%--
 
                     <asp:Panel ID="pnlFindMovieByAgeRate" runat="server" Visible="false">
                         <asp:Label ID="lblRating" Text="Rating: " runat="server"></asp:Label>
@@ -44,10 +106,6 @@
                         </asp:DropDownList>
                         <asp:Button ID="btnFindMoviesRating" Text="Search" runat="server" OnClick="btnFindMoviesRating_Click" CssClass="btn btn-primary" />
                     </asp:Panel>
-
-
-
-
 
                     <asp:Panel ID="pnlFindMoviesByGenre" runat="server" Visible="false">
                      <asp:Label ID="lblGenere" Text="Genre: " runat="server"></asp:Label>
@@ -62,122 +120,19 @@
 
                              <asp:ListItem Value="Biography">Biography</asp:ListItem>
                              
-                           
                         </asp:DropDownList>
                         <asp:Button ID="btnFindMoviesGenre" Text="Search" runat="server" OnClick="btnFindMoviesGenre_Click" CssClass="btn btn-primary" />
                     </asp:Panel>
 
 
-
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
-                 
-              
-          
-
-     
+                    
           </div>
          
  
-    <div class="repeater-container">
-        <asp:Panel ID="RepeaterPanel" runat="server" Width="1200px" HoroziontalAlign="Center">
-        <asp:Repeater ID="repeaterResults" runat="server">
-            <HeaderTemplate>
-                <table style="width: 200px; height:200px;">
-                    <tr style=" color: white; font-size: large; font-weight: bold;">
-                        <td style="text-align:center;">
-                            <h2>Results</h2>
-                        </td>
-                    </tr>
-            </HeaderTemplate>
+    
+       
 
-            <ItemTemplate>
-                <tr style="background-color: #EBEFF0">
-                    <td>
-                        <table style="background-color: #EBEFF0;  width: 400px; height:200px; text-align:center;">
-                            <td>
-                                <asp:Image ID="Image1" Height="220" Width="170" runat="server" ImageUrl='<%# Eval("Movie_Image") %>' />
-                            </td>
-                            <tr>
-                                <td><strong></strong>
-                                      <h3><asp:Label ID="lblName" runat="server" fontBold ="true" Text='<%#Eval("Movie_Name") %>'/></h3>
-                                    
-
-                                </td>
-                                
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr style="background-color: #EBEFF0; text-align:center;">
-                    <td><strong>Description:</strong> <br /><asp:Label ID="lblDescription" runat="server" Text='<%#Eval("Movie_Description") %>' />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table style="background-color: #EBEFF0; width: 400px; text-align:center;">
-                            <tr>
-                                <td><strong>Year:</strong> 
-                                    <asp:Label ID="lblUser" runat="server" Text='<%#Eval("Movie_Year") %>' />
-
-                                </td>
-                                <td style=" width: 50%">
-                                    <strong>Runtime:</strong>
-                                  <asp:Label ID="lblDate" runat="server"  Text='<%#Eval("Movie_RunTime") %>' />
-
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr >
-                    <td>
-                        <table  style="background-color: #EBEFF0;  width: 400px ; text-align:center;">
-                            <tr >
-                                <td><strong>Rating:</strong>
-                                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("Movie_Age_Rating") %>' />
-
-                                </td>
-                                <td style=" width: 50%"><strong>Genre:</strong>
-                        <asp:Label ID="Label2" runat="server" Text='<%#Eval("Movie_Genre") %>' />
-
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-               <tr >
-                    <td>
-                        <table  style="background-color: #EBEFF0; width: 400px; margin-bottom: 40px; ; text-align:center;">
-                            <tr >
-                                <td><strong>Budget:</strong>
-                                    <asp:Label ID="Label5" runat="server"  Text='<%#Eval("Movie_Budget") %>' />
-
-                                </td>
-                                <td style=" width: 50%"><strong>Box Office:</strong>
-                        <asp:Label ID="Label7" runat="server" Text='<%#Eval("Movie_Income") %>' />
-
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-           
-            </ItemTemplate>
-            <FooterTemplate>
-            
-                </table>  
-            </FooterTemplate>
-        </asp:Repeater>
-            </asp:Panel>
-
-         </form>
-    </div>
-
-          
-
- 
-
-
+         --%>
     <style>
         .repeater-container {
                  max-width: 1200px;

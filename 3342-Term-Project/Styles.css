@@ -90,6 +90,17 @@
     font-size: 18px;
 }
 
+.mainHome {
+    padding-top: .25%;
+    background-color: rgba(255,255,255, 0.98);
+    min-height: 800px;
+    width: 70%;
+    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    margin-top: 0;
+    font-size: 18px;
+}
+
 #ibtnManageAcct {
     margin-top: 5%;
     height: 160px;
@@ -179,4 +190,23 @@ hr
 #lblTitleCast 
 {
     margin-left: 4.75%;
+}
+
+#RepeaterPanel {
+    align-content: center;
+    background-color: white;
+    margin: auto;
+    margin-top: 0;
+}
+
+td {
+    margin: auto;
+    margin-top: 0;
+    text-align: center;
+    align-content: center;
+}
+
+#imgResultImage
+{
+    border: solid;
 }

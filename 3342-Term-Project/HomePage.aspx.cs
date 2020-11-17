@@ -32,6 +32,9 @@ namespace _3342_Term_Project
    
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
+            pnlEditorsPicks.Visible = false;
+            RepeaterPanel.Visible = true;
+
             //VALIDATE THE API REQUEST!!!//
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
@@ -113,20 +116,9 @@ namespace _3342_Term_Project
         protected void btnRandMovie_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
-            Movies movie = new Movies();
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            String randMovie = js.Serialize(movie);
+ 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
-            request.Method = "POST";
-            request.ContentLength = randMovie.Length;
-            request.ContentType = "application/json";
-
-            StreamWriter writer = new StreamWriter(request.GetRequestStream());
-            writer.Write(randMovie);
-            writer.Flush();
-            writer.Close();
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -135,8 +127,8 @@ namespace _3342_Term_Project
             reader.Close();
             response.Close();
             // Deserialize a JSON string into a Team object.
-            //JavaScriptSerializer js = new JavaScriptSerializer();
-            //Movies[] movie = js.Deserialize<Movies[]>(data);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Movies[] movie = js.Deserialize<Movies[]>(data);
             //gvResults.DataSource = Movie;
             // gvResults.DataBind();
             rptHomeSearchRes.DataSource = movie;

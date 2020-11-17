@@ -14,6 +14,18 @@ namespace _3342_Term_Project
         {
             //This gets the name of the title that was just selected and Sets it to be the page title in the tab
             Page.Title = String.Format("Title Name");
+    
+
+
+            imgTitleImage.ImageUrl = Session["MovieImage"].ToString();
+            lblTitleDescription.Text = Session["MovieDescription"].ToString();
+            lblTitleRunTime.Text = Session["MovieRunTime"].ToString();
+            lblTitleGenre.Text = Session["MovieGenre"].ToString();
+            lblTitleBudget.Text = Session["MovieBudget"].ToString();
+            lblTitleIncome.Text = Session["MovieIncome"].ToString();
+            lblTitleName.Text = Session["MovieName"].ToString();
+            lblTitleYear.Text = Session["MovieYear"].ToString();
+            lblTitleAgeRating.Text = Session["MovieAgeRating"].ToString();
         }
     }
 }

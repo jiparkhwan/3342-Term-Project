@@ -7,6 +7,10 @@ using Utilities;
 using System.Data.SqlClient;
 using ClassLibrary;
 
+using WebAPI.Models;
+using Movies = WebAPI.Models.Movies;
+using Actors = WebAPI.Models.Actors;
+
 namespace WebAPI.Controllers
 {
     [Route("WebAPI/[controller]")]
@@ -118,8 +122,8 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random movie from database and prints all information to browser
-        [HttpGet("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
-        public List<Movies> GetRandomMovie()
+        [HttpPost("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
+        public List<ClassLibrary.Movies> GetRandomMovie()
         {
             DataSet myDS = new DataSet();
             StoredProcedures stoPros = new StoredProcedures();
@@ -128,12 +132,12 @@ namespace WebAPI.Controllers
 
             DBConnect objDB = new DBConnect();
 
-            Movies movies = new Movies();
-            List<Movies> dpts = new List<Movies>();
+            ClassLibrary.Movies movies = new ClassLibrary.Movies();
+            List<ClassLibrary.Movies> dpts = new List<ClassLibrary.Movies>();
 
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
-                movies = new Movies();
+                movies = new ClassLibrary.Movies();
                 movies.movieID = int.Parse(dr["Movie_ID"].ToString());
                 movies.movieName = dr["Movie_Name"].ToString();
                 movies.movieImage = dr["Movie_Image"].ToString();

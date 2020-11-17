@@ -31,112 +31,49 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
-        /// pnlFindMoviesName control.
+        /// pnlSearchMedia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFindMoviesName;
+        protected global::System.Web.UI.WebControls.Panel pnlSearchMedia;
         
         /// <summary>
-        /// Label6 control.
+        /// ddlSelectMedia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSelectMedia;
         
         /// <summary>
-        /// txtMovieName control.
+        /// txtFindByName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMovieName;
+        protected global::System.Web.UI.WebControls.TextBox txtFindByName;
         
         /// <summary>
-        /// btnFindMovieName control.
+        /// btnFindByName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMovieName;
+        protected global::System.Web.UI.WebControls.Button btnFindByName;
         
         /// <summary>
-        /// pnlFindMovieByAgeRate control.
+        /// btnRandMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFindMovieByAgeRate;
-        
-        /// <summary>
-        /// lblRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRating;
-        
-        /// <summary>
-        /// ddlRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRating;
-        
-        /// <summary>
-        /// btnFindMoviesRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMoviesRating;
-        
-        /// <summary>
-        /// pnlFindMoviesByGenre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFindMoviesByGenre;
-        
-        /// <summary>
-        /// lblGenere control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGenere;
-        
-        /// <summary>
-        /// ddlGenre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGenre;
-        
-        /// <summary>
-        /// btnFindMoviesGenre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMoviesGenre;
+        protected global::System.Web.UI.WebControls.Button btnRandMovie;
         
         /// <summary>
         /// lblError control.
@@ -157,12 +94,12 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel RepeaterPanel;
         
         /// <summary>
-        /// repeaterResults control.
+        /// rptHomeSearchRes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterResults;
+        protected global::System.Web.UI.WebControls.Repeater rptHomeSearchRes;
     }
 }

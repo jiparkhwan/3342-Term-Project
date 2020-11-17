@@ -1,17 +1,23 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="_3342_Term_Project.HomePage" %>
 <%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagName="HomeFooter" TagPrefix="Footer" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
   <title>Home Page</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
     <link href="Styles.css" rel="stylesheet" />
 
 </head>
@@ -41,18 +47,61 @@
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
                 </div>
-                <asp:Label ID="ErrorText" Text="" runat="server"></asp:Label>
-                    <asp:Panel ID="RepeaterPanel" runat="server" HoroziontalAlign="Center">
+
+                <asp:Panel ID="pnlHome" runat="server">
+                    <Center></Center>
+                    <br />
+                    <br />
+                        <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#CCCCCC" Height="480px" Width="90%" HorizontalAlign="Left">
+                            <h2><asp:Label ID="lblEditorsPicksLabel" runat="server" Text="Editors Picks:"></asp:Label></h2>
+                            <br />
+                            <div class="card card1" style="width: 197px; height: 350px;">
+                                <img class="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" />
+                                <div class="card-body">
+                                <h5 class="card-title">Iron Man</h5>
+                                </div>
+                            </div>
+
+                            <div class="card card2" style="width: 200px; height: 350px;">
+                                <img class="card-img-top card-img-top1" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" />
+                                <div class="card-body">
+                                <h5 class="card-title">The Simpsons</h5>
+                                </div>
+                            </div>
+
+                            <div class="card card3" style="width: 200px; height: 350px;">
+                                <img class="card-img-top card-img-top1" src="https://media.gamestop.com/i/gamestop/10097815/The-Elder-Scrolls-V-Skyrim?$pdp$&bg=rgb(0,0,0)" alt="Skyrim" />
+                                <div class="card-body">
+                                <h5 class="card-title">Skyrim</h5>
+                                </div>
+                            </div>                        
+
+                            <div class="card card4" style="width: 200px; height: 350px;">
+                                <img class="card-img-top card-img-top1" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" />
+                                <div class="card-body">
+                                <h5 class="card-title">The Good Place</h5>
+                                </div>
+                            </div> 
+
+                        </asp:Panel>
+
+                    </Center>
+                </asp:Panel>
+
+                    <asp:Panel ID="RepeaterPanel" runat="server" HoroziontalAlign="Center" Visible="False">
                         <Center>
                             <asp:Repeater ID="rptHomeSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px;">
                                         <tr style=" font-size: large; font-weight: bold;">
                                             <td style="text-align:center;">
+                                                <br />
                                                 <h2>Results</h2>
                                             </td>
+                                            
                                         </tr>
                                     </table>
+                                    <hr />
                                 </HeaderTemplate>
 
                                 <ItemTemplate>     
@@ -62,7 +111,7 @@
                                             <td>
                                                 <br />
                                                 <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                                    <asp:ImageButton ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'/>
+                                                    <asp:Image ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' />
 
                                             </td>
                                         </tr>
@@ -82,16 +131,14 @@
                                             </tr>                                 
                                         </table>
                                     </td>
+                                    
                                     <br />        
-                                </ItemTemplate>
-                                
-        </asp:Repeater>
-                                </Center>
-            </asp:Panel>
+                                </ItemTemplate>                       
+                            </asp:Repeater>
+                        </Center>
+                    </asp:Panel>
                 </div>
-            </div>
-
-      </form>
+            </form>
 
 
 <%--

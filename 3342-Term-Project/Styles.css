@@ -194,7 +194,7 @@ hr
 
 #RepeaterPanel {
     align-content: center;
-    background-color: white;
+    background-color: rgba(255,255,255, 0.98);
     margin: auto;
     margin-top: 0;
 }
@@ -209,4 +209,64 @@ td {
 #imgResultImage
 {
     border: solid;
+}
+
+center {
+    background-color: rgba(255,255,255, 0.98);
+}
+
+#pnlEditorsPicks {
+    margin-left: 5%;
+    border-radius: 10px;
+    border: solid thin;
+}
+
+#lblEditorsPicksLabel
+{
+    font-weight: bold;
+    font-size: 1.35em;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+h2{
+    padding-top: 2%;
+}
+
+.card-img-top1
+{
+    height: 270px;
+    width: 190px;
+}
+
+.card1 {
+    padding: 0;
+    border: solid;
+    margin-left: 3%;
+    display: inline-block;
+}
+
+.card2 {
+    padding: 2px;
+    border: solid;
+    margin-left: 4%;
+    display: inline-block;
+}
+
+.card3 {
+    padding: 2px;
+    border: solid;
+    margin-left: 4%;
+    display: inline-block;
+}
+
+.card4 {
+    padding: 2px;
+    border: solid;
+    margin-left: 4%;
+    display: inline-block;
+}
+
+.card-title {
+    text-align: center;
 }

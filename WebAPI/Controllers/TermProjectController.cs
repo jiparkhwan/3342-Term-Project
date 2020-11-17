@@ -123,7 +123,7 @@ namespace WebAPI.Controllers
 
         //Retreives random movie from database and prints all information to browser
         [HttpGet("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
-        public List<ClassLibrary.Movies> GetRandomMovie()
+        public List<Movies> GetRandomMovie()
         {
             DataSet myDS = new DataSet();
             StoredProcedures stoPros = new StoredProcedures();
@@ -132,12 +132,12 @@ namespace WebAPI.Controllers
 
             DBConnect objDB = new DBConnect();
 
-            ClassLibrary.Movies movies = new ClassLibrary.Movies();
-            List<ClassLibrary.Movies> dpts = new List<ClassLibrary.Movies>();
+            Movies movies = new Movies();
+            List<Movies> dpts = new List<Movies>();
 
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
-                movies = new ClassLibrary.Movies();
+                movies = new Movies();
                 movies.movieID = int.Parse(dr["Movie_ID"].ToString());
                 movies.movieName = dr["Movie_Name"].ToString();
                 movies.movieImage = dr["Movie_Image"].ToString();

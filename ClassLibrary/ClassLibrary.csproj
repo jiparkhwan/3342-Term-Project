@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Actors.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="MemberFavorites.cs" />
     <Compile Include="Members.cs" />
     <Compile Include="Movies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

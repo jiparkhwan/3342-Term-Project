@@ -35,24 +35,83 @@ namespace _3342_Term_Project
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
+            
 
-            // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
-            WebResponse response = request.GetResponse();
-            // Read the data from the Web Response, which requires working with streams.
-            Stream theDataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(theDataStream);
-            String data = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-            // Deserialize a JSON string into a Team object.
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            Movies[] movie = js.Deserialize<Movies[]>(data);
-            //gvResults.DataSource = Movie;
-            // gvResults.DataBind();
-            rptHomeSearchRes.DataSource = movie;
-            rptHomeSearchRes.DataBind();
-            lblError.Text = "";
+            if (ddlSelectMedia.Text == "movies")
+            {
+                pnlHome.Visible = false;
+                pnlMovieRepeater.Visible = true;
+                pnlShowRepeater.Visible = false;
+                pnlGameRepeater.Visible = false;
+
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                // Deserialize a JSON string into a Team object.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Movies[] movie = js.Deserialize<Movies[]>(data);
+                //gvResults.DataSource = Movie;
+                // gvResults.DataBind();
+                rptMovieSearchRes.DataSource = movie;
+                rptMovieSearchRes.DataBind();
+                lblError.Text = "";
+            }
+            else if(ddlSelectMedia.Text == "shows")
+            {
+                pnlHome.Visible = false;
+                pnlMovieRepeater.Visible = false;
+                pnlShowRepeater.Visible = true;
+                pnlGameRepeater.Visible = false;
+
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetShowByName/" + txtFindByName.Text);
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                // Deserialize a JSON string into a Team object.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                TVShows[] show = js.Deserialize<TVShows[]>(data);
+                //gvResults.DataSource = Movie;
+                // gvResults.DataBind();
+                rptShowSearchRes.DataSource = show;
+                rptShowSearchRes.DataBind();
+                lblError.Text = "";
+            }
+            else if(ddlSelectMedia.Text == "videoGames")
+            {
+                pnlHome.Visible = false;
+                pnlMovieRepeater.Visible = false;
+                pnlShowRepeater.Visible = false;
+                pnlGameRepeater.Visible = true;
+
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameByName/" + txtFindByName.Text);
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                // Deserialize a JSON string into a Team object.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                VideoGames[] game = js.Deserialize<VideoGames[]>(data);
+                //gvResults.DataSource = Movie;
+                // gvResults.DataBind();
+                rptGameSearchRes.DataSource = game;
+                rptGameSearchRes.DataBind();
+                lblError.Text = "";
+            }
 
         }
 
@@ -60,44 +119,125 @@ namespace _3342_Term_Project
         {
           if(e.CommandName == "ImageClick")
             {
-                int MovieID = Convert.ToInt32(e.CommandArgument);
-
-                DBConnect objDB = new DBConnect();
-                SqlCommand sqlComm = new SqlCommand();
-
-                sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.CommandText = "TP_GetMovieByID";
-
-                SqlParameter member = new SqlParameter("@movieID", MovieID);
-                member.Direction = ParameterDirection.Input;
-                member.SqlDbType = SqlDbType.VarChar;
-                sqlComm.Parameters.Add(member);
-
-
-                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
-
-                if (ds.Tables[0].Rows.Count == 1) //member record found
+                if (ddlSelectMedia.Text == "movies")
                 {
-                    Session["MovieName"] = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
-                    Session["MovieImage"] = ds.Tables[0].Rows[0]["Movie_Image"].ToString();
-                    Session["MovieYear"] = ds.Tables[0].Rows[0]["Movie_Year"].ToString();
-                    Session["MovieDescription"] = ds.Tables[0].Rows[0]["Movie_Description"].ToString();
-                    Session["MovieRunTime"] = ds.Tables[0].Rows[0]["Movie_Age_Rating"].ToString();
-                    Session["MovieGenre"] = ds.Tables[0].Rows[0]["Movie_Genre"].ToString();
-                    Session["MovieAgeRating"] = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
-                    Session["MovieBudget"] = ds.Tables[0].Rows[0]["Movie_Budget"].ToString();
-                    Session["MovieIncome"] = ds.Tables[0].Rows[0]["Movie_Income"].ToString();
+                    int MovieID = Convert.ToInt32(e.CommandArgument);
+
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetMovieByID";
+
+                    SqlParameter member = new SqlParameter("@movieID", MovieID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
 
 
-                    ErrorText.Text = "saved session info";
-                    Server.Transfer("Title.aspx");
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["Movie_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["Movie_Year"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["Movie_Description"].ToString();
+                        Session["TitleRunTime"] = ds.Tables[0].Rows[0]["Movie_RunTime"].ToString();
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["Movie_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Movie_Age_Rating"].ToString();
+                        Session["TitleBudget"] = ds.Tables[0].Rows[0]["Movie_Budget"].ToString();
+                        Session["TitleIncome"] = ds.Tables[0].Rows[0]["Movie_Income"].ToString();
+
+
+                        lblError.Text = "saved session info";
+                        Server.Transfer("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
                 }
-                else
+                else if(ddlSelectMedia.Text == "shows")
                 {
-                    ErrorText.Text = "table doesnt exist";
-                }
+                    int ShowID = Convert.ToInt32(e.CommandArgument);
 
-            }
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetShowByID";
+
+                    SqlParameter member = new SqlParameter("@showID", ShowID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
+
+
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["TV_Show_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["TV_Show_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["TV_Show_Years"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["TV_Show_Description"].ToString();
+                        Session["TitleRunTime"] = ds.Tables[0].Rows[0]["TV_Show_RunTime"].ToString();
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["TV_Show_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
+                        Session["TitleBudget"] = null;
+                        Session["TitleIncome"] = null;
+
+
+                            lblError.Text = "saved session info";
+                        Server.Transfer("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
+                }
+                else if(ddlSelectMedia.Text == "videoGames")
+                {
+                    int GameID = Convert.ToInt32(e.CommandArgument);
+
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetGameByID";
+
+                    SqlParameter member = new SqlParameter("@gameID", GameID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
+
+
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["Video_Game_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["Video_Game_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["Video_Game_Year"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["Video_Game_Description"].ToString();
+                        Session["TitleRunTime"] = null;
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["Video_Game_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Video_Game_Age_Rating"].ToString();
+                        Session["TitleBudget"] = null;
+                        Session["TitleIncome"] = null;
+                        Session["TitleCreator"] = ds.Tables[0].Rows[0]["Video_Game_Creator"].ToString();
+
+
+                        lblError.Text = "saved session info";
+                        Server.Transfer("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
+                }
+        }
         }
 
 
@@ -120,8 +260,8 @@ namespace _3342_Term_Project
             Movies[] movie = js.Deserialize<Movies[]>(data);
             // gvResults.DataSource = movie;
             // gvResults.DataBind();
-            rptHomeSearchRes.DataSource = movie;
-            rptHomeSearchRes.DataBind();
+            rptMovieSearchRes.DataSource = movie;
+            rptMovieSearchRes.DataBind();
             lblError.Text = "";
 
 
@@ -143,8 +283,8 @@ namespace _3342_Term_Project
             Movies[] movie = js.Deserialize<Movies[]>(data);
             // gvResults.DataSource = movie;
             // gvResults.DataBind();
-            rptHomeSearchRes.DataSource = movie;
-            rptHomeSearchRes.DataBind();
+            rptMovieSearchRes.DataSource = movie;
+            rptMovieSearchRes.DataBind();
             lblError.Text = "";
 
         }
@@ -157,20 +297,11 @@ namespace _3342_Term_Project
         protected void btnRandMovie_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
-            Movies movie = new Movies();
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            String randMovie = js.Serialize(movie);
+            pnlHome.Visible = false;
+            pnlMovieRepeater.Visible = true;
+        
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
-            request.Method = "GET";
-            request.ContentLength = randMovie.Length;
-            request.ContentType = "application/json";
-
-            StreamWriter writer = new StreamWriter(request.GetRequestStream());
-            writer.Write(randMovie);
-            writer.Flush();
-            writer.Close();
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -179,13 +310,14 @@ namespace _3342_Term_Project
             reader.Close();
             response.Close();
             // Deserialize a JSON string into a Team object.
-            //JavaScriptSerializer js = new JavaScriptSerializer();
-            //Movies[] movie = js.Deserialize<Movies[]>(data);
-            //gvResults.DataSource = Movie;
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Movies[] movie = js.Deserialize<Movies[]>(data);
+            // gvResults.DataSource = movie;
             // gvResults.DataBind();
-            rptHomeSearchRes.DataSource = movie;
-            rptHomeSearchRes.DataBind();
+            rptMovieSearchRes.DataSource = movie;
+            rptMovieSearchRes.DataBind();
             lblError.Text = "";
         }
+
     }
 }

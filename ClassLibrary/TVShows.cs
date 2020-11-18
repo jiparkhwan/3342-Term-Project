@@ -8,14 +8,14 @@ namespace ClassLibrary
 {
     public class TVShows
     {
-        private String Name;
-        private String years;
-        private String ageRating;
-        private int runtime;
-        private String genre;
-        private String description;
-        private String image;
-        private int ID;
+        private String showName;
+        private String showYears;
+        private String showAgeRating;
+        private int showRuntime;
+        private String showGenre;
+        private String showDescription;
+        private String showImage;
+        private int showID;
 
         public TVShows()
         {
@@ -24,23 +24,23 @@ namespace ClassLibrary
 
         public TVShows(int ID, string name, string years, string ageRating, int runtime, string genre, string description, string image)
         {
-            this.ID = ID;
-            Name = name;
-            this.years = years;
-            this.ageRating = ageRating;
-            this.runtime = runtime;
-            this.genre = genre;
-            this.description = description;
-            this.image = image;
+            this.showID = ID;
+            this.showName = name;
+            this.showYears = years;
+            this.showAgeRating = ageRating;
+            this.showRuntime = runtime;
+            this.showGenre = genre;
+            this.showDescription = description;
+            this.showImage = image;
         }
 
-        public string Name1 { get => Name; set => Name = value; }
-        public string Years { get => years; set => years = value; }
-        public string AgeRating { get => ageRating; set => ageRating = value; }
-        public int Runtime { get => runtime; set => runtime = value; }
-        public string Genre { get => genre; set => genre = value; }
-        public string Description { get => description; set => description = value; }
-        public string Image { get => image; set => image = value; }
-        public int ID1 { get => ID; set => ID = value; }
+        public string ShowName { get => showName; set => showName = value; }
+        public string ShowYears { get => showYears; set => showYears = value; }
+        public string ShowAgeRating { get => showAgeRating; set => showAgeRating = value; }
+        public int ShowRuntime { get => showRuntime; set => showRuntime = value; }
+        public string ShowGenre { get => showGenre; set => showGenre = value; }
+        public string ShowDescription { get => showDescription; set => showDescription = value; }
+        public string ShowImage { get => showImage; set => showImage = value; }
+        public int ShowID { get => showID; set => showID = value; }
     }
 }

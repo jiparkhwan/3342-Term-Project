@@ -17,15 +17,39 @@ namespace _3342_Term_Project
     
 
 
-            imgTitleImage.ImageUrl = Session["MovieImage"].ToString();
-            lblTitleDescription.Text = Session["MovieDescription"].ToString();
-            lblTitleRunTime.Text = Session["MovieRunTime"].ToString();
-            lblTitleGenre.Text = Session["MovieGenre"].ToString();
-            lblTitleBudget.Text = Session["MovieBudget"].ToString();
-            lblTitleIncome.Text = Session["MovieIncome"].ToString();
-            lblTitleName.Text = Session["MovieName"].ToString();
-            lblTitleYear.Text = Session["MovieYear"].ToString();
-            lblTitleAgeRating.Text = Session["MovieAgeRating"].ToString();
+            imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
+            lblTitleDescription.Text = Session["TitleDescription"].ToString();
+            
+            lblTitleGenre.Text = Session["TitleGenre"].ToString();
+            lblTitleName.Text = Session["TitleName"].ToString();
+            lblTitleYear.Text = Session["TitleYear"].ToString();
+            lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
+
+
+            if(Session["TitleRunTime"] == null)
+            {
+                lblTitleRunTimeLabel.Visible = false;
+                lblTitleRunTime.Visible = false;
+            }
+            else
+            {
+                lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
+            }
+
+            if(Session["TitleBudget"] == null && Session["TitleIncome"] == null)
+            {
+                lblTitleIncomeLabel.Visible = false;
+                lblTitleIncome.Visible = false;
+                lblTitleBudgetLabel.Visible = false;
+                lblTitleBudget.Visible = false;
+                lblBar2.Visible = false;
+            }
+            else
+            {
+                lblTitleBudget.Text = Session["TitleBudget"].ToString();
+                lblTitleIncome.Text = Session["TitleIncome"].ToString();
+            }
+            
         }
     }
 }

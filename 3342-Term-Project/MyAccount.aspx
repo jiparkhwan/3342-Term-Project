@@ -21,7 +21,7 @@
     <link href="Styles.css" rel="stylesheet" />
 
     <!-- REFERENCES END-->
-    <title>Manage Account</title>
+    <title>Manage Account Info</title>
 </head>
 <body>
     <form id="frmMyAccount" runat="server">
@@ -29,64 +29,72 @@
         <div class="mainAccount">
             <br />
             <br />
-            <h1>Manage Account</h1>
-            <asp:ImageButton ID="ibtnManageAcct" runat="server" ImageUrl="~/Images/bluePersonImage.png"/>
+            <h1>Manage Account Information</h1>
+            <br />
+           <asp:Label ID="Label1" runat="server" Text="Current Info: " Font-Bold="True" Font-Size="Large"></asp:Label>
+            <br />
+                       <asp:Label ID="currentEmail" runat="server" Text="Email: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+                        <asp:Label ID="txtcurrentEmail" runat="server" Text="" Font-Bold="True" Font-Size="Medium"></asp:Label>
+
+            <br />
+                       <asp:Label ID="currentPassword" runat="server" Text="Password: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+                        <asp:Label ID="txtcurrentPassword" runat="server" Text="" Font-Bold="True" Font-Size="Medium"></asp:Label>
+
+            <br />          
+            <asp:Label ID="currentDOB" runat="server" Text="Date of Birth: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+           <asp:Label ID="txtcurrentDOB" runat="server" Text="" Font-Bold="True" Font-Size="Medium"></asp:Label>
+
+            <br />          
+            <asp:Label ID="currentName" runat="server" Text="Name: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+            <asp:Label ID="txtcurrentName" runat="server" Text="" Font-Bold="True" Font-Size="Medium"></asp:Label>
+
             <br />
             <br />
-            <asp:Label ID="lblManageEmail" runat="server" Text="E-Mail Address: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
-            <asp:Label ID="lblUsersEmail" runat="server" Text="Email test" Font-Size="X-Large"></asp:Label>
+            <br />
+            <asp:Label ID="lblManageEmail" runat="server" Text="New Email: " Font-Bold="True" Font-Size="Large"></asp:Label>
+            <asp:TextBox ID="txtManageEmail" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblManagePassword" runat="server" Text="Password: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="lblManagePassword" runat="server" Text="New Password: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtManagePassword" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblManageFName" runat="server" Text="First Name: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="lblManagePasswordConfirm" runat="server" Text="Password Confirm: " Font-Bold="True" Font-Size="Large"></asp:Label>
+            <asp:TextBox ID="txtManagePasswordConfirm" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="lblManageFName" runat="server" Text="New First Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtManageName" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblManageLName" runat="server" Text="Last Name: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="lblManageLName" runat="server" Text="New Last Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtManageLName" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblManageDOB" runat="server" Text="Date of Birth: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="lblManageDOB" runat="server" Text="New Date of Birth: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="lblManageSecQuestions" runat="server" Text="Update Security Questions: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
-            <asp:Button ID="btnManageSecQuestions" runat="server" Text="Update" OnClick="btnManageSecQuestions_Click" />
-            <asp:Panel ID="pnlSecQuestions" runat="server" Visible="False">
-                <br />
-                <asp:Label ID="lblSecQuestion1" runat="server" Text="Security Question 1: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                <br />
-                <asp:DropDownList ID="ddlSecQuestion1" runat="server">
-                    <asp:ListItem Selected="True" Value="None_Selected"> None Selected... </asp:ListItem>
-                    <asp:ListItem Value="Option1"> Option 1 </asp:ListItem>
-                </asp:DropDownList>
-                <asp:TextBox ID="txtSecQuestion1" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label ID="lblSecQuestion2" runat="server" Text="Security Question 2: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                <br />
-                <asp:DropDownList ID="ddlSecQuestion2" runat="server">
-                    <asp:ListItem Selected="True" Value="None_Selected"> None Selected... </asp:ListItem>
-                    <asp:ListItem Value="Option1"> Option 1 </asp:ListItem>
-                </asp:DropDownList>
-                <asp:TextBox ID="txtSecQuestion2" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label ID="lblSecQuestion3" runat="server" Text="Security Question 3: " Font-Bold="True" Font-Size="X-Large"></asp:Label>
-                <br />
-                <asp:DropDownList ID="ddlSecQuestion3" runat="server">
-                    <asp:ListItem Selected="True" Value="None_Selected"> None Selected... </asp:ListItem>
-                    <asp:ListItem Value="Option1"> Option 1 </asp:ListItem>
-                </asp:DropDownList>
-                <asp:TextBox ID="txtSecQuestion3" runat="server"></asp:TextBox>
-            </asp:Panel>
+           
             <br />
+                        <asp:Label ID="Favoriteslbl" runat="server" Text="Favorites" Font-Bold="True" Font-Size="X-Large"></asp:Label>
             <br />
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit" Font-Bold="True" />
-            <asp:Button ID="btnClear" runat="server" Text="Clear" Font-Bold="True" />
+            <asp:Label ID="favoriteActor" runat="server" Text="Favorite Actor: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+            <asp:TextBox ID="txtfavoriteActor" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="favoriteMovie" runat="server" Text="Favorite Movie: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+            <asp:TextBox ID="txtfavoriteMovie" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="favoriteTVShow" runat="server" Text="Favorite TV Show: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+            <asp:TextBox ID="txtfavoriteTVShow" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="favoriteVideoGame" runat="server" Text="Favorite Video Game: " Font-Bold="True" Font-Size="Medium"></asp:Label>
+            <asp:TextBox ID="txtfavoriteVideoGame" runat="server"></asp:TextBox>
+            <br /><br />
+                        <asp:Label ID="lblDisplay" runat="server" Text="" Font-Bold="True" Font-Size="Medium" ForeColor ="Red"></asp:Label>
+
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit Changes" Font-Bold="True" OnClick="btnSubmitChange_Click"/>
+            <asp:Button ID="btnClear" runat="server" Text="Clear All Fields" Font-Bold="True" />
             <br />
             <br />
         </div>

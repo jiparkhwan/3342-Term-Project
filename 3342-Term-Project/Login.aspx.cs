@@ -9,6 +9,9 @@ using System.Web.UI.WebControls;
 using Utilities;
 using System.Security.Cryptography;
 using System.Net;
+using System.Runtime.Serialization.Formatters.Binary;       //needed for BinaryFormatter
+
+
 using System.IO;                      
 using System.Text;
 namespace _3342_Term_Project
@@ -73,8 +76,8 @@ namespace _3342_Term_Project
         protected void signInBtn_Click(object sender, EventArgs e)
         {
         
-         //   try
-          //  {
+           try
+           {
                 DBConnect objDB = new DBConnect();
                 SqlCommand sqlComm = new SqlCommand();
 
@@ -158,11 +161,11 @@ namespace _3342_Term_Project
                 {
                     Error.Text = "Account not found!";
                 }
-            //}
-           // catch (Exception ex)
-           // {
-           //     Error.Text = ex.Message;
-          //  }
+            }
+            catch (Exception ex)
+            {
+                Error.Text = ex.Message;
+            }
         } //end of signInBtn_Click
     } //end of class
 } //end of namespace

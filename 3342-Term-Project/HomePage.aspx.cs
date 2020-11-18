@@ -26,12 +26,12 @@ namespace _3342_Term_Project
             }
             else
             {
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
                 string email = Session["MemberAccount"].ToString();
     
             }
         }
-   
+
+ 
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
@@ -112,6 +112,9 @@ namespace _3342_Term_Project
                 rptGameSearchRes.DataBind();
                 lblError.Text = "";
             }
+
+            pnlHome.Visible = false;
+            RepeaterPanel.Visible = true;
 
         }
 

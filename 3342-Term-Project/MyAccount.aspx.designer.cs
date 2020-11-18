@@ -31,13 +31,85 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
-        /// ibtnManageAcct control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ibtnManageAcct;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// currentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label currentEmail;
+        
+        /// <summary>
+        /// txtcurrentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtcurrentEmail;
+        
+        /// <summary>
+        /// currentPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label currentPassword;
+        
+        /// <summary>
+        /// txtcurrentPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtcurrentPassword;
+        
+        /// <summary>
+        /// currentDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label currentDOB;
+        
+        /// <summary>
+        /// txtcurrentDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtcurrentDOB;
+        
+        /// <summary>
+        /// currentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label currentName;
+        
+        /// <summary>
+        /// txtcurrentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtcurrentName;
         
         /// <summary>
         /// lblManageEmail control.
@@ -49,13 +121,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblManageEmail;
         
         /// <summary>
-        /// lblUsersEmail control.
+        /// txtManageEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsersEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtManageEmail;
         
         /// <summary>
         /// lblManagePassword control.
@@ -74,6 +146,24 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManagePassword;
+        
+        /// <summary>
+        /// lblManagePasswordConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManagePasswordConfirm;
+        
+        /// <summary>
+        /// txtManagePasswordConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtManagePasswordConfirm;
         
         /// <summary>
         /// lblManageFName control.
@@ -130,112 +220,94 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox txtDateOfBirth;
         
         /// <summary>
-        /// lblManageSecQuestions control.
+        /// Favoriteslbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblManageSecQuestions;
+        protected global::System.Web.UI.WebControls.Label Favoriteslbl;
         
         /// <summary>
-        /// btnManageSecQuestions control.
+        /// favoriteActor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnManageSecQuestions;
+        protected global::System.Web.UI.WebControls.Label favoriteActor;
         
         /// <summary>
-        /// pnlSecQuestions control.
+        /// txtfavoriteActor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSecQuestions;
+        protected global::System.Web.UI.WebControls.TextBox txtfavoriteActor;
         
         /// <summary>
-        /// lblSecQuestion1 control.
+        /// favoriteMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecQuestion1;
+        protected global::System.Web.UI.WebControls.Label favoriteMovie;
         
         /// <summary>
-        /// ddlSecQuestion1 control.
+        /// txtfavoriteMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecQuestion1;
+        protected global::System.Web.UI.WebControls.TextBox txtfavoriteMovie;
         
         /// <summary>
-        /// txtSecQuestion1 control.
+        /// favoriteTVShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSecQuestion1;
+        protected global::System.Web.UI.WebControls.Label favoriteTVShow;
         
         /// <summary>
-        /// lblSecQuestion2 control.
+        /// txtfavoriteTVShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecQuestion2;
+        protected global::System.Web.UI.WebControls.TextBox txtfavoriteTVShow;
         
         /// <summary>
-        /// ddlSecQuestion2 control.
+        /// favoriteVideoGame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecQuestion2;
+        protected global::System.Web.UI.WebControls.Label favoriteVideoGame;
         
         /// <summary>
-        /// txtSecQuestion2 control.
+        /// txtfavoriteVideoGame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSecQuestion2;
+        protected global::System.Web.UI.WebControls.TextBox txtfavoriteVideoGame;
         
         /// <summary>
-        /// lblSecQuestion3 control.
+        /// lblDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecQuestion3;
-        
-        /// <summary>
-        /// ddlSecQuestion3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecQuestion3;
-        
-        /// <summary>
-        /// txtSecQuestion3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSecQuestion3;
+        protected global::System.Web.UI.WebControls.Label lblDisplay;
         
         /// <summary>
         /// btnSubmit control.

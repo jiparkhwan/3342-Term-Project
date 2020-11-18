@@ -44,6 +44,7 @@
                         <asp:Button ID="btnRandMovie" runat="server" Text="Random Movie" OnClick="btnRandMovie_Click" />
                         <asp:Label ID="lblError" runat="server"></asp:Label>
                     </asp:Panel>
+
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
                 </div>
@@ -87,8 +88,11 @@
 
                     </Center>
                 </asp:Panel>
-
+      
                     <asp:Panel ID="pnlMovieRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+
+                    <asp:Label Text="" runat="server" ID="ErrorText"></asp:Label>
+
                         <Center>
                             <asp:Repeater ID="rptMovieSearchRes" runat="server">
                                 <HeaderTemplate>
@@ -111,6 +115,7 @@
                                             <td>
                                                 <br />
                                                 <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+
                                                     <asp:ImageButton ID="imgMovieResult" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
                                             </td>
                                         </tr>
@@ -136,7 +141,10 @@
                             </asp:Repeater>
                         </Center>
                     </asp:Panel>
+<%--
+                 <asp:ImageButton ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>' />
 
+--%>
                     <%--This Panel shows the results for TV Shows--%>
                     <asp:Panel ID="pnlShowRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
                         <Center>

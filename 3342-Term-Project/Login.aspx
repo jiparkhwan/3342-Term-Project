@@ -6,20 +6,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
       <title>Member Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 </head>
 <body>
-              <Navigation:HomeNav ID="HomeNav" runat="server" />
-
+             
+      <form class="form-signin" runat="server">
+           <Navigation:HomeNav ID="HomeNav" runat="server" />
     <div class="login-card">
         <h3>Member Account Login</h3>
         <br />
-        <form class="form-signin" runat="server">
+      
            <div class="row">
 			    <asp:TextBox ID="txtMemberEmail" runat="server" class="form-control" placeholder="Member Email"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="memberEmailValidator" controltovalidate="txtMemberEmail" runat="server" ErrorMessage="Email required"></asp:RequiredFieldValidator>
@@ -39,8 +45,9 @@
             <br />
             <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
 			<br />
+           </div>
         </form>
-    </div>
+ 
 
       <style>
         .login-card {

@@ -8,14 +8,15 @@ namespace ClassLibrary
 {
     public class VideoGames
     {
-        private String name;
-        private int year;
-        private String genre;
-        private String description;
-        private String creator;
-        private String ageRating;
-        private string Image;
-        private int videoGameID;
+        private String gameName;
+        private int gameYear;
+        private String gameGenre;
+        private String gameDescription;
+        private String gameCreator;
+        private String gameAgeRating;
+        private string gameImage;
+        private int gameID;
+
         public VideoGames()
         {
 
@@ -23,23 +24,23 @@ namespace ClassLibrary
 
         public VideoGames(string name, int year, string genre, string description, string creator, string ageRating, string image, int videoGameID)
         {
-            this.name = name;
-            this.year = year;
-            this.genre = genre;
-            this.description = description;
-            this.creator = creator;
-            this.ageRating = ageRating;
-            Image = image;
-            this.videoGameID = videoGameID;
+            this.gameName = name;
+            this.gameYear = year;
+            this.gameGenre = genre;
+            this.gameDescription = description;
+            this.gameCreator = creator;
+            this.gameAgeRating = ageRating;
+            this.gameImage = image;
+            this.gameID = videoGameID;
         }
 
-        public string Name { get => name; set => name = value; }
-        public int Year { get => year; set => year = value; }
-        public string Genre { get => genre; set => genre = value; }
-        public string Description { get => description; set => description = value; }
-        public string Creator { get => creator; set => creator = value; }
-        public string AgeRating { get => ageRating; set => ageRating = value; }
-        public string Image1 { get => Image; set => Image = value; }
-        public int VideoGameID { get => videoGameID; set => videoGameID = value; }
+        public string GameName { get => gameName; set => gameName = value; }
+        public int GameYear { get => gameYear; set => gameYear = value; }
+        public string GameGenre { get => gameGenre; set => gameGenre = value; }
+        public string GameDescription { get => gameDescription; set => gameDescription = value; }
+        public string GameCreator { get => gameCreator; set => gameCreator = value; }
+        public string GameAgeRating { get => gameAgeRating; set => gameAgeRating = value; }
+        public string GameImage { get => gameImage; set => gameImage = value; }
+        public int GameID { get => gameID; set => gameID = value; }
     }
 }

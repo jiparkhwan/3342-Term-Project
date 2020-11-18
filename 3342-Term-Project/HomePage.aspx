@@ -88,10 +88,13 @@
 
                     </Center>
                 </asp:Panel>
+      
+                    <asp:Panel ID="pnlMovieRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+
                     <asp:Label Text="" runat="server" ID="ErrorText"></asp:Label>
-                    <asp:Panel ID="RepeaterPanel" runat="server" HoroziontalAlign="Center" Visible="False">
+
                         <Center>
-                            <asp:Repeater ID="rptHomeSearchRes" runat="server">
+                            <asp:Repeater ID="rptMovieSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px;">
                                         <tr style=" font-size: large; font-weight: bold;">
@@ -112,22 +115,22 @@
                                             <td>
                                                 <br />
                                                 <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                                    <asp:ImageButton ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>' />
 
+                                                    <asp:ImageButton ID="imgMovieResult" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
                                             </td>
                                         </tr>
                                     </table>
                                     <td>
                                         <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
                                             <tr>
-                                                <h1><asp:Label ID="lblName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                                <h1><asp:Label ID="lblMovieName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
                                                 <br />
                                             </tr>
                                                 <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
-                                                    <asp:Label ID="lblUser" runat="server" Text='<%#Eval("movieYear") %>' />
+                                                    <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("movieYear") %>' />
                                                 </td>
                                                 <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
-                                                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("movieAgeRating") %>' />
+                                                    <asp:Label ID="lblMovieAgeRating" runat="server" Text='<%#Eval("movieAgeRating") %>' />
                                                 </td>
                                             </tr>                                 
                                         </table>
@@ -138,6 +141,111 @@
                             </asp:Repeater>
                         </Center>
                     </asp:Panel>
+<%--
+                 <asp:ImageButton ID="imgResultImage" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>' />
+
+--%>
+                    <%--This Panel shows the results for TV Shows--%>
+                    <asp:Panel ID="pnlShowRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+                        <Center>
+                            <asp:Repeater ID="rptShowSearchRes" runat="server">
+                                <HeaderTemplate>
+                                    <table style="width: 400px; height:40px;">
+                                        <tr style=" font-size: large; font-weight: bold;">
+                                            <td style="text-align:center;">
+                                                <br />
+                                                <h2>Search Results</h2>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                    <hr />
+                                </HeaderTemplate>
+
+                                <ItemTemplate>     
+                                    <table style="width: 200px; height:200px;">
+                                        <tr>
+                                        <tr style="background-color: #e6e6e6">
+                                            <td>
+                                                <br />
+                                                <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                                    <asp:ImageButton ID="imgShowResult" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("showImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("showID") %>'></asp:ImageButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <td>
+                                        <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                            <tr>
+                                                <h1><asp:Label ID="lblShowName" runat="server" fontBold ="true" Text='<%#Eval("showName") %>'/></h1>
+                                                <br />
+                                            </tr>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                                    <asp:Label ID="lblShowYears" runat="server" Text='<%#Eval("showYears") %>' />
+                                                </td>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
+                                                    <asp:Label ID="lblShowAgeRating" runat="server" Text='<%#Eval("showAgeRating") %>' />
+                                                </td>
+                                            </tr>                                 
+                                        </table>
+                                    </td>
+                                    
+                                    <br />        
+                                </ItemTemplate>                       
+                            </asp:Repeater>
+                        </Center>
+                    </asp:Panel>
+                    
+
+                    <asp:Panel ID="pnlGameRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+                        <Center>
+                            <asp:Repeater ID="rptGameSearchRes" runat="server">
+                                <HeaderTemplate>
+                                    <table style="width: 400px; height:40px;">
+                                        <tr style=" font-size: large; font-weight: bold;">
+                                            <td style="text-align:center;">
+                                                <br />
+                                                <h2>Search Results</h2>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                    <hr />
+                                </HeaderTemplate>
+
+                                <ItemTemplate>     
+                                    <table style="width: 200px; height:200px;">
+                                        <tr>
+                                        <tr style="background-color: #e6e6e6">
+                                            <td>
+                                                <br />
+                                                <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                                    <asp:ImageButton ID="imgGameResult" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("GameImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("GameID") %>'></asp:ImageButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <td>
+                                        <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                            <tr>
+                                                <h1><asp:Label ID="lblGameName" runat="server" fontBold ="true" Text='<%#Eval("gameName") %>'/></h1>
+                                                <br />
+                                            </tr>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                                    <asp:Label ID="lblGameYear" runat="server" Text='<%#Eval("GameYear") %>' />
+                                                </td>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
+                                                    <asp:Label ID="lblGameAgeRating" runat="server" Text='<%#Eval("GameAgeRating") %>' />
+                                                </td>
+                                            </tr>                                 
+                                        </table>
+                                    </td>
+                                    
+                                    <br />        
+                                </ItemTemplate>                       
+                            </asp:Repeater>
+                        </Center>
+                    </asp:Panel>
+
+                        
                 </div>
             </form>
 

@@ -202,14 +202,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 shows = new TVShows();
-                shows.ID1 = int.Parse(dr["TV_Show_ID"].ToString());
-                shows.Image = dr["TV_Show_Image"].ToString();
-                shows.Name1 = dr["TV_Show_Name"].ToString();
-                shows.Years = dr["TV_Show_Years"].ToString();
-                shows.AgeRating = dr["TV_Show_Age_Rating"].ToString();
-                shows.Runtime = int.Parse(dr["TV_Show_Runtime"].ToString());
-                shows.Genre = dr["TV_Show_Genre"].ToString();
-                shows.Description = dr["TV_Show_Description"].ToString();
+                shows.ShowID = int.Parse(dr["TV_Show_ID"].ToString());
+                shows.ShowImage = dr["TV_Show_Image"].ToString();
+                shows.ShowName = dr["TV_Show_Name"].ToString();
+                shows.ShowYears = dr["TV_Show_Years"].ToString();
+                shows.ShowAgeRating = dr["TV_Show_Age_Rating"].ToString();
+                shows.ShowRuntime = int.Parse(dr["TV_Show_Runtime"].ToString());
+                shows.ShowGenre = dr["TV_Show_Genre"].ToString();
+                shows.ShowDescription = dr["TV_Show_Description"].ToString();
 
                 dpts.Add(shows);
             }
@@ -233,14 +233,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 shows = new TVShows();
-                shows.ID1 = int.Parse(dr["TV_Show_ID"].ToString());
-                shows.Image = dr["TV_Show_Image"].ToString();
-                shows.Name1 = dr["TV_Show_Name"].ToString();
-                shows.Years = dr["TV_Show_Years"].ToString();
-                shows.AgeRating = dr["TV_Show_Age_Rating"].ToString();
-                shows.Runtime = int.Parse(dr["TV_Show_Runtime"].ToString());
-                shows.Genre = dr["TV_Show_Genre"].ToString();
-                shows.Description = dr["TV_Show_Description"].ToString();
+                shows.ShowID = int.Parse(dr["TV_Show_ID"].ToString());
+                shows.ShowImage = dr["TV_Show_Image"].ToString();
+                shows.ShowName = dr["TV_Show_Name"].ToString();
+                shows.ShowYears = dr["TV_Show_Years"].ToString();
+                shows.ShowAgeRating = dr["TV_Show_Age_Rating"].ToString();
+                shows.ShowRuntime = int.Parse(dr["TV_Show_Runtime"].ToString());
+                shows.ShowGenre = dr["TV_Show_Genre"].ToString();
+                shows.ShowDescription = dr["TV_Show_Description"].ToString();
 
                 dpts.Add(shows);
             }
@@ -266,14 +266,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 shows = new TVShows();
-                shows.ID1 = int.Parse(dr["TV_Show_ID"].ToString());
-                shows.Image = dr["TV_Show_Image"].ToString();
-                shows.Name1 = dr["TV_Show_Name"].ToString();
-                shows.Years = dr["TV_Show_Years"].ToString();
-                shows.AgeRating = dr["TV_Show_Age_Rating"].ToString();
-                shows.Runtime = int.Parse(dr["TV_Show_Runtime"].ToString());
-                shows.Genre = dr["TV_Show_Genre"].ToString();
-                shows.Description = dr["TV_Show_Description"].ToString();
+                shows.ShowID = int.Parse(dr["TV_Show_ID"].ToString());
+                shows.ShowImage = dr["TV_Show_Image"].ToString();
+                shows.ShowName = dr["TV_Show_Name"].ToString();
+                shows.ShowYears = dr["TV_Show_Years"].ToString();
+                shows.ShowAgeRating = dr["TV_Show_Age_Rating"].ToString();
+                shows.ShowRuntime = int.Parse(dr["TV_Show_Runtime"].ToString());
+                shows.ShowGenre = dr["TV_Show_Genre"].ToString();
+                shows.ShowDescription = dr["TV_Show_Description"].ToString();
 
                 dpts.Add(shows);
             }
@@ -296,14 +296,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 videogames = new VideoGames();
-                videogames.VideoGameID = int.Parse(dr["Video_Game_ID"].ToString());
-                videogames.Name = dr["Video_Game_Name"].ToString();
-                videogames.Year = int.Parse(dr["Video_Game_Year"].ToString());
-                videogames.Description = dr["Video_Game_Description"].ToString();
-                videogames.Creator = dr["Video_Game_Creator"].ToString();
-                videogames.AgeRating = dr["Video_Game_Age_Rating"].ToString();
-                videogames.Genre = dr["Video_Game_Genre"].ToString();
-                videogames.Image1 = dr["Video_Game_Image"].ToString();
+                videogames.GameID = int.Parse(dr["Video_Game_ID"].ToString());
+                videogames.GameName = dr["Video_Game_Name"].ToString();
+                videogames.GameYear = int.Parse(dr["Video_Game_Year"].ToString());
+                videogames.GameDescription = dr["Video_Game_Description"].ToString();
+                videogames.GameCreator = dr["Video_Game_Creator"].ToString();
+                videogames.GameAgeRating = dr["Video_Game_Age_Rating"].ToString();
+                videogames.GameGenre = dr["Video_Game_Genre"].ToString();
+                videogames.GameImage = dr["Video_Game_Image"].ToString();
                 dpts.Add(videogames);
             }
             return dpts;
@@ -326,14 +326,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 videogames = new VideoGames();
-                videogames.VideoGameID = int.Parse(dr["Video_Game_ID"].ToString());
-                videogames.Name = dr["Video_Game_Name"].ToString();
-                videogames.Year = int.Parse(dr["Video_Game_Year"].ToString());
-                videogames.Description = dr["Video_Game_Description"].ToString();
-                videogames.Creator = dr["Video_Game_Creator"].ToString();
-                videogames.AgeRating = dr["Video_Game_Age_Rating"].ToString();
-                videogames.Genre = dr["Video_Game_Genre"].ToString();
-                videogames.Image1 = dr["Video_Game_Image"].ToString();
+                videogames.GameID = int.Parse(dr["Video_Game_ID"].ToString());
+                videogames.GameName = dr["Video_Game_Name"].ToString();
+                videogames.GameYear = int.Parse(dr["Video_Game_Year"].ToString());
+                videogames.GameDescription = dr["Video_Game_Description"].ToString();
+                videogames.GameCreator = dr["Video_Game_Creator"].ToString();
+                videogames.GameAgeRating = dr["Video_Game_Age_Rating"].ToString();
+                videogames.GameGenre = dr["Video_Game_Genre"].ToString();
+                videogames.GameImage = dr["Video_Game_Image"].ToString();
                 dpts.Add(videogames);
             }
             return dpts;
@@ -359,14 +359,14 @@ namespace WebAPI.Controllers
             foreach (DataRow dr in myDS.Tables[0].Rows)
             {
                 videogames = new VideoGames();
-                videogames.VideoGameID = int.Parse(dr["Video_Game_ID"].ToString());
-                videogames.Name = dr["Video_Game_Name"].ToString();
-                videogames.Year = int.Parse(dr["Video_Game_Year"].ToString());
-                videogames.Description = dr["Video_Game_Description"].ToString();
-                videogames.Creator = dr["Video_Game_Creator"].ToString();
-                videogames.AgeRating = dr["Video_Game_Age_Rating"].ToString();
-                videogames.Genre = dr["Video_Game_Genre"].ToString();
-                videogames.Image1 = dr["Video_Game_Image"].ToString();
+                videogames.GameID = int.Parse(dr["Video_Game_ID"].ToString());
+                videogames.GameName = dr["Video_Game_Name"].ToString();
+                videogames.GameYear = int.Parse(dr["Video_Game_Year"].ToString());
+                videogames.GameDescription = dr["Video_Game_Description"].ToString();
+                videogames.GameCreator = dr["Video_Game_Creator"].ToString();
+                videogames.GameAgeRating = dr["Video_Game_Age_Rating"].ToString();
+                videogames.GameGenre = dr["Video_Game_Genre"].ToString();
+                videogames.GameImage = dr["Video_Game_Image"].ToString();
                 dpts.Add(videogames);
             }
             return dpts;

@@ -41,7 +41,7 @@ namespace _3342_Term_Project
 
 
 
-                //WORK ON FUNCTIONALITY OF RETRIEVING DATA (DESERIALIZATION HERE)
+                //(DESERIALIZATION HERE)
                 
                 DBConnect db = new DBConnect();
                 SqlCommand sql = new SqlCommand();

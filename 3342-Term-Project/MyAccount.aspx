@@ -122,8 +122,8 @@
             <br /><br />
                         <asp:Label ID="lblDisplay" runat="server" Text="" Font-Bold="True" Font-Size="Medium" ForeColor ="Red"></asp:Label>
                  <br />
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit Changes"  OnClick="btnSubmitChange_Click" CssClass="btn-primary"/>
-            <asp:Button ID="btnClear" runat="server" Text="Clear All Fields"  CssClass="btn-outline-primary"/>
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit Changes"  OnClick="btnSubmitChange_Click" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear All Fields"  />
             <br />
             <br />
         </div>

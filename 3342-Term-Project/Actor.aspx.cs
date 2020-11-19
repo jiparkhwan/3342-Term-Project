@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace _3342_Term_Project.UserControls
+namespace _3342_Term_Project
 {
-    public partial class Title : System.Web.UI.UserControl
+    public partial class Actor : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

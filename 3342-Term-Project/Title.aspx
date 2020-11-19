@@ -50,6 +50,8 @@
                 <asp:Label ID="lblBar2" runat="server" Text=" | "></asp:Label>
                 <asp:Label ID="lblTitleIncomeLabel" runat="server" Text="Income: $" Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
+                <asp:Label ID="lblTitleCreatorLabel" runat="server" Text="Creator: " Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblTitleCreator" runat="server" Text=""></asp:Label>
             </div>
             <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>

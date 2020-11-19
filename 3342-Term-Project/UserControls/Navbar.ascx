@@ -17,7 +17,7 @@
         <a class="nav-link" href="MyAccount.aspx">My Account</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link" href="Login.aspx">Log-In</a>
+         <a class="nav-link" href="Login.aspx">Log-Out</a>
       </li>
     </ul>
 

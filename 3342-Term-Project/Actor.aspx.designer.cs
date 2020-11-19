@@ -10,16 +10,16 @@
 namespace _3342_Term_Project {
     
     
-    public partial class HomePage {
+    public partial class Actor {
         
         /// <summary>
-        /// frmHomePage control.
+        /// frmActor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmHomePage;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmActor;
         
         /// <summary>
         /// HomeNav control.
@@ -31,184 +31,139 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
-        /// pnlSearchMedia control.
+        /// lblActorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSearchMedia;
+        protected global::System.Web.UI.WebControls.Label lblActorName;
         
         /// <summary>
-        /// ddlSelectMedia control.
+        /// imgActorImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSelectMedia;
+        protected global::System.Web.UI.WebControls.Image imgActorImage;
         
         /// <summary>
-        /// txtFindByName control.
+        /// lblActorDescriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFindByName;
+        protected global::System.Web.UI.WebControls.Label lblActorDescriptionLabel;
         
         /// <summary>
-        /// btnFindByName control.
+        /// lblTitleDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindByName;
+        protected global::System.Web.UI.WebControls.Label lblTitleDescription;
         
         /// <summary>
-        /// lblError control.
+        /// lblActorDOBLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Label lblActorDOBLabel;
         
         /// <summary>
-        /// pnlHome control.
+        /// lblActorDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHome;
+        protected global::System.Web.UI.WebControls.Label lblActorDOB;
         
         /// <summary>
-        /// pnlEditorsPicks control.
+        /// lblActorBirthLocLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEditorsPicks;
+        protected global::System.Web.UI.WebControls.Label lblActorBirthLocLabel;
         
         /// <summary>
-        /// lblEditorsPicksLabel control.
+        /// lblActorBirthCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEditorsPicksLabel;
+        protected global::System.Web.UI.WebControls.Label lblActorBirthCity;
         
         /// <summary>
-        /// pnlFindRandomTitle control.
+        /// lblComma1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFindRandomTitle;
+        protected global::System.Web.UI.WebControls.Label lblComma1;
         
         /// <summary>
-        /// lblRandomPicksLabel control.
+        /// lblActorBirthState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRandomPicksLabel;
+        protected global::System.Web.UI.WebControls.Label lblActorBirthState;
         
         /// <summary>
-        /// imgRandomMovie control.
+        /// lblComma2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomMovie;
+        protected global::System.Web.UI.WebControls.Label lblComma2;
         
         /// <summary>
-        /// imgRandomShow control.
+        /// lblActorBirthCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomShow;
+        protected global::System.Web.UI.WebControls.Label lblActorBirthCountry;
         
         /// <summary>
-        /// imgRandomGame control.
+        /// lblActorHeightLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomGame;
+        protected global::System.Web.UI.WebControls.Label lblActorHeightLabel;
         
         /// <summary>
-        /// pnlMovieRepeater control.
+        /// lblActorHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMovieRepeater;
+        protected global::System.Web.UI.WebControls.Label lblActorHeight;
         
         /// <summary>
-        /// ErrorText control.
+        /// lblActorRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorText;
-        
-        /// <summary>
-        /// rptMovieSearchRes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMovieSearchRes;
-        
-        /// <summary>
-        /// pnlShowRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlShowRepeater;
-        
-        /// <summary>
-        /// rptShowSearchRes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptShowSearchRes;
-        
-        /// <summary>
-        /// pnlGameRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlGameRepeater;
-        
-        /// <summary>
-        /// rptGameSearchRes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptGameSearchRes;
+        protected global::System.Web.UI.WebControls.Label lblActorRoles;
         
         /// <summary>
         /// FooterNav control.

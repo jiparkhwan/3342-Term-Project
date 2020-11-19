@@ -40,6 +40,7 @@ namespace _3342_Term_Project
             if (ddlSelectMedia.Text == "movies")
             {
                 pnlHome.Visible = false;
+                FooterNav.Visible = false;
                 pnlMovieRepeater.Visible = true;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = false;
@@ -65,6 +66,7 @@ namespace _3342_Term_Project
             else if(ddlSelectMedia.Text == "shows")
             {
                 pnlHome.Visible = false;
+                FooterNav.Visible = false;
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = true;
                 pnlGameRepeater.Visible = false;
@@ -90,6 +92,7 @@ namespace _3342_Term_Project
             else if(ddlSelectMedia.Text == "videoGames")
             {
                 pnlHome.Visible = false;
+                FooterNav.Visible = false;
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = true;
@@ -112,9 +115,6 @@ namespace _3342_Term_Project
                 rptGameSearchRes.DataBind();
                 lblError.Text = "";
             }
-
-            pnlHome.Visible = false;
-            RepeaterPanel.Visible = true;
 
         }
 
@@ -151,10 +151,10 @@ namespace _3342_Term_Project
                         Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Movie_Age_Rating"].ToString();
                         Session["TitleBudget"] = ds.Tables[0].Rows[0]["Movie_Budget"].ToString();
                         Session["TitleIncome"] = ds.Tables[0].Rows[0]["Movie_Income"].ToString();
-
+                        Session["TitleCreator"] = null;
 
                         lblError.Text = "saved session info";
-                        Server.Transfer("Title.aspx");
+                        Response.Redirect("Title.aspx");
                     }
                     else
                     {
@@ -176,7 +176,6 @@ namespace _3342_Term_Project
                     member.SqlDbType = SqlDbType.VarChar;
                     sqlComm.Parameters.Add(member);
 
-
                     DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
 
                     if (ds.Tables[0].Rows.Count == 1) //member record found
@@ -190,6 +189,7 @@ namespace _3342_Term_Project
                         Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
                         Session["TitleBudget"] = null;
                         Session["TitleIncome"] = null;
+                        Session["TitleCreator"] = null;
 
 
                             lblError.Text = "saved session info";
@@ -292,16 +292,14 @@ namespace _3342_Term_Project
 
         }
 
-        protected void repeaterResults_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-
-        }
-
         protected void btnRandMovie_Click(object sender, EventArgs e)
         {
+            //Session["RandomClick"] = "Movie";
+            ddlSelectMedia.Text = "movies";
             //VALIDATE THE API REQUEST!!!//
             pnlHome.Visible = false;
-            pnlMovieRepeater.Visible = true;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = true;         
         
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
@@ -319,6 +317,63 @@ namespace _3342_Term_Project
             // gvResults.DataBind();
             rptMovieSearchRes.DataSource = movie;
             rptMovieSearchRes.DataBind();
+            lblError.Text = "";
+        }
+
+        protected void btnRandShow_Click(object sender, EventArgs e)
+        {
+            //Session["RandomClick"] = "Show";
+            ddlSelectMedia.Text = "shows";
+            //VALIDATE THE API REQUEST!!!//
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlShowRepeater.Visible = true;
+
+
+            // Create an HTTP Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomShow/");
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            TVShows[] show = js.Deserialize<TVShows[]>(data);
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
+            rptShowSearchRes.DataSource = show;
+            rptShowSearchRes.DataBind();
+            lblError.Text = "";
+        }
+
+        protected void btnRandGame_Click(object sender, EventArgs e)
+        {
+            //Session["RandomClick"] = "Show";
+            ddlSelectMedia.Text = "videoGames";
+            //VALIDATE THE API REQUEST!!!//
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlGameRepeater.Visible = true;
+
+            // Create an HTTP Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomGame/");
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            VideoGames[] game = js.Deserialize<VideoGames[]>(data);
+            // gvResults.DataSource = movie;
+            // gvResults.DataBind();
+            rptGameSearchRes.DataSource = game;
+            rptGameSearchRes.DataBind();
             lblError.Text = "";
         }
 

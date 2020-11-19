@@ -41,7 +41,6 @@
                         </asp:DropDownList>
                         <asp:TextBox ID="txtFindByName" runat="server"></asp:TextBox>
                         <asp:Button ID="btnFindByName"  Text="Search" runat="server" OnClick="btnFindByName_Click" CssClass="btn btn-primary" />
-                        <asp:Button ID="btnRandMovie" runat="server" Text="Random Movie" OnClick="btnRandMovie_Click" />
                         <asp:Label ID="lblError" runat="server"></asp:Label>
                     </asp:Panel>
 
@@ -50,7 +49,7 @@
                 </div>
 
                 <asp:Panel ID="pnlHome" runat="server">
-                    <Center></Center>
+                    <Center>
                     <br />
                     <br />
                         <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#CCCCCC" Height="480px" Width="90%" HorizontalAlign="Left">
@@ -83,13 +82,22 @@
                                 <h5 class="card-title">The Good Place</h5>
                                 </div>
                             </div> 
+                        </asp:Panel>
+                        <br />
 
+                        <asp:Panel ID="pnlFindRandomTitle" runat="server" BackColor="#CCCCCC" Height="380px" Width="90%" HorizontalAlign="Left">
+                            <br />
+                            <h4><asp:Label ID="lblRandomPicksLabel" runat="server" Text="Let us help you decide what to watch or play tonight!"></asp:Label></h4>
+                            <br />   
+                            <asp:ImageButton ID="imgRandomMovie" Height="220" Width="170" BorderStyle="Solid" src="Images/Movie.png" runat="server" BackColor="Black" OnClick="btnRandMovie_Click"></asp:ImageButton>
+                            <asp:ImageButton ID="imgRandomShow" Height="220" Width="170" BorderStyle="Solid" src="Images/TV.png" runat="server" BackColor="Black" OnClick="btnRandShow_Click"></asp:ImageButton>
+                            <asp:ImageButton ID="imgRandomGame" Height="220" Width="170" BorderStyle="Solid" src="Images/ef1713664570291e8ebe09c7a2d790dc.png" runat="server" BackColor="Black" OnClick="btnRandGame_Click"></asp:ImageButton>
                         </asp:Panel>
 
                     </Center>
                 </asp:Panel>
       
-                    <asp:Panel ID="pnlMovieRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+                <asp:Panel ID="pnlMovieRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
 
                     <asp:Label Text="" runat="server" ID="ErrorText"></asp:Label>
 
@@ -245,10 +253,12 @@
                         </Center>
                     </asp:Panel>
 
-                        
+                     <br />   
                 </div>
+                
+                <Footer:HomeFooter ID="FooterNav" runat="server" />
             </form>
-
+            
 
 <%--
 
@@ -307,6 +317,8 @@
             text-align:center;
         }
     </style>
+
 </body>
+    
 </html>
 

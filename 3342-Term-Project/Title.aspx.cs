@@ -11,12 +11,7 @@ namespace _3342_Term_Project
     public partial class Title : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            //This gets the name of the title that was just selected and Sets it to be the page title in the tab
-            Page.Title = String.Format("Title Name");
-    
-
-
+        {            
             imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
             lblTitleDescription.Text = Session["TitleDescription"].ToString();
             
@@ -25,6 +20,16 @@ namespace _3342_Term_Project
             lblTitleYear.Text = Session["TitleYear"].ToString();
             lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
 
+            Page.Title = String.Format(lblTitleName.Text);
+            if (Session["TitleCreator"] == null)
+            {
+                lblTitleCreatorLabel.Visible = false;
+                lblTitleCreator.Visible = false;
+            }
+            else
+            {
+                lblTitleCreator.Text = Session["TitleCreator"].ToString();
+            }
 
             if(Session["TitleRunTime"] == null)
             {

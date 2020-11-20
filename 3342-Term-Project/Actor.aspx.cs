@@ -11,6 +11,7 @@ namespace _3342_Term_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             lblActorName.Text = Session["ActorName"].ToString();
             imgActorImage.ImageUrl = Session["ActorImage"].ToString();
             lblActorDescription.Text = Session["ActorDescription"].ToString();
@@ -19,6 +20,12 @@ namespace _3342_Term_Project
             lblActorBirthCity.Text = Session["ActorBirthCity"].ToString();
             lblActorBirthState.Text = Session["ActorBirthState"].ToString();
             lblActorBirthCountry.Text = Session["ActorBirthCountry"].ToString();
+
+            if (Session["MemberAccount"] == null)
+            {
+                Server.Transfer("Login.aspx", false);
+            }
+
         }
     }
 }

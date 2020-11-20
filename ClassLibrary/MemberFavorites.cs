@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-   public class MemberFavorites
+    [Serializable]
+    public class MemberFavorites
     {
         private String favoriteMovie;
         private String favoriteVideoGame;

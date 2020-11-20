@@ -56,5 +56,13 @@ namespace _3342_Term_Project
             }
             
         }
+
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("HomePage.aspx");
+        }
+
     }
 }

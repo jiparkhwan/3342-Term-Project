@@ -137,8 +137,7 @@ namespace _3342_Term_Project
                         HttpCookie memberCookie = new HttpCookie("Login");
                         memberCookie.Values["Email"] = txtMemberEmail.Text;
                         memberCookie.Values["Password"] = encryptedPassword;
-                      //  memberCookie.Values["VerificationToken"] = Session["VerificationToken"].ToString();
-                  //  memberCookie.Values["VerificationToken"] = Session["VerificationToken"].ToString();
+                   
 
                     memberCookie.Expires = DateTime.Now.AddDays(1); //cookie expire in 1 day 
 

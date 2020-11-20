@@ -16,16 +16,18 @@ namespace _3342_Term_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            try
+            if (Session["MemberAccount"] == null)
             {
-                DBConnect objDB = new DBConnect();
+                Server.Transfer("Login.aspx", false);
+            }
+
+            DBConnect objDB = new DBConnect();
                 SqlCommand sqlComm = new SqlCommand();
 
                 sqlComm.CommandType = CommandType.StoredProcedure;
                 sqlComm.CommandText = "TP_RetrieverMemberAcc";
 
-                SqlParameter account = new SqlParameter("@email", Session["Email"].ToString());
+                SqlParameter account = new SqlParameter("@email", Session["MemberAccount"].ToString());
                 account.Direction = ParameterDirection.Input;
                 account.SqlDbType = SqlDbType.VarChar;
                 sqlComm.Parameters.Add(account);
@@ -39,20 +41,66 @@ namespace _3342_Term_Project
                     txtcurrentEmail.Text = ds.Tables[0].Rows[0]["Member_Email"].ToString();
                     txtcurrentDOB.Text = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
                     txtcurrentPassword.Text = ds.Tables[0].Rows[0]["Member_Password"].ToString();
-                    
-                    
 
-                  //WORK ON FUNCTIONALITY OF RETRIEVING DATA (DESERIALIZATION HERE)
-                }
 
+
+                //(DESERIALIZATION HERE)
+                
+                DBConnect db = new DBConnect();
+                SqlCommand sql = new SqlCommand();
+
+                sql.CommandType = CommandType.StoredProcedure;
+                sql.CommandText = "TP_GetMemberFavorites";
+
+                SqlParameter member = new SqlParameter("@email", Session["MemberAccount"].ToString());
+                member.Direction = ParameterDirection.Input;
+                member.SqlDbType = SqlDbType.VarChar;
+                sql.Parameters.Add(member);
+
+                DataSet dataset = db.GetDataSetUsingCmdObj(sql);
+
+
+                Byte[] byteArray = (Byte[])db.GetField("Member_Favorites", 0);
+                if (db.GetField("Member_Favorites", 0) != System.DBNull.Value)
+                {
+                    BinaryFormatter deSerializer = new BinaryFormatter();
+
+                    MemoryStream memStream = new MemoryStream(byteArray);
+
+                    MemberFavorites memberFavorites = (MemberFavorites)deSerializer.Deserialize(memStream);
+
+                    favoritesLbl.Text = "Current Favorites: </br>" +
+
+                                "Favorite Actor: " + memberFavorites.FavoriteActor + " </br>" +
+                                "Favorite Movie: " + memberFavorites.FavoriteMovie + " </br>" +
+                                "Favorite TVShow: " + memberFavorites.FavoriteTVShow + " </br>" +
+                               "Favorite VideoGame: " + memberFavorites.FavoriteVideoGame + " </br>";
+
+                    lblDisplay.Text = "";
+
+
+
+
+                }  
             }
-            catch (Exception ex)
-            {
-                lblDisplay.Text = ex.Message;
-            }
+
         }
+
+
+          
+        
         protected void btnSubmitChange_Click(object sender, EventArgs e)
         {
+
+
+
+
+
+
+
+
+
+
             // Serialize the MemberFavorites object
             MemberFavorites memberFavorites = new MemberFavorites();
 
@@ -80,7 +128,7 @@ namespace _3342_Term_Project
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_UpdateMemberFavorites";
 
-            objCommand.Parameters.AddWithValue("@memberEmail", Session["Email"].ToString());
+            objCommand.Parameters.AddWithValue("@memberEmail", Session["MemberAccount"].ToString());
             objCommand.Parameters.AddWithValue("@MemberFavorites", byteArray);
 
             int retVal = objDB.DoUpdateUsingCmdObj(objCommand);

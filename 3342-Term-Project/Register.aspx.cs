@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
+using ClassLibrary;
 
 namespace _3342_Term_Project
 {
@@ -20,7 +21,10 @@ namespace _3342_Term_Project
         {
             Error.Text = "";
         }
-
+        protected void BackToLoginBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
         protected void Submit_Click(object sender, EventArgs e)
         {
 
@@ -33,79 +37,29 @@ namespace _3342_Term_Project
             {
                 try
                 {
-                    DBConnect objDB = new DBConnect();
-                    SqlCommand sqlComm = new SqlCommand();
 
-                    sqlComm.CommandType = CommandType.StoredProcedure;
-                    sqlComm.CommandText = "TP_MemberRegister";
-
-                    SqlParameter cust = new SqlParameter("@email", txtEmail.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@firstName", txtFirstName.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@lastName", txtLastName.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-               
+                    Email objEmail = new Email();
 
 
-                    //this need to be change when hashing pw is implemented
-                    cust = new SqlParameter("@password", txtPassword.Text);
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-                    cust = new SqlParameter("@DOB", txtDOB.Text);
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
+                    String strTO = txtEmail.Text;
+                    String strFROM = "tug67579@cis-linux2.temple.edu";
+                    String strSubject = "LexPark Registration Confirmation";
+                    String strMessage = "Hello, click on the link to activate your account: http://localhost:55733/VerifiedPage.aspx";
+           
+                        objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
 
+                        Error.Text = "An email was sent to verify account!";
 
-                    cust = new SqlParameter("@securityQ1", ddlSecurityQuestion1.SelectedValue.ToString());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@securityA1", txtSecurityAnswer1.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@securityQ2", ddlSecurityQuestion2.SelectedValue.ToString());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@securityA2", txtSecurityAnswer2.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@securityQ3", ddlSecutiryQuestion3.SelectedValue.ToString());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
-                    cust = new SqlParameter("@securityA3", txtSecurityAnswer3.Text.Trim());
-                    cust.Direction = ParameterDirection.Input;
-                    cust.SqlDbType = SqlDbType.VarChar;
-                    sqlComm.Parameters.Add(cust);
-
+                    int result = StoredProcedures.addMemberAccountRegister(txtEmail.Text, txtFirstName.Text, txtLastName.Text, txtPassword.Text, txtDOB.Text,
+                        ddlSecurityQuestion1.SelectedValue.ToString(), ddlSecurityQuestion2.SelectedValue.ToString(), ddlSecurityQuestion3.SelectedValue.ToString(),
+                        txtSecurityAnswer1.Text, txtSecurityAnswer2.Text, txtSecurityAnswer3.Text);
                     
-             
-
-                    int result = objDB.DoUpdateUsingCmdObj(sqlComm);
-
                     if (result > 0)
                     {
-                        Error.Text = "Account added, return to login at top!";
+                        Session["RegisterEmailVerified"] = txtEmail.Text;
+
+
+                        Error.Text = "Check your email to verify your account!";
                     }
                     else
                     {

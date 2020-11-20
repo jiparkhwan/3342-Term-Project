@@ -44,24 +44,30 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = true;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = false;
-
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
-                WebResponse response = request.GetResponse();
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-                // Deserialize a JSON string into a Team object.
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                Movies[] movie = js.Deserialize<Movies[]>(data);
-                //gvResults.DataSource = Movie;
-                // gvResults.DataBind();
-                rptMovieSearchRes.DataSource = movie;
-                rptMovieSearchRes.DataBind();
-                lblError.Text = "";
+                try
+                {
+                    // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    Movies[] movie = js.Deserialize<Movies[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptMovieSearchRes.DataSource = movie;
+                    rptMovieSearchRes.DataBind();
+                    lblError.Text = "";
+                }
+                catch(Exception)
+                {
+                    lblError.Text = "Please enter a movie name first";
+                }
             }
             else if(ddlSelectMedia.Text == "shows")
             {
@@ -70,24 +76,30 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = true;
                 pnlGameRepeater.Visible = false;
-
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetShowByName/" + txtFindByName.Text);
-                WebResponse response = request.GetResponse();
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-                // Deserialize a JSON string into a Team object.
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                TVShows[] show = js.Deserialize<TVShows[]>(data);
-                //gvResults.DataSource = Movie;
-                // gvResults.DataBind();
-                rptShowSearchRes.DataSource = show;
-                rptShowSearchRes.DataBind();
-                lblError.Text = "";
+                try
+                {
+                    // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetShowByName/" + txtFindByName.Text);
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    TVShows[] show = js.Deserialize<TVShows[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptShowSearchRes.DataSource = show;
+                    rptShowSearchRes.DataBind();
+                    lblError.Text = "";
+                }
+                catch(Exception)
+                {
+                    lblError.Text = "Enter a TVshow name first!";
+                }
             }
             else if(ddlSelectMedia.Text == "videoGames")
             {
@@ -97,23 +109,30 @@ namespace _3342_Term_Project
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = true;
 
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameByName/" + txtFindByName.Text);
-                WebResponse response = request.GetResponse();
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-                // Deserialize a JSON string into a Team object.
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                VideoGames[] game = js.Deserialize<VideoGames[]>(data);
-                //gvResults.DataSource = Movie;
-                // gvResults.DataBind();
-                rptGameSearchRes.DataSource = game;
-                rptGameSearchRes.DataBind();
-                lblError.Text = "";
+                try
+                {
+                    // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameByName/" + txtFindByName.Text);
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    VideoGames[] game = js.Deserialize<VideoGames[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptGameSearchRes.DataSource = game;
+                    rptGameSearchRes.DataBind();
+                    lblError.Text = "";
+                }
+                catch(Exception)
+                {
+                    lblError.Text = "Please enter a video game name first!";
+                }
             }
             else if (ddlSelectMedia.Text == "actors")
             {

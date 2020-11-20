@@ -41,7 +41,8 @@
                         </asp:DropDownList>
                         <asp:TextBox ID="txtFindByName" runat="server"></asp:TextBox>
                         <asp:Button ID="btnFindByName"  Text="Search" runat="server" OnClick="btnFindByName_Click" CssClass="btn btn-primary" />
-                        <asp:Label ID="lblError" runat="server"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                     </asp:Panel>
 
                     <asp:ScriptManager runat="server"></asp:ScriptManager>

@@ -120,29 +120,8 @@
     width: 240px;
 }
 
-#btnSubmit {
-    background-color: #3589ff;
-    border: thin;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
 
-#btnClear {
-    background-color: lightgray;
-    border: thin;
-    padding: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
+
 
 #btnManageSecQuestions {
     background-color: lightgray;
@@ -287,7 +266,29 @@ h2 {
     height: 270px;
     width: 190px;
 }
+#btnSubmit {
+    background-color: #3589ff;
+    border: thin;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    margin: 3px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
 
+#btnClear {
+    background-color: lightgray;
+    border: thin;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 3px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
 .card1 {
     padding: 0;
     border: solid;

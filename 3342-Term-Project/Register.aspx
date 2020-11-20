@@ -6,21 +6,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
   <title>Register Member Account</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 </head>
 <body>
-	<div class="container">
-		<form id="addmember" runat="server">
-                      <Navigation:HomeNav ID="HomeNav" runat="server" />
 
+		<form id="addmember" runat="server">
+
+                      <Navigation:HomeNav ID="HomeNav" runat="server" />
+            <div class="container">
 			<div class="form-row">
 				<div style="margin-bottom: 25px;">
 					<h3>Register A New User</h3>
 					<small>All fields are required</small>
 				</div>
-                <asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
                 <br />
                 <br />
 			</div>
@@ -101,7 +109,7 @@
 				<div class="form-group col-md-6">
 					<label id="lblSecurityQuestion3" runat="server">Security Question 3</label>
 					<br />
-					<asp:DropDownList CssClass="form-control" ID="ddlSecutiryQuestion3" runat="server">
+					<asp:DropDownList CssClass="form-control" ID="ddlSecurityQuestion3" runat="server">
 						<asp:ListItem Value="What was your high school's mascot?">What was your high school's mascot?</asp:ListItem>
 						<asp:ListItem Value="Who is the author of your favorite book?">Who is the author of your favorite book?</asp:ListItem>
 						<asp:ListItem Value="What is the name of your childhood best friend?">What is the name of your childhood best friend?</asp:ListItem>
@@ -116,11 +124,15 @@
 			<div class="row">
 				<div class="col-md-12">
 					<asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" Text="Register" OnClick="Submit_Click" />
-				<asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
+			      <br />  <br />                
+                    <asp:Button ID="backToLogin" runat="server" OnClick="BackToLoginBtn_Click" Text="Back to Login" CssClass="btn btn-danger"/>
+
+                    <asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
 
                 </div>
 			</div>
+            </div>
 		</form>
-	</div>
+	
 </body>
 </html>

@@ -115,6 +115,33 @@ namespace _3342_Term_Project
                 rptGameSearchRes.DataBind();
                 lblError.Text = "";
             }
+            else if (ddlSelectMedia.Text == "actors")
+            {
+                pnlHome.Visible = false;
+                FooterNav.Visible = false;
+                pnlMovieRepeater.Visible = false;
+                pnlShowRepeater.Visible = false;
+                pnlGameRepeater.Visible = false;
+                pnlActorRepeater.Visible = true;
+
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetActorByName/" + txtFindByName.Text);
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                // Deserialize a JSON string into a Team object.
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Actors[] actor = js.Deserialize<Actors[]>(data);
+                //gvResults.DataSource = Movie;
+                // gvResults.DataBind();
+                rptActorSearchRes.DataSource = actor;
+                rptActorSearchRes.DataBind();
+                lblError.Text = "";
+            }
 
         }
 
@@ -240,7 +267,45 @@ namespace _3342_Term_Project
                         lblError.Text = "table doesnt exist";
                     }
                 }
-        }
+                else if (ddlSelectMedia.Text == "actors")
+                {
+                    int actorID = Convert.ToInt32(e.CommandArgument);
+
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetActorByID";
+
+                    SqlParameter member = new SqlParameter("@actorID", actorID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
+
+
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["ActorID"] = ds.Tables[0].Rows[0]["Actor_ID"].ToString();
+                        Session["ActorName"] = ds.Tables[0].Rows[0]["Actor_Name"].ToString();
+                        Session["ActorImage"] = ds.Tables[0].Rows[0]["Actor_Image"].ToString();
+                        Session["ActorDescription"] = ds.Tables[0].Rows[0]["Actor_Description"].ToString();
+                        Session["ActorHeight"] = ds.Tables[0].Rows[0]["Actor_Height"].ToString();
+                        Session["ActorDOB"] = ds.Tables[0].Rows[0]["Actor_DOB"].ToString();
+                        Session["ActorBirthCity"] = ds.Tables[0].Rows[0]["Actor_Birth_City"].ToString();
+                        Session["ActorBirthState"] = ds.Tables[0].Rows[0]["Actor_Birth_State"].ToString();
+                        Session["ActorBirthCountry"] = ds.Tables[0].Rows[0]["Actor_Birth_Country"].ToString();
+
+                        lblError.Text = "saved session info";
+                        Server.Transfer("Actor.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
+                }
+            }
         }
 
 

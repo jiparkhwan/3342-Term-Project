@@ -23,7 +23,7 @@
 <body>
     <form id="frmActor" runat="server">
         <div>
-            <Navigation:HomeNav ID="HomeNav" runat="server" />
+        <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="mainTitle">
             <br />
             <h1><asp:Label ID="lblActorName" runat="server" Text="Ryan Reynolds"></asp:Label></h1>
@@ -32,7 +32,7 @@
             <asp:Image ID="imgActorImage" runat="server" ImageUrl="https://resizing.flixster.com/VS2iCmn7Rsk7IQHAT1KBCwZ2oIE=/506x652/v2/https://flxt.tmsimg.com/v9/AllPhotos/57282/57282_v9_bb.jpg" Height="320" Width="240" BorderStyle="Solid" />
             <div class="titleInfo">
                 <asp:Label ID="lblActorDescriptionLabel" runat="server" Text="Description: " Font-Bold="True"></asp:Label>
-                <asp:Label ID="lblTitleDescription" runat="server" Text="Ryan Rodney Reynolds was born on October 23, 1976, in Vancouver, Canada. The youngest of four boys, Reynolds was a really nervous kid, he told GQ magazine. I was extremely sensitive ... I was so aware of everything around me. He found sanctuary in school productions where his vulnerability could be an asset rather than a problem. At the age of 12, Reynolds landed his first professional acting job. He was cast in a Canadian teen drama first called Hillside and later renamed Fifteen when it aired in the United States. The show ran from 1991 to 1993. After Fifteen, Reynolds struggled to get his career off the ground. He was cast in a few small roles, including a guest spot on The X-Files. Still Reynolds needed to take odd jobs to make ends meet after completing high school."></asp:Label>    
+                <asp:Label ID="lblActorDescription" runat="server" Text="Ryan Rodney Reynolds was born on October 23, 1976, in Vancouver, Canada. The youngest of four boys, Reynolds was a really nervous kid, he told GQ magazine. I was extremely sensitive ... I was so aware of everything around me. He found sanctuary in school productions where his vulnerability could be an asset rather than a problem. At the age of 12, Reynolds landed his first professional acting job. He was cast in a Canadian teen drama first called Hillside and later renamed Fifteen when it aired in the United States. The show ran from 1991 to 1993. After Fifteen, Reynolds struggled to get his career off the ground. He was cast in a few small roles, including a guest spot on The X-Files. Still Reynolds needed to take odd jobs to make ends meet after completing high school."></asp:Label>    
                 <br />
                 <br />
                 <asp:Label ID="lblActorDOBLabel" runat="server" Text="Date of Birth: " Font-Bold="True"></asp:Label>

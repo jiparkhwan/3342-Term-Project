@@ -161,6 +161,91 @@ namespace ClassLibrary
             myDS = objDB.GetDataSetUsingCmdObj(objCommand);
 
             return myDS;
+        } 
+        public static int verifyMemberAccount(string email)
+        {
+
+            DBConnect objDB = new DBConnect();
+            SqlCommand sqlComm = new SqlCommand();
+
+            sqlComm.CommandType = CommandType.StoredProcedure;
+            sqlComm.CommandText = "TP_VerifyMemberAccount";
+
+            SqlParameter cust = new SqlParameter("@email", email);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            return objDB.DoUpdateUsingCmdObj(sqlComm);
+        }
+        public static int addMemberAccountRegister(string email, string firstname, string lastname, string password, string dob, string sq1, string sq2, string sq3, string sa1, string sa2, string sa3)
+        {
+            DBConnect objDB = new DBConnect();
+            SqlCommand sqlComm = new SqlCommand();
+
+            sqlComm.CommandType = CommandType.StoredProcedure;
+            sqlComm.CommandText = "TP_MemberRegister";
+
+            SqlParameter cust = new SqlParameter("@email", email);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@firstName", firstname);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@lastName", lastname);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+
+
+
+
+            cust = new SqlParameter("@password", password);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+            cust = new SqlParameter("@DOB", dob);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+
+            cust = new SqlParameter("@securityQ1", sq1);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@securityA1", sq2);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@securityQ2", sq3);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@securityA2", sa1);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@securityQ3", sa2);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            cust = new SqlParameter("@securityA3", sa3);
+            cust.Direction = ParameterDirection.Input;
+            cust.SqlDbType = SqlDbType.VarChar;
+            sqlComm.Parameters.Add(cust);
+
+            return objDB.DoUpdateUsingCmdObj(sqlComm);
         }
     }
 }

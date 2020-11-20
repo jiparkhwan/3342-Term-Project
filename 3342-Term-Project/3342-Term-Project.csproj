@@ -86,6 +86,7 @@
     <Content Include="Title.aspx" />
     <Content Include="UserControls\Navbar.ascx" />
     <Content Include="UserControls\Footer.ascx" />
+    <Content Include="VerifiedPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,13 @@
     </Compile>
     <Compile Include="UserControls\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VerifiedPage.aspx.cs">
+      <DependentUpon>VerifiedPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerifiedPage.aspx.designer.cs">
+      <DependentUpon>VerifiedPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

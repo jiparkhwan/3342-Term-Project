@@ -16,9 +16,12 @@ namespace _3342_Term_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["MemberAccount"] == null)
+            {
+                Server.Transfer("Login.aspx", false);
+            }
 
-           
-                DBConnect objDB = new DBConnect();
+            DBConnect objDB = new DBConnect();
                 SqlCommand sqlComm = new SqlCommand();
 
                 sqlComm.CommandType = CommandType.StoredProcedure;
@@ -88,6 +91,16 @@ namespace _3342_Term_Project
         
         protected void btnSubmitChange_Click(object sender, EventArgs e)
         {
+
+
+
+
+
+
+
+
+
+
             // Serialize the MemberFavorites object
             MemberFavorites memberFavorites = new MemberFavorites();
 

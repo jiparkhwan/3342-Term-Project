@@ -31,15 +31,6 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
-        /// lbLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbLogin;
-        
-        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -301,13 +292,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSecurityQuestion3;
         
         /// <summary>
-        /// ddlSecutiryQuestion3 control.
+        /// ddlSecurityQuestion3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecutiryQuestion3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSecurityQuestion3;
         
         /// <summary>
         /// lblSecurityAnswer3 control.
@@ -344,6 +335,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Submit;
+        
+        /// <summary>
+        /// backToLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button backToLogin;
         
         /// <summary>
         /// Error control.

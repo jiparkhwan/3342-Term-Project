@@ -60,15 +60,6 @@
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
-
-
-
-
-
-
-
-
-
     </form>
 </body>
 </html>

@@ -254,6 +254,53 @@
                         </Center>
                     </asp:Panel>
 
+                    
+                    <asp:Panel ID="pnlActorRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
+                        <Center>
+                            <asp:Repeater ID="rptActorSearchRes" runat="server">
+                                <HeaderTemplate>
+                                    <table style="width: 400px; height:40px;">
+                                        <tr style=" font-size: large; font-weight: bold;">
+                                            <td style="text-align:center;">
+                                                <br />
+                                                <h2>Search Results</h2>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                    <hr />
+                                </HeaderTemplate>
+
+                                <ItemTemplate>     
+                                    <table style="width: 200px; height:200px;">
+                                        <tr>
+                                        <tr style="background-color: #e6e6e6">
+                                            <td>
+                                                <br />
+                                                <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                                    <asp:ImageButton ID="imgActorResult" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("actorImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("actorID") %>'></asp:ImageButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <td>
+                                        <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                            <tr>
+                                                <h1><asp:Label ID="lblActorName" runat="server" fontBold ="true" Text='<%#Eval("actorName") %>'/></h1>
+                                                <br />
+                                            </tr>
+                                                <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                                    <asp:Label ID="lblActorBirthday" runat="server" Text='<%#Eval("actorDOB") %>' />
+                                                </td>
+                                            </tr>                                 
+                                        </table>
+                                    </td>
+                                    
+                                    <br />        
+                                </ItemTemplate>                       
+                            </asp:Repeater>
+                        </Center>
+                    </asp:Panel>
+
                      <br />   
                 </div>
                 

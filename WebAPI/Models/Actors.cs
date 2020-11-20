@@ -8,15 +8,15 @@ namespace WebAPI.Models
 {
     public class Actors
     {
-        private String name;
-        private String description;
-        private String height;
-        private String DOB;
-        private String birthCity;
-        private String birthState;
-        private String birthCountry;
+        private String actorName;
+        private String actorDescription;
+        private String actorHeight;
+        private String actorDOB;
+        private String actorBirthCity;
+        private String actorBirthState;
+        private String actorBirthCountry;
         private int actorID;
-        private String image;
+        private String actorImage;
 
         public Actors()
         {
@@ -25,25 +25,25 @@ namespace WebAPI.Models
 
         public Actors(string name, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
         {
-            this.name = name;
-            this.description = description;
-            this.height = height;
-            DOB = dOB;
-            this.birthCity = birthCity;
-            this.birthState = birthState;
-            this.birthCountry = birthCountry;
+            this.actorName = name;
+            this.actorDescription = description;
+            this.actorHeight = height;
+            this.actorDOB = dOB;
+            this.actorBirthCity = birthCity;
+            this.actorBirthState = birthState;
+            this.actorBirthCountry = birthCountry;
             this.actorID = actorID;
-            this.image = image;
+            this.actorImage = image;
         }
 
-        public string Name { get => name; set => name = value; }
-        public string Description { get => description; set => description = value; }
-        public string Height { get => height; set => height = value; }
-        public string DOB1 { get => DOB; set => DOB = value; }
-        public string BirthCity { get => birthCity; set => birthCity = value; }
-        public string BirthState { get => birthState; set => birthState = value; }
-        public string BirthCountry { get => birthCountry; set => birthCountry = value; }
+        public string ActorName { get => actorName; set => actorName = value; }
+        public string ActorDescription { get => actorDescription; set => actorDescription = value; }
+        public string ActorHeight { get => actorHeight; set => actorHeight = value; }
+        public string ActorDOB { get => actorDOB; set => actorDOB = value; }
+        public string ActorBirthCity { get => actorBirthCity; set => actorBirthCity = value; }
+        public string ActorBirthState { get => actorBirthState; set => actorBirthState = value; }
+        public string ActorBirthCountry { get => actorBirthCountry; set => actorBirthCountry = value; }
         public int ActorID { get => actorID; set => actorID = value; }
-        public string Image { get => image; set => image = value; }
+        public string ActorImage { get => actorImage; set => actorImage = value; }
     }
 }

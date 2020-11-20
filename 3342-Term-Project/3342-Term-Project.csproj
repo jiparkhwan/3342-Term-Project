@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AccountRecovery.aspx" />
     <Content Include="Actor.aspx" />
+    <Content Include="AddActor.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Images\bluePersonImage.png" />
     <Content Include="Images\cinema-wallpaper-14.jpg" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="Actor.aspx.designer.cs">
       <DependentUpon>Actor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddActor.aspx.cs">
+      <DependentUpon>AddActor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddActor.aspx.designer.cs">
+      <DependentUpon>AddActor.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

@@ -38,14 +38,14 @@ namespace WebAPI.Controllers
             {
                 actor = new Actors();
                 actor.ActorID = int.Parse(dr["Actor_ID"].ToString());
-                actor.Name = dr["Actor_Name"].ToString();
-                actor.BirthCity = dr["Actor_Birth_City"].ToString();
-                actor.BirthCountry = dr["Actor_Birth_Country"].ToString();
-                actor.BirthState = dr["Actor_Birth_State"].ToString();
-                actor.DOB1 = dr["Actor_DOB"].ToString();
-                actor.Height = dr["Actor_Height"].ToString();
-                actor.Image = dr["Actor_Image"].ToString();
-                actor.Description = dr["Actor_Description"].ToString();
+                actor.ActorName = dr["Actor_Name"].ToString();
+                actor.ActorBirthCity = dr["Actor_Birth_City"].ToString();
+                actor.ActorBirthCountry = dr["Actor_Birth_Country"].ToString();
+                actor.ActorBirthState = dr["Actor_Birth_State"].ToString();
+                actor.ActorDOB = dr["Actor_DOB"].ToString();
+                actor.ActorHeight = dr["Actor_Height"].ToString();
+                actor.ActorImage = dr["Actor_Image"].ToString();
+                actor.ActorDescription = dr["Actor_Description"].ToString();
 
 
                 dpts.Add(actor);
@@ -74,14 +74,14 @@ namespace WebAPI.Controllers
             {
                 actor = new Actors();
                 actor.ActorID = int.Parse(dr["Actor_ID"].ToString());
-                actor.Name = dr["Actor_Name"].ToString();
-                actor.BirthCity = dr["Actor_Birth_City"].ToString();
-                actor.BirthCountry = dr["Actor_Birth_Country"].ToString();
-                actor.BirthState = dr["Actor_Birth_State"].ToString();
-                actor.DOB1 = dr["Actor_DOB"].ToString();
-                actor.Height = dr["Actor_Height"].ToString();
-                actor.Image = dr["Actor_Image"].ToString();
-                actor.Description = dr["Actor_Description"].ToString();
+                actor.ActorName = dr["Actor_Name"].ToString();
+                actor.ActorBirthCity = dr["Actor_Birth_City"].ToString();
+                actor.ActorBirthCountry = dr["Actor_Birth_Country"].ToString();
+                actor.ActorBirthState = dr["Actor_Birth_State"].ToString();
+                actor.ActorDOB = dr["Actor_DOB"].ToString();
+                actor.ActorHeight = dr["Actor_Height"].ToString();
+                actor.ActorImage = dr["Actor_Image"].ToString();
+                actor.ActorDescription = dr["Actor_Description"].ToString();
 
 
                 dpts.Add(actor);

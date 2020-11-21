@@ -480,7 +480,43 @@ namespace WebAPI.Controllers
 
 
         //BEGIN POST REQUESTS ->
+        [HttpPost()]
+        [HttpPost("AddActor")]
+        public Boolean AddActor([FromBody]Actors actors)
+        {
+            if(actors != null)
+            {
+                DBConnect objDB = new DBConnect();
+                SqlCommand objCommand = new SqlCommand();
 
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_AddActor";
+
+                objCommand.Parameters.AddWithValue("@Actor_Image", actors.ActorImage);
+                objCommand.Parameters.AddWithValue("@Actor_Name", actors.ActorName);
+                objCommand.Parameters.AddWithValue("@Actor_Description", actors.ActorDescription);
+                objCommand.Parameters.AddWithValue("@Actor_Height", actors.ActorHeight);
+                objCommand.Parameters.AddWithValue("@Actor_DOB", actors.ActorDOB);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_City", actors.ActorBirthCity);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_State", actors.ActorBirthState);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_Country", actors.ActorBirthCountry);
+
+                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
+
+                if (retVal > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     } //end of class
 } //end of namespace

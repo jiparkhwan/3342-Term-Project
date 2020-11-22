@@ -8,6 +8,7 @@ namespace ClassLibrary
 {
     public class Reviews
     {
+        
         private float avgRating;
         private String description;
         private int reviewID;

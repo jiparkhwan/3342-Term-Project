@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilities;
+using ClassLibrary;
 namespace _3342_Term_Project
 {
     public partial class Title : System.Web.UI.Page
     {
+        StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {            
             imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
@@ -54,7 +58,63 @@ namespace _3342_Term_Project
                 lblTitleBudget.Text = Session["TitleBudget"].ToString();
                 lblTitleIncome.Text = Session["TitleIncome"].ToString();
             }
-            
+
+       
+             //review functions here
+            if (Convert.ToBoolean(Session["MovieReviews"]) == true)
+            {
+                try
+                {
+                    DataSet myDS = SP.getMovieReviewsByID(Convert.ToInt32(Session["MovieID"]));
+                    //myDS =  SP.getMovieReviewsByID(Convert.ToInt32(Session["MovieID"]));
+                    lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
+                    lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
+                    lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
+                }
+                catch(Exception E)
+                {
+                    lblError.Text = E.Message;
+                }
+            }
+
+            else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+            {
+                try
+                {
+                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+             //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
+                lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
+                lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
+            }
+                catch (Exception E)
+            {
+                lblError.Text = E.Message;
+            }
+
+        }
+           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+            {
+                try
+                {
+                    DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+
+
+               // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+
+                lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
+                lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
+                lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
+            }
+                catch (Exception E)
+            {
+                lblError.Text = E.Message;
+            }
+
+        }
+
+
+
         }
 
 

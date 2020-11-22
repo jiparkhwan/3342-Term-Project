@@ -26,7 +26,7 @@ namespace ClassLibrary
 
             return myDS;
         }
-
+      
         public DataSet getAllMovies()
         {
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -105,7 +105,58 @@ namespace ClassLibrary
 
             return myDS;
         }
+        //get reviews by id
+        public DataSet getMovieReviewsByID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetMovieReviews";
 
+            SqlParameter inputParameter = new SqlParameter("@movieID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+        public DataSet getGameReviewsByID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetGameReviews";
+
+            SqlParameter inputParameter = new SqlParameter("@gameID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+        public DataSet getShowReviewsByID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetShowReviews";
+
+            SqlParameter inputParameter = new SqlParameter("@showID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
         //Finds TV shows based on name typed in search bar. Uses like to find titles that are similar as well.
         public DataSet getShowByName(string showName)
         {

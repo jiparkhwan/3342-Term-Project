@@ -30,8 +30,8 @@ namespace _3342_Term_Project
     
             }
         }
+       
 
- 
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
@@ -44,6 +44,8 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = true;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = false;
+
+              
                 try
                 {
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
@@ -76,6 +78,7 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = true;
                 pnlGameRepeater.Visible = false;
+
                 try
                 {
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
@@ -108,6 +111,8 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = true;
+
+               
 
                 try
                 {
@@ -170,8 +175,12 @@ namespace _3342_Term_Project
             {
                 if (ddlSelectMedia.Text == "movies")
                 {
+                    Session["MovieReviews"] = true;
+                    Session["ShowReviews"] = false;
+                    Session["GameReviews"] = false;
+                   
                     int MovieID = Convert.ToInt32(e.CommandArgument);
-
+                    Session["MovieID"] = MovieID;
                     DBConnect objDB = new DBConnect();
                     SqlCommand sqlComm = new SqlCommand();
 
@@ -209,8 +218,13 @@ namespace _3342_Term_Project
                 }
                 else if(ddlSelectMedia.Text == "shows")
                 {
-                    int ShowID = Convert.ToInt32(e.CommandArgument);
 
+                    Session["MovieReviews"] = false;
+                    Session["ShowReviews"] = true;
+                    Session["GameReviews"] = false;
+                   
+                    int ShowID = Convert.ToInt32(e.CommandArgument);
+                    Session["ShowID"] = ShowID;
                     DBConnect objDB = new DBConnect();
                     SqlCommand sqlComm = new SqlCommand();
 
@@ -248,8 +262,12 @@ namespace _3342_Term_Project
                 }
                 else if(ddlSelectMedia.Text == "videoGames")
                 {
+                    Session["MovieReviews"] = false;
+                    Session["ShowReviews"] = false;
+                    Session["GameReviews"] = true;
+                
                     int GameID = Convert.ToInt32(e.CommandArgument);
-
+                    Session["GameID"] = GameID;
                     DBConnect objDB = new DBConnect();
                     SqlCommand sqlComm = new SqlCommand();
 

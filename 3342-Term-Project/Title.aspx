@@ -55,7 +55,35 @@
                 <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
                 <asp:Label ID="lblTitleCreatorLabel" runat="server" Text="Creator: " Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleCreator" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
             </div>
+
+
+            <br />
+            <br />
+
+            <table class="table">  
+                <tr>  
+                    <th>  
+                        <b>  
+                            <asp:Label ID="lblReviewer" runat="server" Text=></asp:Label>></b>  
+                    </th>  
+                </tr>  
+                <tr>  
+                    <td >  
+                        <asp:Label ID="lblReviewRating" runat="server" Text=""></asp:Label><br/>
+                        <asp:Label ID="lblReviewDescription" runat="server" Text=""></asp:Label><br />  
+                    </td>  
+                </tr>  
+               
+            </table>  
+    
+
+
+
+
+
+
             <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>

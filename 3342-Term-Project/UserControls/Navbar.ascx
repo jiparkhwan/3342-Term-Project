@@ -12,7 +12,9 @@
       <li>
          
       </li> 
-      
+      <li class="nav-item">
+        <a class="nav-link" href="MemberManagement.aspx">Member Management</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="MyAccount.aspx">My Account</a>
       </li>

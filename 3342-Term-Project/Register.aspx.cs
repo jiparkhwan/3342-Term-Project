@@ -35,9 +35,7 @@ namespace _3342_Term_Project
             }
             else
             {
-                try
-                {
-
+                
                     Email objEmail = new Email();
 
 
@@ -61,17 +59,11 @@ namespace _3342_Term_Project
 
                         Error.Text = "Check your email to verify your account!";
                     }
-                    else
-                    {
-                        Error.Text = "Registration failed ";
-                    }
+                 
 
                 }
-                catch (Exception ex)
-                {
-                    Error.Text = ex.Message;
-                }
-            }
+             
+            
 
 
 

@@ -48,9 +48,6 @@ namespace Utilities
 
         {
 
-            try
-
-            {
 
                 this.Recipient = recipient;
 
@@ -104,17 +101,7 @@ namespace Utilities
 
                 smtpMailClient.Send(objMail);
 
-            }
-
-            catch (Exception ex)
-
-            {
-
-                throw ex;
-
-            }
-
-
+            
 
         }
 
@@ -124,9 +111,7 @@ namespace Utilities
 
         {
 
-            try
-
-            {
+            
 
                 objMail.To.Add(this.toAddress);
 
@@ -162,16 +147,9 @@ namespace Utilities
 
                 return true;
 
-            }
+            
 
-            catch (Exception ex)
-
-            {
-
-                return false;
-
-            }
-
+        
         }
 
 

@@ -158,7 +158,7 @@ namespace _3342_Term_Project
                 }
                 else
                 {
-                    Error.Text = "Account not found!";
+                    Error.Text = "Account not found! Please make sure you verified your account.";
                 }
             }
             catch (Exception ex)

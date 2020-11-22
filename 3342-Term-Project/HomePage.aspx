@@ -141,7 +141,7 @@
                                                 <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
                                                     <asp:Label ID="lblMovieAgeRating" runat="server" Text='<%#Eval("movieAgeRating") %>' />
                                                 </td>
-                                            </tr>                                 
+                                          
                                         </table>
                                     </td>
                                     
@@ -194,7 +194,7 @@
                                                 <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
                                                     <asp:Label ID="lblShowAgeRating" runat="server" Text='<%#Eval("showAgeRating") %>' />
                                                 </td>
-                                            </tr>                                 
+
                                         </table>
                                     </td>
                                     
@@ -244,7 +244,7 @@
                                                 <td style="width: 50%; font-size: 1.25em;"><strong>Rating:</strong>
                                                     <asp:Label ID="lblGameAgeRating" runat="server" Text='<%#Eval("GameAgeRating") %>' />
                                                 </td>
-                                            </tr>                                 
+                                       
                                         </table>
                                     </td>
                                     

@@ -25,7 +25,7 @@
 }
 
 #HomeNav_txtSearch {
-    width: 400px;
+    width: 450px;
     height: 39.5px;
     border-radius: 0px 5px 5px 0px;
     margin-top: 0px;
@@ -53,13 +53,19 @@
 
 .nav-link
 {
+
+    width: 100%;
     margin-top: 0;
     color: white;
 }
 
-.navbar-nav
-{
-    margin-left: 86%;
+.navbar-expand-lg .navbar-nav .nav-link {
+    margin-left: 10px;
+    margin-right: 2%;
+}
+
+.navbar-nav {
+    margin-left: 76%;
 }
 
 .nav-item {
@@ -67,6 +73,19 @@
 }
 
 .mainAccount 
+{
+    padding-top: .25%;
+    background-color: rgba(255,255,255, 0.98);
+    min-height: 800px;
+    width: 70%;
+    text-align: center;
+    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.mainMemManagement 
 {
     padding-top: .25%;
     background-color: rgba(255,255,255, 0.98);
@@ -114,14 +133,21 @@
     font-size: 18px;
 }
 
+.mainAddTitle {
+    background-color: rgba(255,255,255, 0.98);
+    min-height: 800px;
+    width: 70%;
+    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    margin-top: 0;
+    font-size: 18px;
+}
+
 #ibtnManageAcct {
     margin-top: 5%;
     height: 160px;
     width: 240px;
 }
-
-
-
 
 #btnManageSecQuestions {
     background-color: lightgray;
@@ -220,6 +246,39 @@ center {
     margin-left: 3%;
 }
 
+#pnlAddActor 
+{
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid thin;
+}
+
+#pnlAddMovie 
+{
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid thin;
+}
+
+#pnlAddShow {
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid thin;
+}
+
+#pnlAddGame 
+{
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    border: solid thin;
+}
+
+
+
 #pnlFindRandomTitle {
     border-radius: 10px;
     border: solid thin;
@@ -232,8 +291,7 @@ center {
     margin-left: 3%;
 }
 
-#imgRandomGame
-{
+#imgRandomGame {
     border-radius: 15px;
     margin-left: 12%;
     padding: 25px;

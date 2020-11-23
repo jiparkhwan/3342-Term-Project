@@ -10,16 +10,16 @@
 namespace _3342_Term_Project {
     
     
-    public partial class AddActor {
+    public partial class AddTitle {
         
         /// <summary>
-        /// frmAddActor control.
+        /// frmAddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmAddActor;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmAddTitle;
         
         /// <summary>
         /// HomeNav control.
@@ -31,6 +31,15 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
+        /// pnlAddMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
+        
+        /// <summary>
         /// lblDisplay control.
         /// </summary>
         /// <remarks>
@@ -40,184 +49,166 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblDisplay;
         
         /// <summary>
-        /// lblAddImage control.
+        /// lblAddMovieImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddImage;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieImage;
         
         /// <summary>
-        /// txtAddImage control.
+        /// txtAddMovieImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddImage;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieImage;
         
         /// <summary>
-        /// lblAddName control.
+        /// lblAddMovieName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddName;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieName;
         
         /// <summary>
-        /// txtAddName control.
+        /// txtAddMovieName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddName;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieName;
         
         /// <summary>
-        /// lblAddHeight control.
+        /// lblAddMovieAgeRange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddHeight;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieAgeRange;
         
         /// <summary>
-        /// txtAddHeight control.
+        /// ddlAddMovieAgeRange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddHeight;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddMovieAgeRange;
         
         /// <summary>
-        /// lblAddDOB control.
+        /// lblAddMovieYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddDOB;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieYear;
         
         /// <summary>
-        /// ddlAddDOBMonth control.
+        /// ddlAddMovieYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAddDOBMonth;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddMovieYear;
         
         /// <summary>
-        /// lblDash control.
+        /// lblAddMovieRuntime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieRuntime;
         
         /// <summary>
-        /// ddlAddDOBDay control.
+        /// txtAddMovieRuntime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAddDOBDay;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieRuntime;
         
         /// <summary>
-        /// lblDash2 control.
+        /// lblAddMovieGenre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash2;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieGenre;
         
         /// <summary>
-        /// ddlAddDOBYear control.
+        /// ddlAddMovieGenre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAddDOBYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddMovieGenre;
         
         /// <summary>
-        /// lblAddBirthCity control.
+        /// lblAddMovieBudget control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddBirthCity;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieBudget;
         
         /// <summary>
-        /// txtAddBirthCity control.
+        /// txtAddMovieBudget control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddBirthCity;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieBudget;
         
         /// <summary>
-        /// lblAddBirthState control.
+        /// lblAddMovieIncome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddBirthState;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieIncome;
         
         /// <summary>
-        /// txtAddBirthState control.
+        /// txtAddMovieIncome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddBirthState;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieIncome;
         
         /// <summary>
-        /// lblAddBirthCountry control.
+        /// lblAddMovieDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddBirthCountry;
+        protected global::System.Web.UI.WebControls.Label lblAddMovieDescription;
         
         /// <summary>
-        /// txtAddBirthCountry control.
+        /// txtAddMovieDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddBirthCountry;
-        
-        /// <summary>
-        /// lblAddDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddDescription;
-        
-        /// <summary>
-        /// txtAddDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtAddMovieDescription;
         
         /// <summary>
         /// btnSubmit control.

@@ -31,6 +31,7 @@
             <br />
             <h5>Found an upcoming actor that we're not aware of? Add them here!</h5>
             <br />
+            <asp:Label ID="lblDisplay" runat="server" Text=""></asp:Label>
             <br />
             <asp:Label ID="lblAddImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddImage" runat="server"></asp:TextBox>
@@ -96,7 +97,7 @@
                 <asp:ListItem Value="31">31</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblDash2" runat="server" Text=" - "></asp:Label>
-            <asp:DropDownList ID="ddlAddBOBYear" runat="server" OnSelectedIndexChanged="ddlAddBOBYear_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlAddDOBYear" runat="server" OnSelectedIndexChanged="ddlAddBOBYear_SelectedIndexChanged">
                 <asp:ListItem Value="noneSelected">----</asp:ListItem>
             </asp:DropDownList>
             <br />
@@ -118,7 +119,7 @@
             <asp:TextBox ID="txtAddDescription" runat="server" Width="50%" Height="120px"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit Changes" Font-Bold="True" OnClick="btnSubmitChange_Click"/>
+            <asp:Button ID="btnSubmit" runat="server" Text="Add Actor" Font-Bold="True" OnClick="btnSubmit_Click"/>
             <asp:Button ID="btnClear" runat="server" Text="Clear All Fields" Font-Bold="True" />
             <br />
             <br />

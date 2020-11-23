@@ -70,6 +70,7 @@
     <Content Include="AccountRecovery.aspx" />
     <Content Include="Actor.aspx" />
     <Content Include="AddActor.aspx" />
+    <Content Include="AddTitle.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Images\bluePersonImage.png" />
     <Content Include="Images\cinema-wallpaper-14.jpg" />
@@ -79,6 +80,7 @@
     <Content Include="Images\oldTheatre.jpg" />
     <Content Include="Images\TV.png" />
     <Content Include="Login.aspx" />
+    <Content Include="MemberManagement.aspx" />
     <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="MemberProfile.aspx" />
@@ -114,6 +116,13 @@
     <Compile Include="AddActor.aspx.designer.cs">
       <DependentUpon>AddActor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddTitle.aspx.cs">
+      <DependentUpon>AddTitle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTitle.aspx.designer.cs">
+      <DependentUpon>AddTitle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +136,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberManagement.aspx.cs">
+      <DependentUpon>MemberManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberManagement.aspx.designer.cs">
+      <DependentUpon>MemberManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>

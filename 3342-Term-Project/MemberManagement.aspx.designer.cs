@@ -40,13 +40,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddActor;
         
         /// <summary>
-        /// lblAddActor control.
+        /// lnkBtnAddActor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddActor;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnAddActor;
         
         /// <summary>
         /// pnlAddMovie control.
@@ -58,13 +58,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
         
         /// <summary>
-        /// lblAddMovie control.
+        /// lnkBtnAddMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMovie;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnAddMovie;
         
         /// <summary>
         /// pnlAddShow control.
@@ -76,13 +76,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddShow;
         
         /// <summary>
-        /// lblAddShow control.
+        /// lnkbtnShowClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddShow;
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnShowClick;
         
         /// <summary>
         /// pnlAddGame control.
@@ -94,13 +94,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddGame;
         
         /// <summary>
-        /// lblAddGame control.
+        /// lnkbtnGameClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddGame;
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnGameClick;
         
         /// <summary>
         /// FooterNav control.

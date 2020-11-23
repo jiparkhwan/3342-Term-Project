@@ -105,6 +105,7 @@ namespace ClassLibrary
 
             return myDS;
         }
+
         //get reviews by id
         public DataSet getMovieReviewsByID(int id)
         {
@@ -123,6 +124,7 @@ namespace ClassLibrary
 
             return myDS;
         }
+
         public DataSet getGameReviewsByID(int id)
         {
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -140,6 +142,7 @@ namespace ClassLibrary
 
             return myDS;
         }
+
         public DataSet getShowReviewsByID(int id)
         {
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -157,6 +160,7 @@ namespace ClassLibrary
 
             return myDS;
         }
+
         //Finds TV shows based on name typed in search bar. Uses like to find titles that are similar as well.
         public DataSet getShowByName(string showName)
         {
@@ -213,9 +217,9 @@ namespace ClassLibrary
 
             return myDS;
         } 
+
         public static int verifyMemberAccount(string email)
         {
-
             DBConnect objDB = new DBConnect();
             SqlCommand sqlComm = new SqlCommand();
 
@@ -252,10 +256,6 @@ namespace ClassLibrary
             cust.SqlDbType = SqlDbType.VarChar;
             sqlComm.Parameters.Add(cust);
 
-
-
-
-
             cust = new SqlParameter("@password", password);
             cust.Direction = ParameterDirection.Input;
             cust.SqlDbType = SqlDbType.VarChar;
@@ -264,7 +264,6 @@ namespace ClassLibrary
             cust.Direction = ParameterDirection.Input;
             cust.SqlDbType = SqlDbType.VarChar;
             sqlComm.Parameters.Add(cust);
-
 
             cust = new SqlParameter("@securityQ1", sq1);
             cust.Direction = ParameterDirection.Input;

@@ -55,36 +55,51 @@
                 <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
                 <asp:Label ID="lblTitleCreatorLabel" runat="server" Text="Creator: " Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleCreator" runat="server" Text=""></asp:Label>
-                <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
             </div>
 
 
             <br />
-            <br />
-
-            <table class="table">  
-                <tr>  
-                    <th>  
-                        <b>  
-                            <asp:Label ID="lblReviewer" runat="server" Text=></asp:Label>></b>  
-                    </th>  
-                </tr>  
-                <tr>  
-                    <td >  
-                        <asp:Label ID="lblReviewRating" runat="server" Text=""></asp:Label><br/>
-                        <asp:Label ID="lblReviewDescription" runat="server" Text=""></asp:Label><br />  
-                    </td>  
-                </tr>  
-               
-            </table>  
-    
-
-
-
-
-
+   
 
             <hr />
+            <asp:Label ID="lblError" runat="server" Text="" ForeColor="DodgerBlue"></asp:Label>
+
+                  <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
+
+            <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Reviewer_Email" HeaderText="Reviewer" />
+                    <asp:BoundField DataField="Review_Description" HeaderText="Description" />
+                    <asp:BoundField DataField="Review_Rating" HeaderText="Rating" />
+              
+                 
+                </Columns>
+            </asp:GridView>
+            <br />
+
+            <asp:LinkButton  ID="addReviewLink" runat="server" Text="add new review" OnClick="addReviewLink_OnClick"></asp:LinkButton>
+            <asp:Panel runat="server" ID="addReviewPanel">
+                <h4>Rating:</h4>
+                <asp:DropDownList ID="ddlAddRating" runat="server" Height="50px" Width="70px">
+                     <asp:ListItem>1</asp:ListItem>
+                     <asp:ListItem>2</asp:ListItem>
+                     <asp:ListItem>3</asp:ListItem>
+                     <asp:ListItem>4</asp:ListItem>
+                     <asp:ListItem>5</asp:ListItem>
+                     <asp:ListItem>6</asp:ListItem>
+                     <asp:ListItem>7</asp:ListItem>
+                     <asp:ListItem>8</asp:ListItem>
+                     <asp:ListItem>9</asp:ListItem>
+                     <asp:ListItem>10</asp:ListItem>
+                </asp:DropDownList>
+                <h4>Description:</h4>
+                <textarea id="textAreaAddReview" cols="30" rows="5" runat="server"></textarea>
+              <br />
+                <asp:Button ID="submitReview" runat="server" Text="Submit Review" CssClass="btn-outline-primary" OnClick="submitReview_OnClick"/>
+                </asp:Panel>
+            <br />
+            <asp:Label ID="lblSuccessReview" runat="server" Text=""></asp:Label>
+              <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
         <Footer:HomeFooter ID="FooterNav" runat="server" />

@@ -211,31 +211,76 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// lblReviewer control.
+        /// reviewOutput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReviewer;
+        protected global::System.Web.UI.WebControls.Label reviewOutput;
         
         /// <summary>
-        /// lblReviewRating control.
+        /// gvReviews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReviewRating;
+        protected global::System.Web.UI.WebControls.GridView gvReviews;
         
         /// <summary>
-        /// lblReviewDescription control.
+        /// addReviewLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReviewDescription;
+        protected global::System.Web.UI.WebControls.LinkButton addReviewLink;
+        
+        /// <summary>
+        /// addReviewPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel addReviewPanel;
+        
+        /// <summary>
+        /// ddlAddRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddRating;
+        
+        /// <summary>
+        /// textAreaAddReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea textAreaAddReview;
+        
+        /// <summary>
+        /// submitReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitReview;
+        
+        /// <summary>
+        /// lblSuccessReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccessReview;
         
         /// <summary>
         /// lblTitleCast control.

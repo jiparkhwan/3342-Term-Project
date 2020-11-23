@@ -105,7 +105,6 @@ namespace ClassLibrary
 
             return myDS;
         }
-
         //get reviews by id
         public DataSet getMovieReviewsByID(int id)
         {
@@ -124,7 +123,6 @@ namespace ClassLibrary
 
             return myDS;
         }
-
         public DataSet getGameReviewsByID(int id)
         {
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -142,7 +140,6 @@ namespace ClassLibrary
 
             return myDS;
         }
-
         public DataSet getShowReviewsByID(int id)
         {
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -159,6 +156,106 @@ namespace ClassLibrary
             myDS = objDB.GetDataSetUsingCmdObj(objCommand);
 
             return myDS;
+        }
+        public static int addMovieReview(int id, int rating, string description, string reviewerEmail)
+        {
+            DBConnect objDB = new DBConnect();
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddMovieReview";
+
+            SqlParameter inputParameter = new SqlParameter("@movieID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@rating", rating);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+
+            inputParameter = new SqlParameter("@description", description);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@reviewerEmail", reviewerEmail);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            return objDB.DoUpdateUsingCmdObj(objCommand);
+
+
+        }
+
+        public static int addTVShowReview(int id, int rating, string description, string reviewerEmail)
+        {
+            DBConnect objDB = new DBConnect();
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddShowReview";
+
+            SqlParameter inputParameter = new SqlParameter("@showID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@rating", rating);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+
+            inputParameter = new SqlParameter("@description", description);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@reviewerEmail", reviewerEmail);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            return objDB.DoUpdateUsingCmdObj(objCommand);
+
+
+        }
+        public static int addGameReview(int id, int rating, string description, string reviewerEmail)
+        {
+            DBConnect objDB = new DBConnect();
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddGameReview";
+
+            SqlParameter inputParameter = new SqlParameter("@gameID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@rating", rating);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+
+            inputParameter = new SqlParameter("@description", description);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@reviewerEmail", reviewerEmail);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            return objDB.DoUpdateUsingCmdObj(objCommand);
+
+
         }
 
         //Finds TV shows based on name typed in search bar. Uses like to find titles that are similar as well.
@@ -217,9 +314,9 @@ namespace ClassLibrary
 
             return myDS;
         } 
-
         public static int verifyMemberAccount(string email)
         {
+
             DBConnect objDB = new DBConnect();
             SqlCommand sqlComm = new SqlCommand();
 
@@ -256,6 +353,10 @@ namespace ClassLibrary
             cust.SqlDbType = SqlDbType.VarChar;
             sqlComm.Parameters.Add(cust);
 
+
+
+
+
             cust = new SqlParameter("@password", password);
             cust.Direction = ParameterDirection.Input;
             cust.SqlDbType = SqlDbType.VarChar;
@@ -264,6 +365,7 @@ namespace ClassLibrary
             cust.Direction = ParameterDirection.Input;
             cust.SqlDbType = SqlDbType.VarChar;
             sqlComm.Parameters.Add(cust);
+
 
             cust = new SqlParameter("@securityQ1", sq1);
             cust.Direction = ParameterDirection.Input;

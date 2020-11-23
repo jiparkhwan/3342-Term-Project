@@ -15,10 +15,13 @@ namespace _3342_Term_Project
     {
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
+            addReviewLink.Visible = true;
+            lblSuccessReview.Text = "";
+            addReviewPanel.Visible = false;
             imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
             lblTitleDescription.Text = Session["TitleDescription"].ToString();
-            
+
             lblTitleGenre.Text = Session["TitleGenre"].ToString();
             lblTitleName.Text = Session["TitleName"].ToString();
             lblTitleYear.Text = Session["TitleYear"].ToString();
@@ -35,7 +38,7 @@ namespace _3342_Term_Project
                 lblTitleCreator.Text = Session["TitleCreator"].ToString();
             }
 
-            if(Session["TitleRunTime"] == null)
+            if (Session["TitleRunTime"] == null)
             {
                 lblTitleRunTimeLabel.Visible = false;
                 lblTitleRunTime.Visible = false;
@@ -45,7 +48,7 @@ namespace _3342_Term_Project
                 lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
             }
 
-            if(Session["TitleBudget"] == null && Session["TitleIncome"] == null)
+            if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
             {
                 lblTitleIncomeLabel.Visible = false;
                 lblTitleIncome.Visible = false;
@@ -59,64 +62,143 @@ namespace _3342_Term_Project
                 lblTitleIncome.Text = Session["TitleIncome"].ToString();
             }
 
-       
-             //review functions here
+
+            //review functions here
             if (Convert.ToBoolean(Session["MovieReviews"]) == true)
             {
-                try
+                int movieID = Convert.ToInt32(Session["MovieID"]);
+
+                DataSet myDS = SP.getMovieReviewsByID(movieID);
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
                 {
-                    DataSet myDS = SP.getMovieReviewsByID(Convert.ToInt32(Session["MovieID"]));
-                    //myDS =  SP.getMovieReviewsByID(Convert.ToInt32(Session["MovieID"]));
-                    lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
-                    lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
-                    lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
+                    try
+                    {
+                        gvReviews.DataSource = myDS;
+                        gvReviews.DataBind();
+
+                        gvReviews.Visible = true;
+
+                        if (gvReviews.Visible == true)
+                        {
+                            lblSuccessReview.Text = "";
+                            lblError.Text = "";
+                        }
+                    }
+                    catch (Exception E)
+                    {
+                        lblError.Text = E.Message;
+                    }
+
+
                 }
-                catch(Exception E)
+                else
                 {
-                    lblError.Text = E.Message;
+                    lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
                 }
             }
+           
+            
 
             else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
             {
-                try
-                {
+              
                     DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-             //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
-                lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
-                lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
-            }
-                catch (Exception E)
-            {
-                lblError.Text = E.Message;
-            }
+                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                    {
+                    gvReviews.DataSource = myDS;
+                    gvReviews.DataBind();
 
-        }
+                    gvReviews.Visible = true;
+                    if (gvReviews.Visible == true)
+                    {
+                        lblSuccessReview.Text = "";
+                        lblError.Text = "";
+                    }
+                }
+                
+                     else
+                    {
+                    lblError.Text = "No reviews exist for this show yet! Be the first one: ";
+                  }
+
+            }
            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
-                try
-                {
+                
                     DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
 
 
-               // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+                // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                {
+                    gvReviews.DataSource = myDS;
+                    gvReviews.DataBind();
 
-                lblReviewer.Text = myDS.Tables[0].Rows[0]["Reviewer_Email"].ToString();
-                lblReviewRating.Text = myDS.Tables[0].Rows[0]["Review_Avg_Rating"].ToString();
-                lblReviewDescription.Text = myDS.Tables[0].Rows[0]["Review_Description"].ToString();
+                    gvReviews.Visible = true;
+                    if (gvReviews.Visible == true)
+                    {
+                        lblSuccessReview.Text = "";
+                        lblError.Text = "";
+                    }
+                }
+                else
+                {
+                    lblError.Text = "No reviews exist for this game yet! Be the first one: ";
+                }
+
             }
-                catch (Exception E)
+
+
+
+        }
+        protected void addReviewLink_OnClick(object sender, EventArgs e)
+        {
+            if (addReviewPanel.Visible == false)
             {
-                lblError.Text = E.Message;
+                addReviewPanel.Visible = true;
+            }
+        }
+        protected void submitReview_OnClick(object sender, EventArgs e)
+        {
+            if (Convert.ToBoolean(Session["MovieReviews"]) == true)
+            {
+                int movieID= Convert.ToInt32(Session["MovieID"]);
+                int success = StoredProcedures.addMovieReview(movieID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
+                if(success >= 1)
+                {
+                    addReviewPanel.Visible = false;
+                    lblSuccessReview.Text = "Thank you for your feedback!";
+                    lblError.Text = "";
+                    addReviewLink.Visible = false;
+                }
+            }
+           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+            {
+                int gameID = Convert.ToInt32(Session["GameID"]);
+                int success = StoredProcedures.addGameReview(gameID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
+                if (success >= 1)
+                {
+                    addReviewPanel.Visible = false;
+                    lblSuccessReview.Text = "Thank you for your feedback!";
+                    lblError.Text = "";
+                    addReviewLink.Visible = false;
+                }
+            }
+          else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+            {
+                int ShowID = Convert.ToInt32(Session["ShowID"]);
+                int success = StoredProcedures.addTVShowReview(ShowID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
+                if (success >= 1)
+                {
+                    addReviewPanel.Visible = false;
+                    lblSuccessReview.Text = "Thank you for your feedback!";
+                    lblError.Text = "";
+                    addReviewLink.Visible = false;
+                }
             }
 
         }
-
-
-
-        }
-
 
         protected void btnBack_Click(object sender, EventArgs e)
         {

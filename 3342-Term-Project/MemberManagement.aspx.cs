@@ -13,5 +13,40 @@ namespace _3342_Term_Project
         {
 
         }
+
+        protected void lnkBtnAddActor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddActor.aspx");
+        }
+
+        protected void lnkbtnShowClick_Click(object sender, EventArgs e)
+        {
+            Session["AddActor"] = null;
+            Session["AddMovie"] = null;
+            Session["AddShow"] = "Show_Button";
+            Session["AddGame"] = null;
+
+            Response.Redirect("AddTitle.aspx");
+        }
+
+        protected void lnkBtnAddMovie_Click(object sender, EventArgs e)
+        {
+            Session["AddActor"] = null;
+            Session["AddMovie"] = "Movie_Button";
+            Session["AddShow"] = null;
+            Session["AddGame"] = null;
+
+            Response.Redirect("AddTitle.aspx");
+        }
+
+        protected void lnkbtnGameClick_Click(object sender, EventArgs e)
+        {
+            Session["AddActor"] = null;
+            Session["AddMovie"] = null;
+            Session["AddShow"] = null;
+            Session["AddGame"] = "Game_Button";
+
+            Response.Redirect("AddTitle.aspx");
+        }
     }
 }

@@ -56,7 +56,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieYear" runat="server" Text="Release Year: "></asp:Label>
-                <asp:DropDownList ID="ddlAddMovieYear" runat="server" OnSelectedIndexChanged="ddlAddMovieYear_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlAddMovieYear" runat="server">
                     <asp:ListItem Value="noneSelected">----</asp:ListItem>
                 </asp:DropDownList>
                 <br />
@@ -118,7 +118,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblAddShowAgeRating" runat="server" Text="Age Rating: " Font-Bold="True" Font-Size="Large"></asp:Label>
-                <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:DropDownList ID="ddlAddShowAgeRating" runat="server">
                     <asp:ListItem Value="noneSelected">-------</asp:ListItem>
                     <asp:ListItem Value="TVG">TV-G</asp:ListItem>
                     <asp:ListItem Value="TVPG">TV-PG</asp:ListItem>
@@ -129,7 +129,7 @@
                 <br />
                 <br />
                 <asp:Label ID="lblAddShowYears" runat="server" Text="Run Years: " Font-Bold="True"></asp:Label>
-                <asp:DropDownList ID="ddlAddShowYearsStart" runat="server" OnSelectedIndexChanged="ddlAddShowYearsStart_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlAddShowYearsStart" runat="server">
                     <asp:ListItem Value="noneSelected">----</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblDash" runat="server" Text="-"></asp:Label>

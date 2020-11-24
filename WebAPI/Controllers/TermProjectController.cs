@@ -11,6 +11,7 @@ using WebAPI.Models;
 using Movies = WebAPI.Models.Movies;
 using Actors = WebAPI.Models.Actors;
 using TVShows = WebAPI.Models.TVShows;
+using VideoGames = WebAPI.Models.VideoGames;
 
 namespace WebAPI.Controllers
 {
@@ -568,15 +569,49 @@ namespace WebAPI.Controllers
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_AddShow";
 
-                objCommand.Parameters.AddWithValue("@Movie_Image", movie.movieImage);
-                objCommand.Parameters.AddWithValue("@Movie_Name", movie.movieName);
-                objCommand.Parameters.AddWithValue("@Movie_Year", movie.movieYear);
-                objCommand.Parameters.AddWithValue("@Movie_Description", movie.movieDescription);
-                objCommand.Parameters.AddWithValue("@Movie_Runtime", movie.movieRuntime);
-                objCommand.Parameters.AddWithValue("@Movie_Age_Rating", movie.movieAgeRating);
-                objCommand.Parameters.AddWithValue("@Movie_Genre", movie.movieGenre);
-                objCommand.Parameters.AddWithValue("@Movie_Budget", movie.movieBudget);
-                objCommand.Parameters.AddWithValue("@Movie_Income", movie.movieIncome);
+                objCommand.Parameters.AddWithValue("@Show_Image", show.ShowImage);
+                objCommand.Parameters.AddWithValue("@Show_Name", show.ShowName);
+                objCommand.Parameters.AddWithValue("@Show_Years", show.ShowYears);
+                objCommand.Parameters.AddWithValue("@Show_Description", show.ShowDescription);
+                objCommand.Parameters.AddWithValue("@Show_Runtime", show.ShowRuntime);
+                objCommand.Parameters.AddWithValue("@Show_Age_Rating", show.ShowAgeRating);
+                objCommand.Parameters.AddWithValue("@Show_Genre", show.ShowGenre);
+
+                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
+
+                if (retVal > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [HttpPost("AddGame")]
+        public Boolean AddGame([FromBody]VideoGames game)
+        {
+            if (game != null)
+            {
+                DBConnect objDB = new DBConnect();
+                SqlCommand objCommand = new SqlCommand();
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_AddGame";
+
+                objCommand.Parameters.AddWithValue("@Game_Image", game.GameImage);
+                objCommand.Parameters.AddWithValue("@Game_Name", game.GameName);
+                objCommand.Parameters.AddWithValue("@Game_Year", game.GameYear);
+                objCommand.Parameters.AddWithValue("@Game_Genre", game.GameGenre);
+                objCommand.Parameters.AddWithValue("@Game_Description", game.GameDescription);
+                objCommand.Parameters.AddWithValue("@Game_Creator", game.GameCreator);
+                objCommand.Parameters.AddWithValue("@Game_Age_Rating", game.GameAgeRating);
 
                 int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
 

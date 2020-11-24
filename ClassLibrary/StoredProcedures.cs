@@ -105,6 +105,7 @@ namespace ClassLibrary
 
             return myDS;
         }
+
         //get reviews by id
         public DataSet getMovieReviewsByID(int id)
         {
@@ -352,10 +353,6 @@ namespace ClassLibrary
             cust.Direction = ParameterDirection.Input;
             cust.SqlDbType = SqlDbType.VarChar;
             sqlComm.Parameters.Add(cust);
-
-
-
-
 
             cust = new SqlParameter("@password", password);
             cust.Direction = ParameterDirection.Input;

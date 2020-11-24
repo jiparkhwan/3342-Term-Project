@@ -274,13 +274,13 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblAddShowAgeRating;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlAddShowAgeRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAddShowAgeRating;
         
         /// <summary>
         /// lblAddShowYears control.

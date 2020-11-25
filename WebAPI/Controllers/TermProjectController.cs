@@ -630,6 +630,18 @@ namespace WebAPI.Controllers
             }
         }
 
+      /*  // This method receives a review id to delete that product from database
+        [HttpDelete("DeleteReview/{id}")]  // PUT api/Products/DeletReview/
+        public Boolean DeleteReview(int id)
+        {
+            int retVal = StoredProcedures.DeleteReview(id);
+            if (retVal > 0) { return true; }
+                
+            else { return false; }
+                
+        } */
+
+
     } //end of class
 } //end of namespace
 

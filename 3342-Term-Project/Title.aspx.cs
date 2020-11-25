@@ -206,5 +206,30 @@ namespace _3342_Term_Project
             Response.Redirect("HomePage.aspx");
         }
 
+        protected void btnEditTitle_Click(object sender, EventArgs e)
+        {
+            Session["AddMovie"] = null;
+            Session["AddShow"] = null;
+            Session["AddGame"] = null;
+
+            if (Session["MovieID"] != null)
+            {
+                Session["Edit_ID"] = Session["MovieID"].ToString();
+            }
+            else if(Session["ShowID"] != null)
+            {
+                Session["Edit_ID"] = Session["ShowID"].ToString();
+            }
+            else if (Session["GameID"] != null)
+            {
+                Session["Edit_ID"] = Session["GameID"].ToString();
+            }
+
+            Session["Edit_Name"] = Session["TitleName"].ToString();
+            Session["Edit_Description"] = Session["TitleDescription"].ToString();
+            Session["Edit_Year"] = Session["TitleYear"].ToString();
+            Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+            Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
+        }
     }
 }

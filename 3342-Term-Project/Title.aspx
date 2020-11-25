@@ -27,6 +27,7 @@
             <br />       
             <div class="btnDiv" style="padding-left:66px">
             <asp:Button runat="server" ID="btnBack" OnClick="btnBack_Click" Text="Back" CssClass="btn-outline-primary"/>
+            <asp:Button ID="btnEditTitle" runat="server" Text="Edit Title" OnClick="btnEditTitle_Click" />
             </div>
             <h1><asp:Label ID="lblTitleName" runat="server" Text="The Simpsons Movie"></asp:Label></h1>
             <div class="topInfo">

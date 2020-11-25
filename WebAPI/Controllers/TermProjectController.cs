@@ -124,6 +124,8 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random movie from database and prints all information to browser
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
         public List<Movies> GetRandomMovie()
         {
@@ -219,6 +221,8 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random TV Show from database and prints all information to browser
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetRandomShow")] //Route: WebAPI/TermProject/GetRandomShow/
         public List<TVShows> GetRandomShow()
         {
@@ -312,6 +316,8 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random video game from database and prints all information to browser
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetRandomGame")] //Route: WebAPI/TermProject/GetRandomGame/
         public List<VideoGames> GetRandomGame()
         {
@@ -630,17 +636,43 @@ namespace WebAPI.Controllers
             }
         }
 
-      /*  // This method receives a review id to delete that product from database
-        [HttpDelete("DeleteReview/{id}")]  // PUT api/Products/DeletReview/
-        public Boolean DeleteReview(int id)
+        [HttpPut("UpdateActor")]
+        public Boolean UpdateActor([FromBody]Actors actors)
         {
-            int retVal = StoredProcedures.DeleteReview(id);
-            if (retVal > 0) { return true; }
-                
-            else { return false; }
-                
-        } */
+            if (actors != null)
+            {
+                DBConnect objDB = new DBConnect();
+                SqlCommand objCommand = new SqlCommand();
 
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_UpdateActor";
+
+                objCommand.Parameters.AddWithValue("@Actor_ID", actors.ActorID);
+                objCommand.Parameters.AddWithValue("@Actor_Image", actors.ActorImage);
+                objCommand.Parameters.AddWithValue("@Actor_Name", actors.ActorName);
+                objCommand.Parameters.AddWithValue("@Actor_Description", actors.ActorDescription);
+                objCommand.Parameters.AddWithValue("@Actor_Height", actors.ActorHeight);
+                objCommand.Parameters.AddWithValue("@Actor_DOB", actors.ActorDOB);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_City", actors.ActorBirthCity);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_State", actors.ActorBirthState);
+                objCommand.Parameters.AddWithValue("@Actor_Birth_Country", actors.ActorBirthCountry);
+
+                int retVal = objDB.DoUpdateUsingCmdObj(objCommand);
+
+                if (retVal > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     } //end of class
 } //end of namespace

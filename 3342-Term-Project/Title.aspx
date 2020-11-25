@@ -65,19 +65,58 @@
             <hr />
             <asp:Label ID="lblError" runat="server" Text="" ForeColor="DodgerBlue"></asp:Label>
 
-                  <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
 
+
+            <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
             <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False">
                 <Columns>
+                     <asp:BoundField DataField="Review_ID" HeaderText="ID" />
                     <asp:BoundField DataField="Reviewer_Email" HeaderText="Reviewer" />
                     <asp:BoundField DataField="Review_Description" HeaderText="Description" />
                     <asp:BoundField DataField="Review_Rating" HeaderText="Rating" />
               
                  
+                     <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="btnEditReview" runat="server" Text="Edit" CssClass="btn-outline-primary" OnClick="btnEditReview_Click" />
+                        <br />
+                            <asp:Button ID="btnDeleteReview" runat="server" Text="Delete" CssClass="btn-outline-primary" OnClick="btnDeleteReview_Click" />
+                        </ItemTemplate>
+
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <br />
 
+
+
+
+            <div class="container" runat="server">
+             <asp:Panel runat="server" ID="editReviewPanel">
+                <h4>New Rating:</h4>
+                <asp:DropDownList ID="ddlEditRating" runat="server" Height="50px" Width="70px">
+                     <asp:ListItem>1</asp:ListItem>
+                     <asp:ListItem>2</asp:ListItem>
+                     <asp:ListItem>3</asp:ListItem>
+                     <asp:ListItem>4</asp:ListItem>
+                     <asp:ListItem>5</asp:ListItem>
+                     <asp:ListItem>6</asp:ListItem>
+                     <asp:ListItem>7</asp:ListItem>
+                     <asp:ListItem>8</asp:ListItem>
+                     <asp:ListItem>9</asp:ListItem>
+                     <asp:ListItem>10</asp:ListItem>
+                </asp:DropDownList>
+                <h4>New Description:</h4>
+                <textarea id="editReviewDescription" cols="30" rows="5" runat="server"></textarea>
+              <br />
+                <asp:Button ID="btnEditReviewSubmit" runat="server" Text="Submit New Review" CssClass="btn-outline-primary" OnClick="btnEditReviewSubmit_OnClick"/>
+                </asp:Panel>
+                </div>
+
+
+
+
+            <br />
             <asp:LinkButton  ID="addReviewLink" runat="server" Text="add new review" OnClick="addReviewLink_OnClick"></asp:LinkButton>
             <asp:Panel runat="server" ID="addReviewPanel">
                 <h4>Rating:</h4>
@@ -103,6 +142,7 @@
               <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
+        <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>

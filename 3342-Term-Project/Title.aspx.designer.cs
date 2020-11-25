@@ -238,6 +238,42 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.GridView gvReviews;
         
         /// <summary>
+        /// editReviewPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel editReviewPanel;
+        
+        /// <summary>
+        /// ddlEditRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEditRating;
+        
+        /// <summary>
+        /// editReviewDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea editReviewDescription;
+        
+        /// <summary>
+        /// btnEditReviewSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditReviewSubmit;
+        
+        /// <summary>
         /// addReviewLink control.
         /// </summary>
         /// <remarks>
@@ -299,6 +335,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitleCast;
+        
+        /// <summary>
+        /// tester control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tester;
         
         /// <summary>
         /// FooterNav control.

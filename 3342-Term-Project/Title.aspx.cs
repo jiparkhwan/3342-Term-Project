@@ -16,9 +16,14 @@ namespace _3342_Term_Project
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
-            addReviewLink.Visible = true;
+         
+                addReviewLink.Visible = true;
             lblSuccessReview.Text = "";
             addReviewPanel.Visible = false;
+
+            editReviewPanel.Visible = false;
+
+
             imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
             lblTitleDescription.Text = Session["TitleDescription"].ToString();
 
@@ -148,10 +153,24 @@ namespace _3342_Term_Project
                 }
 
             }
+          
+            //show delete and edit review buttons only for member's reviews
+            foreach (GridViewRow row in gvReviews.Rows)
+            {
+                for (int i = 0; i < gvReviews.Columns.Count; i++)
+                {
+                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
+                    {
+                        row.Cells[4].Controls.Clear();
+                    }
+                }
+            }
 
-
+            //hide review IDs from user
+            this.gvReviews.Columns[0].Visible = false;
 
         }
+
         protected void addReviewLink_OnClick(object sender, EventArgs e)
         {
             if (addReviewPanel.Visible == false)
@@ -171,6 +190,7 @@ namespace _3342_Term_Project
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
+                    editReviewPanel.Visible = false;
                 }
             }
            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
@@ -183,6 +203,7 @@ namespace _3342_Term_Project
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
+                    editReviewPanel.Visible = false;
                 }
             }
           else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
@@ -195,11 +216,47 @@ namespace _3342_Term_Project
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
+                    editReviewPanel.Visible = false;
                 }
             }
 
         }
+        protected void btnEditReview_Click(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
 
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+            Session["ReviewID"] = gvr.Cells[0].Text;
+            Session["ReviewerName"] = gvr.Cells[1].Text;
+
+            editReviewPanel.Visible = true;
+            addReviewPanel.Visible = false;
+            
+
+        }
+       protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
+        {
+            //TODO: edit review. call httpput api
+        }
+        protected void btnDeleteReview_Click(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
+
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+            Session["ReviewID"] = gvr.Cells[0].Text;
+            Session["ReviewerName"] = gvr.Cells[1].Text;
+
+            editReviewPanel.Visible = false;
+            addReviewPanel.Visible = false;
+            //TODO: delete the review. call httpdelete api
+
+        }
         protected void btnBack_Click(object sender, EventArgs e)
         {
 

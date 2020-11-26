@@ -16,159 +16,160 @@ namespace _3342_Term_Project
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            if (!Page.IsPostBack)
+            { //do something }
                 addReviewLink.Visible = true;
-            lblSuccessReview.Text = "";
-            addReviewPanel.Visible = false;
+                lblSuccessReview.Text = "";
+                addReviewPanel.Visible = false;
 
-            editReviewPanel.Visible = false;
-
-
-            imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
-            lblTitleDescription.Text = Session["TitleDescription"].ToString();
-
-            lblTitleGenre.Text = Session["TitleGenre"].ToString();
-            lblTitleName.Text = Session["TitleName"].ToString();
-            lblTitleYear.Text = Session["TitleYear"].ToString();
-            lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
-
-            Page.Title = String.Format(lblTitleName.Text);
-            if (Session["TitleCreator"] == null)
-            {
-                lblTitleCreatorLabel.Visible = false;
-                lblTitleCreator.Visible = false;
-            }
-            else
-            {
-                lblTitleCreator.Text = Session["TitleCreator"].ToString();
-            }
-
-            if (Session["TitleRunTime"] == null)
-            {
-                lblTitleRunTimeLabel.Visible = false;
-                lblTitleRunTime.Visible = false;
-            }
-            else
-            {
-                lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
-            }
-
-            if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
-            {
-                lblTitleIncomeLabel.Visible = false;
-                lblTitleIncome.Visible = false;
-                lblTitleBudgetLabel.Visible = false;
-                lblTitleBudget.Visible = false;
-                lblBar2.Visible = false;
-            }
-            else
-            {
-                lblTitleBudget.Text = Session["TitleBudget"].ToString();
-                lblTitleIncome.Text = Session["TitleIncome"].ToString();
-            }
+                editReviewPanel.Visible = false;
 
 
-            //review functions here
-            if (Convert.ToBoolean(Session["MovieReviews"]) == true)
-            {
-                int movieID = Convert.ToInt32(Session["MovieID"]);
+                imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
+                lblTitleDescription.Text = Session["TitleDescription"].ToString();
 
-                DataSet myDS = SP.getMovieReviewsByID(movieID);
-                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                lblTitleGenre.Text = Session["TitleGenre"].ToString();
+                lblTitleName.Text = Session["TitleName"].ToString();
+                lblTitleYear.Text = Session["TitleYear"].ToString();
+                lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
+
+                Page.Title = String.Format(lblTitleName.Text);
+                if (Session["TitleCreator"] == null)
                 {
-                    try
+                    lblTitleCreatorLabel.Visible = false;
+                    lblTitleCreator.Visible = false;
+                }
+                else
+                {
+                    lblTitleCreator.Text = Session["TitleCreator"].ToString();
+                }
+
+                if (Session["TitleRunTime"] == null)
+                {
+                    lblTitleRunTimeLabel.Visible = false;
+                    lblTitleRunTime.Visible = false;
+                }
+                else
+                {
+                    lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
+                }
+
+                if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
+                {
+                    lblTitleIncomeLabel.Visible = false;
+                    lblTitleIncome.Visible = false;
+                    lblTitleBudgetLabel.Visible = false;
+                    lblTitleBudget.Visible = false;
+                    lblBar2.Visible = false;
+                }
+                else
+                {
+                    lblTitleBudget.Text = Session["TitleBudget"].ToString();
+                    lblTitleIncome.Text = Session["TitleIncome"].ToString();
+                }
+
+
+                //review functions here
+                if (Convert.ToBoolean(Session["MovieReviews"]) == true)
+                {
+                    int movieID = Convert.ToInt32(Session["MovieID"]);
+
+                    DataSet myDS = SP.getMovieReviewsByID(movieID);
+                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                    {
+                        try
+                        {
+                            gvReviews.DataSource = myDS;
+                            gvReviews.DataBind();
+
+                            gvReviews.Visible = true;
+
+                            if (gvReviews.Visible == true)
+                            {
+                                lblSuccessReview.Text = "";
+                                lblError.Text = "";
+                            }
+                        }
+                        catch (Exception E)
+                        {
+                            lblError.Text = E.Message;
+                        }
+
+
+                    }
+                    else
+                    {
+                        lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
+                    }
+                }
+
+
+
+                else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+                {
+
+                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
                     {
                         gvReviews.DataSource = myDS;
                         gvReviews.DataBind();
 
                         gvReviews.Visible = true;
-
                         if (gvReviews.Visible == true)
                         {
                             lblSuccessReview.Text = "";
                             lblError.Text = "";
                         }
                     }
-                    catch (Exception E)
+
+                    else
                     {
-                        lblError.Text = E.Message;
+                        lblError.Text = "No reviews exist for this show yet! Be the first one: ";
                     }
 
-
                 }
-                else
+                else if (Convert.ToBoolean(Session["GameReviews"]) == true)
                 {
-                    lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
-                }
-            }
-           
-            
 
-            else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
-            {
-              
-                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                    {
-                    gvReviews.DataSource = myDS;
-                    gvReviews.DataBind();
-
-                    gvReviews.Visible = true;
-                    if (gvReviews.Visible == true)
-                    {
-                        lblSuccessReview.Text = "";
-                        lblError.Text = "";
-                    }
-                }
-                
-                     else
-                    {
-                    lblError.Text = "No reviews exist for this show yet! Be the first one: ";
-                  }
-
-            }
-           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
-            {
-                
                     DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
 
 
-                // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
-                if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                {
-                    gvReviews.DataSource = myDS;
-                    gvReviews.DataBind();
-
-                    gvReviews.Visible = true;
-                    if (gvReviews.Visible == true)
+                    // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
                     {
-                        lblSuccessReview.Text = "";
-                        lblError.Text = "";
+                        gvReviews.DataSource = myDS;
+                        gvReviews.DataBind();
+
+                        gvReviews.Visible = true;
+                        if (gvReviews.Visible == true)
+                        {
+                            lblSuccessReview.Text = "";
+                            lblError.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        lblError.Text = "No reviews exist for this game yet! Be the first one: ";
+                    }
+
+                }
+
+                //show delete and edit review buttons only for member's reviews
+                foreach (GridViewRow row in gvReviews.Rows)
+                {
+                    for (int i = 0; i < gvReviews.Columns.Count; i++)
+                    {
+                        if (row.Cells[1].Text != Session["MemberAccount"].ToString())
+                        {
+                            row.Cells[4].Controls.Clear();
+                        }
                     }
                 }
-                else
-                {
-                    lblError.Text = "No reviews exist for this game yet! Be the first one: ";
-                }
 
+                //hide review IDs from user
+                this.gvReviews.Columns[0].Visible = false;
             }
-          
-            //show delete and edit review buttons only for member's reviews
-            foreach (GridViewRow row in gvReviews.Rows)
-            {
-                for (int i = 0; i < gvReviews.Columns.Count; i++)
-                {
-                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
-                    {
-                        row.Cells[4].Controls.Clear();
-                    }
-                }
-            }
-
-            //hide review IDs from user
-            this.gvReviews.Columns[0].Visible = false;
-
         }
 
         protected void addReviewLink_OnClick(object sender, EventArgs e)

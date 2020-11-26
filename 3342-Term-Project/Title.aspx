@@ -91,7 +91,8 @@
 
 
 
-            <div class="container" runat="server">
+            <div class="container">
+
              <asp:Panel runat="server" ID="editReviewPanel">
                 <h4>New Rating:</h4>
                 <asp:DropDownList ID="ddlEditRating" runat="server" Height="50px" Width="70px">

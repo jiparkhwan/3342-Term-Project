@@ -35,19 +35,19 @@ namespace _3342_Term_Project
             }
             else
             {
-                
+                /*
                     Email objEmail = new Email();
 
 
-                    String strTO = txtEmail.Text;
-                    String strFROM = "tug67579@cis-linux2.temple.edu";
-                    String strSubject = "LexPark Registration Confirmation";
-                    String strMessage = "Hello, click on the link to activate your account: http://localhost:55733/VerifiedPage.aspx";
+                    string strTO = txtEmail.Text;
+                    string strFROM = "jiparkhwan@gmail.com";
+                    string strSubject = "LexPark Registration Confirmation";
+                    string strMessage = "Hello, click on the link to activate your account: http://localhost:55733/VerifiedPage.aspx";
            
                         objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
 
                         Error.Text = "An email was sent to verify account!";
-
+                        */
                     int result = StoredProcedures.addMemberAccountRegister(txtEmail.Text, txtFirstName.Text, txtLastName.Text, txtPassword.Text, txtDOB.Text,
                         ddlSecurityQuestion1.SelectedValue.ToString(), ddlSecurityQuestion2.SelectedValue.ToString(), ddlSecurityQuestion3.SelectedValue.ToString(),
                         txtSecurityAnswer1.Text, txtSecurityAnswer2.Text, txtSecurityAnswer3.Text);

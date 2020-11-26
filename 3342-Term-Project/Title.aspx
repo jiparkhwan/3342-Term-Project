@@ -143,6 +143,11 @@
               <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
+
+         <asp:ScriptManager runat="server"></asp:ScriptManager>
+
+
+
         <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>

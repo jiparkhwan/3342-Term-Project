@@ -25,6 +25,7 @@
         <div>
         <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="mainTitle">
+            <asp:Button ID="btnEditActor" runat="server" Text="Edit Actor" OnClick="btnEditActor_Click" />
             <br />
             <h1><asp:Label ID="lblActorName" runat="server" Text="Ryan Reynolds"></asp:Label></h1>
             <hr />

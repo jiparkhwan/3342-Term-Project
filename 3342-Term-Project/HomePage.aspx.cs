@@ -44,7 +44,7 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = true;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = false;
-
+                Session["Movie_Searched"] = "Movie";
               
                 try
                 {
@@ -78,6 +78,7 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = true;
                 pnlGameRepeater.Visible = false;
+                Session["Show_Searched"] = "Show";
 
                 try
                 {
@@ -111,8 +112,8 @@ namespace _3342_Term_Project
                 pnlMovieRepeater.Visible = false;
                 pnlShowRepeater.Visible = false;
                 pnlGameRepeater.Visible = true;
+                Session["Game_Searched"] = "Game";
 
-               
 
                 try
                 {
@@ -307,7 +308,7 @@ namespace _3342_Term_Project
                 else if (ddlSelectMedia.Text == "actors")
                 {
                     int actorID = Convert.ToInt32(e.CommandArgument);
-
+                    Session["ActorSelectedID"] = actorID;
                     DBConnect objDB = new DBConnect();
                     SqlCommand sqlComm = new SqlCommand();
 

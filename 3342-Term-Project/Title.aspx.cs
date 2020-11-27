@@ -270,6 +270,7 @@ namespace _3342_Term_Project
             Session["AddShow"] = null;
             Session["AddGame"] = null;
 
+
             if (Session["MovieID"] != null)
             {
                 Session["Edit_ID"] = Session["MovieID"].ToString();
@@ -288,6 +289,28 @@ namespace _3342_Term_Project
             Session["Edit_Year"] = Session["TitleYear"].ToString();
             Session["Edit_Genre"] = Session["TitleGenre"].ToString();
             Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
+
+            if(Session["TitleCreator"] != null)
+            {
+                Session["Edit_Creator"] = Session["TitleCreator"].ToString();
+            }
+
+            if(Session["TitleRunTime"] != null)
+            {
+                Session["Edit_Run_Time"] = Session["TitleRunTime"].ToString();
+            }
+
+            if (Session["TitleBudget"] != null)
+            {
+                Session["Edit_Budget"] = Session["TitleBudget"].ToString();
+            }
+
+            if(Session["TitleIncome"] != null)
+            {
+                Session["Edit_Income"] = Session["TitleIncome"].ToString();
+            }
+
+            Response.Redirect("AddTitle.aspx");
         }
     }
 }

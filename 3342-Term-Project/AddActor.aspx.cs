@@ -16,6 +16,25 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             bind_year_ddl();
+
+            if(Session["Edit_Actor_Activated"] != null)
+            {
+                Session["NewActorInfo"] = "EditActor";
+                txtAddName.Text = Session["EditActorName"].ToString();
+                txtAddImage.Text = Session["EditActorImage"].ToString();
+                txtAddHeight.Text = Session["EditActorHeight"].ToString();
+                string month = Session["EditActorDOB"].ToString().Substring(0,2);
+                string day = Session["EditActorDOB"].ToString().Substring(3,2);
+                string year = Session["EditActorDOB"].ToString().Substring(6);
+                ddlAddDOBMonth.Text = month;
+                ddlAddDOBDay.Text = day;
+                ddlAddDOBYear.Text = year;
+                txtAddBirthCity.Text = Session["EditActorBirthCity"].ToString();
+                txtAddBirthState.Text = Session["EditActorBirthState"].ToString();
+                txtAddBirthCountry.Text = Session["EditActorBirthCountry"].ToString();
+                txtAddDescription.Text = Session["EditActorDescription"].ToString();
+                Session["Edit_Actor_Activated"] = null;
+            }
         }
 
         protected void ddlAddBOBYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,6 +55,7 @@ namespace _3342_Term_Project
         {
             Actors actor = new Actors();
 
+            actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
             actor.ActorImage = txtAddImage.Text;
             actor.ActorName = txtAddName.Text;
             actor.ActorDescription = txtAddDescription.Text;
@@ -51,29 +71,58 @@ namespace _3342_Term_Project
 
             try
             {
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddActor/");
-                request.Method = "POST";
-                request.ContentLength = jsonActor.Length;
-                request.ContentType = "application/json";
+                if (Session["NewActorInfo"] != null)
+                {
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/UpdateActor/");
+                    request.Method = "PUT";
+                    request.ContentLength = jsonActor.Length;
+                    request.ContentType = "application/json";
 
-                // Write the JSON data to the Web Request
-                StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                writer.Write(jsonActor);
-                writer.Flush();
-                writer.Close();
+                    // Write the JSON data to the Web Request
+                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                    writer.Write(jsonActor);
+                    writer.Flush();
+                    writer.Close();
 
-                // Read the data from the Web Response, which requires working with streams.
-                WebResponse response = request.GetResponse();
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
+                    // Read the data from the Web Response, which requires working with streams.
+                    WebResponse response = request.GetResponse();
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
 
-                if (data == "true")
-                    lblDisplay.Text = "The customer was successfully saved to the database.";
+                    if (data == "true")
+                        lblDisplay.Text = "The actor was successfully saved to the database.";
+                    else
+                        lblDisplay.Text = "A problem occurred while editing the actor. The data wasn't recorded.";
+                }
                 else
-                    lblDisplay.Text = "A problem occurred while adding the customer to the database. The data wasn't recorded.";
+                {
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddActor/");
+                    request.Method = "POST";
+                    request.ContentLength = jsonActor.Length;
+                    request.ContentType = "application/json";
+
+                    // Write the JSON data to the Web Request
+                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                    writer.Write(jsonActor);
+                    writer.Flush();
+                    writer.Close();
+
+                    // Read the data from the Web Response, which requires working with streams.
+                    WebResponse response = request.GetResponse();
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+
+                    if (data == "true")
+                        lblDisplay.Text = "The customer was successfully saved to the database.";
+                    else
+                        lblDisplay.Text = "A problem occurred while adding the customer to the database. The data wasn't recorded.";
+                }
             }
 
             catch (Exception ex)

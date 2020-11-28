@@ -271,10 +271,21 @@ namespace _3342_Term_Project
             editReviewPanel.Visible = false;
             addReviewPanel.Visible = false;
 
-
-            int success = StoredProcedures.DeleteReview(Convert.ToInt32(Session["ReviewID"].ToString()));
-            if( success >= 1)
+            try
             {
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteReview/" + Session["ReviewID"].ToString());
+                request.Method = "DELETE";
+                request.ContentLength = 0;
+
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                string data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+
                 lblError.Text = "Review has been successfully deleted";
                 addReviewLink.Visible = false;
                 editReviewPanel.Visible = false;
@@ -284,7 +295,11 @@ namespace _3342_Term_Project
                 addReviewLink.Visible = true;
                 addReviewPanel.Visible = true;
             }
-
+            catch (Exception E)
+            {
+                lblError.Text = E.Message;
+            }
+            
             hideNonMemberControls();
         }
         public void hideNonMemberControls()

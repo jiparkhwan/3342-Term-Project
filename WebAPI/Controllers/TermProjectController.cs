@@ -687,7 +687,16 @@ namespace WebAPI.Controllers
             else
                 return false;
         }
+        [HttpDelete("DeleteReview/{id}")]  //Route: WebAPI/TermProject/DeleteReview/
+        public Boolean DeleteReview(int id)
+        {
+            int retVal = StoredProcedures.DeleteReview(id);
 
+            if (retVal > 0)
+                return true;
+            else
+                return false;
+        }
     } //end of class
 } //end of namespace
 

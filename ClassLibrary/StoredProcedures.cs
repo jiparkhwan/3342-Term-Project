@@ -273,16 +273,17 @@ namespace ClassLibrary
             inputParameter.SqlDbType = SqlDbType.Int;
             objCommand.Parameters.Add(inputParameter);
 
+            inputParameter = new SqlParameter("@rating", rating);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
             inputParameter = new SqlParameter("@reviewDescription", reviewDescription);
             inputParameter.Direction = ParameterDirection.Input;
             inputParameter.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(inputParameter);
 
 
-            inputParameter = new SqlParameter("@rating", rating);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.Int;
-            objCommand.Parameters.Add(inputParameter);
 
             return objDB.DoUpdateUsingCmdObj(objCommand);
         }

@@ -21,7 +21,7 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            { //do something }
+            { 
                 addReviewLink.Visible = true;
                 lblSuccessReview.Text = "";
                 addReviewPanel.Visible = false;
@@ -248,8 +248,8 @@ namespace _3342_Term_Project
                
                 lblSuccessReview.Text = "Review edited successfully!";
                 lblError.Text = "";
-                addReviewLink.Visible = true;
-                addReviewPanel.Visible = true;
+                addReviewLink.Visible = false;
+                addReviewPanel.Visible = false;
                 editReviewPanel.Visible = false;
 
                 bindGridview();
@@ -312,6 +312,10 @@ namespace _3342_Term_Project
                     if (row.Cells[1].Text != Session["MemberAccount"].ToString())
                     {
                         row.Cells[4].Controls.Clear();
+                    }
+                    else
+                    {
+                        addReviewLink.Visible = false; //dont allow member to add a review if they already wrote one
                     }
                 }
             }

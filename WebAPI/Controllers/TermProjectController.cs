@@ -674,6 +674,20 @@ namespace WebAPI.Controllers
             }
         }
 
+
+        //start deletes:
+        [HttpDelete]
+        [HttpDelete("DeleteActor/{id}")]  //Route: WebAPI/TermProject/DeleteActor/
+        public Boolean DeleteActor(int id)
+        {
+            int retVal = StoredProcedures.DeleteActor(id);
+
+            if (retVal > 0)
+                return true;
+            else
+                return false;
+        }
+
     } //end of class
 } //end of namespace
 

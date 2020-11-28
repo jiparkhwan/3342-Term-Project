@@ -57,7 +57,8 @@ namespace _3342_Term_Project
                         Session["RegisterEmailVerified"] = txtEmail.Text;
 
 
-                        Error.Text = "Check your email to verify your account!";
+                        //Error.Text = "Check your email to verify your account!";
+                    Error.Text = "Account has been successfully made!";
                     }
                  
 

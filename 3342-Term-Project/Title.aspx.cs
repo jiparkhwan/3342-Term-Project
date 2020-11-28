@@ -9,6 +9,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
+
 namespace _3342_Term_Project
 {
     public partial class Title : System.Web.UI.Page
@@ -69,109 +73,98 @@ namespace _3342_Term_Project
                 }
 
 
-                //review functions here
-                if (Convert.ToBoolean(Session["MovieReviews"]) == true)
-                {
-                    int movieID = Convert.ToInt32(Session["MovieID"]);
-
-                    DataSet myDS = SP.getMovieReviewsByID(movieID);
-                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                    {
-                        try
-                        {
-                            gvReviews.DataSource = myDS;
-                            gvReviews.DataBind();
-
-                            gvReviews.Visible = true;
-
-                            if (gvReviews.Visible == true)
-                            {
-                                lblSuccessReview.Text = "";
-                                lblError.Text = "";
-                            }
-                        }
-                        catch (Exception E)
-                        {
-                            lblError.Text = E.Message;
-                        }
-
-
-                    }
-                    else
-                    {
-                        lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
-                    }
-                }
-
-
-
-                else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
-                {
-
-                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                    {
-                        gvReviews.DataSource = myDS;
-                        gvReviews.DataBind();
-
-                        gvReviews.Visible = true;
-                        if (gvReviews.Visible == true)
-                        {
-                            lblSuccessReview.Text = "";
-                            lblError.Text = "";
-                        }
-                    }
-
-                    else
-                    {
-                        lblError.Text = "No reviews exist for this show yet! Be the first one: ";
-                    }
-
-                }
-                else if (Convert.ToBoolean(Session["GameReviews"]) == true)
-                {
-
-                    DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
-
-
-                    // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
-                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                    {
-                        gvReviews.DataSource = myDS;
-                        gvReviews.DataBind();
-
-                        gvReviews.Visible = true;
-                        if (gvReviews.Visible == true)
-                        {
-                            lblSuccessReview.Text = "";
-                            lblError.Text = "";
-                        }
-                    }
-                    else
-                    {
-                        lblError.Text = "No reviews exist for this game yet! Be the first one: ";
-                    }
-
-                }
-
-                //show delete and edit review buttons only for member's reviews
-                foreach (GridViewRow row in gvReviews.Rows)
-                {
-                    for (int i = 0; i < gvReviews.Columns.Count; i++)
-                    {
-                        if (row.Cells[1].Text != Session["MemberAccount"].ToString())
-                        {
-                            row.Cells[4].Controls.Clear();
-                        }
-                    }
-                }
-
-                //hide review IDs from user
-                this.gvReviews.Columns[0].Visible = false;
+                bindGridview();
+                hideNonMemberControls();
             }
         }
+        public void bindGridview()
+        {
+            //review functions here
+            if (Convert.ToBoolean(Session["MovieReviews"]) == true)
+            {
+                int movieID = Convert.ToInt32(Session["MovieID"]);
 
+                DataSet myDS = SP.getMovieReviewsByID(movieID);
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                {
+                    try
+                    {
+                        gvReviews.DataSource = myDS;
+                        gvReviews.DataBind();
+
+                        gvReviews.Visible = true;
+
+                        if (gvReviews.Visible == true)
+                        {
+                            lblSuccessReview.Text = "";
+                            lblError.Text = "";
+                        }
+                    }
+                    catch (Exception E)
+                    {
+                        lblError.Text = E.Message;
+                    }
+
+
+                }
+                else
+                {
+                    lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
+                }
+            }
+
+
+
+            else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+            {
+
+                DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                {
+                    gvReviews.DataSource = myDS;
+                    gvReviews.DataBind();
+
+                    gvReviews.Visible = true;
+                    if (gvReviews.Visible == true)
+                    {
+                        lblSuccessReview.Text = "";
+                        lblError.Text = "";
+                    }
+                }
+
+                else
+                {
+                    lblError.Text = "No reviews exist for this show yet! Be the first one: ";
+                }
+
+            }
+            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+            {
+
+                DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+
+
+                // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                {
+                    gvReviews.DataSource = myDS;
+                    gvReviews.DataBind();
+
+                    gvReviews.Visible = true;
+                    if (gvReviews.Visible == true)
+                    {
+                        lblSuccessReview.Text = "";
+                        lblError.Text = "";
+                    }
+                }
+                else
+                {
+                    lblError.Text = "No reviews exist for this game yet! Be the first one: ";
+                }
+
+            }
+        }
         protected void addReviewLink_OnClick(object sender, EventArgs e)
         {
             if (addReviewPanel.Visible == false)
@@ -183,18 +176,19 @@ namespace _3342_Term_Project
         {
             if (Convert.ToBoolean(Session["MovieReviews"]) == true)
             {
-                int movieID= Convert.ToInt32(Session["MovieID"]);
+                int movieID = Convert.ToInt32(Session["MovieID"]);
                 int success = StoredProcedures.addMovieReview(movieID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
-                if(success >= 1)
+                if (success >= 1)
                 {
                     addReviewPanel.Visible = false;
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
+                    hideNonMemberControls();
                 }
             }
-           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
                 int gameID = Convert.ToInt32(Session["GameID"]);
                 int success = StoredProcedures.addGameReview(gameID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
@@ -205,9 +199,10 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
+                    hideNonMemberControls();
                 }
             }
-          else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+            else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
             {
                 int ShowID = Convert.ToInt32(Session["ShowID"]);
                 int success = StoredProcedures.addTVShowReview(ShowID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
@@ -217,10 +212,12 @@ namespace _3342_Term_Project
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
+                    hideNonMemberControls();
                     editReviewPanel.Visible = false;
                 }
             }
-
+            bindGridview();
+            hideNonMemberControls();
         }
         protected void btnEditReview_Click(object sender, EventArgs e)
         {
@@ -235,12 +232,30 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = true;
             addReviewPanel.Visible = false;
-            
+
+
+            hideNonMemberControls();
 
         }
-       protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
+        protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
         {
-            //TODO: edit review. call httpput api
+            if (editReviewDescription.Value == null || editReviewDescription.Value == "" || editReviewDescription.Value ==" ") {
+                lblError.Text = "Please fill out the description";
+            }
+            int success = StoredProcedures.editReview(Convert.ToInt32(Session["ReviewID"].ToString()), Convert.ToInt32(ddlEditRating.SelectedValue), editReviewDescription.Value);
+            if (success >= 1)
+            {
+               
+                lblSuccessReview.Text = "Review edited successfully!";
+                lblError.Text = "";
+                addReviewLink.Visible = true;
+                addReviewPanel.Visible = true;
+                editReviewPanel.Visible = false;
+
+                bindGridview();
+            }
+            hideNonMemberControls();
+
         }
         protected void btnDeleteReview_Click(object sender, EventArgs e)
         {
@@ -255,8 +270,39 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = false;
             addReviewPanel.Visible = false;
-            //TODO: delete the review. call httpdelete api
 
+
+            int success = StoredProcedures.DeleteReview(Convert.ToInt32(Session["ReviewID"].ToString()));
+            if( success >= 1)
+            {
+                lblError.Text = "Review has been successfully deleted";
+                addReviewLink.Visible = false;
+                editReviewPanel.Visible = false;
+                addReviewPanel.Visible = false;
+
+                bindGridview();
+                addReviewLink.Visible = true;
+                addReviewPanel.Visible = true;
+            }
+
+            hideNonMemberControls();
+        }
+        public void hideNonMemberControls()
+        {
+            //show delete and edit review buttons only for member's reviews
+            foreach (GridViewRow row in gvReviews.Rows)
+            {
+                for (int i = 0; i < gvReviews.Columns.Count; i++)
+                {
+                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
+                    {
+                        row.Cells[4].Controls.Clear();
+                    }
+                }
+            }
+
+            //hide review IDs from user
+            this.gvReviews.Columns[0].Visible = false;
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {

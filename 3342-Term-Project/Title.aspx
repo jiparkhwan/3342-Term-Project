@@ -63,7 +63,7 @@
    
 
             <hr />
-            <asp:Label ID="lblError" runat="server" Text="" ForeColor="DodgerBlue"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
 
 
 

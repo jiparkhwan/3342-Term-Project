@@ -186,7 +186,7 @@ namespace _3342_Term_Project
                     Session["MovieReviews"] = true;
                     Session["ShowReviews"] = false;
                     Session["GameReviews"] = false;
-                   
+
                     int MovieID = Convert.ToInt32(e.CommandArgument);
                     Session["MovieID"] = MovieID;
                     DBConnect objDB = new DBConnect();
@@ -255,12 +255,11 @@ namespace _3342_Term_Project
                         Session["TitleRunTime"] = ds.Tables[0].Rows[0]["TV_Show_RunTime"].ToString();
                         Session["TitleGenre"] = ds.Tables[0].Rows[0]["TV_Show_Genre"].ToString();
                         Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
+                        Session["TitleCreator"] = null;
                         Session["TitleBudget"] = null;
                         Session["TitleIncome"] = null;
-                        Session["TitleCreator"] = null;
 
-
-                            lblError.Text = "saved session info";
+                        lblError.Text = "saved session info";
                         Server.Transfer("Title.aspx");
                     }
                     else

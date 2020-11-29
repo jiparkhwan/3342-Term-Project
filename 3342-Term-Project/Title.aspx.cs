@@ -9,10 +9,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
-using System.Net;
-using System.IO;
-using System.Web.Script.Serialization;
-
 namespace _3342_Term_Project
 {
     public partial class Title : System.Web.UI.Page
@@ -20,65 +16,57 @@ namespace _3342_Term_Project
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            { 
-                addReviewLink.Visible = true;
-                lblSuccessReview.Text = "";
-                addReviewPanel.Visible = false;
+            addReviewLink.Visible = true;
+            lblSuccessReview.Text = "";
+            addReviewPanel.Visible = false;
 
-                editReviewPanel.Visible = false;
+            editReviewPanel.Visible = false;
 
 
-                imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
-                lblTitleDescription.Text = Session["TitleDescription"].ToString();
+            imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
+            lblTitleDescription.Text = Session["TitleDescription"].ToString();
 
-                lblTitleGenre.Text = Session["TitleGenre"].ToString();
-                lblTitleName.Text = Session["TitleName"].ToString();
-                lblTitleYear.Text = Session["TitleYear"].ToString();
-                lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
+            lblTitleGenre.Text = Session["TitleGenre"].ToString();
+            lblTitleName.Text = Session["TitleName"].ToString();
+            lblTitleYear.Text = Session["TitleYear"].ToString();
+            lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
 
-                Page.Title = String.Format(lblTitleName.Text);
-                if (Session["TitleCreator"] == null)
-                {
-                    lblTitleCreatorLabel.Visible = false;
-                    lblTitleCreator.Visible = false;
-                }
-                else
-                {
-                    lblTitleCreator.Text = Session["TitleCreator"].ToString();
-                }
-
-                if (Session["TitleRunTime"] == null)
-                {
-                    lblTitleRunTimeLabel.Visible = false;
-                    lblTitleRunTime.Visible = false;
-                }
-                else
-                {
-                    lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
-                }
-
-                if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
-                {
-                    lblTitleIncomeLabel.Visible = false;
-                    lblTitleIncome.Visible = false;
-                    lblTitleBudgetLabel.Visible = false;
-                    lblTitleBudget.Visible = false;
-                    lblBar2.Visible = false;
-                }
-                else
-                {
-                    lblTitleBudget.Text = Session["TitleBudget"].ToString();
-                    lblTitleIncome.Text = Session["TitleIncome"].ToString();
-                }
-
-
-                bindGridview();
-                hideNonMemberControls();
+            Page.Title = String.Format(lblTitleName.Text);
+            if (Session["TitleCreator"] == null)
+            {
+                lblTitleCreatorLabel.Visible = false;
+                lblTitleCreator.Visible = false;
             }
-        }
-        public void bindGridview()
-        {
+            else
+            {
+                lblTitleCreator.Text = Session["TitleCreator"].ToString();
+            }
+
+            if (Session["TitleRunTime"] == null)
+            {
+                lblTitleRunTimeLabel.Visible = false;
+                lblTitleRunTime.Visible = false;
+            }
+            else
+            {
+                lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
+            }
+
+            if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
+            {
+                lblTitleIncomeLabel.Visible = false;
+                lblTitleIncome.Visible = false;
+                lblTitleBudgetLabel.Visible = false;
+                lblTitleBudget.Visible = false;
+                lblBar2.Visible = false;
+            }
+            else
+            {
+                lblTitleBudget.Text = Session["TitleBudget"].ToString();
+                lblTitleIncome.Text = Session["TitleIncome"].ToString();
+            }
+
+
             //review functions here
             if (Convert.ToBoolean(Session["MovieReviews"]) == true)
             {
@@ -112,16 +100,16 @@ namespace _3342_Term_Project
                     lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
                 }
             }
-
-
+           
+            
 
             else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
             {
-
-                DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                {
+              
+                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                    {
                     gvReviews.DataSource = myDS;
                     gvReviews.DataBind();
 
@@ -132,17 +120,17 @@ namespace _3342_Term_Project
                         lblError.Text = "";
                     }
                 }
-
-                else
-                {
+                
+                     else
+                    {
                     lblError.Text = "No reviews exist for this show yet! Be the first one: ";
-                }
+                  }
 
             }
-            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
-
-                DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+                
+                    DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
 
 
                 // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
@@ -164,7 +152,24 @@ namespace _3342_Term_Project
                 }
 
             }
+          
+            //show delete and edit review buttons only for member's reviews
+            foreach (GridViewRow row in gvReviews.Rows)
+            {
+                for (int i = 0; i < gvReviews.Columns.Count; i++)
+                {
+                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
+                    {
+                        row.Cells[4].Controls.Clear();
+                    }
+                }
+            }
+
+            //hide review IDs from user
+            this.gvReviews.Columns[0].Visible = false;
+
         }
+
         protected void addReviewLink_OnClick(object sender, EventArgs e)
         {
             if (addReviewPanel.Visible == false)
@@ -176,19 +181,18 @@ namespace _3342_Term_Project
         {
             if (Convert.ToBoolean(Session["MovieReviews"]) == true)
             {
-                int movieID = Convert.ToInt32(Session["MovieID"]);
+                int movieID= Convert.ToInt32(Session["MovieID"]);
                 int success = StoredProcedures.addMovieReview(movieID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
-                if (success >= 1)
+                if(success >= 1)
                 {
                     addReviewPanel.Visible = false;
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
-                    hideNonMemberControls();
                 }
             }
-            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
                 int gameID = Convert.ToInt32(Session["GameID"]);
                 int success = StoredProcedures.addGameReview(gameID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
@@ -199,10 +203,9 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
-                    hideNonMemberControls();
                 }
             }
-            else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
+          else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
             {
                 int ShowID = Convert.ToInt32(Session["ShowID"]);
                 int success = StoredProcedures.addTVShowReview(ShowID, Convert.ToInt32(ddlAddRating.SelectedValue), textAreaAddReview.Value, Session["MemberAccount"].ToString());
@@ -212,12 +215,10 @@ namespace _3342_Term_Project
                     lblSuccessReview.Text = "Thank you for your feedback!";
                     lblError.Text = "";
                     addReviewLink.Visible = false;
-                    hideNonMemberControls();
                     editReviewPanel.Visible = false;
                 }
             }
-            bindGridview();
-            hideNonMemberControls();
+
         }
         protected void btnEditReview_Click(object sender, EventArgs e)
         {
@@ -232,31 +233,14 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = true;
             addReviewPanel.Visible = false;
-
-
-            hideNonMemberControls();
+            
 
         }
-        protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
+       protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
         {
-            if (editReviewDescription.Value == null || editReviewDescription.Value == "" || editReviewDescription.Value ==" ") {
-                lblError.Text = "Please fill out the description";
-            }
-            int success = StoredProcedures.editReview(Convert.ToInt32(Session["ReviewID"].ToString()), Convert.ToInt32(ddlEditRating.SelectedValue), editReviewDescription.Value);
-            if (success >= 1)
-            {
-               
-                lblSuccessReview.Text = "Review edited successfully!";
-                lblError.Text = "";
-                addReviewLink.Visible = false;
-                addReviewPanel.Visible = false;
-                editReviewPanel.Visible = false;
-
-                bindGridview();
-            }
-            hideNonMemberControls();
-
+            //TODO: edit review. call httpput api
         }
+
         protected void btnDeleteReview_Click(object sender, EventArgs e)
         {
             //Get the button that raised the event
@@ -270,58 +254,8 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = false;
             addReviewPanel.Visible = false;
+            //TODO: delete the review. call httpdelete api
 
-            try
-            {
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteReview/" + Session["ReviewID"].ToString());
-                request.Method = "DELETE";
-                request.ContentLength = 0;
-
-                WebResponse response = request.GetResponse();
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                string data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-
-                lblError.Text = "Review has been successfully deleted";
-                addReviewLink.Visible = false;
-                editReviewPanel.Visible = false;
-                addReviewPanel.Visible = false;
-
-                bindGridview();
-                addReviewLink.Visible = true;
-                addReviewPanel.Visible = true;
-            }
-            catch (Exception E)
-            {
-                lblError.Text = E.Message;
-            }
-            
-            hideNonMemberControls();
-        }
-        public void hideNonMemberControls()
-        {
-            //show delete and edit review buttons only for member's reviews
-            foreach (GridViewRow row in gvReviews.Rows)
-            {
-                for (int i = 0; i < gvReviews.Columns.Count; i++)
-                {
-                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
-                    {
-                        row.Cells[4].Controls.Clear();
-                    }
-                    else
-                    {
-                        addReviewLink.Visible = false; //dont allow member to add a review if they already wrote one
-                    }
-                }
-            }
-
-            //hide review IDs from user
-            this.gvReviews.Columns[0].Visible = false;
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
@@ -338,43 +272,42 @@ namespace _3342_Term_Project
 
             if (Session["MovieID"] != null)
             {
+                Session["AddMovie"] = "Update Movie";
                 Session["Edit_ID"] = Session["MovieID"].ToString();
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Runtime"] = Session["TitleRuntime"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
+                Session["Edit_Budget"] = Session["TitleBudget"].ToString();
+                Session["Edit_Income"] = Session["TitleIncome"].ToString();
             }
             else if(Session["ShowID"] != null)
             {
+                Session["AddShow"] = "Update Show";
                 Session["Edit_ID"] = Session["ShowID"].ToString();
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Runtime"] = Session["TitleRuntime"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
             }
             else if (Session["GameID"] != null)
             {
+                Session["AddGame"] = "Update Game";
                 Session["Edit_ID"] = Session["GameID"].ToString();
-            }
-
-            Session["Edit_Name"] = Session["TitleName"].ToString();
-            Session["Edit_Description"] = Session["TitleDescription"].ToString();
-            Session["Edit_Year"] = Session["TitleYear"].ToString();
-            Session["Edit_Genre"] = Session["TitleGenre"].ToString();
-            Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
-
-            if(Session["TitleCreator"] != null)
-            {
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
                 Session["Edit_Creator"] = Session["TitleCreator"].ToString();
             }
-
-            if(Session["TitleRunTime"] != null)
-            {
-                Session["Edit_Run_Time"] = Session["TitleRunTime"].ToString();
-            }
-
-            if (Session["TitleBudget"] != null)
-            {
-                Session["Edit_Budget"] = Session["TitleBudget"].ToString();
-            }
-
-            if(Session["TitleIncome"] != null)
-            {
-                Session["Edit_Income"] = Session["TitleIncome"].ToString();
-            }
-
             Response.Redirect("AddTitle.aspx");
         }
     }

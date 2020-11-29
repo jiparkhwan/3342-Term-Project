@@ -120,10 +120,10 @@
                 <asp:Label ID="lblAddShowAgeRating" runat="server" Text="Age Rating: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:DropDownList ID="ddlAddShowAgeRating" runat="server">
                     <asp:ListItem Value="noneSelected">-------</asp:ListItem>
-                    <asp:ListItem Value="TVG">TV-G</asp:ListItem>
-                    <asp:ListItem Value="TVPG">TV-PG</asp:ListItem>
-                    <asp:ListItem Value="TVPG-13">TV-14</asp:ListItem>
-                    <asp:ListItem Value="TVR">TV-MA</asp:ListItem>
+                    <asp:ListItem Value="TV-G">TV-G</asp:ListItem>
+                    <asp:ListItem Value="TV-PG">TV-PG</asp:ListItem>
+                    <asp:ListItem Value="TV-14">TV-14</asp:ListItem>
+                    <asp:ListItem Value="TV-MA">TV-MA</asp:ListItem>
                     <asp:ListItem Value="Unrated">Unrated</asp:ListItem>
                 </asp:DropDownList>
                 <br />

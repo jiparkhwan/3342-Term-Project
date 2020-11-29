@@ -67,6 +67,13 @@ namespace _3342_Term_Project
             }
 
 
+
+            bindGridview();
+            //show delete and edit review buttons only for member's reviews
+            hideNonMemberControls();
+        }
+        public void bindGridview()
+        {
             //review functions here
             if (Convert.ToBoolean(Session["MovieReviews"]) == true)
             {
@@ -100,16 +107,16 @@ namespace _3342_Term_Project
                     lblError.Text = "No reviews exist for this movie yet! Be the first one: ";
                 }
             }
-           
-            
+
+
 
             else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
             {
-              
-                    DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
-                    if (myDS.Tables[0].Rows.Count >= 1) //member record found
-                    {
+
+                DataSet myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                //   myDS = SP.getShowReviewsByID(Convert.ToInt32(Session["ShowID"]));
+                if (myDS.Tables[0].Rows.Count >= 1) //member record found
+                {
                     gvReviews.DataSource = myDS;
                     gvReviews.DataBind();
 
@@ -120,17 +127,17 @@ namespace _3342_Term_Project
                         lblError.Text = "";
                     }
                 }
-                
-                     else
-                    {
+
+                else
+                {
                     lblError.Text = "No reviews exist for this show yet! Be the first one: ";
-                  }
+                }
 
             }
-           else if (Convert.ToBoolean(Session["GameReviews"]) == true)
+            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
-                
-                    DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
+
+                DataSet myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
 
 
                 // myDS = SP.getGameReviewsByID(Convert.ToInt32(Session["GameID"]));
@@ -152,7 +159,9 @@ namespace _3342_Term_Project
                 }
 
             }
-          
+        }
+        public void hideNonMemberControls()
+        {
             //show delete and edit review buttons only for member's reviews
             foreach (GridViewRow row in gvReviews.Rows)
             {
@@ -167,9 +176,7 @@ namespace _3342_Term_Project
 
             //hide review IDs from user
             this.gvReviews.Columns[0].Visible = false;
-
         }
-
         protected void addReviewLink_OnClick(object sender, EventArgs e)
         {
             if (addReviewPanel.Visible == false)
@@ -190,7 +197,12 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
+
+                    bindGridview();
+                    //show delete and edit review buttons only for member's reviews
+                    hideNonMemberControls();
                 }
+
             }
            else if (Convert.ToBoolean(Session["GameReviews"]) == true)
             {
@@ -203,6 +215,10 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
+
+                    bindGridview();
+                    //show delete and edit review buttons only for member's reviews
+                    hideNonMemberControls();
                 }
             }
           else if (Convert.ToBoolean(Session["ShowReviews"]) == true)
@@ -216,6 +232,10 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     addReviewLink.Visible = false;
                     editReviewPanel.Visible = false;
+
+                    bindGridview();
+                    //show delete and edit review buttons only for member's reviews
+                    hideNonMemberControls();
                 }
             }
 
@@ -233,14 +253,34 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = true;
             addReviewPanel.Visible = false;
-            
+            bindGridview();
+            //show delete and edit review buttons only for member's reviews
+            hideNonMemberControls();
+
+
 
         }
        protected void btnEditReviewSubmit_OnClick(object sender, EventArgs e)
         {
-            //TODO: edit review. call httpput api
-        }
+            if (editReviewDescription.Value == null || editReviewDescription.Value == "" || editReviewDescription.Value == " ")
+            {
+                lblError.Text = "Please fill out the description";
+            }
+            int success = StoredProcedures.editReview(Convert.ToInt32(Session["ReviewID"].ToString()), Convert.ToInt32(ddlEditRating.SelectedValue), editReviewDescription.Value);
+            if (success >= 1)
+            {
 
+                lblSuccessReview.Text = "Review edited successfully!";
+                lblError.Text = "";
+                addReviewLink.Visible = true;
+                addReviewPanel.Visible = true;
+                editReviewPanel.Visible = false;
+
+                bindGridview();
+            }
+            hideNonMemberControls();
+
+        }
         protected void btnDeleteReview_Click(object sender, EventArgs e)
         {
             //Get the button that raised the event
@@ -254,8 +294,36 @@ namespace _3342_Term_Project
 
             editReviewPanel.Visible = false;
             addReviewPanel.Visible = false;
-            //TODO: delete the review. call httpdelete api
+            try
+            {
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteReview/" + Session["ReviewID"].ToString());
+                request.Method = "DELETE";
+                request.ContentLength = 0;
 
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                string data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+
+                lblError.Text = "Review has been successfully deleted";
+                addReviewLink.Visible = false;
+                editReviewPanel.Visible = false;
+                addReviewPanel.Visible = false;
+                bindGridview();
+                addReviewLink.Visible = true;
+                addReviewPanel.Visible = true;
+            }
+
+            catch (Exception E)
+            {
+                lblError.Text = E.Message;
+            }
+
+            hideNonMemberControls();
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {

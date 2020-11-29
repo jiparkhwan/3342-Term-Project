@@ -149,23 +149,30 @@ namespace _3342_Term_Project
                 pnlGameRepeater.Visible = false;
                 pnlActorRepeater.Visible = true;
 
-                // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetActorByName/" + txtFindByName.Text);
-                WebResponse response = request.GetResponse();
-                // Read the data from the Web Response, which requires working with streams.
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-                // Deserialize a JSON string into a Team object.
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                Actors[] actor = js.Deserialize<Actors[]>(data);
-                //gvResults.DataSource = Movie;
-                // gvResults.DataBind();
-                rptActorSearchRes.DataSource = actor;
-                rptActorSearchRes.DataBind();
-                lblError.Text = "";
+                try
+                {
+                    // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetActorByName/" + txtFindByName.Text);
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    Actors[] actor = js.Deserialize<Actors[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptActorSearchRes.DataSource = actor;
+                    rptActorSearchRes.DataBind();
+                    lblError.Text = "";
+                }
+                catch(Exception E)
+                {
+                    lblError.Text = "Please enter a field first";
+                }
             }
 
         }

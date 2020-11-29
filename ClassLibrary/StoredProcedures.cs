@@ -225,6 +225,7 @@ namespace ClassLibrary
 
 
         }
+       
         public static int addGameReview(int id, int rating, string description, string reviewerEmail)
         {
             DBConnect objDB = new DBConnect();
@@ -259,7 +260,7 @@ namespace ClassLibrary
 
         }
         //editing reviews:
-        public static int editReview(int reviewID, string reviewDescription, int rating)
+        public static int editReview(int reviewID, int rating, string reviewDescription)
         {
             DBConnect objDB = new DBConnect();
 
@@ -272,16 +273,17 @@ namespace ClassLibrary
             inputParameter.SqlDbType = SqlDbType.Int;
             objCommand.Parameters.Add(inputParameter);
 
+            inputParameter = new SqlParameter("@rating", rating);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
             inputParameter = new SqlParameter("@reviewDescription", reviewDescription);
             inputParameter.Direction = ParameterDirection.Input;
             inputParameter.SqlDbType = SqlDbType.VarChar;
             objCommand.Parameters.Add(inputParameter);
 
 
-            inputParameter = new SqlParameter("@rating", rating);
-            inputParameter.Direction = ParameterDirection.Input;
-            inputParameter.SqlDbType = SqlDbType.Int;
-            objCommand.Parameters.Add(inputParameter);
 
             return objDB.DoUpdateUsingCmdObj(objCommand);
         }
@@ -308,7 +310,23 @@ namespace ClassLibrary
             return objDB.DoUpdateUsingCmdObj(objCommand);
         }
         //delete reviews END
+        public static int DeleteActor(int actorID)
+        {
+            DBConnect objDB = new DBConnect();
 
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_DeleteActor";
+
+            //set value for input parameter
+            SqlParameter inputParam = new SqlParameter("@actorID", actorID);
+            inputParam.Direction = ParameterDirection.Input;
+            inputParam.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParam);
+
+
+            return objDB.DoUpdateUsingCmdObj(objCommand);
+        }
 
         //Finds TV shows based on name typed in search bar. Uses like to find titles that are similar as well.
         public DataSet getShowByName(string showName)

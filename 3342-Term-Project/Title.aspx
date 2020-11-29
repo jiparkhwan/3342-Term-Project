@@ -63,7 +63,7 @@
    
 
             <hr />
-            <asp:Label ID="lblError" runat="server" Text="" ForeColor="DodgerBlue"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
 
 
 
@@ -91,7 +91,8 @@
 
 
 
-            <div class="container" runat="server">
+            <div class="container">
+
              <asp:Panel runat="server" ID="editReviewPanel">
                 <h4>New Rating:</h4>
                 <asp:DropDownList ID="ddlEditRating" runat="server" Height="50px" Width="70px">
@@ -142,6 +143,11 @@
               <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
+
+         <asp:ScriptManager runat="server"></asp:ScriptManager>
+
+
+
         <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>

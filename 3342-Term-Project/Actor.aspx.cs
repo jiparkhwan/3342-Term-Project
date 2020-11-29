@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,15 +23,43 @@ namespace _3342_Term_Project
             lblActorBirthCity.Text = Session["ActorBirthCity"].ToString();
             lblActorBirthState.Text = Session["ActorBirthState"].ToString();
             lblActorBirthCountry.Text = Session["ActorBirthCountry"].ToString();
-
+            actorInfoPanel.Visible = true;
+            editDeletePanel.Visible = true;
+            lblError.Text = "";
             if (Session["MemberAccount"] == null)
             {
                 Server.Transfer("Login.aspx", false);
             }
 
         }
+        protected void btnDeleteActor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Create an HTTP Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteActor/" + Session["ActorID"].ToString());
+                request.Method = "DELETE";
+                request.ContentLength = 0;
 
-        protected void btnEditActor_Click(object sender, EventArgs e)
+                WebResponse response = request.GetResponse();
+                // Read the data from the Web Response, which requires working with streams.
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                string data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                
+                lblError.Text = "Actor has been successfully deleted!";
+                actorInfoPanel.Visible = false;
+                editDeletePanel.Visible = false;
+            }
+            catch (Exception E)
+            {
+                lblError.Text = E.Message;
+            }
+        }
+        
+            protected void btnEditActor_Click(object sender, EventArgs e)
         {
             Session["Edit_Actor_Activated"] = "Edit Actor";
             if(Session["ActorSelectedID"] != null)

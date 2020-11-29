@@ -119,9 +119,9 @@ namespace _3342_Term_Project
                     response.Close();
 
                     if (data == "true")
-                        lblDisplay.Text = "The customer was successfully saved to the database.";
+                        lblDisplay.Text = "The actor was successfully saved to the database.";
                     else
-                        lblDisplay.Text = "A problem occurred while adding the customer to the database. The data wasn't recorded.";
+                        lblDisplay.Text = "A problem occurred while adding the actor to the database. The data wasn't recorded.";
                 }
             }
 

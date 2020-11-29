@@ -31,6 +31,15 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
+        /// editDeletePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel editDeletePanel;
+        
+        /// <summary>
         /// btnEditActor control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,24 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditActor;
+        
+        /// <summary>
+        /// btnDeleteActor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteActor;
+        
+        /// <summary>
+        /// actorInfoPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel actorInfoPanel;
         
         /// <summary>
         /// lblActorName control.
@@ -164,6 +191,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblActorHeight;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
         /// lblActorRoles control.

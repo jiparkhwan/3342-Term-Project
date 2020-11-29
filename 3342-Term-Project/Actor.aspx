@@ -22,11 +22,19 @@
 </head>
 <body>
     <form id="frmActor" runat="server">
-        <div>
+        
         <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="mainTitle">
-            <asp:Button ID="btnEditActor" runat="server" Text="Edit Actor" OnClick="btnEditActor_Click" />
-            <br />
+            <div class="container">
+                <asp:Panel ID="editDeletePanel" runat="server">
+           <asp:Button ID="btnEditActor" runat="server" Text="Edit Actor" OnClick="btnEditActor_Click" />
+            <asp:Button ID="btnDeleteActor" runat="server" class="btn-outline-danger" Text="Delete Actor" OnClick="btnDeleteActor_Click" />
+           </asp:Panel>
+          </div>
+                <br />
+
+
+            <asp:Panel ID="actorInfoPanel" runat="server">
             <h1><asp:Label ID="lblActorName" runat="server" Text="Ryan Reynolds"></asp:Label></h1>
             <hr />
 
@@ -50,8 +58,12 @@
                 <asp:Label ID="lblActorHeight" runat="server" Text="6' 2"></asp:Label>
             </div>
             <hr />
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
             <h2><asp:Label ID="lblActorRoles" runat="server" Text="Roles: " Font-Bold="True"></asp:Label></h2>
-         </div>
+        
+            </asp:Panel>
+
+
         <Footer:HomeFooter ID="FooterNav" runat="server" />
         </div>
     </form>

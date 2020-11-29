@@ -16,8 +16,7 @@ namespace _3342_Term_Project
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
-         
-                addReviewLink.Visible = true;
+            addReviewLink.Visible = true;
             lblSuccessReview.Text = "";
             addReviewPanel.Visible = false;
 
@@ -241,6 +240,7 @@ namespace _3342_Term_Project
         {
             //TODO: edit review. call httpput api
         }
+
         protected void btnDeleteReview_Click(object sender, EventArgs e)
         {
             //Get the button that raised the event
@@ -272,43 +272,42 @@ namespace _3342_Term_Project
 
             if (Session["MovieID"] != null)
             {
+                Session["AddMovie"] = "Update Movie";
                 Session["Edit_ID"] = Session["MovieID"].ToString();
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Runtime"] = Session["TitleRuntime"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
+                Session["Edit_Budget"] = Session["TitleBudget"].ToString();
+                Session["Edit_Income"] = Session["TitleIncome"].ToString();
             }
             else if(Session["ShowID"] != null)
             {
+                Session["AddShow"] = "Update Show";
                 Session["Edit_ID"] = Session["ShowID"].ToString();
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Runtime"] = Session["TitleRuntime"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
             }
             else if (Session["GameID"] != null)
             {
+                Session["AddGame"] = "Update Game";
                 Session["Edit_ID"] = Session["GameID"].ToString();
-            }
-
-            Session["Edit_Name"] = Session["TitleName"].ToString();
-            Session["Edit_Description"] = Session["TitleDescription"].ToString();
-            Session["Edit_Year"] = Session["TitleYear"].ToString();
-            Session["Edit_Genre"] = Session["TitleGenre"].ToString();
-            Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
-
-            if(Session["TitleCreator"] != null)
-            {
+                Session["Edit_Image"] = Session["TitleImage"].ToString();
+                Session["Edit_Name"] = Session["TitleName"].ToString();
+                Session["Edit_Description"] = Session["TitleDescription"].ToString();
+                Session["Edit_Year"] = Session["TitleYear"].ToString();
+                Session["Edit_Genre"] = Session["TitleGenre"].ToString();
+                Session["Edit_Age_Rating"] = Session["TitleAgeRating"].ToString();
                 Session["Edit_Creator"] = Session["TitleCreator"].ToString();
             }
-
-            if(Session["TitleRunTime"] != null)
-            {
-                Session["Edit_Run_Time"] = Session["TitleRunTime"].ToString();
-            }
-
-            if (Session["TitleBudget"] != null)
-            {
-                Session["Edit_Budget"] = Session["TitleBudget"].ToString();
-            }
-
-            if(Session["TitleIncome"] != null)
-            {
-                Session["Edit_Income"] = Session["TitleIncome"].ToString();
-            }
-
             Response.Redirect("AddTitle.aspx");
         }
     }

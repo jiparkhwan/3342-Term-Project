@@ -18,7 +18,8 @@ namespace WebAPI.Controllers
     [Route("WebAPI/[controller]")]
     public class TermProjectController : Controller
     {
-
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet]
         [HttpGet("GetActors")] //Route: WebAPI/TermProject/GetActors/
         public List<Actors> GetActors()
@@ -55,7 +56,8 @@ namespace WebAPI.Controllers
             return dpts;
         } //end of GetActors
 
-
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetActorByName/{actorName}/")] //Route: WebAPI/TermProject/GetActorByName/
         public List<Actors> GetActorByName(string actorName)
         {
@@ -91,6 +93,8 @@ namespace WebAPI.Controllers
             return dpts;
         } //end of GetActors
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetMovies")] //Route: WebAPI/TermProject/GetMovies/
         public List<Movies> GetMovies()
         {
@@ -124,7 +128,7 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random movie from database and prints all information to browser
-        [Produces("application/json")]
+        /*[Produces("application/json")]
         [Consumes("application/json")]
         [HttpGet("GetRandomMovie")] //Route: WebAPI/TermProject/GetRandomMovie/
         public List<Movies> GetRandomMovie()
@@ -156,8 +160,10 @@ namespace WebAPI.Controllers
                 dpts.Add(movies);
             }
             return dpts;
-        }
+        }*/
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetMovieByName/{movieName}/")] //Route: WebAPI/TermProject/GetMovieByName/
         public List<Movies> GetMovieByName(string movieName)
         {
@@ -221,7 +227,7 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random TV Show from database and prints all information to browser
-        [Produces("application/json")]
+        /*[Produces("application/json")]
         [Consumes("application/json")]
         [HttpGet("GetRandomShow")] //Route: WebAPI/TermProject/GetRandomShow/
         public List<TVShows> GetRandomShow()
@@ -251,8 +257,10 @@ namespace WebAPI.Controllers
                 dpts.Add(shows);
             }
             return dpts;
-        }
+        }*/
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetShowByName/{showName}/")] //Route: WebAPI/TermProject/GetShowByName/
         public List<TVShows> GetTVShowByName(string showName)
         {
@@ -286,6 +294,8 @@ namespace WebAPI.Controllers
             return dpts;
         } //end of GetTVShows
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetGames")] //Route: WebAPI/TermProject/GetGames/
         public List<VideoGames> GetGames()
         {
@@ -316,7 +326,7 @@ namespace WebAPI.Controllers
         }
 
         //Retreives random video game from database and prints all information to browser
-        [Produces("application/json")]
+        /*[Produces("application/json")]
         [Consumes("application/json")]
         [HttpGet("GetRandomGame")] //Route: WebAPI/TermProject/GetRandomGame/
         public List<VideoGames> GetRandomGame()
@@ -345,9 +355,11 @@ namespace WebAPI.Controllers
                 dpts.Add(videogames);
             }
             return dpts;
-        }
+        }*/
 
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("GetGameByName/{gameName}/")] //Route: WebAPI/TermProject/GetGameByName/
         public List<VideoGames> GetGameByName(string gameName)
         {
@@ -388,10 +400,11 @@ namespace WebAPI.Controllers
         //searching movies START
 
         // GET api/Lexpark/FindMoviesByName
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("FindMoviesByName/{movieName}")]
         public List<Movies> FindMoviesByName(string movieName)
         {
-
            // serviceHomepage .getbtnfindmoviename()
             DBConnect objDB = new DBConnect();
             SqlCommand objCommand = new SqlCommand();
@@ -420,8 +433,11 @@ namespace WebAPI.Controllers
             }
             return list;
         }
-    // GET api/Lexpark/FindMovieByGenre
-    [HttpGet("FindMoviesByGenre/{movieGenre}")]
+
+        // GET api/Lexpark/FindMovieByGenre
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("FindMoviesByGenre/{movieGenre}")]
         public List<Movies> FindMovieByGenre( string movieGenre)
         {
             DBConnect objDB = new DBConnect();
@@ -451,7 +467,10 @@ namespace WebAPI.Controllers
             }
             return list;
         }
+
         // GET api/Lexpark/FindMovieByAgeRating
+        [Produces("application/json")]
+        [Consumes("application/json")]
         [HttpGet("FindUserByAgeRating/{ageRating}")]
         public List<Movies> FindMovieByAgeRating(string ID, string ageRating)
         {
@@ -815,4 +834,3 @@ namespace WebAPI.Controllers
 
     } //end of class
 } //end of namespace
-

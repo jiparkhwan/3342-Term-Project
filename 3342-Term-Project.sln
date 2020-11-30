@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{8EA04C6B-2E18-4068-A1F5-6C56CFB5A86C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAP_GetMovie", "SOAP_GetMovie\SOAP_GetMovie.csproj", "{C7AA9E3B-2576-4B18-A11D-FC9087762AED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8EA04C6B-2E18-4068-A1F5-6C56CFB5A86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA04C6B-2E18-4068-A1F5-6C56CFB5A86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA04C6B-2E18-4068-A1F5-6C56CFB5A86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AA9E3B-2576-4B18-A11D-FC9087762AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AA9E3B-2576-4B18-A11D-FC9087762AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AA9E3B-2576-4B18-A11D-FC9087762AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AA9E3B-2576-4B18-A11D-FC9087762AED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

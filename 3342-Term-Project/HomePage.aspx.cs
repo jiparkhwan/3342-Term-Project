@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,6 +17,11 @@ namespace _3342_Term_Project
 {
     public partial class HomePage : System.Web.UI.Page
     {
+
+        GetMovieService.GetMovie pxy = new GetMovieService.GetMovie();
+        GetShowService.GetShow pxyShow = new GetShowService.GetShow();
+        GetGameService.GetGame pxyGame = new GetGameService.GetGame();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             frmHomePage.Visible = true;
@@ -114,9 +120,9 @@ namespace _3342_Term_Project
                 pnlGameRepeater.Visible = true;
                 Session["Game_Searched"] = "Game";
 
-
                 try
                 {
+                    
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameByName/" + txtFindByName.Text);
                     WebResponse response = request.GetResponse();
@@ -403,13 +409,15 @@ namespace _3342_Term_Project
 
         protected void btnRandMovie_Click(object sender, EventArgs e)
         {
+            ArrayList objMovie = new ArrayList(pxy.GetRandomMovie());
+          
             //Session["RandomClick"] = "Movie";
             ddlSelectMedia.Text = "movies";
             //VALIDATE THE API REQUEST!!!//
             pnlHome.Visible = false;
             FooterNav.Visible = false;
             pnlMovieRepeater.Visible = true;         
-        
+            /*
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
             WebResponse response = request.GetResponse();
@@ -423,14 +431,16 @@ namespace _3342_Term_Project
             JavaScriptSerializer js = new JavaScriptSerializer();
             Movies[] movie = js.Deserialize<Movies[]>(data);
             // gvResults.DataSource = movie;
-            // gvResults.DataBind();
-            rptMovieSearchRes.DataSource = movie;
+            // gvResults.DataBind();*/
+            rptMovieSearchRes.DataSource = objMovie;
             rptMovieSearchRes.DataBind();
             lblError.Text = "";
         }
 
         protected void btnRandShow_Click(object sender, EventArgs e)
         {
+            ArrayList objShow = new ArrayList(pxyShow.GetRandomShow());
+
             //Session["RandomClick"] = "Show";
             ddlSelectMedia.Text = "shows";
             //VALIDATE THE API REQUEST!!!//
@@ -440,7 +450,7 @@ namespace _3342_Term_Project
 
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomShow/");
+            /*WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomShow/");
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -452,21 +462,23 @@ namespace _3342_Term_Project
             JavaScriptSerializer js = new JavaScriptSerializer();
             TVShows[] show = js.Deserialize<TVShows[]>(data);
             // gvResults.DataSource = movie;
-            // gvResults.DataBind();
-            rptShowSearchRes.DataSource = show;
+            // gvResults.DataBind();*/
+            rptShowSearchRes.DataSource = objShow;
             rptShowSearchRes.DataBind();
             lblError.Text = "";
         }
 
         protected void btnRandGame_Click(object sender, EventArgs e)
         {
+            ArrayList objGame = new ArrayList(pxyGame.GetRandomGame());
+            
             //Session["RandomClick"] = "Show";
             ddlSelectMedia.Text = "videoGames";
             //VALIDATE THE API REQUEST!!!//
             pnlHome.Visible = false;
             FooterNav.Visible = false;
             pnlGameRepeater.Visible = true;
-
+            /*
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
             WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomGame/");
             WebResponse response = request.GetResponse();
@@ -480,8 +492,8 @@ namespace _3342_Term_Project
             JavaScriptSerializer js = new JavaScriptSerializer();
             VideoGames[] game = js.Deserialize<VideoGames[]>(data);
             // gvResults.DataSource = movie;
-            // gvResults.DataBind();
-            rptGameSearchRes.DataSource = game;
+            // gvResults.DataBind();*/
+            rptGameSearchRes.DataSource = objGame;
             rptGameSearchRes.DataBind();
             lblError.Text = "";
         }

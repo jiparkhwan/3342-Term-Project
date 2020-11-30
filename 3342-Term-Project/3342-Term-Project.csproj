@@ -90,6 +90,21 @@
     <Content Include="UserControls\Navbar.ascx" />
     <Content Include="UserControls\Footer.ascx" />
     <Content Include="VerifiedPage.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetGameService\GetGame.wsdl" />
+    <Content Include="Web References\GetGameService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\GetGameService\VideoGames.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\GetMovieService\GetMovie.disco" />
+    <None Include="Web References\GetShowService\GetShow.disco" />
+    <None Include="Web References\GetGameService\GetGame.disco" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -159,6 +174,11 @@
       <DependentUpon>MemberProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,9 +221,40 @@
     <Compile Include="VerifiedPage.aspx.designer.cs">
       <DependentUpon>VerifiedPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\GetGameService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GetMovieService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\GetShowService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Web References\GetMovieService\GetMovie.wsdl" />
+    <Content Include="Web References\GetMovieService\Movies.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\GetMovieService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\GetShowService\GetShow.wsdl" />
+    <Content Include="Web References\GetShowService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\GetShowService\TVShows.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -221,7 +272,47 @@
       <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:64859/GetGame.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetGameService\</RelPath>
+      <UpdateFromURL>http://localhost:64859/GetGame.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>_3342_Term_Project_GetGameService_GetGame</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:64859/GetMovie.asmx%3fop=GetRandomMovie">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetMovieService\</RelPath>
+      <UpdateFromURL>http://localhost:64859/GetMovie.asmx%3fop=GetRandomMovie</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>_3342_Term_Project_GetMovieService_GetMovie</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:64859/GetShow.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\GetShowService\</RelPath>
+      <UpdateFromURL>http://localhost:64859/GetShow.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>_3342_Term_Project_GetShowService_GetShow</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -63,13 +63,14 @@ namespace _3342_Term_Project
                 Byte[] byteArray = (Byte[])db.GetField("Member_Favorites", 0);
                 if (db.GetField("Member_Favorites", 0) != System.DBNull.Value)
                 {
+                    try { 
                     BinaryFormatter deSerializer = new BinaryFormatter();
 
                     MemoryStream memStream = new MemoryStream(byteArray);
 
                     MemberFavorites memberFavorites = (MemberFavorites)deSerializer.Deserialize(memStream);
 
-                    favoritesLbl.Text = "Current Favorites: </br>" +
+                    favoritesLbl.Text =
 
                                 "Favorite Actor: " + memberFavorites.FavoriteActor + " </br>" +
                                 "Favorite Movie: " + memberFavorites.FavoriteMovie + " </br>" +
@@ -80,25 +81,20 @@ namespace _3342_Term_Project
 
 
 
-
+                    }
+                    catch(Exception E)
+                    {
+                        favoritesLbl.Text = "You do not have favorites yet. Add new ones below!";
+                    }
                 }  
+             
+
             }
 
         }
 
-
-          
-        
         protected void btnSubmitChange_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-
-
-
 
 
             // Serialize the MemberFavorites object
@@ -137,8 +133,12 @@ namespace _3342_Term_Project
             // Check to see whether the update was successful
 
             if (retVal > 0)
+            {
 
                 lblDisplay.Text = "Success in adding favorites";
+                Response.Redirect("HomePage.aspx");
+            }
+
 
             else
 

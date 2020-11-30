@@ -9,6 +9,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
+using System.Net;
+using System.IO;
+
 namespace _3342_Term_Project
 {
     public partial class Title : System.Web.UI.Page
@@ -16,6 +19,7 @@ namespace _3342_Term_Project
         StoredProcedures SP = new StoredProcedures();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack) { 
             addReviewLink.Visible = true;
             lblSuccessReview.Text = "";
             addReviewPanel.Visible = false;
@@ -71,6 +75,7 @@ namespace _3342_Term_Project
             bindGridview();
             //show delete and edit review buttons only for member's reviews
             hideNonMemberControls();
+            }
         }
         public void bindGridview()
         {
@@ -170,6 +175,10 @@ namespace _3342_Term_Project
                     if (row.Cells[1].Text != Session["MemberAccount"].ToString())
                     {
                         row.Cells[4].Controls.Clear();
+                    }
+                    else
+                    {
+                        addReviewLink.Visible = false; //dont allow member to add a review if they already wrote one
                     }
                 }
             }
@@ -272,8 +281,8 @@ namespace _3342_Term_Project
 
                 lblSuccessReview.Text = "Review edited successfully!";
                 lblError.Text = "";
-                addReviewLink.Visible = true;
-                addReviewPanel.Visible = true;
+                addReviewLink.Visible = false;
+                addReviewPanel.Visible = false;
                 editReviewPanel.Visible = false;
 
                 bindGridview();

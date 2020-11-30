@@ -12,6 +12,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
+using System.Net.Mail;
 
 namespace _3342_Term_Project
 {
@@ -36,6 +37,20 @@ namespace _3342_Term_Project
             else
             {
                 /*
+                MailAddress fromAddress = new MailAddress("jiparkhwan@gmail.com", "Lexpark Movies");
+                MailAddress toAddress = new MailAddress(txtEmail.Text, "New User");
+                MailMessage verificationMail = new MailMessage(fromAddress.Address, toAddress.Address);
+                verificationMail.Subject = "Lexpark: New Account Verification";
+                verificationMail.Body = "Click this link to verify your new account. http://localhost:55733/VerifiedPage.aspx";
+                SmtpClient client = new SmtpClient();
+                client.Host = "smtp.gmail.com";
+                client.Port = 587;
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Credentials = new NetworkCredential(fromAddress.Address, "asdasdasd");
+                client.Send(verificationMail);
+                /*
                     Email objEmail = new Email();
 
 
@@ -48,7 +63,7 @@ namespace _3342_Term_Project
 
                         Error.Text = "An email was sent to verify account!";
                         */
-                    int result = StoredProcedures.addMemberAccountRegister(txtEmail.Text, txtFirstName.Text, txtLastName.Text, txtPassword.Text, txtDOB.Text,
+                int result = StoredProcedures.addMemberAccountRegister(txtEmail.Text, txtFirstName.Text, txtLastName.Text, txtPassword.Text, txtDOB.Text,
                         ddlSecurityQuestion1.SelectedValue.ToString(), ddlSecurityQuestion2.SelectedValue.ToString(), ddlSecurityQuestion3.SelectedValue.ToString(),
                         txtSecurityAnswer1.Text, txtSecurityAnswer2.Text, txtSecurityAnswer3.Text);
                     

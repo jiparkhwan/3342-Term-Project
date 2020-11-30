@@ -91,7 +91,7 @@
 
 
 
-            <div class="container">
+            
 
              <asp:Panel runat="server" ID="editReviewPanel">
                 <h4>New Rating:</h4>
@@ -112,7 +112,7 @@
               <br />
                 <asp:Button ID="btnEditReviewSubmit" runat="server" Text="Submit New Review" CssClass="btn-outline-primary" OnClick="btnEditReviewSubmit_OnClick"/>
                 </asp:Panel>
-                </div>
+                
 
 
 

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="_3342_Term_Project.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="_3342_Term_Project_GetMovieService_GetMovie" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:64859/GetMovie.asmx</Value>
+    </Setting>
+    <Setting Name="_3342_Term_Project_GetShowService_GetShow" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:64859/GetShow.asmx</Value>
+    </Setting>
+    <Setting Name="_3342_Term_Project_GetGameService_GetGame" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:64859/GetGame.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

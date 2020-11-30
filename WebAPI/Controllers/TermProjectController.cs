@@ -810,7 +810,27 @@ namespace WebAPI.Controllers
                 return false;
             }
         }
+        //start deletes:
+        [HttpDelete]
+        [HttpDelete("DeleteActor/{id}")]  //Route: WebAPI/TermProject/DeleteActor/
+        public Boolean DeleteActor(int id)
+        {
+            int retVal = StoredProcedures.DeleteActor(id);
+            if (retVal > 0)
+                return true;
+            else
+                return false;
+        }
+        [HttpDelete("DeleteReview/{id}")]  //Route: WebAPI/TermProject/DeleteReview/
+        public Boolean DeleteReview(int id)
+        {
+            int retVal = StoredProcedures.DeleteReview(id);
 
+            if (retVal > 0)
+                return true;
+            else
+                return false;
+        }
 
     } //end of class
 } //end of namespace

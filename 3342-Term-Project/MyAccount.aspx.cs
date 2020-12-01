@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
+
 namespace _3342_Term_Project
 {
     public partial class MyAccount : System.Web.UI.Page
@@ -36,13 +37,10 @@ namespace _3342_Term_Project
 
                 if (ds.Tables[0].Rows.Count == 1)
                 {
-
                     txtcurrentName.Text = ds.Tables[0].Rows[0]["Member_FName"].ToString() + " " + ds.Tables[0].Rows[0]["Member_LName"].ToString();
                     txtcurrentEmail.Text = ds.Tables[0].Rows[0]["Member_Email"].ToString();
                     txtcurrentDOB.Text = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
                     txtcurrentPassword.Text = ds.Tables[0].Rows[0]["Member_Password"].ToString();
-
-
 
                 //(DESERIALIZATION HERE)
                 
@@ -74,32 +72,15 @@ namespace _3342_Term_Project
                                 "Favorite Actor: " + memberFavorites.FavoriteActor + " </br>" +
                                 "Favorite Movie: " + memberFavorites.FavoriteMovie + " </br>" +
                                 "Favorite TVShow: " + memberFavorites.FavoriteTVShow + " </br>" +
-                               "Favorite VideoGame: " + memberFavorites.FavoriteVideoGame + " </br>";
+                                "Favorite VideoGame: " + memberFavorites.FavoriteVideoGame + " </br>";
 
                     lblDisplay.Text = "";
-
-
-
-
                 }  
             }
-
         }
-
-
-          
         
         protected void btnSubmitChange_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-
-
-
-
 
             // Serialize the MemberFavorites object
             MemberFavorites memberFavorites = new MemberFavorites();
@@ -108,7 +89,6 @@ namespace _3342_Term_Project
             memberFavorites.FavoriteMovie = txtfavoriteMovie.Text;
             memberFavorites.FavoriteTVShow = txtfavoriteTVShow.Text;
             memberFavorites.FavoriteVideoGame = txtfavoriteVideoGame.Text;
-
 
 
             BinaryFormatter serializer = new BinaryFormatter();
@@ -143,11 +123,6 @@ namespace _3342_Term_Project
             else
 
                 lblDisplay.Text = "A problem occured in storing.";
-
-
-
         }
-
-
     }
 }

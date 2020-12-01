@@ -9,6 +9,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
 using ClassLibrary;
+using System.Net;
+using System.IO;
+
 namespace _3342_Term_Project
 {
     public partial class Title : System.Web.UI.Page

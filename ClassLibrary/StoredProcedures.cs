@@ -158,6 +158,25 @@ namespace ClassLibrary
 
             return myDS;
         }
+
+        public DataSet getActorRolesByID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetAllActorsMovies";
+
+            SqlParameter inputParameter = new SqlParameter("@Actor_ID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
         public static int addMovieReview(int id, int rating, string description, string reviewerEmail)
         {
             DBConnect objDB = new DBConnect();

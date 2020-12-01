@@ -74,6 +74,10 @@
     <Content Include="HomePage.aspx" />
     <Content Include="Images\bluePersonImage.png" />
     <Content Include="Images\cinema-wallpaper-14.jpg" />
+    <Content Include="Images\editorpick_1.jpg" />
+    <Content Include="Images\editorpick_2.jpg" />
+    <Content Include="Images\editorpick_3.jpg" />
+    <Content Include="Images\editorpick_4.jpg" />
     <Content Include="Images\ef1713664570291e8ebe09c7a2d790dc.png" />
     <Content Include="Images\Movie.png" />
     <Content Include="Images\movie_theatre.jpg" />

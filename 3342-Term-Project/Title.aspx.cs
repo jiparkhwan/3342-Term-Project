@@ -172,7 +172,7 @@ namespace _3342_Term_Project
             {
                 for (int i = 0; i < gvReviews.Columns.Count; i++)
                 {
-                    if (row.Cells[1].Text != Session["MemberAccount"].ToString())
+                     if (row.Cells[1].Text != Session["MemberAccount"].ToString())
                     {
                         row.Cells[4].Controls.Clear();
                     }

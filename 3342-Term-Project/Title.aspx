@@ -23,7 +23,9 @@
 <body>
     <form id="frmTitle" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
+        <asp:ScriptManager runat="server" ID="ScriptManagerTitlePage"></asp:ScriptManager>
         <div class="mainTitle">
+            <asp:UpdatePanel runat="server"><ContentTemplate>
             <br />       
             <div class="btnDiv" style="padding-left:66px">
             <asp:Button runat="server" ID="btnBack" OnClick="btnBack_Click" Text="Back" CssClass="btn-outline-primary"/>
@@ -87,11 +89,11 @@
                 </Columns>
             </asp:GridView>
             <br />
-
-
-
-
             
+
+
+
+            <div class="container">
 
              <asp:Panel runat="server" ID="editReviewPanel">
                 <h4>New Rating:</h4>
@@ -112,7 +114,7 @@
               <br />
                 <asp:Button ID="btnEditReviewSubmit" runat="server" Text="Submit New Review" CssClass="btn-outline-primary" OnClick="btnEditReviewSubmit_OnClick"/>
                 </asp:Panel>
-                
+                </div>
 
 
 
@@ -144,9 +146,7 @@
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
          </div>
 
-         <asp:ScriptManager runat="server"></asp:ScriptManager>
-
-
+       </ContentTemplate></asp:UpdatePanel>
 
         <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
         <Footer:HomeFooter ID="FooterNav" runat="server" />

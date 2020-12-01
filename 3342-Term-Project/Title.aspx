@@ -23,7 +23,9 @@
 <body>
     <form id="frmTitle" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
+       
         <div class="mainTitle">
+            
             <br />       
             <div class="btnDiv" style="padding-left:66px">
             <asp:Button runat="server" ID="btnBack" OnClick="btnBack_Click" Text="Back" CssClass="btn-outline-primary"/>
@@ -66,7 +68,8 @@
             <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
 
 
-
+ <asp:ScriptManager runat="server" ID="ScriptManagerTitlePage"></asp:ScriptManager>
+            <asp:UpdatePanel runat="server"><ContentTemplate>
             <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
             <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False">
                 <Columns>
@@ -87,7 +90,7 @@
                 </Columns>
             </asp:GridView>
             <br />
-
+            
 
 
 
@@ -142,9 +145,8 @@
             <asp:Label ID="lblSuccessReview" runat="server" Text=""></asp:Label>
               <hr />
             <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
+   </ContentTemplate></asp:UpdatePanel>
          </div>
-
-         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
 
 

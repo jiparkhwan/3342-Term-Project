@@ -20,6 +20,8 @@
 
     <link href="Styles.css" rel="stylesheet" />
 
+  
+
 </head>
 
 
@@ -47,6 +49,20 @@
 
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+                </div>
+                <div class="recentFavoritesDiv">
+                <h2>Recent Favorites:</h2>
+                <br />
+                <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick"></asp:Timer>
+                <asp:UpdatePanel runat="server" ID="picksUpdatePanel">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="editorTimer" />
+                    </Triggers>
+                    <ContentTemplate>
+                        <asp:Image runat="server" ID="editorImage" style="width: 240px; height: 350px;"/>
+
+                    </ContentTemplate>
+            </asp:UpdatePanel>
                 </div>
 
                 <asp:Panel ID="pnlHome" runat="server">
@@ -363,6 +379,11 @@
         }
         #repeaterResults {
             text-align:center;
+        }
+
+        .recentFavoritesDiv {
+            text-align: center;
+            
         }
     </style>
 

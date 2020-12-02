@@ -54,6 +54,7 @@ namespace _3342_Term_Project
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Actors actor = new Actors();
+            actor.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
             actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
             actor.ActorImage = txtAddImage.Text;

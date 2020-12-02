@@ -80,6 +80,7 @@ namespace _3342_Term_Project
             {
                 Movies movie = new Movies();
 
+                movie.memberID = Convert.ToInt32(Session["MemberID"].ToString());
                 movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
                 movie.movieImage = txtAddMovieImage.Text;
                 movie.movieName = txtAddMovieName.Text;
@@ -121,7 +122,7 @@ namespace _3342_Term_Project
                         if (data == "true")
                             lblDisplay.Text = "The movie was successfully edited.";
                         else
-                            lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
+                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
                     else
                     {
@@ -158,6 +159,7 @@ namespace _3342_Term_Project
             else if(Session["NewShowInfo"] != null)
             {
                 TVShows show = new TVShows();
+                show.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
                 show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
                 show.ShowImage = txtAddShowImage.Text;
@@ -196,9 +198,9 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
-                            lblDisplay.Text = "The movie was successfully edited.";
+                            lblDisplay.Text = "The Show was successfully edited.";
                         else
-                            lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
+                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
                     else
                     {
@@ -236,6 +238,7 @@ namespace _3342_Term_Project
             else if (Session["NewGameInfo"] != null)
             {
                 VideoGames game = new VideoGames();
+                game.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
                 game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
                 game.GameImage = txtAddGameImage.Text;
@@ -276,7 +279,7 @@ namespace _3342_Term_Project
                         if (data == "true")
                             lblDisplay.Text = "The game was successfully edited.";
                         else
-                            lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
+                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
                     else
                     {

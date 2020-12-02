@@ -154,6 +154,7 @@ namespace _3342_Term_Project
 
 
                     Session["MemberAccount"] = ds.Tables[0].Rows[0]["Member_Email"].ToString();
+                    Session["MemberID"] = ds.Tables[0].Rows[0]["Member_ID"].ToString();
                     Response.Redirect("HomePage.aspx");
                 }
                 else

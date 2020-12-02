@@ -550,6 +550,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_AddActor";
+                objCommand.Parameters.AddWithValue("@Member_ID", actors.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Actor_Image", actors.ActorImage);
                 objCommand.Parameters.AddWithValue("@Actor_Name", actors.ActorName);
@@ -588,6 +589,7 @@ namespace WebAPI.Controllers
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_AddMovie";
 
+                objCommand.Parameters.AddWithValue("@Member_ID", movie.memberID);
                 objCommand.Parameters.AddWithValue("@Movie_Image", movie.movieImage);
                 objCommand.Parameters.AddWithValue("@Movie_Name", movie.movieName);
                 objCommand.Parameters.AddWithValue("@Movie_Year", movie.movieYear);
@@ -625,6 +627,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_AddShow";
+                objCommand.Parameters.AddWithValue("@Member_ID", show.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Show_Image", show.ShowImage);
                 objCommand.Parameters.AddWithValue("@Show_Name", show.ShowName);
@@ -661,6 +664,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_AddGame";
+                objCommand.Parameters.AddWithValue("@Member_ID", game.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Game_Image", game.GameImage);
                 objCommand.Parameters.AddWithValue("@Game_Name", game.GameName);
@@ -698,6 +702,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_UpdateActor";
+                objCommand.Parameters.AddWithValue("@Member_ID", actors.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Actor_ID", actors.ActorID);
                 objCommand.Parameters.AddWithValue("@Actor_Image", actors.ActorImage);
@@ -738,6 +743,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_UpdateMovie";
+                objCommand.Parameters.AddWithValue("@Member_ID", movie.memberID);
 
                 objCommand.Parameters.AddWithValue("@Movie_ID", movie.movieID);
                 objCommand.Parameters.AddWithValue("@Movie_Image", movie.movieImage);
@@ -778,6 +784,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_UpdateShow";
+                objCommand.Parameters.AddWithValue("@Member_ID", show.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Show_ID", show.ShowID);
                 objCommand.Parameters.AddWithValue("@Show_Image", show.ShowImage);
@@ -816,6 +823,7 @@ namespace WebAPI.Controllers
 
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_UpdateGame";
+                objCommand.Parameters.AddWithValue("@Member_ID", game.MemberID);
 
                 objCommand.Parameters.AddWithValue("@Game_ID", game.GameID);
                 objCommand.Parameters.AddWithValue("@Game_Image", game.GameImage);

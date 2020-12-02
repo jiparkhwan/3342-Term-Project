@@ -16,14 +16,15 @@ namespace ClassLibrary
         private String gameAgeRating;
         private string gameImage;
         private int gameID;
-
+        private int memberID;
         public VideoGames()
         {
 
         }
 
-        public VideoGames(string name, int year, string genre, string description, string creator, string ageRating, string image, int videoGameID)
+        public VideoGames(int memberID, string name, int year, string genre, string description, string creator, string ageRating, string image, int videoGameID)
         {
+            this.MemberID = memberID;
             this.gameName = name;
             this.gameYear = year;
             this.gameGenre = genre;
@@ -42,5 +43,6 @@ namespace ClassLibrary
         public string GameAgeRating { get => gameAgeRating; set => gameAgeRating = value; }
         public string GameImage { get => gameImage; set => gameImage = value; }
         public int GameID { get => gameID; set => gameID = value; }
+        public int MemberID { get => memberID; set => memberID = value; }
     }
 }

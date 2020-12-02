@@ -16,14 +16,15 @@ namespace ClassLibrary
         private String showDescription;
         private String showImage;
         private int showID;
-
+        private int memberID;
         public TVShows()
         {
 
         }
 
-        public TVShows(int ID, string name, string years, string ageRating, int runtime, string genre, string description, string image)
+        public TVShows(int memberID, int ID, string name, string years, string ageRating, int runtime, string genre, string description, string image)
         {
+            this.MemberID = memberID;
             this.showID = ID;
             this.showName = name;
             this.showYears = years;
@@ -42,5 +43,6 @@ namespace ClassLibrary
         public string ShowDescription { get => showDescription; set => showDescription = value; }
         public string ShowImage { get => showImage; set => showImage = value; }
         public int ShowID { get => showID; set => showID = value; }
+        public int MemberID { get => memberID; set => memberID = value; }
     }
 }

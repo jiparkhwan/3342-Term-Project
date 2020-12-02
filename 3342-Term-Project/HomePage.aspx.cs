@@ -41,7 +41,6 @@ namespace _3342_Term_Project
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
-            
 
             if (ddlSelectMedia.Text == "movies")
             {
@@ -348,7 +347,7 @@ namespace _3342_Term_Project
                         Session["ActorBirthCountry"] = ds.Tables[0].Rows[0]["Actor_Birth_Country"].ToString();
 
                         lblError.Text = "saved session info";
-                        Server.Transfer("Actor.aspx");
+                        Response.Redirect("Actor.aspx");
                     }
                     else
                     {
@@ -495,14 +494,14 @@ namespace _3342_Term_Project
             rptGameSearchRes.DataBind();
             lblError.Text = "";
         }
+
         protected void editorTimer_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
 
-            int rnd = random.Next(1, 4);
+            int rnd = random.Next(1, 5);
 
             editorImage.ImageUrl = "Images/editorpick_" + rnd + ".jpg";
-
         }
     }
 }

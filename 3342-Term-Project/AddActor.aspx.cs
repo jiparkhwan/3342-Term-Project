@@ -55,7 +55,10 @@ namespace _3342_Term_Project
         {
             Actors actor = new Actors();
 
-            actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
+            if(Session["EditActorID"] != null)
+            {
+                actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
+            }
             actor.ActorImage = txtAddImage.Text;
             actor.ActorName = txtAddName.Text;
             actor.ActorDescription = txtAddDescription.Text;

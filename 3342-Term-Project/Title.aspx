@@ -92,8 +92,6 @@
             <br />
             
 
-
-
             <div class="container">
 
              <asp:Panel runat="server" ID="editReviewPanel">
@@ -116,8 +114,6 @@
                 <asp:Button ID="btnEditReviewSubmit" runat="server" Text="Submit New Review" CssClass="btn-outline-primary" OnClick="btnEditReviewSubmit_OnClick"/>
                 </asp:Panel>
                 </div>
-
-
 
 
             <br />
@@ -144,12 +140,54 @@
             <br />
             <asp:Label ID="lblSuccessReview" runat="server" Text=""></asp:Label>
               <hr />
-            <h2><asp:Label ID="lblTitleCast" runat="server" Text="Cast: " Font-Bold="True"></asp:Label></h2>
    </ContentTemplate></asp:UpdatePanel>
+
+            <Center>
+                <asp:Repeater ID="rptActorRoles" runat="server">
+                    <HeaderTemplate>
+                        <table style="width: 400px; height:40px;">
+                            <tr style=" font-size: large; font-weight: bold;">
+                                <td style="text-align:center;">
+                                    <br />
+                                    <h2>Cast: </h2>
+                                </td>        
+                            </tr>
+                        </table>
+                        <hr />
+                    </HeaderTemplate>
+
+                    <ItemTemplate>     
+                        <table style="width: 200px; height:200px;">
+                            <tr>
+                                <tr style="background-color: #e6e6e6">
+                                    <td>
+                                        <br />
+                                        <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                            <asp:ImageButton ID="imgMovieRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
+                                    </td>
+                                </tr>
+                        </table>
+                            <td>
+                                <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                    <tr>
+                                        <h1><asp:Label ID="lblMovieName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                        <br />
+                                    </tr>
+                                    <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("movieYear") %>' />
+                                    </td>
+                                    <td style="width: 50%; font-size: 1.25em;"><strong>Role:</strong>
+                                        <asp:Label ID="lblMovieRole" runat="server" Text='<%#Eval("Role") %>' />
+                                    </td>      
+                                </table>
+                            </td>        
+                            <br />        
+                    </ItemTemplate>                       
+                </asp:Repeater>
+            </Center>
+
+
          </div>
-
-
-
         <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>

@@ -198,17 +198,14 @@ namespace WebAPI.Controllers
 
         [Produces("application/json")]
         [Consumes("application/json")]
-        [HttpGet("GetAllActorsMovies/{actorID}/")] //Route: WebAPI/TermProject/
-        public List<Roles> GetAllActorsMovies(int actorID)
+        [HttpGet("GetAllActorsRoles/{actorID}/")] //Route: WebAPI/TermProject/
+        public List<Roles> GetAllActorsRoles(int actorID)
         {
             DataSet myDS = new DataSet();
             StoredProcedures stoPros = new StoredProcedures();
 
             myDS = stoPros.getActorRolesByID(actorID);
             DBConnect objDB = new DBConnect();
-
-            //Movies movies = new Movies();
-            //List<Movies> dpts = new List<Movies>();
 
             Roles role = new Roles();
             List<Roles> dpts = new List<Roles>();
@@ -217,16 +214,78 @@ namespace WebAPI.Controllers
             {
                 role = new Roles();
                 role.role = dr["Role"].ToString();
-                role.movieName = dr["Movie_Name"].ToString();
-                role.movieImage = dr["Movie_Image"].ToString();
-                role.movieYear = int.Parse(dr["Movie_Year"].ToString());
                 role.actorID = int.Parse(dr["Actor_ID"].ToString());
-                role.movieID = int.Parse(dr["Movie_ID"].ToString());
+                if (dr["Movie_ID"].ToString() != "")
+                {
+                    role.movieID = int.Parse(dr["Movie_ID"].ToString());
+                }
+                if (dr["Movie_Name"].ToString() != "")
+                {
+                    role.movieName = dr["Movie_Name"].ToString();
+                }
+                if (dr["Movie_Image"].ToString() != "")
+                {
+                    role.titleImage = dr["Movie_Image"].ToString();
+                }
+                if (dr["Movie_Year"].ToString() != "")
+                {
+                    role.tvShowYears = dr["Movie_Year"].ToString();
+                }
+                if (dr["TV_Show_Image"].ToString() != "")
+                {
+                    role.titleImage = dr["TV_Show_Image"].ToString();
+                }
+                if (dr["TV_Show_ID"].ToString() != "")
+                {
+                    role.tvshowID = int.Parse(dr["TV_Show_ID"].ToString());
+                }
+                if (dr["TV_Show_Name"].ToString() != "")
+                {
+                    role.movieName = dr["TV_Show_Name"].ToString();
+                }
+                if (dr["TV_Show_Years"].ToString() != "")
+                {
+                    role.tvShowYears = dr["TV_Show_Years"].ToString();
+                }
+                if (dr["Video_Game_ID"].ToString() != "")
+                {
+                    role.videoGameID = int.Parse(dr["Video_Game_ID"].ToString());
+                }
+
 
                 dpts.Add(role);
             }
             return dpts;
-        } //end of GetMovies
+        }
+
+
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("GetMovieCast/{movieID}/")] //Route: WebAPI/TermProject/
+        public List<Roles> GetMovieCast(int movieID)
+        {
+            DataSet myDS = new DataSet();
+            StoredProcedures stoPros = new StoredProcedures();
+
+            myDS = stoPros.getActorRolesByID(movieID);
+            DBConnect objDB = new DBConnect();
+
+            Roles role = new Roles();
+            List<Roles> dpts = new List<Roles>();
+
+            foreach (DataRow dr in myDS.Tables[0].Rows)
+            {
+                role = new Roles();
+                role.role = dr["Role"].ToString();
+                role.actorImage = dr["Actor_Image"].ToString();
+                role.movieName = dr["Actor_Name"].ToString();
+                role.actorID = int.Parse(dr["Actor_ID"].ToString());
+
+                dpts.Add(role);
+            }
+            return dpts;
+        }
+
 
         [HttpGet("GetShows")] //Route: WebAPI/TermProject/GetShows/
         public List<TVShows> GetShows()

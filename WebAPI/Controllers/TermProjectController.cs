@@ -196,6 +196,38 @@ namespace WebAPI.Controllers
         } //end of GetMovies
 
 
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("GetAllActorsMovies/{actorID}/")] //Route: WebAPI/TermProject/
+        public List<Roles> GetAllActorsMovies(int actorID)
+        {
+            DataSet myDS = new DataSet();
+            StoredProcedures stoPros = new StoredProcedures();
+
+            myDS = stoPros.getActorRolesByID(actorID);
+            DBConnect objDB = new DBConnect();
+
+            //Movies movies = new Movies();
+            //List<Movies> dpts = new List<Movies>();
+
+            Roles role = new Roles();
+            List<Roles> dpts = new List<Roles>();
+
+            foreach (DataRow dr in myDS.Tables[0].Rows)
+            {
+                role = new Roles();
+                role.role = dr["Role"].ToString();
+                role.movieName = dr["Movie_Name"].ToString();
+                role.movieImage = dr["Movie_Image"].ToString();
+                role.movieYear = int.Parse(dr["Movie_Year"].ToString());
+                role.actorID = int.Parse(dr["Actor_ID"].ToString());
+                role.movieID = int.Parse(dr["Movie_ID"].ToString());
+
+                dpts.Add(role);
+            }
+            return dpts;
+        } //end of GetMovies
+
         [HttpGet("GetShows")] //Route: WebAPI/TermProject/GetShows/
         public List<TVShows> GetShows()
         {
@@ -810,6 +842,8 @@ namespace WebAPI.Controllers
                 return false;
             }
         }
+
+
         //start deletes:
         [HttpDelete]
         [HttpDelete("DeleteActor/{id}")]  //Route: WebAPI/TermProject/DeleteActor/
@@ -821,6 +855,8 @@ namespace WebAPI.Controllers
             else
                 return false;
         }
+
+
         [HttpDelete("DeleteReview/{id}")]  //Route: WebAPI/TermProject/DeleteReview/
         public Boolean DeleteReview(int id)
         {

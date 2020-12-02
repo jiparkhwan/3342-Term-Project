@@ -8,30 +8,31 @@ namespace ClassLibrary
 {
     public class Roles
     {
+        public String role { get; set; }
+        public int movieID { get; set; }
+        public String movieImage { get; set; }
+        public String movieName { get; set; }
+        public int movieYear { get; set; }
+        public int actorID { get; set; }
+        public int tvshowID { get; set; }
+        public int videogameID { get; set; }
 
-        private String role;
-        private int actorID;
-        private int movieID;
-        private int tvshowID;
-        private int videogameID;
         public Roles()
         {
 
         }
 
-        public Roles(string role, int actorID, int movieID, int tvshowID, int videogameID)
+        public Roles(string role, int actorID, int movieID, int tvshowID, int videogameID, string movieImage, string movieName, 
+                     int movieYear)
         {
             this.role = role;
             this.actorID = actorID;
             this.movieID = movieID;
             this.tvshowID = tvshowID;
             this.videogameID = videogameID;
+            this.movieImage = movieImage;
+            this.movieName = movieName;
+            this.movieYear = movieYear;
         }
-
-        public string Role { get => role; set => role = value; }
-        public int ActorID { get => actorID; set => actorID = value; }
-        public int MovieID { get => movieID; set => movieID = value; }
-        public int TvshowID { get => tvshowID; set => tvshowID = value; }
-        public int VideogameID { get => videogameID; set => videogameID = value; }
     }
 }

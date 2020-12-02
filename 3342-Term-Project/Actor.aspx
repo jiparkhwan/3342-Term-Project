@@ -58,13 +58,51 @@
                 <asp:Label ID="lblActorHeight" runat="server" Text="6' 2"></asp:Label>
             </div>
             <hr />
-            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
-            <h2><asp:Label ID="lblActorRoles" runat="server" Text="Roles: " Font-Bold="True"></asp:Label></h2>
-        
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>           
+            <Center>
+                <asp:Repeater ID="rptActorRoles" runat="server">
+                    <HeaderTemplate>
+                        <table style="width: 400px; height:40px;">
+                            <tr style=" font-size: large; font-weight: bold;">
+                                <td style="text-align:center;">
+                                    <br />
+                                    <h2>Roles: </h2>
+                                </td>        
+                            </tr>
+                        </table>
+                        <hr />
+                    </HeaderTemplate>
+
+                    <ItemTemplate>     
+                        <table style="width: 200px; height:200px;">
+                            <tr>
+                                <tr style="background-color: #e6e6e6">
+                                    <td>
+                                        <br />
+                                        <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
+                                            <asp:ImageButton ID="imgMovieRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
+                                    </td>
+                                </tr>
+                        </table>
+                            <td>
+                                <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
+                                    <tr>
+                                        <h1><asp:Label ID="lblMovieName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                        <br />
+                                    </tr>
+                                    <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
+                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("movieYear") %>' />
+                                    </td>
+                                    <td style="width: 50%; font-size: 1.25em;"><strong>Role:</strong>
+                                        <asp:Label ID="lblMovieRole" runat="server" Text='<%#Eval("Role") %>' />
+                                    </td>      
+                                </table>
+                            </td>        
+                            <br />        
+                    </ItemTemplate>                       
+                </asp:Repeater>
+            </Center>
             </asp:Panel>
-
-
-        <Footer:HomeFooter ID="FooterNav" runat="server" />
         </div>
     </form>
 </body>

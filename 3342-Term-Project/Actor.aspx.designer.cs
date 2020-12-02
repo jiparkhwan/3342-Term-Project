@@ -202,21 +202,12 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// lblActorRoles control.
+        /// rptActorRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActorRoles;
-        
-        /// <summary>
-        /// FooterNav control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::_3342_Term_Project.UserControls.WebUserControl1 FooterNav;
+        protected global::System.Web.UI.WebControls.Repeater rptActorRoles;
     }
 }

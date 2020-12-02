@@ -358,8 +358,6 @@ namespace _3342_Term_Project
             }
         }
 
-
-
         protected void btnFindMoviesRating_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//

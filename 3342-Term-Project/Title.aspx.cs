@@ -355,7 +355,7 @@ namespace _3342_Term_Project
 
             if (Session["MovieID"] != null)
             {
-                Session["AddMovie"] = "Update Movie";
+                Session["UpdateMovie"] = "Update Movie";
                 Session["Edit_ID"] = Session["MovieID"].ToString();
                 Session["Edit_Image"] = Session["TitleImage"].ToString();
                 Session["Edit_Name"] = Session["TitleName"].ToString();

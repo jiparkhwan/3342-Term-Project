@@ -17,8 +17,8 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             bind_year_ddl();
-
-            if(Session["AddMovie"] != null)
+            Session["NewMovieInfo"] = "EditMovie";
+            if (Session["UpdateMovie"] != null)
             {
                 pnlAddMovie.Visible = true;
                 pnlAddShow.Visible = false;
@@ -80,7 +80,10 @@ namespace _3342_Term_Project
             {
                 Movies movie = new Movies();
 
-                movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 movie.movieImage = txtAddMovieImage.Text;
                 movie.movieName = txtAddMovieName.Text;
                 movie.movieYear = Convert.ToInt32(ddlAddMovieYear.Text);
@@ -159,7 +162,10 @@ namespace _3342_Term_Project
             {
                 TVShows show = new TVShows();
 
-                show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 show.ShowImage = txtAddShowImage.Text;
                 show.ShowName = txtAddShowName.Text;
                 show.ShowYears = ddlAddShowYearsStart.Text + "-" + ddlAddShowYearsEnd.Text;
@@ -237,7 +243,10 @@ namespace _3342_Term_Project
             {
                 VideoGames game = new VideoGames();
 
-                game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 game.GameImage = txtAddGameImage.Text;
                 game.GameName = txtAddGameName.Text;
                 game.GameYear = Convert.ToInt32(ddlAddGameYear.Text);

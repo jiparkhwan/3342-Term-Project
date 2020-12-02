@@ -120,7 +120,13 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
+                        {
                             lblDisplay.Text = "The movie was successfully edited.";
+
+                            Response.Write("<script>alert('Movie Updated successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
+
                         else
                             lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
@@ -146,7 +152,12 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
+                        {
                             lblDisplay.Text = "The movie was successfully saved to the database.";
+
+                            Response.Write("<script>alert('Movie inserted successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
                         else
                             lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
                     }
@@ -198,7 +209,11 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
-                            lblDisplay.Text = "The Show was successfully edited.";
+                        {
+                            Response.Write("<script>alert('Show updated successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
+                          //  lblDisplay.Text = "The Show was successfully edited.";
                         else
                             lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
@@ -224,7 +239,11 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
-                            lblDisplay.Text = "The show was successfully saved to the database.";
+                        {
+                            Response.Write("<script>alert('Show inserted successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
+                            //lblDisplay.Text = "The show was successfully saved to the database.";
                         else
                             lblDisplay.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
 
@@ -277,7 +296,11 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
-                            lblDisplay.Text = "The game was successfully edited.";
+                        {
+                            Response.Write("<script>alert('Game updated successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
+                            //lblDisplay.Text = "The game was successfully edited.";
                         else
                             lblDisplay.Text = "Make sure you are only editting your own added listing!";
                     }
@@ -303,7 +326,11 @@ namespace _3342_Term_Project
                         response.Close();
 
                         if (data == "true")
-                            lblDisplay.Text = "The game was successfully saved to the database.";
+                        {
+                            Response.Write("<script>alert('Game added successfully')</script>");
+                            Response.Redirect("HomePage.aspx");
+                        }
+                          //  lblDisplay.Text = "The game was successfully saved to the database.";
                         else
                             lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
                     }

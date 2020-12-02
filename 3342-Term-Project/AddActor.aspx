@@ -29,9 +29,8 @@
             <h1>Add An Actor</h1>
             <hr />
             <br />
-            <h5>Found an upcoming actor that we're not aware of? Add them here!</h5>
+            <h3>Found an upcoming actor that we're not aware of? Add them here!</h3>
             <br />
-            <asp:Label ID="lblDisplay" runat="server" Text=""></asp:Label>
             <br />
             <asp:Label ID="lblAddImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddImage" runat="server"></asp:TextBox>
@@ -127,12 +126,14 @@
             <br />
             <asp:Label ID="lblAddDescription" runat="server" Text="Tell Us About the Actor Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
-            <asp:TextBox ID="txtAddDescription" runat="server" Width="50%" Height="120px"></asp:TextBox>
+            <asp:TextBox ID="txtAddDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>
           <asp:RequiredFieldValidator ControlToValidate="txtAddDescription" ID="ans1Validator" runat="server" ErrorMessage="Description needed!"></asp:RequiredFieldValidator>
             <br />
             <br />
-            <asp:Button ID="btnSubmit" runat="server" Text="Add Actor" Font-Bold="True" OnClick="btnSubmit_Click"/>
-            <asp:Button ID="btnClear" runat="server" Text="Clear All Fields" Font-Bold="True" />
+             <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
+
+            <asp:Button ID="btnSubmit" runat="server"  Text="Add Actor" Font-Bold="True" OnClick="btnSubmit_Click"/>
+            <asp:Button ID="btnClear" runat="server"  Text="Clear Fields" Font-Bold="True" />
             <br />
             <br />
             <br />

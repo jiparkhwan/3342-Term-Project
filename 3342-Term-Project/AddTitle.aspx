@@ -235,7 +235,7 @@
                 <br />
                 <asp:Label ID="lblAddGameDescription" runat="server" Text="Tell Us About the Video Game Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtAddGameDescription" runat="server" Width="50%" Height="120px" Rows="10"></asp:TextBox>
+                <asp:TextBox ID="txtAddGameDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>
                <asp:RequiredFieldValidator ControlToValidate="txtAddGameDescription" ID="RequiredFieldValidator13" runat="server" ErrorMessage="Description Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />

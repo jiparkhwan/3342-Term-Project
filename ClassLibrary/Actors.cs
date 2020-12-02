@@ -17,14 +17,15 @@ namespace ClassLibrary
         private String actorBirthCountry;
         private int actorID;
         private String actorImage;
-
+        private int memberID;
         public Actors()
         {
 
         }
 
-        public Actors(string name, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
+        public Actors(int memberID, string name, string description, string height, string dOB, string birthCity, string birthState, string birthCountry, int actorID, string image)
         {
+            this.memberID = memberID;
             this.actorName = name;
             this.actorDescription = description;
             this.actorHeight = height;
@@ -45,5 +46,6 @@ namespace ClassLibrary
         public string ActorBirthCountry { get => actorBirthCountry; set => actorBirthCountry = value; }
         public int ActorID { get => actorID; set => actorID = value; }
         public string ActorImage { get => actorImage; set => actorImage = value; }
+        public int MemberID { get => memberID; set => memberID = value; }
     }
 }

@@ -58,6 +58,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAddImage;
         
         /// <summary>
+        /// ImageValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ImageValidator;
+        
+        /// <summary>
         /// lblAddName control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAddName;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// lblAddHeight control.
         /// </summary>
         /// <remarks>
@@ -92,6 +110,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddHeight;
+        
+        /// <summary>
+        /// heightValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator heightValidator;
         
         /// <summary>
         /// lblAddDOB control.
@@ -166,6 +193,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAddBirthCity;
         
         /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// lblAddBirthState control.
         /// </summary>
         /// <remarks>
@@ -182,6 +218,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddBirthState;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// lblAddBirthCountry control.
@@ -202,6 +247,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAddBirthCountry;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// lblAddDescription control.
         /// </summary>
         /// <remarks>
@@ -218,6 +272,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddDescription;
+        
+        /// <summary>
+        /// ans1Validator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ans1Validator;
         
         /// <summary>
         /// btnSubmit control.

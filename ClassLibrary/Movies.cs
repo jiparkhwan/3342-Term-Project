@@ -19,13 +19,15 @@ namespace ClassLibrary
         public int movieID { get; set; }
         public String movieImage { get; set; }
 
+        public int memberID { get; set; }
         public Movies()
         {
 
         }
 
-        public Movies(string name, int year, string description, int runtime, string ageRating, string genre, float budget, float income, int movieID, string image)
+        public Movies(int memberID, string name, int year, string description, int runtime, string ageRating, string genre, float budget, float income, int movieID, string image)
         {
+            this.memberID = memberID;
             this.movieName = name;
             this.movieYear = year;
             this.movieDescription = description;
@@ -38,6 +40,6 @@ namespace ClassLibrary
             this.movieImage = image;
         }
 
-   
+
     }
 }

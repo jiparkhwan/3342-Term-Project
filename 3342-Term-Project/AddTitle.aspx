@@ -37,10 +37,12 @@
                 <br />
                 <asp:Label ID="lblAddMovieImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddMovieImage" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieImage" ID="ans1Validator" runat="server" ErrorMessage="Image Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieName" runat="server" Text="Movie's Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddMovieName" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieName" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name Required!"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieAgeRange" runat="server" Text="Age Rating: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -63,6 +65,7 @@
                 <br />
                 <asp:Label ID="lblAddMovieRuntime" runat="server" Text="Runtime: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddMovieRuntime" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieRuntime" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Runtime is needed!"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieGenre" runat="server" Text="Genre: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -80,15 +83,18 @@
                 <br />
                 <asp:Label ID="lblAddMovieBudget" runat="server" Text="Movie Budget: $" Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddMovieBudget" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieBudget" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Budget required!"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieIncome" runat="server" Text="Movie Income: $" Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddMovieIncome" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieIncome" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Income Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddMovieDescription" runat="server" Text="Tell Us About the Movie Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddMovieDescription" runat="server" Width="50%" Height="120px" Rows="10"></asp:TextBox>
+                <asp:RequiredFieldValidator ControlToValidate="txtAddMovieDescription" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Description Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Button class="btnSubmit" runat="server" Text="Add Movie" Font-Bold="True" OnClick="btnSubmit_Click"/>
@@ -111,10 +117,12 @@
                 <br />
                 <asp:Label ID="lblAddShowImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddShowImage" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddShowImage" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Image Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddShowName" runat="server" Text="TV Show Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddShowName" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddShowName" ID="RequiredFieldValidator7" runat="server" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddShowAgeRating" runat="server" Text="Age Rating: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -140,6 +148,7 @@
                 <br />
                 <asp:Label ID="lblAddShowRuntime" runat="server" Text="Runtime: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddShowRuntime" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddShowRuntime" ID="RequiredFieldValidator8" runat="server" ErrorMessage="RunTime Required!"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddShowGenre" runat="server" Text="Genre: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -158,6 +167,7 @@
                 <asp:Label ID="lblAddShowDescription" runat="server" Text="Tell Us About the TV Show Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddShowDescription" runat="server" Width="50%" Height="120px" Rows="10"></asp:TextBox>
+               <asp:RequiredFieldValidator ControlToValidate="txtAddShowDescription" ID="RequiredFieldValidator9" runat="server" ErrorMessage="Description Needed!"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Button class="btnSubmit" runat="server" Text="Add TV Show" Font-Bold="True" OnClick="btnSubmit_Click"/>
@@ -180,10 +190,12 @@
                 <br />
                 <asp:Label ID="lblAddGameImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddGameImage" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameImage" ID="RequiredFieldValidator10" runat="server" ErrorMessage="Image Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddGameName" runat="server" Text="Video Game Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddGameName" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameName" ID="RequiredFieldValidator11" runat="server" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddGameYear" runat="server" Text="Release Year: " Font-Bold="True"></asp:Label>
@@ -218,11 +230,13 @@
                 <br />
                 <asp:Label ID="lblAddGameCreator" runat="server" Text="Developer: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <asp:TextBox ID="txtAddGameCreator" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameCreator" ID="RequiredFieldValidator12" runat="server" ErrorMessage="Game Creator Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblAddGameDescription" runat="server" Text="Tell Us About the Video Game Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddGameDescription" runat="server" Width="50%" Height="120px" Rows="10"></asp:TextBox>
+               <asp:RequiredFieldValidator ControlToValidate="txtAddGameDescription" ID="RequiredFieldValidator13" runat="server" ErrorMessage="Description Required"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Button class="btnSubmit" runat="server" Text="Add TV Show" Font-Bold="True" OnClick="btnSubmit_Click"/>

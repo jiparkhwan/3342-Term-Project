@@ -35,14 +35,18 @@
             <br />
             <asp:Label ID="lblAddImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddImage" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ControlToValidate="txtAddImage" ID="ImageValidator" runat="server" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
             <br />
             <br />
             <asp:Label ID="lblAddName" runat="server" Text="Actor's Full Name: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddName" runat="server"></asp:TextBox>
+       <asp:RequiredFieldValidator ControlToValidate="txtAddName" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name Required"></asp:RequiredFieldValidator>
+
             <br />
             <br />
             <asp:Label ID="lblAddHeight" runat="server" Text="Actor's Height: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddHeight" runat="server"></asp:TextBox>
+             <asp:RequiredFieldValidator ControlToValidate="txtAddHeight" ID="heightValidator" runat="server" ErrorMessage="Height required"></asp:RequiredFieldValidator>
             <br />
             <br />
             <asp:Label ID="lblAddDOB" runat="server" Text="Actor's Date of Birth: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -61,6 +65,7 @@
                 <asp:ListItem Value="11">November</asp:ListItem>
                 <asp:ListItem Value="12">December</asp:ListItem>
             </asp:DropDownList>
+
             <asp:Label ID="lblDash" runat="server" Text=" - "></asp:Label>
             <asp:DropDownList ID="ddlAddDOBDay" runat="server">
                 <asp:ListItem Value="noneSelected">----</asp:ListItem>
@@ -104,19 +109,26 @@
             <br />
             <asp:Label ID="lblAddBirthCity" runat="server" Text="Actor's Birth City: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddBirthCity" runat="server"></asp:TextBox>
+      <asp:RequiredFieldValidator ControlToValidate="txtAddBirthCity" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter the city!"></asp:RequiredFieldValidator>
+
             <br />
             <br />
             <asp:Label ID="lblAddBirthState" runat="server" Text="Actor's Birth State: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddBirthState" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ControlToValidate="txtAddBirthState" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter the state!"></asp:RequiredFieldValidator>
+
             <br />
             <br />
             <asp:Label ID="lblAddBirthCountry" runat="server" Text="Actor's Birth Country: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="txtAddBirthCountry" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ControlToValidate="txtAddBirthCountry" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter the country!"></asp:RequiredFieldValidator>
+
             <br />
             <br />
             <asp:Label ID="lblAddDescription" runat="server" Text="Tell Us About the Actor Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
             <asp:TextBox ID="txtAddDescription" runat="server" Width="50%" Height="120px"></asp:TextBox>
+          <asp:RequiredFieldValidator ControlToValidate="txtAddDescription" ID="ans1Validator" runat="server" ErrorMessage="Description needed!"></asp:RequiredFieldValidator>
             <br />
             <br />
             <asp:Button ID="btnSubmit" runat="server" Text="Add Actor" Font-Bold="True" OnClick="btnSubmit_Click"/>

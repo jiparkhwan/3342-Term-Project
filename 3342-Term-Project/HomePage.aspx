@@ -70,31 +70,32 @@
                     <br />
                     <br />
                         <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#CCCCCC" Height="480px" Width="90%" HorizontalAlign="Left">
-                            <h2><asp:Label ID="lblEditorsPicksLabel" runat="server" Text="Editors Picks:"></asp:Label></h2>
+                            <h2><asp:Label ID="lblEditorsPicksLabel" runat="server" Text="Editor's Picks:"></asp:Label></h2>
                             <br />
-                            <div class="card card1" style="width: 197px; height: 350px;">
-                                <img class="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" />
+                            <div class="card card1" style="width: 200px; height: 350px;">
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" />
                                 <div class="card-body">
                                 <h5 class="card-title">Iron Man</h5>
                                 </div>
                             </div>
-
+                          
                             <div class="card card2" style="width: 200px; height: 350px;">
-                                <img class="card-img-top card-img-top1" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" />
+                               <asp:ImageButton runat="server" CssClass="card-img-top card-img-top1" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" >
+                                </asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">The Simpsons</h5>
                                 </div>
                             </div>
 
                             <div class="card card3" style="width: 200px; height: 350px;">
-                                <img class="card-img-top card-img-top1" src="https://media.gamestop.com/i/gamestop/10097815/The-Elder-Scrolls-V-Skyrim?$pdp$&bg=rgb(0,0,0)" alt="Skyrim" />
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://media.gamestop.com/i/gamestop/10097815/The-Elder-Scrolls-V-Skyrim?$pdp$&bg=rgb(0,0,0)" alt="Skyrim" ></asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">Skyrim</h5>
                                 </div>
                             </div>                        
 
                             <div class="card card4" style="width: 200px; height: 350px;">
-                                <img class="card-img-top card-img-top1" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" />
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" ></asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">The Good Place</h5>
                                 </div>

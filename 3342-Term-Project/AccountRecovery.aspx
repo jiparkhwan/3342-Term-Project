@@ -34,7 +34,7 @@
     <form id="form1" runat="server">
          <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="container">
-            <h3>Login Credential Recovery</h3>
+            <h3 style="color: royalblue;">Login Credential Recovery</h3>
 			<asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
 			<br />
 			<br/>
@@ -71,7 +71,7 @@
 
                     <br />
 
-                    <label>Date of Birth</label>
+                    <label>Date of Birth (mm/dd/yyyy)</label>
                     <asp:TextBox ID="dobTxt" runat="server" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="dobTxt" ID="dobValidator" runat="server" ErrorMessage="DOB Required"></asp:RequiredFieldValidator>
     

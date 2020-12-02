@@ -80,7 +80,7 @@
                                     <td>
                                         <br />
                                         <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                            <asp:ImageButton ID="imgMovieRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>'  OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
+                                            <asp:ImageButton ID="imgMovieRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("titleImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
                                     </td>
                                 </tr>
                         </table>
@@ -91,7 +91,7 @@
                                         <br />
                                     </tr>
                                     <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
-                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("movieYear") %>' />
+                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("tvShowYears") %>' />
                                     </td>
                                     <td style="width: 50%; font-size: 1.25em;"><strong>Role:</strong>
                                         <asp:Label ID="lblMovieRole" runat="server" Text='<%#Eval("Role") %>' />
@@ -99,7 +99,7 @@
                                 </table>
                             </td>        
                             <br />        
-                    </ItemTemplate>                       
+                    </ItemTemplate>
                 </asp:Repeater>
             </Center>
             </asp:Panel>

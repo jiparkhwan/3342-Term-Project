@@ -77,6 +77,12 @@ namespace _3342_Term_Project
             hideNonMemberControls();
             }
         }
+
+        protected void Image_Click(object sender, CommandEventArgs e)
+        {
+
+        }
+
         public void bindGridview()
         {
             //review functions here

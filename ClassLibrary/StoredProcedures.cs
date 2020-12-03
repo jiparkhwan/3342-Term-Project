@@ -230,6 +230,42 @@ namespace ClassLibrary
             return myDS;
         }
 
+        public DataSet getCastByShowID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetActorsInShows";
+
+            SqlParameter inputParameter = new SqlParameter("@Show_ID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public DataSet getCastByGameID(int id)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetActorsInGames";
+
+            SqlParameter inputParameter = new SqlParameter("@Game_ID", id);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+
+            objCommand.Parameters.Add(inputParameter);
+
+            objDB = new DBConnect();
+            DataSet myDS;
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
         public static int addMovieReview(int id, int rating, string description, string reviewerEmail)
         {
             DBConnect objDB = new DBConnect();

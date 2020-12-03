@@ -18,7 +18,28 @@ namespace _3342_Term_Project
         {
             bind_year_ddl();
 
-            if(Session["AddMovie"] != null)
+            if (!IsPostBack)
+            {
+                if (Session["AddNewMovie"] != null)
+                {
+                    pnlAddMovie.Visible = true;
+                    pnlAddShow.Visible = false;
+                    pnlAddGame.Visible = false;
+                }
+                else if (Session["AddNewShow"] != null)
+                {
+                    pnlAddMovie.Visible = false;
+                    pnlAddShow.Visible = true;
+                    pnlAddGame.Visible = false;
+                }
+                else if (Session["AddNewGame"] != null)
+                {
+                    pnlAddMovie.Visible = false;
+                    pnlAddShow.Visible = false;
+                    pnlAddGame.Visible = true;
+                }
+            }
+            if (Session["UpdateMovie"] != null)
             {
                 pnlAddMovie.Visible = true;
                 pnlAddShow.Visible = false;
@@ -34,9 +55,9 @@ namespace _3342_Term_Project
                 txtAddMovieBudget.Text = Session["Edit_Budget"].ToString();
                 txtAddMovieIncome.Text = Session["Edit_Income"].ToString();
                 txtAddMovieDescription.Text = Session["Edit_Description"].ToString();
-                Session["AddMovie"] = null;
+                Session["UpdateMovie"] = null;
             }
-            else if(Session["AddShow"] != null)
+            else if(Session["UpdateShow"] != null)
             {
                 pnlAddMovie.Visible = false;
                 pnlAddShow.Visible = true;
@@ -53,9 +74,9 @@ namespace _3342_Term_Project
                 txtAddShowRuntime.Text = Session["Edit_Runtime"].ToString();
                 ddlAddShowGenre.Text = Session["Edit_Genre"].ToString();
                 txtAddShowDescription.Text = Session["Edit_Description"].ToString();
-                Session["AddShow"] = null;
+                Session["UpdateShow"] = null;
             }
-            else if(Session["AddGame"] != null)
+            else if(Session["UpdateGame"] != null)
             {
                 pnlAddMovie.Visible = false;
                 pnlAddShow.Visible = false;
@@ -69,19 +90,22 @@ namespace _3342_Term_Project
                 ddlAddGameGenre.Text = Session["Edit_Genre"].ToString();
                 txtAddGameCreator.Text = Session["Edit_Creator"].ToString();
                 txtAddGameDescription.Text = Session["Edit_Description"].ToString();
-                Session["AddGame"] = null;
+                Session["UpdateGame"] = null;
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            if (Session["NewMovieInfo"] != null)
+            if (Session["NewMovieInfo"] != null || Session["AddNewMovie"] != null)
             {
                 Movies movie = new Movies();
 
                 movie.memberID = Convert.ToInt32(Session["MemberID"].ToString());
-                movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 movie.movieImage = txtAddMovieImage.Text;
                 movie.movieName = txtAddMovieName.Text;
                 movie.movieYear = Convert.ToInt32(ddlAddMovieYear.Text);
@@ -156,12 +180,15 @@ namespace _3342_Term_Project
                     lblDisplay.Text = "Error: " + ex.Message;
                 }
             }
-            else if(Session["NewShowInfo"] != null)
+            else if (Session["NewShowInfo"] != null || Session["AddNewShow"] != null)
             {
                 TVShows show = new TVShows();
                 show.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
-                show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 show.ShowImage = txtAddShowImage.Text;
                 show.ShowName = txtAddShowName.Text;
                 show.ShowYears = ddlAddShowYearsStart.Text + "-" + ddlAddShowYearsEnd.Text;
@@ -235,12 +262,15 @@ namespace _3342_Term_Project
                     lblDisplay.Text = "Error: " + ex.Message;
                 }
             }
-            else if (Session["NewGameInfo"] != null)
+            else if (Session["NewGameInfo"] != null || Session["AddNewGame"] != null)
             {
                 VideoGames game = new VideoGames();
                 game.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
-                game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                if (Session["Edit_ID"] != null)
+                {
+                    game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                }
                 game.GameImage = txtAddGameImage.Text;
                 game.GameName = txtAddGameName.Text;
                 game.GameYear = Convert.ToInt32(ddlAddGameYear.Text);

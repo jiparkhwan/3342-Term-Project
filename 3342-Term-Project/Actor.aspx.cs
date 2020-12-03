@@ -104,7 +104,7 @@ namespace _3342_Term_Project
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
-            if (e.CommandName == "ImageClick")
+            if (e.CommandName == "ImageMovieClick")
             {
                 int MovieID = Convert.ToInt32(e.CommandArgument);
                 Session["MovieID"] = MovieID;
@@ -137,6 +137,49 @@ namespace _3342_Term_Project
 
                     lblError.Text = "saved session info";
                     Response.Redirect("Title.aspx");
+                }
+                else
+                {
+                    lblError.Text = "table doesnt exist";
+                }
+            }
+            else if (e.CommandName == "ImageShowClick")
+            {
+
+                Session["MovieReviews"] = false;
+                Session["ShowReviews"] = true;
+                Session["GameReviews"] = false;
+
+                int ShowID = Convert.ToInt32(e.CommandArgument);
+                Session["ShowID"] = ShowID;
+                DBConnect objDB = new DBConnect();
+                SqlCommand sqlComm = new SqlCommand();
+
+                sqlComm.CommandType = CommandType.StoredProcedure;
+                sqlComm.CommandText = "TP_GetShowByID";
+
+                SqlParameter member = new SqlParameter("@showID", ShowID);
+                member.Direction = ParameterDirection.Input;
+                member.SqlDbType = SqlDbType.VarChar;
+                sqlComm.Parameters.Add(member);
+
+                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                if (ds.Tables[0].Rows.Count == 1) //member record found
+                {
+                    Session["TitleName"] = ds.Tables[0].Rows[0]["TV_Show_Name"].ToString();
+                    Session["TitleImage"] = ds.Tables[0].Rows[0]["TV_Show_Image"].ToString();
+                    Session["TitleYear"] = ds.Tables[0].Rows[0]["TV_Show_Years"].ToString();
+                    Session["TitleDescription"] = ds.Tables[0].Rows[0]["TV_Show_Description"].ToString();
+                    Session["TitleRunTime"] = ds.Tables[0].Rows[0]["TV_Show_RunTime"].ToString();
+                    Session["TitleGenre"] = ds.Tables[0].Rows[0]["TV_Show_Genre"].ToString();
+                    Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
+                    Session["TitleCreator"] = null;
+                    Session["TitleBudget"] = null;
+                    Session["TitleIncome"] = null;
+
+                    lblError.Text = "saved session info";
+                    Server.Transfer("Title.aspx");
                 }
                 else
                 {

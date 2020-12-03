@@ -76,6 +76,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
+        /// pnlHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHome;
+        
+        /// <summary>
         /// editorTimer control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image editorImage;
-        
-        /// <summary>
-        /// pnlHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlHome;
         
         /// <summary>
         /// pnlEditorsPicks control.

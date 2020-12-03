@@ -21,6 +21,11 @@ namespace _3342_Term_Project
         {
             if (!Page.IsPostBack)
             {
+                if (Session["MemberAccount"] == null)
+                {
+                    Server.Transfer("Login.aspx", false);
+                }
+
                 lblActorName.Text = Session["ActorName"].ToString();
                 imgActorImage.ImageUrl = Session["ActorImage"].ToString();
                 lblActorDescription.Text = Session["ActorDescription"].ToString();
@@ -32,10 +37,7 @@ namespace _3342_Term_Project
                 actorInfoPanel.Visible = true;
                 editDeletePanel.Visible = true;
                 lblError.Text = "";
-                if (Session["MemberAccount"] == null)
-                {
-                    Server.Transfer("Login.aspx", false);
-                }
+             
 
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
                 WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetAllActorsRoles/" + Session["ActorSelectedID"].ToString());
@@ -53,6 +55,18 @@ namespace _3342_Term_Project
                 // gvResults.DataBind();
                 rptActorRoles.DataSource = show;
                 rptActorRoles.DataBind();
+
+
+                foreach (RepeaterItem item in rptActorRoles.Items)
+                {
+                    Label year = item.FindControl("lblYear") as Label;
+                    string trimmedYear = year.Text.TrimStart(new char[] { '0' });
+                    string trueTrimmed = trimmedYear.TrimStart(new char[] { ',' });
+                    year.Text = trueTrimmed.Substring(0, 4);
+                }
+               
+
+
                 lblError.Text = "";
             }
         }
@@ -104,88 +118,180 @@ namespace _3342_Term_Project
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
-            if (e.CommandName == "ImageMovieClick")
-            {
-                int MovieID = Convert.ToInt32(e.CommandArgument);
-                Session["MovieID"] = MovieID;
-                DBConnect objDB = new DBConnect();
-                SqlCommand sqlComm = new SqlCommand();
+            string[] commandArgs = e.CommandArgument.ToString().Split(new char[] { ',' });
 
-                sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.CommandText = "TP_GetMovieByID";
+            string movieID = commandArgs[0];
+            string showID = commandArgs[1];
+            string gameID = commandArgs[2];
 
-                SqlParameter member = new SqlParameter("@movieID", MovieID);
-                member.Direction = ParameterDirection.Input;
-                member.SqlDbType = SqlDbType.VarChar;
-                sqlComm.Parameters.Add(member);
+          //  lblError.Text = commandArgs[1];
 
 
-                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
-
-                if (ds.Tables[0].Rows.Count == 1) //member record found
+                if (movieID != null && (showID == null || showID == "0") && (gameID == null  || gameID == "0"))
                 {
-                    Session["TitleName"] = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
-                    Session["TitleImage"] = ds.Tables[0].Rows[0]["Movie_Image"].ToString();
-                    Session["TitleYear"] = ds.Tables[0].Rows[0]["Movie_Year"].ToString();
-                    Session["TitleDescription"] = ds.Tables[0].Rows[0]["Movie_Description"].ToString();
-                    Session["TitleRunTime"] = ds.Tables[0].Rows[0]["Movie_RunTime"].ToString();
-                    Session["TitleGenre"] = ds.Tables[0].Rows[0]["Movie_Genre"].ToString();
-                    Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Movie_Age_Rating"].ToString();
-                    Session["TitleBudget"] = ds.Tables[0].Rows[0]["Movie_Budget"].ToString();
-                    Session["TitleIncome"] = ds.Tables[0].Rows[0]["Movie_Income"].ToString();
-                    Session["TitleCreator"] = null;
+
+                    int MovieID = Convert.ToInt32(movieID);
+                    Session["MovieID"] = MovieID;
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetMovieByID";
+
+                    SqlParameter member = new SqlParameter("@movieID", MovieID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
+
+
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["Movie_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["Movie_Year"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["Movie_Description"].ToString();
+                        Session["TitleRunTime"] = ds.Tables[0].Rows[0]["Movie_RunTime"].ToString();
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["Movie_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Movie_Age_Rating"].ToString();
+                        Session["TitleBudget"] = ds.Tables[0].Rows[0]["Movie_Budget"].ToString();
+                        Session["TitleIncome"] = ds.Tables[0].Rows[0]["Movie_Income"].ToString();
+                        Session["TitleCreator"] = null;
+
+                    foreach (RepeaterItem item in rptActorRoles.Items)
+                    {
+                        Label name = item.FindControl("lblName") as Label;
+                        name.Text = ds.Tables[0].Rows[0]["Movie_Name"].ToString();
+
+                        Label year = item.FindControl("lblYear") as Label;
+                        year.Text = ds.Tables[0].Rows[0]["Movie_Year"].ToString();
+
+                    }
+                   
+
+                            
+                        
+                        lblError.Text = "saved session info";
+                        Response.Redirect("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
+
+                }
+                else if ((movieID == null || movieID == "0" )  && showID != null && (gameID == null || gameID == "0"))
+                {
+                    Session["MovieReviews"] = false;
+                    Session["ShowReviews"] = true;
+                    Session["GameReviews"] = false;
+
+                    int ShowID = Convert.ToInt32(showID);
+                    Session["ShowID"] = ShowID;
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetShowByID";
+
+                    SqlParameter member = new SqlParameter("@showID", ShowID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
+
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["TV_Show_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["TV_Show_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["TV_Show_Years"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["TV_Show_Description"].ToString();
+                        Session["TitleRunTime"] = ds.Tables[0].Rows[0]["TV_Show_RunTime"].ToString();
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["TV_Show_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
+                        Session["TitleCreator"] = null;
+                        Session["TitleBudget"] = null;
+                        Session["TitleIncome"] = null;
+
+
+
+                    foreach (RepeaterItem item in rptActorRoles.Items)
+                    {
+                        Label name = item.FindControl("lblName") as Label;
+                        name.Text = ds.Tables[0].Rows[0]["TV_Show_Name"].ToString();
+
+                        Label year = item.FindControl("lblYear") as Label;
+                        year.Text = ds.Tables[0].Rows[0]["TV_Show_Years"].ToString();
+
+                    }
+
 
                     lblError.Text = "saved session info";
-                    Response.Redirect("Title.aspx");
+                        Server.Transfer("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
                 }
-                else
+                else if ((movieID == null || movieID == "0") && (showID == null || showID == "0" ) && gameID != null  )
                 {
-                    lblError.Text = "table doesnt exist";
-                }
-            }
-            else if (e.CommandName == "ImageShowClick")
-            {
 
-                Session["MovieReviews"] = false;
-                Session["ShowReviews"] = true;
-                Session["GameReviews"] = false;
+                    Session["MovieReviews"] = false;
+                    Session["ShowReviews"] = false;
+                    Session["GameReviews"] = true;
 
-                int ShowID = Convert.ToInt32(e.CommandArgument);
-                Session["ShowID"] = ShowID;
-                DBConnect objDB = new DBConnect();
-                SqlCommand sqlComm = new SqlCommand();
+                    int GameID = Convert.ToInt32(gameID);
+                    Session["GameID"] = GameID;
+                    DBConnect objDB = new DBConnect();
+                    SqlCommand sqlComm = new SqlCommand();
 
-                sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.CommandText = "TP_GetShowByID";
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandText = "TP_GetGameByID";
 
-                SqlParameter member = new SqlParameter("@showID", ShowID);
-                member.Direction = ParameterDirection.Input;
-                member.SqlDbType = SqlDbType.VarChar;
-                sqlComm.Parameters.Add(member);
+                    SqlParameter member = new SqlParameter("@gameID", GameID);
+                    member.Direction = ParameterDirection.Input;
+                    member.SqlDbType = SqlDbType.VarChar;
+                    sqlComm.Parameters.Add(member);
 
-                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
 
-                if (ds.Tables[0].Rows.Count == 1) //member record found
-                {
-                    Session["TitleName"] = ds.Tables[0].Rows[0]["TV_Show_Name"].ToString();
-                    Session["TitleImage"] = ds.Tables[0].Rows[0]["TV_Show_Image"].ToString();
-                    Session["TitleYear"] = ds.Tables[0].Rows[0]["TV_Show_Years"].ToString();
-                    Session["TitleDescription"] = ds.Tables[0].Rows[0]["TV_Show_Description"].ToString();
-                    Session["TitleRunTime"] = ds.Tables[0].Rows[0]["TV_Show_RunTime"].ToString();
-                    Session["TitleGenre"] = ds.Tables[0].Rows[0]["TV_Show_Genre"].ToString();
-                    Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["TV_Show_Age_Rating"].ToString();
-                    Session["TitleCreator"] = null;
-                    Session["TitleBudget"] = null;
-                    Session["TitleIncome"] = null;
+                    if (ds.Tables[0].Rows.Count == 1) //member record found
+                    {
+                        Session["TitleName"] = ds.Tables[0].Rows[0]["Video_Game_Name"].ToString();
+                        Session["TitleImage"] = ds.Tables[0].Rows[0]["Video_Game_Image"].ToString();
+                        Session["TitleYear"] = ds.Tables[0].Rows[0]["Video_Game_Year"].ToString();
+                        Session["TitleDescription"] = ds.Tables[0].Rows[0]["Video_Game_Description"].ToString();
+                        Session["TitleRunTime"] = null;
+                        Session["TitleGenre"] = ds.Tables[0].Rows[0]["Video_Game_Genre"].ToString();
+                        Session["TitleAgeRating"] = ds.Tables[0].Rows[0]["Video_Game_Age_Rating"].ToString();
+                        Session["TitleCreator"] = null;
+                        Session["TitleBudget"] = null;
+                        Session["TitleIncome"] = null;
+
+
+                    foreach (RepeaterItem item in rptActorRoles.Items)
+                    {
+                        Label name = item.FindControl("lblName") as Label;
+                        name.Text = ds.Tables[0].Rows[0]["Video_Game_Name"].ToString();
+
+                        Label year = item.FindControl("lblYear") as Label;
+                        year.Text = ds.Tables[0].Rows[0]["Video_Game_Year"].ToString();
+
+                    }
+
 
                     lblError.Text = "saved session info";
-                    Server.Transfer("Title.aspx");
+                        Server.Transfer("Title.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "table doesnt exist";
+                    }
                 }
-                else
-                {
-                    lblError.Text = "table doesnt exist";
-                }
-            }
+ 
         }
     }
 }

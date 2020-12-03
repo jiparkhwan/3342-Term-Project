@@ -77,7 +77,7 @@ namespace _3342_Term_Project
             {
                 if (Session["NewActorInfo"] != null)
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/UpdateActor/");
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/UpdateActor/");
                     request.Method = "PUT";
                     request.ContentLength = jsonActor.Length;
                     request.ContentType = "application/json";
@@ -107,7 +107,7 @@ namespace _3342_Term_Project
                 }
                 else
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddActor/");
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/AddActor/");
                     request.Method = "POST";
                     request.ContentLength = jsonActor.Length;
                     request.ContentType = "application/json";

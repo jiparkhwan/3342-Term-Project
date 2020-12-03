@@ -40,7 +40,7 @@ namespace _3342_Term_Project
              
 
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetAllActorsRoles/" + Session["ActorSelectedID"].ToString());
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/GetAllActorsRoles/" + Session["ActorSelectedID"].ToString());
                 WebResponse response = request.GetResponse();
                 // Read the data from the Web Response, which requires working with streams.
                 Stream theDataStream = response.GetResponseStream();
@@ -76,7 +76,7 @@ namespace _3342_Term_Project
             try
             {
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteActor/" + Session["ActorID"].ToString());
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/DeleteActor/" + Session["ActorID"].ToString());
                 request.Method = "DELETE";
                 request.ContentLength = 0;
 

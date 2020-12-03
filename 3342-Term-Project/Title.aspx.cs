@@ -79,7 +79,7 @@ namespace _3342_Term_Project
 
                 if (Session["MovieID"] != null)
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieCast/" + Session["MovieID"].ToString());
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetMovieCast/" + Session["MovieID"].ToString());
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -97,9 +97,11 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     Session["MovieID"] = null;
                 }
-                else if(Session["ShowID"] != null)
+
+                else if (Session["ShowID"] != null)
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetShowCast/" + Session["ShowID"].ToString());
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowCast/" + Session["ShowID"].ToString());
+
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -119,7 +121,9 @@ namespace _3342_Term_Project
                 }
                 else if (Session["GameID"] != null)
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameCast/" + Session["GameID"].ToString());
+
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameCast/" + Session["GameID"].ToString());
+
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -411,7 +415,7 @@ namespace _3342_Term_Project
             try
             {
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteReview/" + Session["ReviewID"].ToString());
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/review/DeleteReview/" + Session["ReviewID"].ToString());
                 request.Method = "DELETE";
                 request.ContentLength = 0;
 

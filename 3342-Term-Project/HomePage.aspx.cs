@@ -54,7 +54,7 @@ namespace _3342_Term_Project
                 try
                 {
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieByName/" + txtFindByName.Text);
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetMovieByName/" + txtFindByName.Text);
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -88,7 +88,7 @@ namespace _3342_Term_Project
                 try
                 {
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetShowByName/" + txtFindByName.Text);
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowByName/" + txtFindByName.Text);
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -123,7 +123,7 @@ namespace _3342_Term_Project
                 {
                     
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetGameByName/" + txtFindByName.Text);
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameByName/" + txtFindByName.Text);
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -157,7 +157,7 @@ namespace _3342_Term_Project
                 try
                 {
                     // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetActorByName/" + txtFindByName.Text);
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/GetActorByName/" + txtFindByName.Text);
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -415,7 +415,7 @@ namespace _3342_Term_Project
             pnlMovieRepeater.Visible = true;         
             /*
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomMovie/");
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetRandomMovie/");
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -446,7 +446,7 @@ namespace _3342_Term_Project
 
 
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            /*WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomShow/");
+            /*WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetRandomShow/");
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();
@@ -476,7 +476,7 @@ namespace _3342_Term_Project
             pnlGameRepeater.Visible = true;
             /*
             // Create an HTTP Web Request and get the HTTP Web Response from the server.
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetRandomGame/");
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetRandomGame/");
             WebResponse response = request.GetResponse();
             // Read the data from the Web Response, which requires working with streams.
             Stream theDataStream = response.GetResponseStream();

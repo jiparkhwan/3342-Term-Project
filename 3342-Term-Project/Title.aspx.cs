@@ -97,6 +97,46 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     Session["MovieID"] = null;
                 }
+                else if (Session["ShowID"] != null)
+                {
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowCast/" + Session["ShowID"].ToString());
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    Roles[] show = js.Deserialize<Roles[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptActorRoles.DataSource = show;
+                    rptActorRoles.DataBind();
+                    lblError.Text = "";
+                    Session["ShowID"] = null;
+                }
+                else if (Session["GameID"] != null)
+                {
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameCast/" + Session["GameID"].ToString());
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    Roles[] show = js.Deserialize<Roles[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptActorRoles.DataSource = show;
+                    rptActorRoles.DataBind();
+                    lblError.Text = "";
+                    Session["GameID"] = null;
+                }
             }
         }
 

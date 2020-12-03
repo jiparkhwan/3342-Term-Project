@@ -156,6 +156,34 @@ namespace WebAPI.Controllers
             {
                 return false;
             }
+
+             [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("GetShowCast/{showID}/")] //Route: WebAPI/TermProject/GetShowCast
+        public List<Roles> GetShowCast(int showID)
+        {
+            DataSet myDS = new DataSet();
+            StoredProcedures stoPros = new StoredProcedures();
+
+            myDS = stoPros.getCastByShowID(showID);
+            DBConnect objDB = new DBConnect();
+
+            Roles role = new Roles();
+            List<Roles> dpts = new List<Roles>();
+
+            foreach (DataRow dr in myDS.Tables[0].Rows)
+            {
+                role = new Roles();
+                role.role = dr["Role"].ToString();
+                role.actorImage = dr["Actor_Image"].ToString();
+                role.actorName = dr["Actor_Name"].ToString();
+                role.actorID = int.Parse(dr["Actor_ID"].ToString());
+
+                dpts.Add(role);
+            }
+            return dpts;
         }
+
     }
+}
 }

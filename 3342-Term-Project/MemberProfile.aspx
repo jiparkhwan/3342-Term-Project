@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MemberProfile.aspx.cs" Inherits="_3342_Term_Project.MemberProfile" %>
-<%@ Register Src="~/UserControls/Navbar.ascx" TagPrefix="Navigation" TagName="MemberNav" %>
+<%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagName="HomeFooter" TagPrefix="Footer" %>
 
 <!DOCTYPE html>
 
@@ -80,7 +81,7 @@
 <body>
     <form id="form1" runat="server">
       
-                <Navigation:MemberNav runat="server" ID="memberNav" />
+        <Navigation:HomeNav ID="HomeNav" runat="server" />
 
         <div class="container">
             <div class="row panel panel-default" id="changePassword" runat="server">
@@ -140,7 +141,7 @@
                     <asp:Label  ID="lblOutput" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-			
+			<Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>
 </html>

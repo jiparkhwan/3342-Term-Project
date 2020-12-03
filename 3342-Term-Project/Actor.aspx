@@ -59,7 +59,7 @@
             </div>
             <hr />
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>           
-            <Center>
+          <Center>
                 <asp:Repeater ID="rptActorRoles" runat="server">
                     <HeaderTemplate>
                         <table style="width: 400px; height:40px;">
@@ -80,21 +80,21 @@
                                     <td>
                                         <br />
                                         <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                            <asp:ImageButton ID="imgRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("titleImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
+                                            <asp:ImageButton ID="imgRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("titleImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") + "," + Eval("tvshowID") + "," + Eval("videoGameID") %>'></asp:ImageButton>
                                     </td>
                                 </tr>
                         </table>
                             <td>
                                 <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
                                     <tr>
-                                        <h1><asp:Label ID="lblMovieName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                        <h1><asp:Label ID="lblName" runat="server" fontBold ="true" Text='<%#Eval("movieName")+ "" + Eval("tvShowName") + "" + Eval("videoGameName") %>'/></h1>
                                         <br />
                                     </tr>
                                     <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
-                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("tvShowYears") %>' />
+                                        <asp:Label ID="lblYear" runat="server" Text='<%#Eval("movieYear")+ "," + Eval("tvShowYears") + "," + Eval("videoGameYear") %>' />
                                     </td>
                                     <td style="width: 50%; font-size: 1.25em;"><strong>Role:</strong>
-                                        <asp:Label ID="lblMovieRole" runat="server" Text='<%#Eval("Role") %>' />
+                                        <asp:Label ID="lblRole" runat="server" Text='<%#Eval("Role") %>' />
                                     </td>      
                                 </table>
                             </td>        

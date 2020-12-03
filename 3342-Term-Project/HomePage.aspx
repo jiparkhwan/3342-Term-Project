@@ -50,7 +50,12 @@
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
 
                 </div>
-                <div class="recentFavoritesDiv">
+                
+               
+
+                <asp:Panel ID="pnlHome" runat="server">
+                    <Center>
+                         <div class="recentFavoritesDiv">
                 <h2>Recent Favorites:</h2>
                 <br />
                 <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick"></asp:Timer>
@@ -64,9 +69,6 @@
                     </ContentTemplate>
             </asp:UpdatePanel>
                 </div>
-
-                <asp:Panel ID="pnlHome" runat="server">
-                    <Center>
                     <br />
                     <br />
                         <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#CCCCCC" Height="480px" Width="90%" HorizontalAlign="Left">

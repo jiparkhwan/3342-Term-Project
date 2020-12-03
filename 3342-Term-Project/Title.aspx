@@ -60,15 +60,14 @@
                 <asp:Label ID="lblTitleCreator" runat="server" Text=""></asp:Label>
             </div>
 
-
             <br />
-   
-
             <hr />
+            
+
             <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
 
 
- <asp:ScriptManager runat="server" ID="ScriptManagerTitlePage"></asp:ScriptManager>
+            <asp:ScriptManager runat="server" ID="ScriptManagerTitlePage"></asp:ScriptManager>
             <asp:UpdatePanel runat="server"><ContentTemplate>
             <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
             <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False">
@@ -94,7 +93,7 @@
 
             <div class="container">
 
-             <asp:Panel runat="server" ID="editReviewPanel">
+                <asp:Panel runat="server" ID="editReviewPanel">
                 <h4>New Rating:</h4>
                 <asp:DropDownList ID="ddlEditRating" runat="server" Height="50px" Width="70px">
                      <asp:ListItem>1</asp:ListItem>
@@ -110,10 +109,10 @@
                 </asp:DropDownList>
                 <h4>New Description:</h4>
                 <textarea id="editReviewDescription" cols="30" rows="5" runat="server"></textarea>
-              <br />
+                <br />
                 <asp:Button ID="btnEditReviewSubmit" runat="server" Text="Submit New Review" CssClass="btn-outline-primary" OnClick="btnEditReviewSubmit_OnClick"/>
                 </asp:Panel>
-                </div>
+            </div>
 
 
             <br />
@@ -137,10 +136,8 @@
               <br />
                 <asp:Button ID="submitReview" runat="server" Text="Submit Review" CssClass="btn-outline-primary" OnClick="submitReview_OnClick"/>
                 </asp:Panel>
-            <br />
             <asp:Label ID="lblSuccessReview" runat="server" Text=""></asp:Label>
-              <hr />
-   </ContentTemplate></asp:UpdatePanel>
+         </ContentTemplate></asp:UpdatePanel>
 
             <Center>
                 <asp:Repeater ID="rptActorRoles" runat="server">
@@ -148,7 +145,6 @@
                         <table style="width: 400px; height:40px;">
                             <tr style=" font-size: large; font-weight: bold;">
                                 <td style="text-align:center;">
-                                    <br />
                                     <h2>Cast: </h2>
                                 </td>        
                             </tr>
@@ -163,19 +159,16 @@
                                     <td>
                                         <br />
                                         <table style="background-color: #e6e6e6;  width: 300px; height:20px; text-align:center;">
-                                            <asp:ImageButton ID="imgMovieRole" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("movieImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("movieID") %>'></asp:ImageButton>
+                                            <asp:ImageButton ID="imgCastActor" Height="220" Width="170" BorderStyle="Solid" runat="server" ImageUrl='<%# Eval("actorImage") %>' OnCommand="Image_Click" CommandName="ImageClick" CommandArgument='<%# Eval("actorID") %>'></asp:ImageButton>
                                     </td>
                                 </tr>
                         </table>
                             <td>
                                 <table style="background-color: #e6e6e6; width: 600px; text-align:center;">
                                     <tr>
-                                        <h1><asp:Label ID="lblMovieName" runat="server" fontBold ="true" Text='<%#Eval("movieName") %>'/></h1>
+                                        <h1><asp:Label ID="lblActorName" runat="server" fontBold ="true" Text='<%#Eval("actorName") %>'/></h1>
                                         <br />
                                     </tr>
-                                    <td style="width: 50%; font-size: 1.25em;"><strong>Year:</strong> 
-                                        <asp:Label ID="lblMovieYear" runat="server" Text='<%#Eval("movieYear") %>' />
-                                    </td>
                                     <td style="width: 50%; font-size: 1.25em;"><strong>Role:</strong>
                                         <asp:Label ID="lblMovieRole" runat="server" Text='<%#Eval("Role") %>' />
                                     </td>      
@@ -185,11 +178,7 @@
                     </ItemTemplate>                       
                 </asp:Repeater>
             </Center>
-
-
          </div>
-        <asp:Label ID="tester" runat="server" ForeColor="Red"></asp:Label>
-        <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>
 </html>

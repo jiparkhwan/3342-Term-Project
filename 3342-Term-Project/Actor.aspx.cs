@@ -104,7 +104,7 @@ namespace _3342_Term_Project
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
-            if (e.CommandName == "ImageMovieClick")
+            if (e.CommandName == "ImageClick")
             {
                 int MovieID = Convert.ToInt32(e.CommandArgument);
                 Session["MovieID"] = MovieID;

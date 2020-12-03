@@ -312,7 +312,7 @@ namespace _3342_Term_Project
             try
             {
                 // Create an HTTP Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/DeleteReview/" + Session["ReviewID"].ToString());
+                WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/review/DeleteReview/" + Session["ReviewID"].ToString());
                 request.Method = "DELETE";
                 request.ContentLength = 0;
 

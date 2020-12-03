@@ -133,7 +133,7 @@
             <br />
              <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
 
-            <asp:Button ID="btnSubmit" runat="server"  Text="Add Actor" Font-Bold="True" OnClick="btnSubmit_Click"/>
+            <asp:Button ID="btnSubmit" runat="server"  Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
             <asp:Button ID="btnClear" runat="server"  Text="Clear Fields" Font-Bold="True" />
             <br />
             <br />

@@ -124,7 +124,7 @@ namespace _3342_Term_Project
                 {
                     if (Session["NewMovieInfo"] != null)
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/UpdateMovie/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/UpdateMovie/");
                         request.Method = "PUT";
                         request.ContentLength = jsonMovie.Length;
                         request.ContentType = "application/json";
@@ -156,7 +156,7 @@ namespace _3342_Term_Project
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddMovie/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/AddMovie/");
                         request.Method = "POST";
                         request.ContentLength = jsonMovie.Length;
                         request.ContentType = "application/json";
@@ -216,7 +216,7 @@ namespace _3342_Term_Project
                 {
                     if (Session["NewShowInfo"] != null)
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/UpdateShow/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/UpdateShow/");
                         request.Method = "PUT";
                         request.ContentLength = jsonShow.Length;
                         request.ContentType = "application/json";
@@ -246,7 +246,7 @@ namespace _3342_Term_Project
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddShow/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/AddShow/");
                         request.Method = "POST";
                         request.ContentLength = jsonShow.Length;
                         request.ContentType = "application/json";
@@ -306,7 +306,7 @@ namespace _3342_Term_Project
                 {
                     if (Session["NewGameInfo"] != null)
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/UpdateGame/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/UpdateGame/");
                         request.Method = "PUT";
                         request.ContentLength = jsonGame.Length;
                         request.ContentType = "application/json";
@@ -336,7 +336,7 @@ namespace _3342_Term_Project
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/AddGame/");
+                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/AddGame/");
                         request.Method = "POST";
                         request.ContentLength = jsonGame.Length;
                         request.ContentType = "application/json";

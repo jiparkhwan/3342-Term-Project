@@ -24,6 +24,7 @@
     <form id="frmAddActor" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="mainAddActor">
+            <Center>
             <br />
             <br />
             <h1>Add An Actor</h1>
@@ -138,6 +139,7 @@
             <br />
             <br />
         </div>
+        </Center>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>

@@ -21,30 +21,30 @@ namespace _3342_Term_Project
 
         protected void lnkbtnShowClick_Click(object sender, EventArgs e)
         {
-            Session["AddActor"] = null;
-            Session["AddMovie"] = null;
-            Session["AddShow"] = "Show_Button";
-            Session["AddGame"] = null;
+            Session["AddNewActor"] = null;
+            Session["AddNewMovie"] = null;
+            Session["AddNewShow"] = "Show_Button";
+            Session["AddNewGame"] = null;
 
             Response.Redirect("AddTitle.aspx");
         }
 
         protected void lnkBtnAddMovie_Click(object sender, EventArgs e)
         {
-            Session["AddActor"] = null;
-            Session["AddMovie"] = "Movie_Button";
-            Session["AddShow"] = null;
-            Session["AddGame"] = null;
+            Session["AddNewActor"] = null;
+            Session["AddNewMovie"] = "Movie_Button";
+            Session["AddNewShow"] = null;
+            Session["AddNewGame"] = null;
 
             Response.Redirect("AddTitle.aspx");
         }
 
         protected void lnkbtnGameClick_Click(object sender, EventArgs e)
         {
-            Session["AddActor"] = null;
-            Session["AddMovie"] = null;
-            Session["AddShow"] = null;
-            Session["AddGame"] = "Game_Button";
+            Session["AddNewActor"] = null;
+            Session["AddNewMovie"] = null;
+            Session["AddNewShow"] = null;
+            Session["AddNewGame"] = "Game_Button";
 
             Response.Redirect("AddTitle.aspx");
         }

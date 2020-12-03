@@ -6,6 +6,7 @@ using System.Data;
 using Utilities;
 using System.Data.SqlClient;
 using ClassLibrary;
+using System.Web;
 
 using WebAPI.Models;
 using Movies = WebAPI.Models.Movies;
@@ -251,7 +252,18 @@ namespace WebAPI.Controllers
                 {
                     role.videoGameID = int.Parse(dr["Video_Game_ID"].ToString());
                 }
-
+                if (dr["Video_Game_Name"].ToString() != "")
+                {
+                    role.movieName = dr["Video_Game_Name"].ToString();
+                }
+                if (dr["Video_Game_Image"].ToString() != "")
+                {
+                    role.titleImage = dr["Video_Game_Image"].ToString();
+                }
+                if (dr["Video_Game_Year"].ToString() != "")
+                {
+                    role.tvShowYears = dr["Video_Game_Year"].ToString();
+                }
 
                 dpts.Add(role);
             }

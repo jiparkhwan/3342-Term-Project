@@ -231,7 +231,6 @@ namespace _3342_Term_Project
                 }
                 else if(ddlSelectMedia.Text == "shows")
                 {
-
                     Session["MovieReviews"] = false;
                     Session["ShowReviews"] = true;
                     Session["GameReviews"] = false;

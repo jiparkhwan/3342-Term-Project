@@ -355,7 +355,7 @@ namespace _3342_Term_Project
 
             if (Session["MovieID"] != null)
             {
-                Session["AddMovie"] = "Update Movie";
+                Session["UpdateMovie"] = "Update Movie";
                 Session["Edit_ID"] = Session["MovieID"].ToString();
                 Session["Edit_Image"] = Session["TitleImage"].ToString();
                 Session["Edit_Name"] = Session["TitleName"].ToString();
@@ -369,7 +369,7 @@ namespace _3342_Term_Project
             }
             else if(Session["ShowID"] != null)
             {
-                Session["AddShow"] = "Update Show";
+                Session["UpdateShow"] = "Update Show";
                 Session["Edit_ID"] = Session["ShowID"].ToString();
                 Session["Edit_Image"] = Session["TitleImage"].ToString();
                 Session["Edit_Name"] = Session["TitleName"].ToString();
@@ -381,7 +381,7 @@ namespace _3342_Term_Project
             }
             else if (Session["GameID"] != null)
             {
-                Session["AddGame"] = "Update Game";
+                Session["UpdateGame"] = "Update Game";
                 Session["Edit_ID"] = Session["GameID"].ToString();
                 Session["Edit_Image"] = Session["TitleImage"].ToString();
                 Session["Edit_Name"] = Session["TitleName"].ToString();

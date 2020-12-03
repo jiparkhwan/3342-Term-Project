@@ -79,7 +79,7 @@ namespace _3342_Term_Project
 
                 if (Session["MovieID"] != null)
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieCast/" + Session["MovieID"].ToString());
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetMovieCast/" + Session["MovieID"].ToString());
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();

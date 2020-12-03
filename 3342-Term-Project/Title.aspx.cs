@@ -11,6 +11,7 @@ using Utilities;
 using ClassLibrary;
 using System.Net;
 using System.IO;
+using System.Web.Script.Serialization;
 
 namespace _3342_Term_Project
 {
@@ -20,67 +21,125 @@ namespace _3342_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) { 
-            addReviewLink.Visible = true;
-            lblSuccessReview.Text = "";
-            addReviewPanel.Visible = false;
+                addReviewLink.Visible = true;
+                lblSuccessReview.Text = "";
+                addReviewPanel.Visible = false;
 
-            editReviewPanel.Visible = false;
-
-
-            imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
-            lblTitleDescription.Text = Session["TitleDescription"].ToString();
-
-            lblTitleGenre.Text = Session["TitleGenre"].ToString();
-            lblTitleName.Text = Session["TitleName"].ToString();
-            lblTitleYear.Text = Session["TitleYear"].ToString();
-            lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
-
-            Page.Title = String.Format(lblTitleName.Text);
-            if (Session["TitleCreator"] == null)
-            {
-                lblTitleCreatorLabel.Visible = false;
-                lblTitleCreator.Visible = false;
-            }
-            else
-            {
-                lblTitleCreator.Text = Session["TitleCreator"].ToString();
-            }
-
-            if (Session["TitleRunTime"] == null)
-            {
-                lblTitleRunTimeLabel.Visible = false;
-                lblTitleRunTime.Visible = false;
-            }
-            else
-            {
-                lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
-            }
-
-            if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
-            {
-                lblTitleIncomeLabel.Visible = false;
-                lblTitleIncome.Visible = false;
-                lblTitleBudgetLabel.Visible = false;
-                lblTitleBudget.Visible = false;
-                lblBar2.Visible = false;
-            }
-            else
-            {
-                lblTitleBudget.Text = Session["TitleBudget"].ToString();
-                lblTitleIncome.Text = Session["TitleIncome"].ToString();
-            }
+                editReviewPanel.Visible = false;
 
 
+                imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
+                lblTitleDescription.Text = Session["TitleDescription"].ToString();
 
-            bindGridview();
-            //show delete and edit review buttons only for member's reviews
-            hideNonMemberControls();
+                lblTitleGenre.Text = Session["TitleGenre"].ToString();
+                lblTitleName.Text = Session["TitleName"].ToString();
+                lblTitleYear.Text = Session["TitleYear"].ToString();
+                lblTitleAgeRating.Text = Session["TitleAgeRating"].ToString();
+
+                Page.Title = String.Format(lblTitleName.Text);
+                if (Session["TitleCreator"] == null)
+                {
+                    lblTitleCreatorLabel.Visible = false;
+                    lblTitleCreator.Visible = false;
+                }
+                else
+                {
+                    lblTitleCreator.Text = Session["TitleCreator"].ToString();
+                }
+
+                if (Session["TitleRunTime"] == null)
+                {
+                    lblTitleRunTimeLabel.Visible = false;
+                    lblTitleRunTime.Visible = false;
+                }
+                else
+                {
+                    lblTitleRunTime.Text = Session["TitleRunTime"].ToString();
+                }
+
+                if (Session["TitleBudget"] == null && Session["TitleIncome"] == null)
+                {
+                    lblTitleIncomeLabel.Visible = false;
+                    lblTitleIncome.Visible = false;
+                    lblTitleBudgetLabel.Visible = false;
+                    lblTitleBudget.Visible = false;
+                    lblBar2.Visible = false;
+                }
+                else
+                {
+                    lblTitleBudget.Text = Session["TitleBudget"].ToString();
+                    lblTitleIncome.Text = Session["TitleIncome"].ToString();
+                }
+
+
+
+                bindGridview();
+                //show delete and edit review buttons only for member's reviews
+                hideNonMemberControls();
+
+                if (Session["MovieID"] != null)
+                {
+                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/TermProject/GetMovieCast/" + Session["MovieID"].ToString());
+                    WebResponse response = request.GetResponse();
+                    // Read the data from the Web Response, which requires working with streams.
+                    Stream theDataStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(theDataStream);
+                    String data = reader.ReadToEnd();
+                    reader.Close();
+                    response.Close();
+                    // Deserialize a JSON string into a Team object.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    Roles[] show = js.Deserialize<Roles[]>(data);
+                    //gvResults.DataSource = Movie;
+                    // gvResults.DataBind();
+                    rptActorRoles.DataSource = show;
+                    rptActorRoles.DataBind();
+                    lblError.Text = "";
+                    Session["MovieID"] = null;
+                }
             }
         }
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
+            if (e.CommandName == "ImageClick")
+            {
+                int actorID = Convert.ToInt32(e.CommandArgument);
+                Session["ActorSelectedID"] = actorID;
+                DBConnect objDB = new DBConnect();
+                SqlCommand sqlComm = new SqlCommand();
 
+                sqlComm.CommandType = CommandType.StoredProcedure;
+                sqlComm.CommandText = "TP_GetActorByID";
+
+                SqlParameter member = new SqlParameter("@actorID", actorID);
+                member.Direction = ParameterDirection.Input;
+                member.SqlDbType = SqlDbType.VarChar;
+                sqlComm.Parameters.Add(member);
+
+
+                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlComm);
+
+                if (ds.Tables[0].Rows.Count == 1) //member record found
+                {
+                    Session["ActorID"] = ds.Tables[0].Rows[0]["Actor_ID"].ToString();
+                    Session["ActorName"] = ds.Tables[0].Rows[0]["Actor_Name"].ToString();
+                    Session["ActorImage"] = ds.Tables[0].Rows[0]["Actor_Image"].ToString();
+                    Session["ActorDescription"] = ds.Tables[0].Rows[0]["Actor_Description"].ToString();
+                    Session["ActorHeight"] = ds.Tables[0].Rows[0]["Actor_Height"].ToString();
+                    Session["ActorDOB"] = ds.Tables[0].Rows[0]["Actor_DOB"].ToString();
+                    Session["ActorBirthCity"] = ds.Tables[0].Rows[0]["Actor_Birth_City"].ToString();
+                    Session["ActorBirthState"] = ds.Tables[0].Rows[0]["Actor_Birth_State"].ToString();
+                    Session["ActorBirthCountry"] = ds.Tables[0].Rows[0]["Actor_Birth_Country"].ToString();
+
+                    lblError.Text = "saved session info";
+                    Response.Redirect("Actor.aspx");
+                }
+                else
+                {
+                    lblError.Text = "table doesnt exist";
+                }
+            }
         }
 
         public void bindGridview()

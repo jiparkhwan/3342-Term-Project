@@ -118,6 +118,7 @@ namespace _3342_Term_Project
 
         protected void Image_Click(object sender, CommandEventArgs e)
         {
+
             string[] commandArgs = e.CommandArgument.ToString().Split(new char[] { ',' });
 
             string movieID = commandArgs[0];

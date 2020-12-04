@@ -7,10 +7,12 @@
     font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.btn{
+
+.btn {
     vertical-align: inherit;
     line-height: 1;
 }
+
 
 .dropdown-search {
     border-radius: 5px 0 0 5px;
@@ -85,18 +87,52 @@
     font-size: 18px;
 }
 
-.mainMemManagement 
-{
+.mainMemManagement {
+    color: #d8e2f1;
     padding-top: .25%;
-    background-color: rgba(255,255,255, 0.98);
+    background-color: #343233;
     min-height: 800px;
+    height: 100%;
     width: 70%;
     text-align: center;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Roboto;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
 }
+.center {
+    height: 57vh;
+    margin: 10px;
+    padding: 5px;
+    margin-top: 300px;
+}
+.button {
+    outline: none;
+    border: none;
+    margin: 18px 0;
+    padding: 20px 38px;
+    background: #778aab;
+    font-family: Roboto;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+    .button:hover {
+        outline: none;
+        border: none;
+        margin: 18px 0;
+        padding: 20px 38px;
+        background: #343233;
+        border: 2px solid #778aab;
+        font-family: Roboto;
+        color: #778aab;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: 0.2s;
+        cursor: pointer;
+    }
 
 .mainAddActor {
     padding-top: .25%;
@@ -405,4 +441,19 @@ h2 {
 
 .card-title {
     text-align: center;
+}
+.footer {
+    margin-top: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: Roboto;
+    background-color: #282627;
+    padding: 10px;
 }

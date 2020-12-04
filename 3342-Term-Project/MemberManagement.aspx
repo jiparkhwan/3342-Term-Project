@@ -24,43 +24,29 @@
     <form id="frmMemberManagement" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
         <div class="mainMemManagement">
-            <Center>
-            <br />
-            <br />
-            <h1><strong>Member Management Page</strong></h1>
-            <br />
-            <asp:Panel ID="pnlAddActor" runat="server" BackColor="#CCCCCC" Height="150px" Width="90%" HorizontalAlign="Center">
-                <br />
-                <br />
-                <asp:LinkButton ID="lnkBtnAddActor" runat="server" BackColor="#CCCCCC" HorizontalAlign="Center" Text="Add Actor" OnClick="lnkBtnAddActor_Click"></asp:LinkButton>
-            </asp:Panel>
-            <br />
-            <br />
-            <asp:Panel ID="pnlAddMovie" runat="server" BackColor="#CCCCCC" Height="150px" Width="90%" HorizontalAlign="Center">
-                <br />
-                <br />
-                <asp:LinkButton ID="lnkBtnAddMovie" runat="server" BackColor="#CCCCCC" HorizontalAlign="Center" Text="Add Movie" OnClick="lnkBtnAddMovie_Click"></asp:LinkButton>
-            </asp:Panel>
-            <br />
-            <br />
+                <div class="center">
+           
+                <h3>Add To Our Listing</h3>
+            
+               <asp:Button ID="btnAddActor" runat="server" CssClass="button" HorizontalAlign="Center" Text="Actor" OnClick="lnkBtnAddActor_Click"/>
+       
+               <asp:Button ID="btnAddMovie" runat="server" CssClass="button" HorizontalAlign="Center" Text="Movie" OnClick="lnkBtnAddMovie_Click"/>
+       
 
-            <asp:Panel ID="pnlAddShow" runat="server" BackColor="#CCCCCC" Height="150px" Width="90%" HorizontalAlign="Center">
-                <br />
-                <br />
-                <asp:LinkButton ID="lnkbtnShowClick" runat="server" BackColor="#CCCCCC" HorizontalAlign="Center" Text="Add TV Show" OnClick="lnkbtnShowClick_Click"></asp:LinkButton>
-            </asp:Panel>
-            <br />
-            <br />
-            <asp:Panel ID="pnlAddGame" runat="server" BackColor="#CCCCCC" Height="150px" Width="90%" HorizontalAlign="Center">
-                <br />
-                <br />   
-                <asp:LinkButton ID="lnkbtnGameClick" runat="server" BackColor="#CCCCCC" HorizontalAlign="Center" Text="Add Video Game" OnClick="lnkbtnGameClick_Click"></asp:LinkButton>                 
-            </asp:Panel>
-            <br />
-            <br />
-            </Center>
+               <asp:Button ID="btnShowClick" runat="server" CssClass="button" HorizontalAlign="Center" Text="TV Show" OnClick="lnkbtnShowClick_Click"/>
+               <asp:Button ID="btnGameClick" runat="server" CssClass="button" HorizontalAlign="Center" Text="Game" OnClick="lnkbtnGameClick_Click"/>
+
+             
+           
+        </div>
         </div>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
+    <style>
+        body {
+            background-color:#343233;
+            background-image: none;
+        }
+    </style>
 </body>
 </html>

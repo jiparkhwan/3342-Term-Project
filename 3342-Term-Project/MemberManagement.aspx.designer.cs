@@ -31,76 +31,40 @@ namespace _3342_Term_Project {
         protected global::_3342_Term_Project.UserControls.Navbar HomeNav;
         
         /// <summary>
-        /// pnlAddActor control.
+        /// btnAddActor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddActor;
+        protected global::System.Web.UI.WebControls.Button btnAddActor;
         
         /// <summary>
-        /// lnkBtnAddActor control.
+        /// btnAddMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnAddActor;
+        protected global::System.Web.UI.WebControls.Button btnAddMovie;
         
         /// <summary>
-        /// pnlAddMovie control.
+        /// btnShowClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
+        protected global::System.Web.UI.WebControls.Button btnShowClick;
         
         /// <summary>
-        /// lnkBtnAddMovie control.
+        /// btnGameClick control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnAddMovie;
-        
-        /// <summary>
-        /// pnlAddShow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddShow;
-        
-        /// <summary>
-        /// lnkbtnShowClick control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnShowClick;
-        
-        /// <summary>
-        /// pnlAddGame control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAddGame;
-        
-        /// <summary>
-        /// lnkbtnGameClick control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnGameClick;
+        protected global::System.Web.UI.WebControls.Button btnGameClick;
         
         /// <summary>
         /// FooterNav control.

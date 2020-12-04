@@ -26,6 +26,9 @@ namespace _3342_Term_Project
         {
             frmHomePage.Visible = true;
             pnlSearchMedia.Visible = true;
+
+            editorTimer.Enabled = true;
+
             if (Session["MemberAccount"] == null)
             {
                 Server.Transfer("Login.aspx", false);
@@ -36,7 +39,35 @@ namespace _3342_Term_Project
     
             }
         }
-       
+
+        protected void imgSimpsons_Click(object sender, ImageClickEventArgs e)
+        {
+            string txtRandSimpsons = "The Simpsons";
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = false;
+            pnlShowRepeater.Visible = true;
+            pnlGameRepeater.Visible = false;
+            Session["Show_Searched"] = "Show";
+
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowByName/" + txtRandSimpsons);
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            TVShows[] show = js.Deserialize<TVShows[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptShowSearchRes.DataSource = show;
+            rptShowSearchRes.DataBind();
+            lblError.Text = "";
+
+        }
 
         protected void btnFindByName_Click(object sender, EventArgs e)
         {

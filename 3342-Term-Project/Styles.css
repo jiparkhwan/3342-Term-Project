@@ -269,7 +269,17 @@ center {
     text-decoration: none;
 }
 
+#pnlUserPicks {
+    border-radius: 10px;
+    border: solid thin;
+}
 
+#lblUserPicks {
+    font-weight: bold;
+    font-size: 1.35em;
+    margin-top: 2%;
+    margin-left: 3%;
+}
 
 #pnlFindRandomTitle {
     border-radius: 10px;
@@ -378,28 +388,28 @@ h2 {
 .card1 {
     padding: 0;
     border: solid;
-    margin-left: 3%;
+    margin-left: 5%;
     display: inline-block;
 }
 
 .card2 {
     padding: 2px;
     border: solid;
-    margin-left: 4%;
+    margin-left: 4.5%;
     display: inline-block;
 }
 
 .card3 {
     padding: 2px;
     border: solid;
-    margin-left: 4%;
+    margin-left: 4.5%;
     display: inline-block;
 }
 
 .card4 {
     padding: 2px;
     border: solid;
-    margin-left: 4%;
+    margin-left: 4.5%;
     display: inline-block;
 }
 

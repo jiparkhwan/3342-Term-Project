@@ -97,9 +97,11 @@ namespace _3342_Term_Project
                     lblError.Text = "";
                     Session["MovieID"] = null;
                 }
+
                 else if (Session["ShowID"] != null)
                 {
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowCast/" + Session["ShowID"].ToString());
+
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();
@@ -119,7 +121,9 @@ namespace _3342_Term_Project
                 }
                 else if (Session["GameID"] != null)
                 {
+
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameCast/" + Session["GameID"].ToString());
+
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
                     Stream theDataStream = response.GetResponseStream();

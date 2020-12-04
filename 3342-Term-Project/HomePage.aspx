@@ -55,34 +55,21 @@
 
                 <asp:Panel ID="pnlHome" runat="server">
                     <Center>
-                         <div class="recentFavoritesDiv">
-                <h2>Recent Favorites:</h2>
-                <br />
-                <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick"></asp:Timer>
-                <asp:UpdatePanel runat="server" ID="picksUpdatePanel">
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="editorTimer" />
-                    </Triggers>
-                    <ContentTemplate>
-                        <asp:Image runat="server" ID="editorImage" style="width: 240px; height: 350px;"/>
-
-                    </ContentTemplate>
-            </asp:UpdatePanel>
-                </div>
-                    <br />
-                    <br />
-                        <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#CCCCCC" Height="480px" Width="90%" HorizontalAlign="Left">
+                        
+                        <br />
+                        <br />
+                        <asp:Panel ID="pnlEditorsPicks" runat="server" BackColor="#e6e6e6" Height="480px" Width="90%" HorizontalAlign="Left">
                             <h2><asp:Label ID="lblEditorsPicksLabel" runat="server" Text="Editor's Picks:"></asp:Label></h2>
                             <br />
                             <div class="card card1" style="width: 200px; height: 350px;">
-                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" />
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" Width="194" />
                                 <div class="card-body">
                                 <h5 class="card-title">Iron Man</h5>
                                 </div>
                             </div>
                           
                             <div class="card card2" style="width: 200px; height: 350px;">
-                               <asp:ImageButton runat="server" CssClass="card-img-top card-img-top1" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" >
+                               <asp:ImageButton runat="server" CssClass="card-img-top card-img-top1" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" >
                                 </asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">The Simpsons</h5>
@@ -105,7 +92,7 @@
                         </asp:Panel>
                         <br />
 
-                        <asp:Panel ID="pnlFindRandomTitle" runat="server" BackColor="#CCCCCC" Height="380px" Width="90%" HorizontalAlign="Left">
+                        <asp:Panel ID="pnlFindRandomTitle" runat="server" BackColor="#e6e6e6" Height="380px" Width="90%" HorizontalAlign="Left">
                             <br />
                             <h4><asp:Label ID="lblRandomPicksLabel" runat="server" Text="Let us help you decide what to watch or play tonight!"></asp:Label></h4>
                             <br />   
@@ -113,7 +100,23 @@
                             <asp:ImageButton ID="imgRandomShow" Height="220" Width="170" BorderStyle="Solid" src="Images/TV.png" runat="server" BackColor="Black" OnClick="btnRandShow_Click"></asp:ImageButton>
                             <asp:ImageButton ID="imgRandomGame" Height="220" Width="170" BorderStyle="Solid" src="Images/ef1713664570291e8ebe09c7a2d790dc.png" runat="server" BackColor="Black" OnClick="btnRandGame_Click"></asp:ImageButton>
                         </asp:Panel>
+                        <br />
 
+                        <asp:Panel ID="pnlUserPicks" runat="server" BackColor="#e6e6e6" Height="480px" Width="90%" HorizontalAlign="Left">
+                            <h2><asp:Label ID="lblUserPicks" runat="server" Text="User Favorites:"></asp:Label></h2>
+                            <br />
+                            <div class="recentFavoritesDiv">
+                                <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick" Enabled="False"></asp:Timer>
+                                <asp:UpdatePanel runat="server" ID="picksUpdatePanel">
+                                    <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="editorTimer" />
+                                    </Triggers>
+                                    <ContentTemplate>
+                                        <asp:Image runat="server" ID="editorImage" style="width: 240px; height: 350px;" ImageUrl="Images/editorpick_1.jpg" BorderStyle="Solid" />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </asp:Panel>
                     </Center>
                 </asp:Panel>
       

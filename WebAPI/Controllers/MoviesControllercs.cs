@@ -87,13 +87,13 @@ namespace WebAPI.Controllers
 
         [Produces("application/json")]
         [Consumes("application/json")]
-        [HttpGet("GetMovieCast/{movieID}/")] //Route: WebAPI/TermProject/
+        [HttpGet("GetMovieCast/{movieID}")] //Route: WebAPI/TermProject/
         public List<Roles> GetMovieCast(int movieID)
         {
             DataSet myDS = new DataSet();
             StoredProcedures stoPros = new StoredProcedures();
 
-            myDS = stoPros.getActorRolesByID(movieID);
+            myDS = stoPros.getCastByMovieID(movieID);
             DBConnect objDB = new DBConnect();
 
             Roles role = new Roles();
@@ -104,7 +104,7 @@ namespace WebAPI.Controllers
                 role = new Roles();
                 role.role = dr["Role"].ToString();
                 role.actorImage = dr["Actor_Image"].ToString();
-                role.movieName = dr["Actor_Name"].ToString();
+                role.actorName = dr["Actor_Name"].ToString();
                 role.actorID = int.Parse(dr["Actor_ID"].ToString());
 
                 dpts.Add(role);

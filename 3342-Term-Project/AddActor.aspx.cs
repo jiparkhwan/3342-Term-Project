@@ -30,8 +30,8 @@ namespace _3342_Term_Project
                 ddlAddDOBDay.Text = day;
                 ddlAddDOBYear.Text = year;
                 txtAddBirthCity.Text = Session["EditActorBirthCity"].ToString();
-                txtAddBirthState.Text = Session["EditActorBirthState"].ToString();
-                txtAddBirthCountry.Text = Session["EditActorBirthCountry"].ToString();
+                ddlAddBirthState.Text = Session["EditActorBirthState"].ToString();
+                ddlAddBirthCountry.Text = Session["EditActorBirthCountry"].ToString();
                 txtAddDescription.Text = Session["EditActorDescription"].ToString();
                 Session["Edit_Actor_Activated"] = null;
             }
@@ -53,6 +53,19 @@ namespace _3342_Term_Project
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if(ddlAddDOBDay.SelectedValue == "noneSelected")
+            {
+                lblDisplay.Text = "Select a date of birth";
+            }
+            if (ddlAddDOBMonth.SelectedValue == "noneSelected")
+            {
+                lblDisplay.Text = "Select a date of birth";
+            }
+            if (ddlAddDOBYear.SelectedValue == "noneSelected")
+            {
+                lblDisplay.Text = "Select a date of birth";
+            }
+
             Actors actor = new Actors();
             actor.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
@@ -66,8 +79,8 @@ namespace _3342_Term_Project
             actor.ActorHeight = txtAddHeight.Text;
             actor.ActorDOB = ddlAddDOBMonth.Text + "/" + ddlAddDOBDay.Text + "/" + ddlAddDOBYear.Text;
             actor.ActorBirthCity = txtAddBirthCity.Text;
-            actor.ActorBirthState = txtAddBirthState.Text;
-            actor.ActorBirthCountry = txtAddBirthCountry.Text;
+            actor.ActorBirthState = ddlAddBirthState.Text;
+            actor.ActorBirthCountry = ddlAddBirthCountry.Text;
 
             JavaScriptSerializer js = new JavaScriptSerializer();
 
@@ -142,6 +155,20 @@ namespace _3342_Term_Project
             {
                 lblDisplay.Text = "Error: " + ex.Message;
             }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtAddImage.Text = "";
+            txtAddName.Text = "";
+            txtAddHeight.Text = "";
+            ddlAddDOBDay.SelectedValue = "noneSelected";
+            ddlAddDOBMonth.SelectedValue = "noneSelected";
+            ddlAddDOBYear.SelectedValue = "noneSelected";
+            txtAddBirthCity.Text = "";
+            ddlAddBirthState.SelectedValue = "noneSelected";
+            ddlAddBirthCountry.SelectedValue = "noneSelected";
+            txtAddDescription.Text = "";
         }
     }
 }

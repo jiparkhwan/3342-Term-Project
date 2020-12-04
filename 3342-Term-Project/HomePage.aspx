@@ -62,14 +62,14 @@
                             <h2><asp:Label ID="lblEditorsPicksLabel" runat="server" Text="Editor's Picks:"></asp:Label></h2>
                             <br />
                             <div class="card card1" style="width: 200px; height: 350px;">
-                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://images-na.ssl-images-amazon.com/images/I/51OCRfitHdL._AC_.jpg" alt="Iron Man" Width="194" />
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" OnClick="imgDeadpool_Click" src="https://i.pinimg.com/originals/b1/bc/c5/b1bcc54813f1ad5fc3e51a7c5c07a315.jpg" alt="Deadpool" Width="194" />
                                 <div class="card-body">
-                                <h5 class="card-title">Iron Man</h5>
+                                <h5 class="card-title">Deadpool</h5>
                                 </div>
                             </div>
                           
                             <div class="card card2" style="width: 200px; height: 350px;">
-                               <asp:ImageButton runat="server" CssClass="card-img-top card-img-top1" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" >
+                                <asp:ImageButton runat="server" CssClass="card-img-top card-img-top1" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" >
                                 </asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">The Simpsons</h5>
@@ -77,14 +77,14 @@
                             </div>
 
                             <div class="card card3" style="width: 200px; height: 350px;">
-                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://media.gamestop.com/i/gamestop/10097815/The-Elder-Scrolls-V-Skyrim?$pdp$&bg=rgb(0,0,0)" alt="Skyrim" ></asp:ImageButton>
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" OnClick="imgSkyrim_Click" src="https://media.gamestop.com/i/gamestop/10097815/The-Elder-Scrolls-V-Skyrim?$pdp$&bg=rgb(0,0,0)" alt="Skyrim" ></asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">Skyrim</h5>
                                 </div>
                             </div>                        
 
                             <div class="card card4" style="width: 200px; height: 350px;">
-                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" ></asp:ImageButton>
+                                <asp:ImageButton  runat="server" CssClass="card-img-top card-img-top1" OnClick="imgGoodPlace_Click" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" ></asp:ImageButton>
                                 <div class="card-body">
                                 <h5 class="card-title">The Good Place</h5>
                                 </div>

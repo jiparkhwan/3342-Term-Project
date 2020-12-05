@@ -59,15 +59,20 @@
                 <br />  <br />
                 <asp:Label ID="lblTitleIncomeLabel" runat="server" Text="Income: $" Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
+           
+                
+            
+               <div>
+            <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
+               <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
+               <asp:Label ID="Label2" runat="server" Text="" ForeColor="Red"></asp:Label>
+                </div>
             </div>
 
             <br />
     <br /><br />
             
-
-            <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
-
-
+         
             <asp:ScriptManager runat="server" ID="ScriptManagerTitlePage"></asp:ScriptManager>
 
 
@@ -75,9 +80,9 @@
                 <ContentTemplate>
                     <asp:Label ID="reviewOutput" runat="server" Text=""></asp:Label>
                     <div class="reviewContainer">
-                        <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False"  GridLines="None"  RowStyle-BorderWidth="1">
+                        <asp:GridView ID="gvReviews" runat="server" CssClass="table table-responsive " AutoGenerateColumns="False"  GridLines="None"  RowStyle-BorderWidth="1" BackColor="#343233">
                             <Columns>
-                                <asp:BoundField DataField="Review_ID" HeaderText="ID" />
+                                <asp:BoundField DataField="Review_ID" HeaderText=""/>
                                 <asp:BoundField DataField="Reviewer_Email" HeaderText="Reviewer" />
                                 <asp:BoundField DataField="Review_Description" HeaderText="Description" />
                                 <asp:BoundField DataField="Review_Rating" HeaderText="Rating" />

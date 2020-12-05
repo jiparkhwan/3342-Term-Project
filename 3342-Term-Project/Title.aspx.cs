@@ -12,6 +12,7 @@ using ClassLibrary;
 using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Drawing;
 
 namespace _3342_Term_Project
 {
@@ -310,9 +311,9 @@ namespace _3342_Term_Project
                     }
                 }
             }
-
+            Color clr = ColorTranslator.FromHtml("#343233");
             //hide review IDs from user
-            this.gvReviews.Columns[0].Visible = false;
+            this.gvReviews.Columns[0].ItemStyle.ForeColor = ColorTranslator.FromHtml("#343233");
         }
         protected void addReviewLink_OnClick(object sender, EventArgs e)
         {
@@ -387,13 +388,13 @@ namespace _3342_Term_Project
 
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-
+           
             Session["ReviewID"] = gvr.Cells[0].Text;
             Session["ReviewerName"] = gvr.Cells[1].Text;
 
             editReviewPanel.Visible = true;
             addReviewPanel.Visible = false;
-            bindGridview();
+          
             //show delete and edit review buttons only for member's reviews
             hideNonMemberControls();
 
@@ -406,18 +407,35 @@ namespace _3342_Term_Project
             {
                 lblError.Text = "Please fill out the description";
             }
-            int success = StoredProcedures.editReview(Convert.ToInt32(Session["ReviewID"].ToString()), Convert.ToInt32(ddlEditRating.SelectedValue), editReviewDescription.Value);
-            if (success >= 1)
-            {
+            lblError.Text = Session["ReviewID"].ToString();
+            lblTitleDescription.Text = ddlEditRating.SelectedValue;
+            Label2.Text = editReviewDescription.Value;
+            int rating = Convert.ToInt32(ddlEditRating.SelectedValue);
+            int id = Convert.ToInt32(Session["ReviewID"]);
+                int success = StoredProcedures.editReview(id, rating, editReviewDescription.Value);
+                if (success >= 1)
+                {
 
-                lblSuccessReview.Text = "Review edited successfully!";
-                lblError.Text = "";
-                addReviewLink.Visible = false;
-                addReviewPanel.Visible = false;
-                editReviewPanel.Visible = false;
+                    lblSuccessReview.Text = "Review edited successfully!";
+                    lblError.Text = "";
+                    addReviewLink.Visible = false;
+                    addReviewPanel.Visible = false;
+                    editReviewPanel.Visible = false;
 
-                bindGridview();
-            }
+                    bindGridview();
+                }
+                else
+                {
+                    editReviewPanel.Visible = false;
+                    addReviewLink.Visible = false;
+                    addReviewPanel.Visible = false;
+                    Response.Write("<script>alert('Sorry you can only edit your review once every session, refresh and try again')</script>");
+                    lblError.Text = Session["ReviewID"].ToString();
+                    Label1.Text = ddlEditRating.SelectedValue;
+                    Label2.Text = editReviewDescription.Value;
+                }
+            
+          
             hideNonMemberControls();
 
         }

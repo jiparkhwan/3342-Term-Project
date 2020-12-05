@@ -121,31 +121,31 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Label lblRandomPicksLabel;
         
         /// <summary>
-        /// imgRandomMovie control.
+        /// btnRun control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomMovie;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnRun;
         
         /// <summary>
-        /// imgRandomShow control.
+        /// btnShows control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomShow;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnShows;
         
         /// <summary>
-        /// imgRandomGame control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgRandomGame;
+        protected global::System.Web.UI.HtmlControls.HtmlButton Button1;
         
         /// <summary>
         /// pnlUserPicks control.

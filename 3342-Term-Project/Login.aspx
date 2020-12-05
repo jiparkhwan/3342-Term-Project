@@ -39,7 +39,7 @@
              <asp:Label Style="color: red; font-weight: bold;" ID="Error" runat="server" Text=""></asp:Label>
              <br />
              <br />
-                        <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="/Register.aspx" CausesValidation="false">Register New Account</asp:LinkButton>
+            <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="/Register.aspx" CssClass="link" CausesValidation="false">Register New Account</asp:LinkButton>
             <br />
             <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
 			<br />
@@ -51,11 +51,13 @@
         .login-card {
             max-width: 350px;
             padding: 40px 40px;
-            background-color: #F7F7F7;
+            background-color: #282627;
             margin: 0 auto 25px;
             margin-top: 50px;
             border-radius: 2px;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            color:#d8e2f1;
+            text-decoration: none;
         }
         .login-card h3 {
             text-align: center;
@@ -70,10 +72,19 @@
         .login-card .form-signin input[type=email], .login-card .form-signin input[type=password], .login-card .form-signin input[type=text], .login-card .form-signin button {
             height: 44px;
             font-size: 16px;
-            width: 100%;
+            font-family: Roboto;
             z-index: 1;
+            color: white;
             position: relative;
+             letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
             box-sizing: border-box;
+            background: #778aab;
+            outline: none;
+            border: none;
+            margin: 18px 0;
+            padding: 20px 38px;
         }
         .login-card .form-signin .form-control:focus {
             border-color: rgb(104, 145, 162);
@@ -82,7 +93,7 @@
             box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
         }
         .login-card .btn.btn-signin {
-            font-weight: 700;
+          
             height: 36px;
             line-height: 36px;
             font-size: 14px;
@@ -91,12 +102,40 @@
             transition: all 0.218s;
             padding: 0;
             margin-top: 10px;
+              color: white;
+                 background: #778aab;
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
         }
+         .login-card .btn.btn-signin:hover {
+                outline: none;
+                 height: 36px;
+            line-height: 36px;
+            font-size: 14px;
+        border: none;
+    
+        background: #343233;
+        border: 2px solid #778aab;
+        font-family: Roboto;
+        color: #778aab;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: 0.1s;
+        cursor: pointer;
+         }
         .login-card .link {
-            color: rgb(104, 145, 162);
+            text-align: center;
+            color: #778aab;
+            text-decoration: none;
         }
         .login-card .link:hover, .login-card .link:active, .login-card .link:focus {
-            color: rgb(12, 97, 33);
+            color: white;
+        }
+        body {
+            background-color:#343233;
         }
     </style>
 </body>

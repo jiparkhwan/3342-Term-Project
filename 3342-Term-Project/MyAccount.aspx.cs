@@ -36,11 +36,20 @@ namespace _3342_Term_Project
 
                 if (ds.Tables[0].Rows.Count == 1)
                 {
+                string password = ds.Tables[0].Rows[0]["Member_Password"].ToString();
+                int passwordLength = ds.Tables[0].Rows[0]["Member_Password"].ToString().Length;
 
-                    txtcurrentName.Text = ds.Tables[0].Rows[0]["Member_FName"].ToString() + " " + ds.Tables[0].Rows[0]["Member_LName"].ToString();
-                    txtcurrentEmail.Text = ds.Tables[0].Rows[0]["Member_Email"].ToString();
-                    txtcurrentDOB.Text = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
-                    txtcurrentPassword.Text = ds.Tables[0].Rows[0]["Member_Password"].ToString();
+                txtManageEmail.Text = ds.Tables[0].Rows[0]["Member_Email"].ToString();
+                txtManageName.Text = ds.Tables[0].Rows[0]["Member_FName"].ToString();
+                txtManageLName.Text = ds.Tables[0].Rows[0]["Member_LName"].ToString();
+                txtDateOfBirth.Text = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
+              
+                for (int i =0; i < passwordLength; i++)
+                {
+                    txtManagePassword.Text = txtManagePassword.Text + "*";
+                    txtManagePasswordConfirm.Text = txtManagePasswordConfirm.Text + "*";
+                }
+              
 
 
 
@@ -70,15 +79,10 @@ namespace _3342_Term_Project
 
                     MemberFavorites memberFavorites = (MemberFavorites)deSerializer.Deserialize(memStream);
 
-                    favoritesLbl.Text =
-
-                                "Favorite Actor: " + memberFavorites.FavoriteActor + " </br>" +
-                                "Favorite Movie: " + memberFavorites.FavoriteMovie + " </br>" +
-                                "Favorite TVShow: " + memberFavorites.FavoriteTVShow + " </br>" +
-                               "Favorite VideoGame: " + memberFavorites.FavoriteVideoGame + " </br>";
-
-                    lblDisplay.Text = "";
-
+                        txtfavoriteActor.Text = memberFavorites.FavoriteActor;
+                        txtfavoriteMovie.Text = memberFavorites.FavoriteMovie;
+                        txtfavoriteTVShow.Text = memberFavorites.FavoriteTVShow;
+                        txtfavoriteVideoGame.Text = memberFavorites.FavoriteVideoGame;
 
 
                     }

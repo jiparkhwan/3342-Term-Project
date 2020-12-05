@@ -63,7 +63,6 @@ namespace _3342_Term_Project
                     lblTitleIncome.Visible = false;
                     lblTitleBudgetLabel.Visible = false;
                     lblTitleBudget.Visible = false;
-                    lblBar2.Visible = false;
                 }
                 else
                 {
@@ -306,6 +305,9 @@ namespace _3342_Term_Project
             {
                 addReviewPanel.Visible = true;
             }
+           
+            bindGridview();
+            hideNonMemberControls();
         }
         protected void submitReview_OnClick(object sender, EventArgs e)
         {

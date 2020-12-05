@@ -2,6 +2,7 @@
 
 <div class="footer">
     <div class="footer-container">
-    <h6>Copyright Lexpark</h6>
-        </div>
+        <h6>Copyright Lexpark</h6>
+        <small>Alex Drogo | Ji Hwan Park</small>
+    </div>
 </div>

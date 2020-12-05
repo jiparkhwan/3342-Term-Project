@@ -1,10 +1,11 @@
 ﻿body {
-    background-image: url('Images/cinema-wallpaper-14.jpg');
+  
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Roboto;
+    background-color: #343233;
 }
 
 
@@ -13,7 +14,13 @@
     line-height: 1;
 }
 
-
+.reviewContainer {
+    background-color: #343233;
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+    color: ghostwhite;
+}
 .dropdown-search {
     border-radius: 5px 0 0 5px;
     padding: 10px;
@@ -74,17 +81,18 @@
     padding-top: .75%;
 }
 
-.mainAccount 
-{
+.mainAccount {
     padding-top: .25%;
-    background-color: rgba(255,255,255, 0.98);
+    background-color: #343233;
+
+    font-size: 18px;
     min-height: 800px;
+    color: #778aab;
     width: 70%;
     text-align: center;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
+   
 }
 
 .mainMemManagement {
@@ -105,6 +113,22 @@
     padding: 5px;
     margin-top: 300px;
 }
+#btnEditTitle {
+    float:right;
+}
+#gvReviews {
+    border-top: none;
+}
+.links {
+    color: #778aab;
+    letter-spacing: 2px;
+    font-size:16px;
+
+}
+    .links:hover {
+        color: ghostwhite;
+        text-decoration: none;
+    }
 .button {
     outline: none;
     border: none;
@@ -133,50 +157,89 @@
         transition: 0.2s;
         cursor: pointer;
     }
+.buttonReview {
+    outline: none;
+    border: none;
+    margin: 10px 0;
+    padding: 10px 19px;
+    background: #778aab;
+    font-family: Roboto;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
 
+    .buttonReview:hover {
+        outline: none;
+        border: none;
+        margin: 10px 0;
+        padding: 10px 19px;
+        background: #343233;
+        border: 2px solid #778aab;
+        font-family: Roboto;
+        color: #778aab;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: 0.2s;
+        cursor: pointer;
+    }
 .mainAddActor {
     padding-top: .25%;
     background-color: rgba(255,255,255, 0.98);
     min-height: 800px;
     width: 70%;
     text-align: center;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Roboto;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
+
 }
 
-.mainTitle 
-{
+.mainTitle {
     padding-top: .25%;
-    background-color: rgba(255,255,255, 0.98);
+
     min-height: 1000px;
     width: 70%;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Roboto;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
-}
+    background-color: #343233;
+    font-family: Roboto;
 
+    color: ghostwhite;
+}
+.favorites {
+    float: right;
+
+}
+.editInfo {
+    float: left;
+}
+.container {
+    width: 60%;
+    font-size: 15px;
+}
 .mainHome {
     padding-top: .25%;
-    background-color: rgba(255,255,255, 0.98);
+    background-color: #343233;
     min-height: 800px;
     width: 70%;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Roboto;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
+  
 }
 
 .mainAddTitle {
     background-color: rgba(255,255,255, 0.98);
     min-height: 800px;
     width: 70%;
-    font-family: Corbel, Garamond, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Roboto;
     margin: auto;
     margin-top: 0;
-    font-size: 18px;
+
 }
 
 #ibtnManageAcct {
@@ -192,7 +255,7 @@
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-    font-size: 16px;
+
     margin: 3px 2px;
     cursor: pointer;
     border-radius: 7px;
@@ -268,19 +331,92 @@ td {
 center {
     background-color: rgba(255,255,255, 0.98);
 }
+.randomFinds {
+    background: #282627;
+}
+.recentFavoritesDiv {
 
-#pnlEditorsPicks {
-    border-radius: 10px;
-    border: solid thin;
+}
+.ddl {
+    padding: 3px;
+    
+    color: #778aab;
+    height: 40px;
 }
 
-#lblEditorsPicksLabel
-{
-    font-weight: bold;
-    font-size: 1.35em;
-    margin-top: 2%;
-    margin-left: 3%;
+.dll:active, select:hover {
+    outline-color: #778aab;
 }
+.searchTextbox {
+    height: 40px;
+    padding: 3px;
+}
+.editorImage {
+    width: 240px;
+    height: 350px;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+.pnlHome {
+    background-color: #343233;
+    text-align: center;
+    font-family: Roboto;
+    color: #778aab;
+}
+
+
+
+#menu-outer {
+   
+}
+
+.table {
+    display: table; /* Allow the centering to work */
+    margin: 0 auto;
+}
+
+ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding: 10px;
+}
+
+    ul#horizontal-list li {
+        display: inline;
+        padding: 10px;
+        filter: drop-shadow(40px 40px 40px #222);
+    }
+
+
+
+
+#menu-outers {
+}
+
+.table {
+    display: table; /* Allow the centering to work */
+    margin: 0 auto;
+}
+
+ul#horizontal-lists {
+    min-width: 696px;
+    list-style: none;
+    padding: 10px;
+}
+
+    ul#horizontal-lists li {
+        display: inline;
+        padding: 10px;
+        filter: drop-shadow(40px 40px 40px #222);
+    }
+.imageContainer {
+  
+    display:inline-block;
+}
+
 
 #pnlAddActor 
 {
@@ -305,29 +441,8 @@ center {
     text-decoration: none;
 }
 
-#pnlUserPicks {
-    border-radius: 10px;
-    border: solid thin;
-}
 
-#lblUserPicks {
-    font-weight: bold;
-    font-size: 1.35em;
-    margin-top: 2%;
-    margin-left: 3%;
-}
 
-#pnlFindRandomTitle {
-    border-radius: 10px;
-    border: solid thin;
-}
-
-#lblRandomPicksLabel {
-    font-weight: bold;
-    font-size: 1.35em;
-    margin-top: 2%;
-    margin-left: 3%;
-}
 
 #imgRandomGame {
     border-radius: 15px;
@@ -353,8 +468,9 @@ center {
     padding-top: 30px;
 }
 
-h2 {
+h4 {
     padding-top: 2%;
+    font-weight: 400;
 }
 
 .card-img-top1
@@ -362,65 +478,7 @@ h2 {
     height: 270px;
     width: 190px;
 }
-#btnSubmit {
-    background-color: #3589ff;
-    border: thin;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-    color: lightgray;
-}
-    #btnSubmit :hover {
-        background-color: lightgray;
-        border: thin;
-        padding: 15px;
-        text-align: center;
-        font-size: 17px;
-        margin: 3px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-        color: #3589ff;
-    }
 
-.btnSubmit {
-    background-color: #3589ff;
-    border: thin;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
-
-.btnClear {
-    background-color: lightgray;
-    border: thin;
-    padding: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
-
-#btnClear {
-    background-color: lightgray;
-    border: thin;
-    padding: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    font-size: 16px;
-    margin: 3px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
 .card1 {
     padding: 0;
     border: solid;

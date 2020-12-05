@@ -57,104 +57,127 @@ namespace _3342_Term_Project
             {
                 lblDisplay.Text = "Select a date of birth";
             }
-            if (ddlAddDOBMonth.SelectedValue == "noneSelected")
+            else
             {
-                lblDisplay.Text = "Select a date of birth";
-            }
-            if (ddlAddDOBYear.SelectedValue == "noneSelected")
-            {
-                lblDisplay.Text = "Select a date of birth";
-            }
-
-            Actors actor = new Actors();
-            actor.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
-
-            if(Session["EditActorID"] != null)
-            {
-                actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
-            }
-            actor.ActorImage = txtAddImage.Text;
-            actor.ActorName = txtAddName.Text;
-            actor.ActorDescription = txtAddDescription.Text;
-            actor.ActorHeight = txtAddHeight.Text;
-            actor.ActorDOB = ddlAddDOBMonth.Text + "/" + ddlAddDOBDay.Text + "/" + ddlAddDOBYear.Text;
-            actor.ActorBirthCity = txtAddBirthCity.Text;
-            actor.ActorBirthState = ddlAddBirthState.Text;
-            actor.ActorBirthCountry = ddlAddBirthCountry.Text;
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-
-            String jsonActor = js.Serialize(actor);
-
-            try
-            {
-                if (Session["NewActorInfo"] != null)
+                if (ddlAddDOBMonth.SelectedValue == "noneSelected")
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/UpdateActor/");
-                    request.Method = "PUT";
-                    request.ContentLength = jsonActor.Length;
-                    request.ContentType = "application/json";
-
-                    // Write the JSON data to the Web Request
-                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                    writer.Write(jsonActor);
-                    writer.Flush();
-                    writer.Close();
-
-                    // Read the data from the Web Response, which requires working with streams.
-                    WebResponse response = request.GetResponse();
-                    Stream theDataStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(theDataStream);
-                    String data = reader.ReadToEnd();
-                    reader.Close();
-                    response.Close();
-
-                    if (data == "true")
-                    {
-                        lblDisplay.Text = "The actor was successfully updated!";
-                        Response.Write("<script>alert('Actor updated successfully')</script>");
-                        Response.Redirect("HomePage.aspx");
-                    }
-                    else
-                        lblDisplay.Text = "You can only edit your own added listings!";
+                    lblDisplay.Text = "Select a date of birth";
                 }
                 else
                 {
-                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/AddActor/");
-                    request.Method = "POST";
-                    request.ContentLength = jsonActor.Length;
-                    request.ContentType = "application/json";
-
-                    // Write the JSON data to the Web Request
-                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                    writer.Write(jsonActor);
-                    writer.Flush();
-                    writer.Close();
-
-                    // Read the data from the Web Response, which requires working with streams.
-                    WebResponse response = request.GetResponse();
-                    Stream theDataStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(theDataStream);
-                    String data = reader.ReadToEnd();
-                    reader.Close();
-                    response.Close();
-
-                    if (data == "true")
+                    if (ddlAddDOBMonth.SelectedValue == "noneSelected")
                     {
-                        lblDisplay.Text = "The actor was successfully saved to the database.";
-
-                        Response.Write("<script>alert('Actor inserted successfully')</script>");
-                        Response.Redirect("HomePage.aspx");
+                        lblDisplay.Text = "Select a date of birth";
                     }
                     else
-                        lblDisplay.Text = "A problem occurred while adding the actor to the database. The data wasn't recorded.";
+                    {
+                        if(ddlAddBirthCountry.SelectedValue == "noneSelected")
+                        {
+                            lblDisplay.Text = "Select a country";
+                        }
+                        else
+                        {
+                            if (ddlAddBirthState.SelectedValue == "noneSelected")
+                            {
+                                lblDisplay.Text = "Select a state";
+                            }
+                            else
+                            {
+                                Actors actor = new Actors();
+                                actor.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
+
+                                if (Session["EditActorID"] != null)
+                                {
+                                    actor.ActorID = Convert.ToInt32(Session["EditActorID"].ToString());
+                                }
+                                actor.ActorImage = txtAddImage.Text;
+                                actor.ActorName = txtAddName.Text;
+                                actor.ActorDescription = txtAddDescription.Text;
+                                actor.ActorHeight = txtAddHeight.Text;
+                                actor.ActorDOB = ddlAddDOBMonth.Text + "/" + ddlAddDOBDay.Text + "/" + ddlAddDOBYear.Text;
+                                actor.ActorBirthCity = txtAddBirthCity.Text;
+                                actor.ActorBirthState = ddlAddBirthState.Text;
+                                actor.ActorBirthCountry = ddlAddBirthCountry.Text;
+
+                                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                                String jsonActor = js.Serialize(actor);
+
+                                try
+                                {
+                                    if (Session["NewActorInfo"] != null)
+                                    {
+                                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/UpdateActor/");
+                                        request.Method = "PUT";
+                                        request.ContentLength = jsonActor.Length;
+                                        request.ContentType = "application/json";
+
+                                        // Write the JSON data to the Web Request
+                                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                        writer.Write(jsonActor);
+                                        writer.Flush();
+                                        writer.Close();
+
+                                        // Read the data from the Web Response, which requires working with streams.
+                                        WebResponse response = request.GetResponse();
+                                        Stream theDataStream = response.GetResponseStream();
+                                        StreamReader reader = new StreamReader(theDataStream);
+                                        String data = reader.ReadToEnd();
+                                        reader.Close();
+                                        response.Close();
+
+                                        if (data == "true")
+                                        {
+                                            lblDisplay.Text = "The actor was successfully updated!";
+                                            Response.Write("<script>alert('Actor updated successfully')</script>");
+                                            Response.Redirect("HomePage.aspx");
+                                        }
+                                        else
+                                            lblDisplay.Text = "You can only edit your own added listings!";
+                                    }
+                                    else
+                                    {
+                                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/actors/AddActor/");
+                                        request.Method = "POST";
+                                        request.ContentLength = jsonActor.Length;
+                                        request.ContentType = "application/json";
+
+                                        // Write the JSON data to the Web Request
+                                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                        writer.Write(jsonActor);
+                                        writer.Flush();
+                                        writer.Close();
+
+                                        // Read the data from the Web Response, which requires working with streams.
+                                        WebResponse response = request.GetResponse();
+                                        Stream theDataStream = response.GetResponseStream();
+                                        StreamReader reader = new StreamReader(theDataStream);
+                                        String data = reader.ReadToEnd();
+                                        reader.Close();
+                                        response.Close();
+
+                                        if (data == "true")
+                                        {
+                                            lblDisplay.Text = "The actor was successfully saved to the database.";
+
+                                            Response.Write("<script>alert('Actor inserted successfully')</script>");
+                                            Response.Redirect("HomePage.aspx");
+                                        }
+                                        else
+                                            lblDisplay.Text = "A problem occurred while adding the actor to the database. The data wasn't recorded.";
+                                    }
+                                }
+
+                                catch (Exception ex)
+                                {
+                                    lblDisplay.Text = "Error: " + ex.Message;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
-            catch (Exception ex)
-            {
-                lblDisplay.Text = "Error: " + ex.Message;
-            }
+           
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

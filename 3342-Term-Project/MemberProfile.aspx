@@ -12,7 +12,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
-
+    <link href="Styles.css" rel="stylesheet" />
 
 	<style>
 		.jumbotron.jumbotron-fluid {
@@ -141,7 +141,8 @@
                     <asp:Label  ID="lblOutput" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-			<Footer:HomeFooter ID="FooterNav" runat="server" />
+        </div>
+        <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>
 </html>

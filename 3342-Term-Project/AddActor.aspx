@@ -31,6 +31,7 @@
             <hr />
             <br />
             <h3>Found an upcoming actor that we're not aware of? Add them here!</h3>
+            <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
             <br />
             <br />
             <asp:Label ID="lblAddImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -421,8 +422,8 @@
             <asp:RequiredFieldValidator ControlToValidate="txtAddDescription" ID="ans1Validator" runat="server" ErrorMessage="Description needed!" Display="Dynamic"></asp:RequiredFieldValidator>
             <br />
             <br />
-             <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
-
+            
+            <br />
             <asp:Button ID="btnSubmit" runat="server"  Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
             <asp:Button ID="btnClear" runat="server"  Text="Clear Fields" Font-Bold="True" OnClick="btnClear_Click" />
             <br />

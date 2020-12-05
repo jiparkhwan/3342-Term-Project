@@ -212,10 +212,12 @@ h6, .h6{
     margin-top: 2%;
 }
 
-hr
-{
+hr {
+    color: darkgray;
+    border-color: darkgray;
     background-color: darkgray;
     width: 90%;
+    border-top: 1px solid darkgray;
 }
 
 
@@ -407,6 +409,19 @@ h2 {
     border-radius: 12px;
 }
 
+.btnClearMovie {
+    background-color: lightgray;
+    border: thin;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 3px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
 #btnClear {
     background-color: lightgray;
     border: thin;
@@ -450,8 +465,13 @@ h2 {
 .card-title {
     text-align: center;
 }
+
+.navbar
+{
+    margin-bottom: 0;
+}
+
 .footer {
-    margin-top: 10px;
     position: relative;
     left: 0;
     bottom: 0;

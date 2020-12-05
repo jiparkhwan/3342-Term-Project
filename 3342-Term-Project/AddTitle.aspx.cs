@@ -99,276 +99,342 @@ namespace _3342_Term_Project
 
             if (Session["NewMovieInfo"] != null || Session["AddNewMovie"] != null)
             {
-                Movies movie = new Movies();
-
-                movie.memberID = Convert.ToInt32(Session["MemberID"].ToString());
-                if (Session["Edit_ID"] != null)
+                if(ddlAddMovieAgeRange.SelectedValue == "noneSelected")
                 {
-                    movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                    lblDisplay.Text = "Select an Age Rating";
                 }
-                movie.movieImage = txtAddMovieImage.Text;
-                movie.movieName = txtAddMovieName.Text;
-                movie.movieYear = Convert.ToInt32(ddlAddMovieYear.Text);
-                movie.movieDescription = txtAddMovieDescription.Text;
-                movie.movieRuntime = Convert.ToInt32(txtAddMovieRuntime.Text);
-                movie.movieAgeRating = ddlAddMovieAgeRange.Text;
-                movie.movieGenre = ddlAddMovieGenre.Text;
-                movie.movieBudget = float.Parse(txtAddMovieBudget.Text);
-                movie.movieIncome = float.Parse(txtAddMovieIncome.Text);
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                String jsonMovie = js.Serialize(movie);
-
-                try
+                else
                 {
-                    if (Session["NewMovieInfo"] != null)
+                    if (ddlAddMovieGenre.SelectedValue == "noneSelected")
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/UpdateMovie/");
-                        request.Method = "PUT";
-                        request.ContentLength = jsonMovie.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonMovie);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
-                        {
-                            lblDisplay.Text = "The movie was successfully edited.";
-
-                            Response.Write("<script>alert('Movie Updated successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
-                        }
-
-                        else
-                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                        lblDisplay.Text = "Select a Genre";
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/AddMovie/");
-                        request.Method = "POST";
-                        request.ContentLength = jsonMovie.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonMovie);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
+                        if (ddlAddMovieYear.SelectedValue == "noneSelected")
                         {
-                            lblDisplay.Text = "The movie was successfully saved to the database.";
-
-                            Response.Write("<script>alert('Movie inserted successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
+                            lblDisplay.Text = "Select a Year";
                         }
                         else
-                            lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
+                        {
+                            Movies movie = new Movies();
+
+                            movie.memberID = Convert.ToInt32(Session["MemberID"].ToString());
+                            if (Session["Edit_ID"] != null)
+                            {
+                                movie.movieID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                            }
+                            movie.movieImage = txtAddMovieImage.Text;
+                            movie.movieName = txtAddMovieName.Text;
+                            movie.movieYear = Convert.ToInt32(ddlAddMovieYear.Text);
+                            movie.movieDescription = txtAddMovieDescription.Text;
+                            movie.movieRuntime = Convert.ToInt32(txtAddMovieRuntime.Text);
+                            movie.movieAgeRating = ddlAddMovieAgeRange.Text;
+                            movie.movieGenre = ddlAddMovieGenre.Text;
+                            movie.movieBudget = float.Parse(txtAddMovieBudget.Text);
+                            movie.movieIncome = float.Parse(txtAddMovieIncome.Text);
+
+                            JavaScriptSerializer js = new JavaScriptSerializer();
+
+                            String jsonMovie = js.Serialize(movie);
+
+                            try
+                            {
+                                if (Session["NewMovieInfo"] != null)
+                                {
+                                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/UpdateMovie/");
+                                    request.Method = "PUT";
+                                    request.ContentLength = jsonMovie.Length;
+                                    request.ContentType = "application/json";
+
+                                    // Write the JSON data to the Web Request
+                                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                    writer.Write(jsonMovie);
+                                    writer.Flush();
+                                    writer.Close();
+
+                                    // Read the data from the Web Response, which requires working with streams.
+                                    WebResponse response = request.GetResponse();
+                                    Stream theDataStream = response.GetResponseStream();
+                                    StreamReader reader = new StreamReader(theDataStream);
+                                    String data = reader.ReadToEnd();
+                                    reader.Close();
+                                    response.Close();
+
+                                    if (data == "true")
+                                    {
+                                        lblDisplay.Text = "The movie was successfully edited.";
+
+                                        Response.Write("<script>alert('Movie Updated successfully')</script>");
+                                    }
+
+                                    else
+                                        lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                }
+                                else
+                                {
+                                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/AddMovie/");
+                                    request.Method = "POST";
+                                    
+                                    request.ContentType = "application/json";
+                                    request.ContentLength = jsonMovie.Length;
+
+                                    // Write the JSON data to the Web Request
+                                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                    writer.Write(jsonMovie);
+                                    writer.Flush();
+                                    writer.Close();
+
+                                    // Read the data from the Web Response, which requires working with streams.
+                                    WebResponse response = request.GetResponse();
+                                    Stream theDataStream = response.GetResponseStream();
+                                    StreamReader reader = new StreamReader(theDataStream);
+                                    String data = reader.ReadToEnd();
+                                    reader.Close();
+                                    response.Close();
+
+                                    if (data == "true")
+                                    {
+                                        lblDisplay.Text = "The movie was successfully saved to the database.";
+
+                                        Response.Write("<script>alert('Movie inserted successfully')</script>");
+                                    }
+                                    else
+                                        lblDisplay.Text = "A problem occurred while adding the movie to the database. The data wasn't recorded.";
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                lblDisplay.Text = "Error: " + ex.Message;
+                            }
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    lblDisplay.Text = "Error: " + ex.Message;
                 }
             }
             else if (Session["NewShowInfo"] != null || Session["AddNewShow"] != null)
             {
-                TVShows show = new TVShows();
-                show.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
-
-                if (Session["Edit_ID"] != null)
+                if(ddlAddShowAgeRating.SelectedValue == "noneSelected")
                 {
-                    show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                    lblDisplay2.Text = "Please Select an Age Rating";
                 }
-                show.ShowImage = txtAddShowImage.Text;
-                show.ShowName = txtAddShowName.Text;
-                show.ShowYears = ddlAddShowYearsStart.Text + "-" + ddlAddShowYearsEnd.Text;
-                show.ShowAgeRating = ddlAddShowAgeRating.Text;
-                show.ShowRuntime = Convert.ToInt32(txtAddShowRuntime.Text);
-                show.ShowGenre = ddlAddShowGenre.Text;
-                show.ShowDescription = txtAddShowDescription.Text;
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                String jsonShow = js.Serialize(show);
-
-                try
+                else
                 {
-                    if (Session["NewShowInfo"] != null)
+                    if (ddlAddShowGenre.SelectedValue == "noneSelected")
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/UpdateShow/");
-                        request.Method = "PUT";
-                        request.ContentLength = jsonShow.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonShow);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
-                        {
-                            Response.Write("<script>alert('Show updated successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
-                        }
-                          //  lblDisplay.Text = "The Show was successfully edited.";
-                        else
-                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                        lblDisplay2.Text = "Please Select a Genre";
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/AddShow/");
-                        request.Method = "POST";
-                        request.ContentLength = jsonShow.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonShow);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
+                        if (ddlAddShowYearsStart.SelectedValue == "noneSelected")
                         {
-                            Response.Write("<script>alert('Show inserted successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
+                            lblDisplay2.Text = "Please Select Run Years Value";
                         }
-                            //lblDisplay.Text = "The show was successfully saved to the database.";
                         else
-                            lblDisplay.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
+                        {
+                            if (ddlAddShowYearsEnd.SelectedValue == "noneSelected")
+                            {
+                                lblDisplay2.Text = "Please Select Run Years Value";
+                            }
+                            else
+                            {
+                                TVShows show = new TVShows();
+                                show.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
+                                if (Session["Edit_ID"] != null)
+                                {
+                                    show.ShowID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                                }
+                                show.ShowImage = txtAddShowImage.Text;
+                                show.ShowName = txtAddShowName.Text;
+                                show.ShowYears = ddlAddShowYearsStart.Text + "-" + ddlAddShowYearsEnd.Text;
+                                show.ShowAgeRating = ddlAddShowAgeRating.Text;
+                                show.ShowRuntime = Convert.ToInt32(txtAddShowRuntime.Text);
+                                show.ShowGenre = ddlAddShowGenre.Text;
+                                show.ShowDescription = txtAddShowDescription.Text;
+
+                                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                                String jsonShow = js.Serialize(show);
+
+                                try
+                                {
+                                    if (Session["NewShowInfo"] != null)
+                                    {
+                                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/UpdateShow/");
+                                        request.Method = "PUT";
+                                        request.ContentLength = jsonShow.Length;
+                                        request.ContentType = "application/json";
+
+                                        // Write the JSON data to the Web Request
+                                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                        writer.Write(jsonShow);
+                                        writer.Flush();
+                                        writer.Close();
+
+                                        // Read the data from the Web Response, which requires working with streams.
+                                        WebResponse response = request.GetResponse();
+                                        Stream theDataStream = response.GetResponseStream();
+                                        StreamReader reader = new StreamReader(theDataStream);
+                                        String data = reader.ReadToEnd();
+                                        reader.Close();
+                                        response.Close();
+
+                                        if (data == "true")
+                                        {
+                                            Response.Write("<script>alert('Show updated successfully')</script>");
+                                            Response.Redirect("HomePage.aspx");
+                                        }
+                                        //  lblDisplay.Text = "The Show was successfully edited.";
+                                        else
+                                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                    }
+                                    else
+                                    {
+                                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/AddShow/");
+                                        request.Method = "POST";
+                                        request.ContentLength = jsonShow.Length;
+                                        request.ContentType = "application/json";
+
+                                        // Write the JSON data to the Web Request
+                                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                        writer.Write(jsonShow);
+                                        writer.Flush();
+                                        writer.Close();
+
+                                        // Read the data from the Web Response, which requires working with streams.
+                                        WebResponse response = request.GetResponse();
+                                        Stream theDataStream = response.GetResponseStream();
+                                        StreamReader reader = new StreamReader(theDataStream);
+                                        String data = reader.ReadToEnd();
+                                        reader.Close();
+                                        response.Close();
+
+                                        if (data == "true")
+                                        {
+                                            Response.Write("<script>alert('Show inserted successfully')</script>");
+                                        }
+                                        //lblDisplay.Text = "The show was successfully saved to the database.";
+                                        else
+                                            lblDisplay.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
+
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    lblDisplay.Text = "Error: " + ex.Message;
+                                }
+                            }
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    lblDisplay.Text = "Error: " + ex.Message;
                 }
             }
             else if (Session["NewGameInfo"] != null || Session["AddNewGame"] != null)
             {
-                VideoGames game = new VideoGames();
-                game.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
-
-                if (Session["Edit_ID"] != null)
+                if(ddlAddGameAgeRating.SelectedValue == "noneSelected")
                 {
-                    game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                    lblDisplay3.Text = "Please Select Age Rating";
                 }
-                game.GameImage = txtAddGameImage.Text;
-                game.GameName = txtAddGameName.Text;
-                game.GameYear = Convert.ToInt32(ddlAddGameYear.Text);
-                game.GameGenre = ddlAddGameGenre.Text;
-                game.GameDescription = txtAddGameDescription.Text;
-                game.GameCreator = txtAddGameCreator.Text;
-                game.GameAgeRating = ddlAddGameAgeRating.Text;
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                String jsonGame = js.Serialize(game);
-
-                try
+                else
                 {
-                    if (Session["NewGameInfo"] != null)
+                    if (ddlAddGameGenre.SelectedValue == "noneSelected")
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/UpdateGame/");
-                        request.Method = "PUT";
-                        request.ContentLength = jsonGame.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonGame);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
-                        {
-                            Response.Write("<script>alert('Game updated successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
-                        }
-                            //lblDisplay.Text = "The game was successfully edited.";
-                        else
-                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                        lblDisplay3.Text = "Please Select Genre";
                     }
                     else
                     {
-                        WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/AddGame/");
-                        request.Method = "POST";
-                        request.ContentLength = jsonGame.Length;
-                        request.ContentType = "application/json";
-
-                        // Write the JSON data to the Web Request
-                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                        writer.Write(jsonGame);
-                        writer.Flush();
-                        writer.Close();
-
-                        // Read the data from the Web Response, which requires working with streams.
-                        WebResponse response = request.GetResponse();
-                        Stream theDataStream = response.GetResponseStream();
-                        StreamReader reader = new StreamReader(theDataStream);
-                        String data = reader.ReadToEnd();
-                        reader.Close();
-                        response.Close();
-
-                        if (data == "true")
+                        if (ddlAddGameYear.SelectedValue == "noneSelected")
                         {
-                            Response.Write("<script>alert('Game added successfully')</script>");
-                            Response.Redirect("HomePage.aspx");
+                            lblDisplay3.Text = "Please Select Release Year";
                         }
-                          //  lblDisplay.Text = "The game was successfully saved to the database.";
                         else
-                            lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
-                    }
-                }
+                        {
+                            VideoGames game = new VideoGames();
+                            game.MemberID = Convert.ToInt32(Session["MemberID"].ToString());
 
-                catch (Exception ex)
-                {
-                    lblDisplay.Text = "Error: " + ex.Message;
+                            if (Session["Edit_ID"] != null)
+                            {
+                                game.GameID = Convert.ToInt32(Session["Edit_ID"].ToString());
+                            }
+                            game.GameImage = txtAddGameImage.Text;
+                            game.GameName = txtAddGameName.Text;
+                            game.GameYear = Convert.ToInt32(ddlAddGameYear.Text);
+                            game.GameGenre = ddlAddGameGenre.Text;
+                            game.GameDescription = txtAddGameDescription.Text;
+                            game.GameCreator = txtAddGameCreator.Text;
+                            game.GameAgeRating = ddlAddGameAgeRating.Text;
+
+                            JavaScriptSerializer js = new JavaScriptSerializer();
+
+                            String jsonGame = js.Serialize(game);
+
+                            try
+                            {
+                                if (Session["NewGameInfo"] != null)
+                                {
+                                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/UpdateGame/");
+                                    request.Method = "PUT";
+                                    request.ContentLength = jsonGame.Length;
+                                    request.ContentType = "application/json";
+
+                                    // Write the JSON data to the Web Request
+                                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                    writer.Write(jsonGame);
+                                    writer.Flush();
+                                    writer.Close();
+
+                                    // Read the data from the Web Response, which requires working with streams.
+                                    WebResponse response = request.GetResponse();
+                                    Stream theDataStream = response.GetResponseStream();
+                                    StreamReader reader = new StreamReader(theDataStream);
+                                    String data = reader.ReadToEnd();
+                                    reader.Close();
+                                    response.Close();
+
+                                    if (data == "true")
+                                    {
+                                        Response.Write("<script>alert('Game updated successfully')</script>");
+                                    }
+                                    //lblDisplay.Text = "The game was successfully edited.";
+                                    else
+                                        lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                }
+                                else
+                                {
+                                    WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/AddGame/");
+                                    request.Method = "POST";
+                                    request.ContentLength = jsonGame.Length;
+                                    request.ContentType = "application/json";
+
+                                    // Write the JSON data to the Web Request
+                                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                    writer.Write(jsonGame);
+                                    writer.Flush();
+                                    writer.Close();
+
+                                    // Read the data from the Web Response, which requires working with streams.
+                                    WebResponse response = request.GetResponse();
+                                    Stream theDataStream = response.GetResponseStream();
+                                    StreamReader reader = new StreamReader(theDataStream);
+                                    String data = reader.ReadToEnd();
+                                    reader.Close();
+                                    response.Close();
+
+                                    if (data == "true")
+                                    {
+                                        Response.Write("<script>alert('Game added successfully')</script>");
+                                    }
+                                    //  lblDisplay.Text = "The game was successfully saved to the database.";
+                                    else
+                                        lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
+                                }
+                            }
+
+                            catch (Exception ex)
+                            {
+                                lblDisplay.Text = "Error: " + ex.Message;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -383,6 +449,19 @@ namespace _3342_Term_Project
                 ddlAddShowYearsEnd.Items.Add(intCount.ToString());
                 ddlAddGameYear.Items.Add(intCount.ToString());
             }
+        }
+
+        protected void btnClearMovie_Click(object sender, EventArgs e)
+        {
+            txtAddMovieImage.Text = "";
+            txtAddMovieName.Text = "";
+            txtAddMovieRuntime.Text = "";
+            txtAddMovieIncome.Text = "";
+            txtAddMovieBudget.Text = "";
+            txtAddMovieDescription.Text = "";
+            ddlAddMovieAgeRange.SelectedValue = "noneSelected";
+            ddlAddMovieGenre.SelectedValue = "noneSelected";
+            ddlAddMovieYear.SelectedValue = "noneSelected";
         }
     }
 }

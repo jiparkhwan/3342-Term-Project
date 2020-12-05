@@ -79,6 +79,9 @@ namespace _3342_Term_Project
 
                 if (Session["MovieID"] != null)
                 {
+                    Session["ShowID"] = null;
+                    Session["GameID"] = null;
+
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetMovieCast/" + Session["MovieID"].ToString());
                     WebResponse response = request.GetResponse();
                     // Read the data from the Web Response, which requires working with streams.
@@ -91,15 +94,17 @@ namespace _3342_Term_Project
                     JavaScriptSerializer js = new JavaScriptSerializer();
                     Roles[] show = js.Deserialize<Roles[]>(data);
                     //gvResults.DataSource = Movie;
-                    // gvResults.DataBind();
+                    //gvResults.DataBind();
                     rptActorRoles.DataSource = show;
                     rptActorRoles.DataBind();
                     lblError.Text = "";
-                    Session["MovieID"] = null;
                 }
 
                 else if (Session["ShowID"] != null)
                 {
+                    Session["MovieID"] = null;
+                    Session["GameID"] = null;
+
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowCast/" + Session["ShowID"].ToString());
 
                     WebResponse response = request.GetResponse();
@@ -117,10 +122,11 @@ namespace _3342_Term_Project
                     rptActorRoles.DataSource = show;
                     rptActorRoles.DataBind();
                     lblError.Text = "";
-                    Session["ShowID"] = null;
                 }
                 else if (Session["GameID"] != null)
                 {
+                    Session["ShowID"] = null;
+                    Session["MovieID"] = null;
 
                     WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameCast/" + Session["GameID"].ToString());
 
@@ -139,7 +145,6 @@ namespace _3342_Term_Project
                     rptActorRoles.DataSource = show;
                     rptActorRoles.DataBind();
                     lblError.Text = "";
-                    Session["GameID"] = null;
                 }
             }
         }

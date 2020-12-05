@@ -29,11 +29,11 @@
     <form id="frmMyAccount" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
 
-
         <div class="mainAccount">
             <br />
             <br />
             <h1>Manage Account Information</h1>
+            <hr />
             <br />
            <asp:Label ID="Label1" runat="server" Text="Current Info: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
@@ -129,8 +129,9 @@
             <br />
             <br />
         </div>
-        
+        </div>
+        <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
-    <Footer:HomeFooter ID="FooterNav" runat="server" />
+
 </body>
 </html>

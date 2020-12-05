@@ -214,6 +214,8 @@ namespace WebAPI.Controllers
             return list;
         }
         //searching movies END
+
+        
         [HttpPost("AddMovie")]
         public Boolean AddMovie([FromBody]Movies movie)
         {

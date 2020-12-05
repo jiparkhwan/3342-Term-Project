@@ -193,7 +193,8 @@ namespace _3342_Term_Project
                     Session["MovieReviews"] = true;
                     Session["ShowReviews"] = false;
                     Session["GameReviews"] = false;
-
+                    Session["ShowID"] = null;
+                    Session["GameID"] = null;
                     int MovieID = Convert.ToInt32(e.CommandArgument);
                     Session["MovieID"] = MovieID;
                     DBConnect objDB = new DBConnect();
@@ -236,7 +237,8 @@ namespace _3342_Term_Project
                     Session["MovieReviews"] = false;
                     Session["ShowReviews"] = true;
                     Session["GameReviews"] = false;
-                   
+                    Session["MovieID"] = null;
+                    Session["GameID"] = null;
                     int ShowID = Convert.ToInt32(e.CommandArgument);
                     Session["ShowID"] = ShowID;
                     DBConnect objDB = new DBConnect();
@@ -278,7 +280,8 @@ namespace _3342_Term_Project
                     Session["MovieReviews"] = false;
                     Session["ShowReviews"] = false;
                     Session["GameReviews"] = true;
-                
+                    Session["ShowID"] = null;
+                    Session["MovieID"] = null;
                     int GameID = Convert.ToInt32(e.CommandArgument);
                     Session["GameID"] = GameID;
                     DBConnect objDB = new DBConnect();

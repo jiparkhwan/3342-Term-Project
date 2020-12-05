@@ -14,13 +14,7 @@ namespace _3342_Term_Project.UserControls
             
         }
 
-        public void homeClick(object sender, EventArgs e)
-        {
-            Session["MovieID"] = null;
-            Session["ShowID"] = null;
-            Session["GameID"] = null;
-        }
-        
+  
 
         public DropDownList ddl { get; set; }
     }

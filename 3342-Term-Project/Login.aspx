@@ -41,7 +41,7 @@
              <br />
             <asp:LinkButton ID="newMemberLink" runat="server" PostBackUrl="/Register.aspx" CssClass="link" CausesValidation="false">Register New Account</asp:LinkButton>
             <br />
-            <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your password?</asp:LinkButton>
+            <asp:LinkButton CssClass="link" ID="forgotPwdLink" runat="server" PostBackUrl="~/AccountRecovery.aspx" CausesValidation="false">Forgot your info?</asp:LinkButton>
 			<br />
            </div>
         </form>

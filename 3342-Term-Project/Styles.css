@@ -110,6 +110,19 @@
     margin: auto;
     margin-top: 0;
 }
+#memberSubmitBtn {
+    margin:10px;
+}
+.row.form-group {
+    background: #282627;
+}
+#memberPwdForgot {
+    background: #282627;
+}
+#memberEmailForgot {
+    background: #282627;
+    text-align:center;
+}
 .mainMemManagement {
     color: #d8e2f1;
     padding-top: .25%;
@@ -200,6 +213,20 @@
         transition: 0.2s;
         cursor: pointer;
     }
+.registerPage {
+    padding-top: .25%;
+    min-height: 1000px;
+    width: 70%;
+    font-family: Roboto;
+    margin: auto;
+    margin-top: 0;
+    background-color: #343233;
+    font-family: Roboto;
+    color: ghostwhite;
+}
+.validators {
+    color:indianred;
+}
 .mainAddActor {
     padding-top: .25%;
     background-color: rgba(255,255,255, 0.98);
@@ -368,11 +395,13 @@ center {
     height: 40px;
     padding: 3px;
 }
+.btncontainer {
+    padding: 10px;
+}
 .editorImage {
     width: 240px;
     height: 350px;
     box-shadow: 0px 5px +20px black;
-    
 }
     .editorImage:hover {
         opacity: 0.75;

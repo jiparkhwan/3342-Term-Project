@@ -414,7 +414,7 @@
             </asp:DropDownList>
 
 
-          
+          <br /><br />
             <asp:Label ID="lblAddDescription" runat="server" Text="Tell Us About the Actor Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
             <asp:TextBox ID="txtAddDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>

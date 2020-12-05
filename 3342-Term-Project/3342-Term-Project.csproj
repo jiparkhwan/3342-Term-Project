@@ -94,12 +94,10 @@
     <Content Include="MyAccount.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="MemberProfile.aspx" />
-    <Content Include="Settings.aspx" />
     <Content Include="Styles.css" />
     <Content Include="Title.aspx" />
     <Content Include="UserControls\Navbar.ascx" />
     <Content Include="UserControls\Footer.ascx" />
-    <Content Include="VerifiedPage.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -203,13 +201,6 @@
     <Compile Include="Title.aspx.designer.cs">
       <DependentUpon>Title.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,13 +214,6 @@
     </Compile>
     <Compile Include="UserControls\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="VerifiedPage.aspx.cs">
-      <DependentUpon>VerifiedPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VerifiedPage.aspx.designer.cs">
-      <DependentUpon>VerifiedPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\GetGameService\Reference.cs">
       <AutoGen>True</AutoGen>

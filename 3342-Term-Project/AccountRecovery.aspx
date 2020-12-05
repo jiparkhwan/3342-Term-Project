@@ -22,30 +22,33 @@
         .card {
             max-width: 900px;
             padding: 40px 40px;
-            background-color: #F7F7F7;
+            background-color: #282627;
             margin: 0 auto 25px;
             margin-top: 50px;
             border-radius: 2px;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            text-align:center;
+
+              font-family: Roboto;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
          <Navigation:HomeNav ID="HomeNav" runat="server" />
+        <div class="mainAccount">
         <div class="container">
-            <h3 style="color: royalblue;">Login Credential Recovery</h3>
-			<asp:LinkButton ID="lbLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx">Return to Login</asp:LinkButton>
+            <h2>Login Credential Recovery</h2>
 			<br />
 			<br/>
 
-            <asp:Button ID="btnMember" CausesValidation="false"  runat="server" CssClass="btn btn-primary" Text="Begin Recovery" OnClick="btnMember_Click" />
-            <asp:Button ID="btnBack"  CausesValidation="false" runat="server" CssClass="btn btn-primary" Text="Restart" OnClick="Back_Click"/>
+            <asp:Button ID="btnMember" CausesValidation="false"  runat="server" CssClass="buttonReview" Text="Begin Recovery" OnClick="btnMember_Click" />
+            <asp:Button ID="btnBack"  CausesValidation="false" runat="server" CssClass="buttonReview" Text="Restart" OnClick="Back_Click"/>
 
             <div id="member" class="card" runat="server">
                 <div class="row form-group">
                     <div class="col-md-2">
-                        <label >I forgot my: </label>
+                        <h6 >I forgot my: </h6>
                     </div>
                     <div class="col-md-5">
                         <asp:DropDownList CssClass="form-control"  AutoPostBack="true" ID="memberForgotDL" runat="server"  OnSelectedIndexChanged="memberForgotDL_SelectedIndexChanged">
@@ -56,32 +59,30 @@
                     </div>
                 </div>
 
-
-                <div class="row" id="memberEmailForgot" runat="server">
-                    
-                    <label>First Name</label>
+               
+                <div class="mainAccount" ID="memberEmailForgot" runat="server">
+                    <br />
+                    <h6>First Name</h6>
                     <asp:TextBox ID="FnameTxt" runat="server" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="FnameTxt" ID="memberFnameValidator" runat="server" ErrorMessage="First Name Required"></asp:RequiredFieldValidator>
 
-                    <br />    
-
-                    <label>Last Name</label>
+                   
+                    <h6>Last Name</h6>
                     <asp:TextBox ID="LnameTxt" runat="server" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="LnameTxt" ID="memberLnameValidator" runat="server" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
 
-                    <br />
-
-                    <label>Date of Birth (mm/dd/yyyy)</label>
+                    
+                    <h6>Date of Birth <small>(mm/dd/yyyy)</small></h6>
                     <asp:TextBox ID="dobTxt" runat="server" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="dobTxt" ID="dobValidator" runat="server" ErrorMessage="DOB Required"></asp:RequiredFieldValidator>
     
-                    <br />
-                        
-                    <asp:Button ID="emailForgotSubmitBtn" runat="server" CssClass="btn btn-primary" Text="Submit" Onclick="emailForgotSubmitBtn_Click" />
+                 
+                     <br />   
+                    <asp:Button ID="emailForgotSubmitBtn" runat="server" CssClass="buttonReview" Text="Submit" Onclick="emailForgotSubmitBtn_Click" />
 
                        
                 </div>
-
+               
                 
                 <div class="row" id="memberPwdForgot" runat="server">
 
@@ -112,7 +113,10 @@
                     </div>
 
                     <br />
-                     <asp:Button ID="memberSubmitBtn" runat="server" CssClass="btn btn-primary" Text="Submit" Onclick="memberPwdSubmitBtn_Click" />
+                    <div class="btncontainer">
+                     <asp:Button ID="memberSubmitBtn" runat="server" CssClass="button" Text="Submit" Onclick="memberPwdSubmitBtn_Click"/>
+                    </div>
+                              
 
                 </div>
              
@@ -121,8 +125,9 @@
             </div>
 
             <asp:Label Style="font-weight: bold; font-size: 1.5em;" ID="Output" runat="server" Text=""></asp:Label>
-
+              <asp:Button ID="lblLogin" runat="server" CausesValidation="false" PostBackUrl="~/Login.aspx" Text="Return to Login" CssClass="buttonReview"/>
         </div>
+            </div>
     </form>
 </body>
 </html>

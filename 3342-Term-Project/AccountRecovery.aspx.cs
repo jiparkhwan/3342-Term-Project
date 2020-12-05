@@ -31,6 +31,7 @@ namespace _3342_Term_Project
             memberEmailForgot.Visible = false;
             memberPwdForgot.Visible = false;
             btnBack.Visible = true;
+            btnMember.Visible = false;
             memberForgotDL.SelectedIndex = 0;
         } //end of btnmemberomer_Click
 
@@ -204,6 +205,7 @@ namespace _3342_Term_Project
             member.Visible = false;
             btnMember.Visible = true;
             btnBack.Visible = false;
+            btnMember.Visible = true;
         } //end of Back_Click
     } //end of class
 } //end of namespace

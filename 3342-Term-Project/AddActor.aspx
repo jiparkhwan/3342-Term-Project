@@ -430,6 +430,7 @@
             <div class="column"> 
                 <br /> <br /> <br /> <br /> <br />
                 <img src="Images/cast.jpg" style="width: 670px; height: 430px;" class="editorImage"/>
+                <small>Cast of Fast and Furious</small>
             </div>
              </div>
             </div>

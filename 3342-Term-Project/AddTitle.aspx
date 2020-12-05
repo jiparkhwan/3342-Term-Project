@@ -16,7 +16,7 @@
 
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+    <link rel="shortcut icon" type="image/png" href="Images/LexParkLogo.png" />
     <link href="Styles.css" rel="stylesheet" />
     <title>Add Title</title>
 </head>
@@ -99,7 +99,7 @@
                 <br />
                 <asp:Label ID="lblAddMovieDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtAddMovieDescription" runat="server" Width="50%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="txtAddMovieDescription" runat="server" Width="70%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieDescription" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Description Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
@@ -154,6 +154,7 @@
                 <asp:Label ID="lblDash" runat="server" Text="-"></asp:Label>
                 <asp:DropDownList ID="ddlAddShowYearsEnd" runat="server">
                     <asp:ListItem Value="noneSelected">----</asp:ListItem>
+                    <asp:ListItem Value="Current">Current</asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <br />
@@ -182,7 +183,7 @@
                 <br />
                 <asp:Label ID="lblAddShowDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtAddShowDescription" runat="server" Width="50%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="txtAddShowDescription" runat="server" Width="70%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddShowDescription" ID="RequiredFieldValidator9" runat="server" ErrorMessage="Description Needed!" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
@@ -191,7 +192,7 @@
               
                  <div class="recentFavoritesAdding">
 
-       </div>
+                </div>
                 <br />
                 <br />
                 <br />
@@ -199,17 +200,13 @@
 
 
 
-
-
-
-
-
+        <%--Start of Video Game Panel--%>
             <asp:Panel ID="pnlAddGame" runat="server" Visible="False">
                 <br />
                 <br />
                 <h2 style="color:#778aab;">Add A Video Game</h2>
              
-          <small>Contribute a new movie entry to our site. Add it below!</small>
+                <small>Contribute a new movie entry to our site. Add it below!</small>
                 <asp:Label ID="lblDisplay3" runat="server" Text=""></asp:Label>
                 <br />
                 <asp:Label ID="lblAddGameImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -259,7 +256,7 @@
                 <br />
                 <asp:Label ID="lblAddGameDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtAddGameDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>
+                <asp:TextBox ID="txtAddGameDescription" runat="server" TextMode="multiline" Columns="60" Rows="6" Width="70%" Height="120px"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameDescription" ID="RequiredFieldValidator13" runat="server" ErrorMessage="Description Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />

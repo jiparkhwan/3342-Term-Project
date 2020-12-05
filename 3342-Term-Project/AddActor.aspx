@@ -16,7 +16,7 @@
 
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+    <link rel="shortcut icon" type="image/png" href="Images/LexParkLogo.png" />
     <link href="Styles.css" rel="stylesheet" />
     <title>Add Actor</title>
 </head>
@@ -427,10 +427,10 @@
          </div>
        
 
-            <div class="column"> 
+            <div class="column col-fast"> 
                 <br /> <br /> <br /> <br /> <br />
-                <img src="Images/cast.jpg" style="width: 670px; height: 430px;" class="editorImage"/>
-                <small>Cast of Fast and Furious</small>
+                <img src="Images/cast.jpg" style="width: 650px; height: 430px; margin-left: 10%;" class="editorImage"/>
+                <small style="margin-left: 10% ">Cast of Fast and Furious</small>
             </div>
              </div>
             </div>

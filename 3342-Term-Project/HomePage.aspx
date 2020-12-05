@@ -19,9 +19,9 @@
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
     <link href="Styles.css" rel="stylesheet" />
-
+    <link rel="shortcut icon" type="image/png" href="Images/LexParkLogo.png" />
 
 
 </head>
@@ -66,13 +66,13 @@
                                 <div class="table">
                                     <ul id="horizontal-list">
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgDeadpool_Click" src="https://m.media-amazon.com/images/I/91tuQ9AVNxL.jpg" /></li>
+                                            <asp:ImageButton runat="server" CssClass="editorHomeImage" OnClick="imgDeadpool_Click" src="https://m.media-amazon.com/images/I/91tuQ9AVNxL.jpg" Width="240px" Height="350px" /></li>
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons"></asp:ImageButton></li>
+                                            <asp:ImageButton runat="server" CssClass="editorHomeImage" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons" Height="350" Width="240"></asp:ImageButton></li>
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgSkyrim_Click" src="https://i.pinimg.com/originals/33/6a/b4/336ab45601650b6a503620a8431f19a6.jpg" alt="Skyrim"></asp:ImageButton></li>
+                                            <asp:ImageButton runat="server" CssClass="editorHomeImage" OnClick="imgSkyrim_Click" src="https://i.pinimg.com/originals/33/6a/b4/336ab45601650b6a503620a8431f19a6.jpg" alt="Skyrim" Width="240" Height="350"></asp:ImageButton></li>
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgGoodPlace_Click" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place"></asp:ImageButton></li>
+                                            <asp:ImageButton runat="server" CssClass="editorHomeImage" OnClick="imgGoodPlace_Click" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place" Height="350" Width="240"></asp:ImageButton></li>
                                     </ul>
 
                                 </div>

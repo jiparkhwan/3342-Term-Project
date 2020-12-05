@@ -13,7 +13,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <link href="Styles.css" rel="stylesheet" />
-
+    <link rel="shortcut icon" type="image/png" href="Images/LexParkLogo.png" />
 	<style>
 		.jumbotron.jumbotron-fluid {
 			margin-bottom: 0;

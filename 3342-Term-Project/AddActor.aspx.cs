@@ -130,7 +130,6 @@ namespace _3342_Term_Project
                                         {
                                             lblDisplay.Text = "The actor was successfully updated!";
                                             Response.Write("<script>alert('Actor updated successfully')</script>");
-                                            Response.Redirect("HomePage.aspx");
                                         }
                                         else
                                             lblDisplay.Text = "You can only edit your own added listings!";
@@ -161,7 +160,6 @@ namespace _3342_Term_Project
                                             lblDisplay.Text = "The actor was successfully saved to the database.";
 
                                             Response.Write("<script>alert('Actor inserted successfully')</script>");
-                                            Response.Redirect("HomePage.aspx");
                                         }
                                         else
                                             lblDisplay.Text = "A problem occurred while adding the actor to the database. The data wasn't recorded.";

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="_3342_Term_Project.MyAccount" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="_3342_Term_Project.MyAccount" %>
 <%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
 <%@ Register Src="~/UserControls/Footer.ascx" TagName="HomeFooter" TagPrefix="Footer" %>
 
@@ -29,9 +29,8 @@
     <form id="frmMyAccount" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
 
-
         <div class="mainAccount">
-            
+
             <div class="container">
                 <div class="editInfo">
                     <h2>Edit Account Info</h2>
@@ -131,9 +130,11 @@
                 <br />
                 <br />
             </div>
+
             </div>
              <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
    
+
 </body>
 </html>

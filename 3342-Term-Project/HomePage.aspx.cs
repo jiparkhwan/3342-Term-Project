@@ -40,35 +40,7 @@ namespace _3342_Term_Project
             }
         }
 
-        protected void imgSimpsons_Click(object sender, ImageClickEventArgs e)
-        {
-            string txtRandSimpsons = "The Simpsons";
-            pnlHome.Visible = false;
-            FooterNav.Visible = false;
-            pnlMovieRepeater.Visible = false;
-            pnlShowRepeater.Visible = true;
-            pnlGameRepeater.Visible = false;
-            Session["Show_Searched"] = "Show";
-
-            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowByName/" + txtRandSimpsons);
-            WebResponse response = request.GetResponse();
-            // Read the data from the Web Response, which requires working with streams.
-            Stream theDataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(theDataStream);
-            String data = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-            // Deserialize a JSON string into a Team object.
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            TVShows[] show = js.Deserialize<TVShows[]>(data);
-            //gvResults.DataSource = Movie;
-            // gvResults.DataBind();
-            rptShowSearchRes.DataSource = show;
-            rptShowSearchRes.DataBind();
-            lblError.Text = "";
-
-        }
-
+        
         protected void btnFindByName_Click(object sender, EventArgs e)
         {
             //VALIDATE THE API REQUEST!!!//
@@ -210,7 +182,6 @@ namespace _3342_Term_Project
                     lblError.Text = "Please enter a field first";
                 }
             }
-
         }
 
         protected void Image_Click(object sender, CommandEventArgs e)
@@ -432,6 +403,122 @@ namespace _3342_Term_Project
             rptMovieSearchRes.DataBind();
             lblError.Text = "";
 
+        }
+
+        protected void imgDeadpool_Click(object sender, ImageClickEventArgs e)
+        {
+            string txtRandMovie = "Deadpool";
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = true;
+            pnlShowRepeater.Visible = false;
+            pnlGameRepeater.Visible = false;
+            Session["Movie_Searched"] = "Movie";
+            ddlSelectMedia.Text = "movie";
+
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/movies/GetMovieByName/" + txtRandMovie);
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Movies[] movie = js.Deserialize<Movies[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptMovieSearchRes.DataSource = movie;
+            rptMovieSearchRes.DataBind();
+            lblError.Text = "";
+        }
+
+        protected void imgSimpsons_Click(object sender, ImageClickEventArgs e)
+        {
+            string txtRandSimpsons = "The Simpsons";
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = false;
+            pnlShowRepeater.Visible = true;
+            pnlGameRepeater.Visible = false;
+            Session["Show_Searched"] = "Show";
+            ddlSelectMedia.Text = "shows";
+
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowByName/" + txtRandSimpsons);
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            TVShows[] show = js.Deserialize<TVShows[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptShowSearchRes.DataSource = show;
+            rptShowSearchRes.DataBind();
+            lblError.Text = "";
+        }
+
+        protected void imgGoodPlace_Click(object sender, ImageClickEventArgs e)
+        {
+            string txtRandShow = "The Good Place";
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = false;
+            pnlShowRepeater.Visible = true;
+            pnlGameRepeater.Visible = false;
+            Session["Show_Searched"] = "Show";
+            ddlSelectMedia.Text = "shows";
+
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/show/GetShowByName/" + txtRandShow);
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            TVShows[] show = js.Deserialize<TVShows[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptShowSearchRes.DataSource = show;
+            rptShowSearchRes.DataBind();
+            lblError.Text = "";
+
+        }
+        protected void imgSkyrim_Click(object sender, ImageClickEventArgs e)
+        {
+            string txtRandGame = "The Elder Scrolls V: Skyrim";
+            pnlHome.Visible = false;
+            FooterNav.Visible = false;
+            pnlMovieRepeater.Visible = false;
+            pnlShowRepeater.Visible = false;
+            pnlGameRepeater.Visible = true;
+            Session["Game_Searched"] = "Game";
+            ddlSelectMedia.Text = "videoGames";
+
+            WebRequest request = WebRequest.Create("https://localhost:44301/WebAPI/game/GetGameByName/" + txtRandGame);
+            WebResponse response = request.GetResponse();
+            // Read the data from the Web Response, which requires working with streams.
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            // Deserialize a JSON string into a Team object.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            VideoGames[] game = js.Deserialize<VideoGames[]>(data);
+            //gvResults.DataSource = Movie;
+            // gvResults.DataBind();
+            rptGameSearchRes.DataSource = game;
+            rptGameSearchRes.DataBind();
+            lblError.Text = "";
         }
 
         protected void btnRandMovie_Click(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿body {
-  
-    background-size: cover;
-    background-attachment: fixed;
+
+    background-color: #343233;
+
     margin: 0;
     padding: 0;
     font-family: Roboto;
@@ -277,10 +277,12 @@ h6, .h6{
     margin-top: 2%;
 }
 
-hr
-{
+hr {
+    color: darkgray;
+    border-color: darkgray;
     background-color: darkgray;
     width: 90%;
+    border-top: 1px solid darkgray;
 }
 
 
@@ -479,6 +481,7 @@ h4 {
     width: 190px;
 }
 
+
 .card1 {
     padding: 0;
     border: solid;
@@ -510,8 +513,13 @@ h4 {
 .card-title {
     text-align: center;
 }
+
+.navbar
+{
+    margin-bottom: 0;
+}
+
 .footer {
-    margin-top: 10px;
     position: relative;
     left: 0;
     bottom: 0;

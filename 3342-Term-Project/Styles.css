@@ -372,6 +372,9 @@ center {
     width: 240px;
     height: 350px;
 }
+#editorImage {
+
+}
 .column {
     float: left;
     width: 25%;

@@ -25,18 +25,21 @@ namespace _3342_Term_Project
                     pnlAddMovie.Visible = true;
                     pnlAddShow.Visible = false;
                     pnlAddGame.Visible = false;
+                 
                 }
                 else if (Session["AddNewShow"] != null)
                 {
                     pnlAddMovie.Visible = false;
                     pnlAddShow.Visible = true;
                     pnlAddGame.Visible = false;
+                    editorImage.ImageUrl = "Images/editorpickShow_2.jpg";
                 }
                 else if (Session["AddNewGame"] != null)
                 {
                     pnlAddMovie.Visible = false;
                     pnlAddShow.Visible = false;
                     pnlAddGame.Visible = true;
+                    editorImage.ImageUrl = "Images/editorpickGame_2.jpg";
                 }
             }
             if (Session["UpdateMovie"] != null)
@@ -75,6 +78,7 @@ namespace _3342_Term_Project
                 ddlAddShowGenre.Text = Session["Edit_Genre"].ToString();
                 txtAddShowDescription.Text = Session["Edit_Description"].ToString();
                 Session["UpdateShow"] = null;
+                editorImage.ImageUrl = "Images/editorpickShow_2.jpg";
             }
             else if(Session["UpdateGame"] != null)
             {
@@ -91,6 +95,7 @@ namespace _3342_Term_Project
                 txtAddGameCreator.Text = Session["Edit_Creator"].ToString();
                 txtAddGameDescription.Text = Session["Edit_Description"].ToString();
                 Session["UpdateGame"] = null;
+                editorImage.ImageUrl = "Images/editorpickGame_2.jpg";
             }
         }
 
@@ -468,8 +473,10 @@ namespace _3342_Term_Project
             Random random = new Random();
 
             int rnd = random.Next(1, 5);
-
-            editorImage.ImageUrl = "Images/editorpick_" + rnd + ".jpg";
+            if (pnlAddGame.Visible) { editorImage.ImageUrl = "Images/editorpickGame_" + rnd + ".jpg"; }
+            else if (pnlAddShow.Visible) { editorImage.ImageUrl = "Images/editorpickShow_" + rnd + ".jpg"; }
+            else if (pnlAddMovie.Visible) { editorImage.ImageUrl = "Images/editorpick_" + rnd + ".jpg"; }
+         
         }
 
     }

@@ -66,13 +66,13 @@
                                 <div class="table">
                                     <ul id="horizontal-list">
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" src="https://wallpapercave.com/wp/wp3405076.jpg" /></li>
+                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgDeadpool_Click" src="https://m.media-amazon.com/images/I/91tuQ9AVNxL.jpg" /></li>
                                         <li id="">
                                             <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgSimpsons_Click" src="https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="The Simpsons"></asp:ImageButton></li>
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" src="https://i.pinimg.com/originals/33/6a/b4/336ab45601650b6a503620a8431f19a6.jpg" alt="Skyrim"></asp:ImageButton></li>
+                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgSkyrim_Click" src="https://i.pinimg.com/originals/33/6a/b4/336ab45601650b6a503620a8431f19a6.jpg" alt="Skyrim"></asp:ImageButton></li>
                                         <li id="">
-                                            <asp:ImageButton runat="server" CssClass="editorImage" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place"></asp:ImageButton></li>
+                                            <asp:ImageButton runat="server" CssClass="editorImage" OnClick="imgGoodPlace_Click" src="https://upload.wikimedia.org/wikipedia/en/1/12/The_Good_Place_Season_3.jpg" alt="The Good Place"></asp:ImageButton></li>
                                     </ul>
 
                                 </div>

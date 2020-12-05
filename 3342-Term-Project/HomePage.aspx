@@ -117,7 +117,7 @@
                             <h3><asp:Label ID="lblUserPicks" runat="server" Text="User Favorites:"></asp:Label></h3>
                             <br />
                            
-                                <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick" Enabled="False"></asp:Timer>
+                                <asp:Timer runat="server" ID="editorTimer" Interval="2500" OnTick="editorTimer_Tick" Enabled="False"></asp:Timer>
                                 <asp:UpdatePanel runat="server" ID="picksUpdatePanel">
                                     <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="editorTimer" />

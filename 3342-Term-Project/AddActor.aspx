@@ -23,14 +23,14 @@
 <body>
     <form id="frmAddActor" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
-        <div class="mainAddActor">
-            <Center>
+        <div class="addTitle">
+            
+           <div class="row">
+                <div class="column">
+            <h2 style="color:#778aab;">Add An Actor</h2>
+      
             <br />
-            <br />
-            <h1>Add An Actor</h1>
-            <hr />
-            <br />
-            <h3>Found an upcoming actor that we're not aware of? Add them here!</h3>
+            <small>Found an upcoming actor that we're not aware of? Add them here!</small>
             <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
             <br />
             <br />
@@ -414,23 +414,26 @@
             </asp:DropDownList>
 
 
-            <br />
-            <br />
+          
             <asp:Label ID="lblAddDescription" runat="server" Text="Tell Us About the Actor Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
             <br />
             <asp:TextBox ID="txtAddDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>
             <asp:RequiredFieldValidator ControlToValidate="txtAddDescription" ID="ans1Validator" runat="server" ErrorMessage="Description needed!" Display="Dynamic"></asp:RequiredFieldValidator>
-            <br />
-            <br />
+          
             
             <br />
-            <asp:Button ID="btnSubmit" runat="server"  Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
-            <asp:Button ID="btnClear" runat="server"  Text="Clear Fields" Font-Bold="True" OnClick="btnClear_Click" />
-            <br />
-            <br />
-            <br />
-        </div>
-        </Center>
+            <asp:Button ID="btnSubmit" runat="server"  Text="Submit" CssClass="button" OnClick="btnSubmit_Click"/>
+            <asp:Button ID="btnClear" runat="server"  Text="Clear Fields" CssClass="button" OnClick="btnClear_Click" />
+         </div>
+       
+
+            <div class="column"> 
+                <br /> <br /> <br /> <br /> <br />
+                <img src="Images/cast.jpg" style="width: 670px; height: 430px;" class="editorImage"/>
+            </div>
+             </div>
+            </div>
+     
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>
 </body>

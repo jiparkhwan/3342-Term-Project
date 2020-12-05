@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Title.aspx.cs" Inherits="_3342_Term_Project.Title" %>
-<%@ Register Src="~/UserControls/Navbar.ascx" TagName="HomeNav" TagPrefix="Navigation" %>
+<%@ Register Src="~/UserControls/Navbar.ascx"  TagName="HomeNav" TagPrefix="Navigation" %>
 <%@ Register Src="~/UserControls/Footer.ascx" TagName="HomeFooter" TagPrefix="Footer" %>
 
 <!DOCTYPE html>
@@ -54,12 +54,11 @@
                 <br />  <br />
                 <asp:Label ID="lblTitleBudgetLabel" runat="server" Text="Budget: $" Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleBudget" runat="server" Text="42,000,000"></asp:Label>
-               <br />  <br />
-                <asp:Label ID="lblTitleIncomeLabel" runat="server" Text="Income: $" Font-Bold="True"></asp:Label>
-                <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
-                  <br />  <br />
                 <asp:Label ID="lblTitleCreatorLabel" runat="server" Text="Creator: " Font-Bold="True"></asp:Label>
                 <asp:Label ID="lblTitleCreator" runat="server" Text=""></asp:Label>
+                <br />  <br />
+                <asp:Label ID="lblTitleIncomeLabel" runat="server" Text="Income: $" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblTitleIncome" runat="server" Text="95,000,000"></asp:Label>
             </div>
 
             <br />
@@ -159,6 +158,7 @@
                         <table style="width: 400px; height:40px;">
                             <tr style=" font-size: large; font-weight: bold;">
                                 <td style="text-align:center;">
+                                    <br />
                                     <h2>Cast: </h2>
                                 </td>        
                             </tr>

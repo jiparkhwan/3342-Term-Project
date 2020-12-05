@@ -27,6 +27,21 @@ namespace _3342_Term_Project
 
                 editReviewPanel.Visible = false;
 
+                if (Session["MovieID"] != null)
+                {
+                    Session["ShowID"] = null;
+                    Session["GameID"] = null;
+                }
+                else if(Session["ShowID"] != null)
+                {
+                    Session["MovieID"] = null;
+                    Session["GameID"] = null;
+                }
+                else if(Session["GameID"] != null)
+                {
+                    Session["ShowID"] = null;
+                    Session["MovieID"] = null;
+                }
 
                 imgTitleImage.ImageUrl = Session["TitleImage"].ToString();
                 lblTitleDescription.Text = Session["TitleDescription"].ToString();

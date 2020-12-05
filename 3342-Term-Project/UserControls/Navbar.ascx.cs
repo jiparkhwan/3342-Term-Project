@@ -11,8 +11,16 @@ namespace _3342_Term_Project.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        public void homeClick(object sender, EventArgs e)
+        {
+            Session["MovieID"] = null;
+            Session["ShowID"] = null;
+            Session["GameID"] = null;
+        }
+        
 
         public DropDownList ddl { get; set; }
     }

@@ -111,7 +111,7 @@
                           </div>
                         </asp:Panel>
                         <br />
-
+                   
                         <asp:Panel ID="pnlUserPicks" runat="server" >
                              <div class="recentFavoritesDiv">
                             <h3><asp:Label ID="lblUserPicks" runat="server" Text="User Favorites:"></asp:Label></h3>
@@ -136,7 +136,7 @@
 
                 <asp:Label Text="" runat="server" ID="ErrorText"></asp:Label>
 
-                <center style="background-color: #282627; color:#778aab; ">
+                <center style="background-color: #282627; color:#778aab; min-height: 500px; padding-bottom: 90px;">
                             <asp:Repeater ID="rptMovieSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px; background-color: #282627; color:ghostwhite; ">
@@ -177,6 +177,7 @@
                                                 </td>
                                           
                                         </table>
+
                                     </td>
                                     
                                     <br />        
@@ -187,7 +188,7 @@
    
             <%--This Panel shows the results for TV Shows--%>
             <asp:Panel ID="pnlShowRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
-                <center style="background-color: #282627; color:#778aab; ">
+                <center style="background-color: #282627; color:#778aab; min-height: 500px; padding-bottom: 90px;">
                             <asp:Repeater ID="rptShowSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px;  background-color: #282627; color:ghostwhite; ">
@@ -237,7 +238,7 @@
 
 
             <asp:Panel ID="pnlGameRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
-                <center style="background-color: #282627; color:#778aab; ">
+                <center style="background-color: #282627; color:#778aab; min-height: 500px; padding-bottom: 90px;">
                             <asp:Repeater ID="rptGameSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px;">
@@ -287,7 +288,7 @@
 
 
             <asp:Panel ID="pnlActorRepeater" runat="server" HoroziontalAlign="Center" Visible="False">
-                <center style="background-color: #282627; color:ghostwhite; ">
+                <center style="background-color: #282627; color:ghostwhite; min-height: 500px; padding-bottom: 90px;">
                             <asp:Repeater ID="rptActorSearchRes" runat="server">
                                 <HeaderTemplate>
                                     <table style="width: 400px; height:40px;">

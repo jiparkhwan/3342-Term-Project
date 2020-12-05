@@ -23,15 +23,15 @@
 <body>
     <form id="frmAddTitle" runat="server">
         <Navigation:HomeNav ID="HomeNav" runat="server" />
-        <div class="mainAddTitle">
-            <Center>
+        <div class="addTitle">
+            
+            <div class="row">
+                <div class="column">
             <asp:Panel ID="pnlAddMovie" runat="server">
                 <br />
                 <br />
-                <h1>Add A Movie</h1>
-                <hr />
-                <br />
-                <h4>Contribute a new movie entry to our site. Add it below!</h4>
+                <h2 style="color:#778aab;">Add A Movie</h2>
+                <small>Contribute a new movie entry to our site. Add it below!</small>
                 <asp:Label ID="lblDisplay" runat="server" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
@@ -97,28 +97,33 @@
                  <asp:RequiredFieldValidator ControlToValidate="txtAddMovieIncome" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Income Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Label ID="lblAddMovieDescription" runat="server" Text="Tell Us About the Movie Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
+                <asp:Label ID="lblAddMovieDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddMovieDescription" runat="server" Width="50%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddMovieDescription" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Description Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Button class="btnSubmit" runat="server" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
-                <asp:Button class="btnClearMovie" runat="server" Text="Clear All Fields" Font-Bold="True" OnClick="btnClearMovie_Click"  />
+                <asp:Button class="btnSubmit" runat="server" CssClass="button" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
+                <asp:Button class="btnClearMovie" runat="server" CssClass="button" Text="Clear All Fields" Font-Bold="True" OnClick="btnClearMovie_Click"  />
+                <div class="recentFavoritesAdding">
+
+       </div>
                 <br />
                 <br />
                 <br />
             </asp:Panel>
 
+
+
+
+
             <%--Start of TV Show Panel--%>
             <asp:Panel ID="pnlAddShow" runat="server" Visible="False">
                 <br />
                 <br />
-                <h1>Add A Show</h1>
-                <hr />
-                <br />
-                <h5>Contribute a new TV show entry to our site. Add it below!</h5>
-                <br />
+                <h2 style="color:#778aab;">Add A Show</h2>
+               <small>Contribute a new movie entry to our site. Add it below!</small>
+            
                 <asp:Label ID="lblDisplay2" runat="server" Text="" ForeColor="Red"></asp:Label>
                 <br />
                 <asp:Label ID="lblAddShowImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -175,28 +180,36 @@
                 </asp:DropDownList>
                 <br />
                 <br />
-                <asp:Label ID="lblAddShowDescription" runat="server" Text="Tell Us About the TV Show Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
+                <asp:Label ID="lblAddShowDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddShowDescription" runat="server" Width="50%" Height="120px" Rows="10" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddShowDescription" ID="RequiredFieldValidator9" runat="server" ErrorMessage="Description Needed!" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Button class="btnSubmit" runat="server" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
-                <asp:Button class="btnClear" runat="server" Text="Clear All Fields" Font-Bold="True" />
+                <asp:Button class="btnSubmit" CssClass="button" runat="server" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
+                <asp:Button class="btnClear" CssClass="button"  runat="server" Text="Clear All Fields" Font-Bold="True" />
+              
+                 <div class="recentFavoritesAdding">
+
+       </div>
                 <br />
                 <br />
                 <br />
             </asp:Panel>
 
 
+
+
+
+
+
+
             <asp:Panel ID="pnlAddGame" runat="server" Visible="False">
                 <br />
                 <br />
-                <h1>Add A Video Game</h1>
-                <hr />
-                <br />
-                <h5>Contribute a new video game entry to our site. Add it below!</h5>
-                <br />
+                <h2 style="color:#778aab;">Add A Video Game</h2>
+             
+          <small>Contribute a new movie entry to our site. Add it below!</small>
                 <asp:Label ID="lblDisplay3" runat="server" Text=""></asp:Label>
                 <br />
                 <asp:Label ID="lblAddGameImage" runat="server" Text="Image URL: " Font-Bold="True" Font-Size="Large"></asp:Label>
@@ -244,20 +257,42 @@
                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameCreator" ID="RequiredFieldValidator12" runat="server" ErrorMessage="Game Creator Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Label ID="lblAddGameDescription" runat="server" Text="Tell Us About the Video Game Below: " Font-Bold="True" Font-Size="Large"></asp:Label>
+                <asp:Label ID="lblAddGameDescription" runat="server" Text="Description: " Font-Bold="True" Font-Size="Large"></asp:Label>
                 <br />
                 <asp:TextBox ID="txtAddGameDescription" runat="server" TextMode="multiline" Columns="60" Rows="6"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtAddGameDescription" ID="RequiredFieldValidator13" runat="server" ErrorMessage="Description Required" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:Button class="btnSubmit" runat="server" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click"/>
-                <asp:Button class="btnClear" runat="server" Text="Clear All Fields" Font-Bold="True" />
+                <asp:Button class="btnSubmit" runat="server" CssClass="button" Text="Submit" Font-Bold="True" OnClick="btnSubmit_Click" />
+                <asp:Button class="btnClear" runat="server" CssClass="button" Text="Clear All Fields" Font-Bold="True" />
                 <br />
                 <br />
                 <br />
-            </asp:Panel>
 
-            </Center>
+            </asp:Panel>
+                </div>
+                <asp:ScriptManager runat="server"></asp:ScriptManager>
+                <div class="column">
+                   <br />  <br />   <br />
+                    
+                             <div class="recentFavoritesDiv">
+                            <br />
+                           
+                                <asp:Timer runat="server" ID="editorTimer" Interval="4000" OnTick="editorTimer_Tick" Enabled="true"></asp:Timer>
+                                <asp:UpdatePanel runat="server" ID="picksUpdatePanel">
+                                    <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="editorTimer" />
+                                    </Triggers>
+                                    <ContentTemplate>
+                                        <asp:Image runat="server" ID="editorImage" style="width: 430px; height: 670px;" ImageUrl="Images/editorpick_1.jpg" />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                       
+
+                </div>
+
+            </div>
         </div>
         <Footer:HomeFooter ID="FooterNav" runat="server" />
     </form>

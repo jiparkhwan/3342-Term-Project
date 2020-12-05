@@ -463,5 +463,15 @@ namespace _3342_Term_Project
             ddlAddMovieGenre.SelectedValue = "noneSelected";
             ddlAddMovieYear.SelectedValue = "noneSelected";
         }
+        protected void editorTimer_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
+
+            int rnd = random.Next(1, 5);
+
+            editorImage.ImageUrl = "Images/editorpick_" + rnd + ".jpg";
+        }
+
     }
+
 }

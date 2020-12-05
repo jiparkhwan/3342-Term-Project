@@ -94,7 +94,22 @@
     margin-top: 0;
    
 }
+.recentFavoritesAdding {
+    float: right;
+   width:50%;
 
+}
+.addTitle {
+    padding-top: .25%;
+    background-color: #343233;
+    font-size: 18px;
+    min-height: 800px;
+    color: #778aab;
+    width: 70%;
+    text-align: left;
+    margin: auto;
+    margin-top: 0;
+}
 .mainMemManagement {
     color: #d8e2f1;
     padding-top: .25%;
@@ -418,30 +433,23 @@ ul#horizontal-lists {
   
     display:inline-block;
 }
-
-
-#pnlAddActor 
-{
-    color: black;
+small {
+    color:#778aab;
+}
+.row {
+    display: flex;
+    color: ghostwhite;
+    background-color: #343233;
+    text-decoration: none;
+}
+.column {
+    flex: 50%;
+    color: ghostwhite;
+    background-color: #343233;
     text-decoration: none;
 }
 
-#pnlAddMovie 
-{
-    color: black;
-    text-decoration: none;
-}
 
-#pnlAddShow {
-    color: black;
-    text-decoration: none;
-}
-
-#pnlAddGame 
-{
-    color: black;
-    text-decoration: none;
-}
 
 
 

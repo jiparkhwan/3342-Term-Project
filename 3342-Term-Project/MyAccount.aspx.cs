@@ -39,18 +39,15 @@ namespace _3342_Term_Project
                 string password = ds.Tables[0].Rows[0]["Member_Password"].ToString();
                 int passwordLength = ds.Tables[0].Rows[0]["Member_Password"].ToString().Length;
 
-                txtManageEmail.Text = ds.Tables[0].Rows[0]["Member_Email"].ToString();
-                txtManageName.Text = ds.Tables[0].Rows[0]["Member_FName"].ToString();
-                txtManageLName.Text = ds.Tables[0].Rows[0]["Member_LName"].ToString();
-                txtDateOfBirth.Text = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
-              
-                for (int i =0; i < passwordLength; i++)
-                {
-                    txtManagePassword.Text = txtManagePassword.Text + "*";
-                    txtManagePasswordConfirm.Text = txtManagePasswordConfirm.Text + "*";
-                }
-              
+                string email = ds.Tables[0].Rows[0]["Member_Email"].ToString();
+                string firstname = ds.Tables[0].Rows[0]["Member_FName"].ToString();
+                string lastname = ds.Tables[0].Rows[0]["Member_LName"].ToString();
+                string birth = ds.Tables[0].Rows[0]["Member_DOB"].ToString();
 
+
+
+
+             
 
 
                 //(DESERIALIZATION HERE)
@@ -139,15 +136,35 @@ namespace _3342_Term_Project
             if (retVal > 0)
             {
 
-                lblDisplay.Text = "Success in adding favorites";
-                Response.Redirect("HomePage.aspx");
+
+
+                Response.Write("<script>alert('Favorites Updated!')</script>");
+
+                //  Response.Redirect("HomePage.aspx");
             }
 
 
             else
+            {
 
                 lblDisplay.Text = "A problem occured in storing.";
+            }
 
+
+
+
+
+            int id = Convert.ToInt32(Session["MemberID"]);
+
+            int success = StoredProcedures.editMember(id, txtManageEmail.Text, txtManagePassword.Text, txtManageName.Text, txtManageLName.Text, txtDateOfBirth.Text);
+
+            if (success > 0)
+            {
+                Response.Write("<script>alert('Account Updated Successfully')</script>");
+                
+
+
+            }
 
 
         }

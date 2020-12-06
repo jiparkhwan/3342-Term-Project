@@ -401,6 +401,49 @@ namespace ClassLibrary
             return objDB.DoUpdateUsingCmdObj(objCommand);
         }
 
+
+        public static int editMember(int memberID, string email, string password, string firstname, string lastname, string dob )
+        {
+            DBConnect objDB = new DBConnect();
+
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateMemberAccount";
+
+            SqlParameter inputParameter = new SqlParameter("@memberID", memberID);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.Int;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@email", email);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@password", password);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@firstname", firstname);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@lastname", lastname);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            inputParameter = new SqlParameter("@dob", dob);
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = SqlDbType.VarChar;
+            objCommand.Parameters.Add(inputParameter);
+
+            return objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+
         //Finds TV shows based on name typed in search bar. Uses like to find titles that are similar as well.
         public DataSet getShowByName(string showName)
         {
@@ -538,5 +581,7 @@ namespace ClassLibrary
 
             return objDB.DoUpdateUsingCmdObj(sqlComm);
         }
+
+
     }
 }

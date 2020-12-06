@@ -55,7 +55,7 @@
                         <br />
                         <asp:TextBox ID="txtManagePasswordConfirm" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group col-md-12">
+                    <div class="fotrm-group col-md-12">
                         <asp:Label ID="lblManageFName" runat="server" Text="New First Name: "></asp:Label>
                         <br />
                         <asp:TextBox ID="txtManageName" runat="server"></asp:TextBox>

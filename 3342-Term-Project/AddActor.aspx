@@ -27,10 +27,11 @@
             
            <div class="row">
                 <div class="column">
-            <h2 style="color:#778aab;">Add An Actor</h2>
+            <h2 style="color:#778aab;"><asp:Label ID="lblAddActorLabel" runat="server" Text="Add An Actor"></asp:Label></h2>
       
             <br />
             <small>Found an upcoming actor that we're not aware of? Add them here!</small>
+            <br />
             <asp:Label ID="lblDisplay" runat="server" Text="" ForeColor="red"></asp:Label>
             <br />
             <br />

@@ -218,6 +218,7 @@ namespace _3342_Term_Project
                         }
                     }
                 }
+                Session["NewMovieInfo"] = null;
             }
             else if (Session["NewShowInfo"] != null || Session["AddNewShow"] != null)
             {
@@ -335,6 +336,7 @@ namespace _3342_Term_Project
                         }
                     }
                 }
+                Session["NewShowInfo"] = null;
             }
             else if (Session["NewGameInfo"] != null || Session["AddNewGame"] != null)
             {
@@ -445,6 +447,7 @@ namespace _3342_Term_Project
                     }
                 }
             }
+            Session["NewGameInfo"] = null;
         }
 
         private void bind_year_ddl()

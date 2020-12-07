@@ -40,6 +40,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddMovie;
         
         /// <summary>
+        /// lblAddMovieLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddMovieLabel;
+        
+        /// <summary>
         /// lblDisplay control.
         /// </summary>
         /// <remarks>
@@ -274,6 +283,15 @@ namespace _3342_Term_Project {
         protected global::System.Web.UI.WebControls.Panel pnlAddShow;
         
         /// <summary>
+        /// lblAddShowLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddShowLabel;
+        
+        /// <summary>
         /// lblDisplay2 control.
         /// </summary>
         /// <remarks>
@@ -470,6 +488,15 @@ namespace _3342_Term_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAddGame;
+        
+        /// <summary>
+        /// lblAddVideoGameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddVideoGameLabel;
         
         /// <summary>
         /// lblDisplay3 control.

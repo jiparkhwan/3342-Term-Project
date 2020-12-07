@@ -169,6 +169,18 @@ namespace _3342_Term_Project
 
         }
 
-
+        protected void btnClearFields_Click(Object sender,EventArgs e)
+        {
+            txtfavoriteActor.Text = "";
+            txtfavoriteMovie.Text = "";
+            txtfavoriteTVShow.Text = "";
+            txtfavoriteVideoGame.Text = "";
+            txtManageEmail.Text = "";
+            txtManageName.Text = "";
+            txtManageLName.Text = "";
+            txtManagePassword.Text = "";
+            txtManagePasswordConfirm.Text = "";
+         
+        }
     }
 }

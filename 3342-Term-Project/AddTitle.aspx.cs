@@ -294,7 +294,7 @@ namespace _3342_Term_Project
                                         }
                                         //  lblDisplay.Text = "The Show was successfully edited.";
                                         else
-                                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                            lblDisplay2.Text = "Make sure you are only editting your own added listing!";
                                     }
                                     else
                                     {
@@ -323,13 +323,13 @@ namespace _3342_Term_Project
                                         }
                                         //lblDisplay.Text = "The show was successfully saved to the database.";
                                         else
-                                            lblDisplay.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
+                                            lblDisplay2.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
 
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    lblDisplay.Text = "Error: " + ex.Message;
+                                    lblDisplay2.Text = "Error: " + ex.Message;
                                 }
                             }
                         }
@@ -404,7 +404,7 @@ namespace _3342_Term_Project
                                     }
                                     //lblDisplay.Text = "The game was successfully edited.";
                                     else
-                                        lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                        lblDisplay3.Text = "Make sure you are only editting your own added listing!";
                                 }
                                 else
                                 {
@@ -433,7 +433,7 @@ namespace _3342_Term_Project
                                     }
                                       //lblDisplay.Text = "The game was successfully saved to the database.";
                                     else
-                                        lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
+                                        lblDisplay3.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
                                 }
                             }
 

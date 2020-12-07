@@ -287,7 +287,7 @@ namespace _3342_Term_Project
                                         if (data == "true")
                                         {
                                             Response.Write("<script>alert('Show updated successfully')</script>");
-                                            Response.Redirect("HomePage.aspx");
+                                           
                                         }
                                         //  lblDisplay.Text = "The Show was successfully edited.";
                                         else

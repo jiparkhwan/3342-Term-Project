@@ -218,6 +218,7 @@ namespace _3342_Term_Project
                         }
                     }
                 }
+                Session["NewMovieInfo"] = null;
             }
             else if (Session["NewShowInfo"] != null || Session["AddNewShow"] != null)
             {
@@ -294,7 +295,7 @@ namespace _3342_Term_Project
                                         }
                                         //  lblDisplay.Text = "The Show was successfully edited.";
                                         else
-                                            lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                            lblDisplay2.Text = "Make sure you are only editting your own added listing!";
                                     }
                                     else
                                     {
@@ -323,7 +324,7 @@ namespace _3342_Term_Project
                                         }
                                         //lblDisplay.Text = "The show was successfully saved to the database.";
                                         else
-                                            lblDisplay.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
+                                            lblDisplay2.Text = "A problem occurred while adding the show to the database. The data wasn't recorded.";
 
                                     }
                                 }
@@ -335,6 +336,7 @@ namespace _3342_Term_Project
                         }
                     }
                 }
+                Session["NewShowInfo"] = null;
             }
             else if (Session["NewGameInfo"] != null || Session["AddNewGame"] != null)
             {
@@ -404,7 +406,7 @@ namespace _3342_Term_Project
                                     }
                                     //lblDisplay.Text = "The game was successfully edited.";
                                     else
-                                        lblDisplay.Text = "Make sure you are only editting your own added listing!";
+                                        lblDisplay3.Text = "Make sure you are only editting your own added listing!";
                                 }
                                 else
                                 {
@@ -433,7 +435,7 @@ namespace _3342_Term_Project
                                     }
                                       //lblDisplay.Text = "The game was successfully saved to the database.";
                                     else
-                                        lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
+                                        lblDisplay3.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
                                 }
                             }
 
@@ -445,6 +447,7 @@ namespace _3342_Term_Project
                     }
                 }
             }
+            Session["NewGameInfo"] = null;
         }
 
         private void bind_year_ddl()

@@ -19,6 +19,7 @@ namespace _3342_Term_Project
 
             if(Session["Edit_Actor_Activated"] != null)
             {
+                lblAddActorLabel.Text = "Edit Actor";
                 Session["NewActorInfo"] = "EditActor";
                 txtAddName.Text = Session["EditActorName"].ToString();
                 txtAddImage.Text = Session["EditActorImage"].ToString();
@@ -175,7 +176,7 @@ namespace _3342_Term_Project
                     }
                 }
             }
-           
+            Session["NewActorInfo"] = null;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

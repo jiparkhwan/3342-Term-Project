@@ -291,7 +291,7 @@ namespace _3342_Term_Project
                                         if (data == "true")
                                         {
                                             Response.Write("<script>alert('Show updated successfully')</script>");
-                                            
+
                                         }
                                         //  lblDisplay.Text = "The Show was successfully edited.";
                                         else

@@ -30,7 +30,7 @@
             <asp:Panel ID="pnlAddMovie" runat="server">
                 <br />
                 <br />
-                <h2 style="color:#778aab;">Add A Movie</h2>
+                <h2 style="color:#778aab;"><asp:Label ID="lblAddMovieLabel" runat="server" Text="Add A Movie"></asp:Label></h2>
                 <small>Contribute a new movie entry to our site. Add it below!</small>
                 <asp:Label ID="lblDisplay" runat="server" ForeColor="Red"></asp:Label>
                 <br />
@@ -121,8 +121,8 @@
             <asp:Panel ID="pnlAddShow" runat="server" Visible="False">
                 <br />
                 <br />
-                <h2 style="color:#778aab;">Add A Show</h2>
-               <small>Contribute a new movie entry to our site. Add it below!</small>
+                <h2 style="color:#778aab;"><asp:Label ID="lblAddShowLabel" runat="server" Text="Add A TV Show"></asp:Label></h2>
+                <small>Contribute a new movie entry to our site. Add it below!</small>
             
                 <asp:Label ID="lblDisplay2" runat="server" Text="" ForeColor="Red"></asp:Label>
                 <br />
@@ -204,7 +204,7 @@
             <asp:Panel ID="pnlAddGame" runat="server" Visible="False">
                 <br />
                 <br />
-                <h2 style="color:#778aab;">Add A Video Game</h2>
+                <h2 style="color:#778aab;"><asp:Label ID="lblAddVideoGameLabel" runat="server" Text="Add A Video Game"></asp:Label></h2>
              
                 <small>Contribute a new movie entry to our site. Add it below!</small>
                 <asp:Label ID="lblDisplay3" runat="server" Text=""></asp:Label>

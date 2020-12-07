@@ -48,6 +48,7 @@ namespace _3342_Term_Project
                 pnlAddShow.Visible = false;
                 pnlAddGame.Visible = false;
 
+                lblAddMovieLabel.Text = "Edit Movie";
                 Session["NewMovieInfo"] = "EditMovie";
                 txtAddMovieImage.Text = Session["Edit_Image"].ToString();
                 txtAddMovieName.Text = Session["Edit_Name"].ToString();
@@ -66,6 +67,7 @@ namespace _3342_Term_Project
                 pnlAddShow.Visible = true;
                 pnlAddGame.Visible = false;
 
+                lblAddShowLabel.Text = "Edit TV Show";
                 Session["NewShowInfo"] = "EditShow";
                 txtAddShowImage.Text = Session["Edit_Image"].ToString();
                 txtAddShowName.Text = Session["Edit_Name"].ToString();
@@ -86,6 +88,7 @@ namespace _3342_Term_Project
                 pnlAddShow.Visible = false;
                 pnlAddGame.Visible = true;
 
+                lblAddVideoGameLabel.Text = "Edit Video Game";
                 Session["NewGameInfo"] = "EditGame";
                 txtAddGameImage.Text = Session["Edit_Image"].ToString();
                 txtAddGameName.Text = Session["Edit_Name"].ToString();
@@ -287,7 +290,7 @@ namespace _3342_Term_Project
                                         if (data == "true")
                                         {
                                             Response.Write("<script>alert('Show updated successfully')</script>");
-                                           
+
                                         }
                                         //  lblDisplay.Text = "The Show was successfully edited.";
                                         else
@@ -428,7 +431,7 @@ namespace _3342_Term_Project
                                     {
                                         Response.Write("<script>alert('Game added successfully')</script>");
                                     }
-                                    //  lblDisplay.Text = "The game was successfully saved to the database.";
+                                      //lblDisplay.Text = "The game was successfully saved to the database.";
                                     else
                                         lblDisplay.Text = "A problem occurred while adding the game to the database. The data wasn't recorded.";
                                 }
